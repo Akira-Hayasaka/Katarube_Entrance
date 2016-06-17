@@ -28,9 +28,14 @@ public:
 private:
     
     ofxPanel kinectGUI;
+    
     ofxIntSlider kinectAngle;
     ofxFloatSlider kinectNearThresh;
     ofxFloatSlider kinectFarThresh;
+    ofxFloatSlider contourMinArea;
+    ofxFloatSlider contourMaxArea;
+    ofxFloatSlider contourThreshold;
+    ofxToggle contourFindHole;
     
     bool bHide;
 };

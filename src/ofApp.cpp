@@ -18,10 +18,13 @@ void ofApp::draw()
     if (Global::kinect.isInited())
     {
         Global::kinect.getDepthTexture().draw(0, 0, KINECT_W/2, KINECT_H/2);
-        Global::kinect.getThreshedTexture().draw(KINECT_W/2, 0, KINECT_W/2, KINECT_H/2);        
+        Global::kinect.getThreshedTexture().draw(KINECT_W/2, 0, KINECT_W/2, KINECT_H/2);
+        Global::kinect.drawContour();
     }
     
     gui.draw();
+    
+    ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate(), 2), 10, ofGetHeight()-20);
 }
 
 void ofApp::keyPressed(int key){}

@@ -28,8 +28,6 @@ void Kinect::setup()
     depthThreshShader.load("shaders/common/simpleVert.vert", "shaders/kinect/threshDepth.frag");
     
     bInited = false;
-    nearThresh = KINECT_MIN_DIST;
-    farThresh = KINECT_MAX_DIST;
 }
 
 void Kinect::update()
@@ -37,6 +35,15 @@ void Kinect::update()
     device.update();
     storeDepthTex();
     threshDepthTex();
+    makeContours();
+}
+
+void Kinect::drawContour()
+{
+    if (isInited())
+    {
+        contourFinder.draw();
+    }
 }
 
 void Kinect::storeDepthTex()
@@ -50,7 +57,7 @@ void Kinect::storeDepthTex()
 
 void Kinect::threshDepthTex()
 {
-    if (bInited)
+    if (isInited())
     {
         threshedTex.begin();
         ofClear(0);
@@ -60,5 +67,20 @@ void Kinect::threshDepthTex()
         depthTex.draw(0, 0);
         depthThreshShader.end();
         threshedTex.end();
+    }
+}
+
+void Kinect::makeContours()
+{
+    if (isInited())
+    {
+        contourSourcePx.clear();
+        threshedTex.readToPixels(contourSourcePx);
+        contourFinder.setMinAreaRadius(contourMinArea);
+        contourFinder.setMaxAreaRadius(contourMaxArea);
+        contourFinder.setThreshold(contourBriThresh);
+        contourFinder.findContours(contourSourcePx);
+        contourFinder.setFindHoles(bFindContourHole);
+        contourTracker = contourFinder.getTracker();
     }
 }
