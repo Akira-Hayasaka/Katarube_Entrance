@@ -1,10 +1,14 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Constants.h"
+#include "Globals.hpp"
+#include "GUI.hpp"
 
 class ofApp : public ofBaseApp
 {
 public:
+    
     void setup();
     void update();
     void draw();
@@ -19,5 +23,10 @@ public:
     void mouseExited(int x, int y);
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);		
+    void gotMessage(ofMessage msg);
+
+private:
+    
+    GUI gui;
+    ofTexture depthTex;
 };

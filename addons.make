@@ -1,2 +1,5 @@
+ofxGui
 ofxKinect
 ofxOpenCv
+ofxXmlSettings
+addons/ofxQuadWarp
