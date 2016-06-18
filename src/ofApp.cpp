@@ -4,8 +4,6 @@ void ofApp::setup()
 {
     Global::kinect.setup();
     gui.setup();
-    
-    depthTex.allocate(KINECT_W, KINECT_H, GL_RGB);
 }
 
 void ofApp::update()

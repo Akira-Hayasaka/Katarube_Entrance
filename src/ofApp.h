@@ -28,5 +28,4 @@ public:
 private:
     
     GUI gui;
-    ofTexture depthTex;
 };
