@@ -56,7 +56,7 @@ http://www.katarube.jp/index.html
   </tr>
   <tr>
     <td>デプスカメラ</td>
-    <td>Xbox 360 Kinect センサー</td>
+    <td></td>
     <td>1</td>
   </tr>
   <tr>
