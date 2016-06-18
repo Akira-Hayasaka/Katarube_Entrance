@@ -24,7 +24,7 @@ public:
     bool isInited() { return device.isInitialized() && device.isConnected() && bInited; }
     ofTexture& getDepthTexture() { return depthTex; }
     ofTexture& getThreshedTexture() { return threshedTex.getTexture(); }
-    void drawContour();
+    void drawContour(float x, float y, float w, float h);
     
     void onAngleChanged(int& angle) { device.setCameraTiltAngle(angle); }
     void onNearThreshChanged(float& nearThresh) { this->nearThresh = nearThresh; }

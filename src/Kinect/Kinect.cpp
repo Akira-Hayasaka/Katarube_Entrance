@@ -38,11 +38,18 @@ void Kinect::update()
     makeContours();
 }
 
-void Kinect::drawContour()
+void Kinect::drawContour(float x, float y, float w, float h)
 {
     if (isInited())
     {
+        ofPushMatrix();
+        ofTranslate(x, y);
+        ofScale(w/KINECT_W, h/KINECT_H);
+        ofPushStyle();
+        ofSetColor(ofColor::magenta);
         contourFinder.draw();
+        ofPopStyle();
+        ofPopMatrix();
     }
 }
 

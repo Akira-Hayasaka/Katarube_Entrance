@@ -29,12 +29,25 @@ void GUI::setup()
     
     kinectGUI.loadFromFile("settings/kinect.xml");
     
-    kinectGUI.setSize(600, kinectGUI.getHeight());
-    kinectGUI.setWidthElements(600);
+    kinectGUI.setSize(KINECT_W, kinectGUI.getHeight());
+    kinectGUI.setWidthElements(KINECT_W);
 }
 
 void GUI::draw()
 {
     if (!bHide)
+    {
         kinectGUI.draw();
+        
+        int margin = 4;
+        ofPoint p = kinectGUI.getPosition();
+        p.y += kinectGUI.getHeight(); + margin;
+        ofPushStyle();
+        ofSetColor(ofColor::gray);
+        ofDrawRectangle(p.x, p.y, kinectGUI.getWidth(), KINECT_H/2);
+        ofPopStyle();
+        Global::kinect.getDepthTexture().draw(p.x + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+        Global::kinect.getThreshedTexture().draw(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+        Global::kinect.drawContour(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+    }
 }
