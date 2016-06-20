@@ -71,6 +71,7 @@ void Kinect::threshDepthTex()
         depthThreshShader.begin();
         depthThreshShader.setUniform1f("nearThresh", nearThresh);
         depthThreshShader.setUniform1f("farThresh", farThresh);
+        depthThreshShader.setUniform1f("angleAdjust", angleAdjust);
         depthTex.draw(0, 0);
         depthThreshShader.end();
         threshedTex.end();

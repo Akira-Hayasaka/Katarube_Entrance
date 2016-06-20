@@ -21,11 +21,7 @@ void ofApp::draw()
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate(), 2), 10, ofGetHeight()-20);
 }
 
-void ofApp::keyPressed(int key)
-{
-    
-}
-
+void ofApp::keyPressed(int key){}
 void ofApp::keyReleased(int key){}
 void ofApp::mouseMoved(int x, int y){}
 void ofApp::mouseDragged(int x, int y, int button){}

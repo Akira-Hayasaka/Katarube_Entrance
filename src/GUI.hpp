@@ -32,6 +32,7 @@ private:
     ofxIntSlider kinectAngle;
     ofxFloatSlider kinectNearThresh;
     ofxFloatSlider kinectFarThresh;
+    ofxFloatSlider kinectAdjustAngle;
     ofxFloatSlider contourMinArea;
     ofxFloatSlider contourMaxArea;
     ofxFloatSlider contourThreshold;

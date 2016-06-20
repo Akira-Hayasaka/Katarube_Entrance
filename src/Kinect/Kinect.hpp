@@ -29,6 +29,7 @@ public:
     void onAngleChanged(int& angle) { device.setCameraTiltAngle(angle); }
     void onNearThreshChanged(float& nearThresh) { this->nearThresh = nearThresh; }
     void onFarThreshChanged(float& farThresh) { this->farThresh = farThresh; }
+    void onAngleAdjustChanged(float& angleAdjust) { this->angleAdjust = angleAdjust; }
     
     void onContourMinAreaChanged(float& contourMinArea) { this->contourMinArea = contourMinArea; }
     void onContourMaxAreaChanged(float& contourMaxArea) { this->contourMaxArea = contourMaxArea; }
@@ -48,6 +49,7 @@ private:
     ofShader depthThreshShader;
     float nearThresh;
     float farThresh;
+    float angleAdjust;
     
     ofxCv::ContourFinder contourFinder;
     ofxCv::RectTracker contourTracker;
