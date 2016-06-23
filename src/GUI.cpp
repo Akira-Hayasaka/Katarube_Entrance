@@ -52,6 +52,19 @@ void GUI::setup()
         projWarpers.at(i).update();
         Global::projMats.at(i) = projWarpers.at(i).getMatEx();
     }
+    
+    // kinect warp
+    ofVec2f tweakKinectRes = ofVec2f(KINECT_W, KINECT_H) * WARP_TWEAK_SCALE;
+    ofPoint warpOrig = ofPoint(PROJ_W/2 - KINECT_W/2*WARP_TWEAK_SCALE, PROJ_H/2 - KINECT_H/2*WARP_TWEAK_SCALE);
+    kinectWarper.setSourceRect(ofRectangle(0, 0, KINECT_W, KINECT_H));
+    kinectWarper.setTopLeftCornerPosition(ofPoint(warpOrig.x, warpOrig.y));
+    kinectWarper.setTopRightCornerPosition(ofPoint(warpOrig.x + tweakKinectRes.x, warpOrig.y));
+    kinectWarper.setBottomLeftCornerPosition(ofPoint(warpOrig.x, warpOrig.y + tweakKinectRes.y));
+    kinectWarper.setBottomRightCornerPosition(ofPoint(warpOrig.x + tweakKinectRes.x, warpOrig.y + tweakKinectRes.y));
+    kinectWarper.setup();
+    kinectWarper.load("settings/warps/kinectWarp.xml");
+    kinectWarper.update();
+    Global::kinectMat = kinectWarper.getMatEx();
 }
 
 void GUI::update()
@@ -65,6 +78,9 @@ void GUI::update()
             Global::projMats.at(idx) = warper.getMatEx();
             idx++;
         }
+        
+        kinectWarper.update();
+        Global::kinectMat = kinectWarper.getMatEx();
     }
 }
 
@@ -104,6 +120,19 @@ void GUI::draw()
             ofSetColor(ofColor::red);
             warper.drawSelectedCorner();
         }
+        
+        ofSetColor(ofColor::magenta.getInverted());
+        kinectWarper.drawQuadOutline();
+        
+        ofSetColor(ofColor::yellow.getInverted());
+        kinectWarper.drawCorners();
+        
+        ofSetColor(ofColor::magenta.getInverted());
+        kinectWarper.drawHighlightedCorner();
+        
+        ofSetColor(ofColor::red.getInverted());
+        kinectWarper.drawSelectedCorner();
+        
         ofPopStyle();
     }
 }

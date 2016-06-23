@@ -38,6 +38,21 @@ void Kinect::update()
     makeContours();
 }
 
+vector<ofPolyline> Kinect::getContourInfo()
+{
+    vector<ofPolyline> rtn;
+    if (isInited())
+    {
+        for (int i = 0; i < contourFinder.size(); i++)
+        {
+            ofPolyline l = contourFinder.getPolyline(i);
+            l = l.getResampledByCount(50);
+            rtn.push_back(l);
+        }
+    }
+    return rtn;
+}
+
 void Kinect::drawContour(float x, float y, float w, float h)
 {
     if (isInited())

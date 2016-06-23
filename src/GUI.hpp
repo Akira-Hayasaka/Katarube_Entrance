@@ -41,10 +41,11 @@ private:
     ofxToggle contourFindHole;
     bool bHide;
     
-    // kinect warp
-    
     // proj warp
     vector<Warper> projWarpers;
+    
+    // kinect warp
+    Warper kinectWarper;
 };
 
 #endif /* GUI_hpp */

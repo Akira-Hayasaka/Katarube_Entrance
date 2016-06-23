@@ -33,4 +33,7 @@ private:
     ofTexture fullScrn;
     ofFbo projFbo1;
 	ofFbo projFbo2;
+    ofFbo kinectFbo;
+    vector<ofPolyline> contours;
+    vector<ofPath> contourPaths;
 };
