@@ -10,6 +10,7 @@
 
 void GUI::setup()
 {
+    // kinect device & contour gui
     kinectGUI.setup("kinect", "settings/kinect.xml");
     kinectGUI.add(kinectAngle.setup("kinect head angle", 0.0, -30.0, 30.0));
     kinectGUI.add(kinectNearThresh.setup("depth thresh near cm", KINECT_MIN_DIST, KINECT_MAX_DIST, KINECT_MIN_DIST));
@@ -33,6 +34,35 @@ void GUI::setup()
     
     kinectGUI.setSize(KINECT_W, kinectGUI.getHeight());
     kinectGUI.setWidthElements(KINECT_W);
+    
+    // proj warp
+    ofPoint warpOrig = ofPoint(APP_W/2 - APP_W/2*WARP_TWEAK_SCALE, APP_H/2 - APP_H/2*WARP_TWEAK_SCALE);
+    ofVec2f tweakProjRes = ofVec2f(PROJ_W, PROJ_H) * WARP_TWEAK_SCALE;
+    projWarpers.resize(NUM_PROJ);
+    for (int i = 0; i < projWarpers.size(); i++)
+    {
+        projWarpers.at(i) = new Warper();
+        projWarpers.at(i)->setSourceRect(ofRectangle(0, 0, PROJ_W, PROJ_H));
+        projWarpers.at(i)->setTopLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y));
+        projWarpers.at(i)->setTopRightCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i + tweakProjRes.x, warpOrig.y));
+        projWarpers.at(i)->setBottomLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y + tweakProjRes.y));
+        projWarpers.at(i)->setBottomRightCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i + tweakProjRes.x, warpOrig.y + tweakProjRes.y));
+        projWarpers.at(i)->setup();
+        projWarpers.at(i)->load("settings/warps/projWarp" + ofToString(i) + ".xml");
+        projWarpers.at(i)->update();
+    }
+}
+
+void GUI::update()
+{
+    if (!bHide)
+    {
+        // test
+        for (auto& warper : projWarpers)
+        {
+            warper->update();
+        }
+    }
 }
 
 void GUI::draw()
@@ -54,5 +84,25 @@ void GUI::draw()
             Global::kinect.getThreshedTexture().draw(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
             Global::kinect.drawContour(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
         }
+        
+        // warpers
+        ofPushStyle();
+        for (auto warper : projWarpers)
+        {
+            ofSetColor(ofColor::magenta);
+            warper->drawQuadOutline();
+            
+            ofSetColor(ofColor::yellow);
+            warper->drawCorners();
+            
+            ofSetColor(ofColor::magenta);
+            warper->drawHighlightedCorner();
+            
+            ofSetColor(ofColor::red);
+            warper->drawSelectedCorner();
+            
+            Global::testMat = warper->getMatEx();
+        }
+        ofPopStyle();
     }
 }

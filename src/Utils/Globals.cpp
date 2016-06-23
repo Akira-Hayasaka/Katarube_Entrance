@@ -11,4 +11,5 @@
 namespace Global
 {
     Kinect kinect;
+    ofMatrix4x4 testMat;
 }

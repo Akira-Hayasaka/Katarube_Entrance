@@ -15,6 +15,7 @@
 namespace Global
 {
     extern Kinect kinect;
+    extern ofMatrix4x4 testMat;
 }
 
 #endif /* Globals_hpp */

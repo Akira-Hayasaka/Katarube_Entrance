@@ -7,15 +7,36 @@ void ofApp::setup()
     ofBackground(ofColor::black);
     Global::kinect.setup();
     gui.setup();
+    
+    // debug
+    ofLoadImage(fullScrn, "imgs/debug/fullScreen/gLA9Lde.jpg");
+    testFbo.allocate(PROJ_W, PROJ_H);
+    testFbo.begin();
+    ofClear(0);
+    ofPushStyle();
+    ofSetColor(ofColor::red);
+    ofDrawRectangle(0, 0, testFbo.getWidth(), testFbo.getHeight());
+    ofPopStyle();
+    testFbo.end();
 }
 
 void ofApp::update()
 {
     Global::kinect.update();
+    gui.update();
 }
 
 void ofApp::draw()
 {
+    fullScrn.draw(0, 0);
+    
+    ofMatrix4x4 mat = Global::testMat;
+    
+    ofPushMatrix();
+    ofMultMatrix(mat);
+    testFbo.draw(0, 0);
+    ofPopMatrix();
+    
     gui.draw();
     
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate(), 2), 10, ofGetHeight()-20);

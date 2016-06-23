@@ -13,12 +13,14 @@
 #include "ofxGui.h"
 #include "Constants.h"
 #include "Globals.hpp"
+#include "Warper.hpp"
 
 class GUI
 {
 public:
     
     void setup();
+    void update();
     void draw();
     
     void toggleVisible() { bHide = !bHide; }
@@ -27,8 +29,8 @@ public:
     
 private:
     
+    // kinect device & contour
     ofxPanel kinectGUI;
-    
     ofxIntSlider kinectAngle;
     ofxFloatSlider kinectNearThresh;
     ofxFloatSlider kinectFarThresh;
@@ -37,8 +39,12 @@ private:
     ofxFloatSlider contourMaxArea;
     ofxFloatSlider contourThreshold;
     ofxToggle contourFindHole;
-    
     bool bHide;
+    
+    // kinect warp
+    
+    // proj warp
+    vector<Warper*> projWarpers;
 };
 
 #endif /* GUI_hpp */

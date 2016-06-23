@@ -1,11 +1,12 @@
 #include "ofMain.h"
 #include "ofApp.h"
+#include "Constants.h"
 
 int main()
 {
     ofGLWindowSettings settings;
-    settings.width = 1920;
-    settings.height = 1080;
+    settings.width = APP_W;
+    settings.height = APP_H;
     settings.windowMode = OF_WINDOW;
 //    settings.setGLVersion(2,1);
     settings.setGLVersion(3,2);

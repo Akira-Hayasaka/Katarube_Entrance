@@ -28,4 +28,8 @@ public:
 private:
     
     GUI gui;
+    
+    // debug
+    ofTexture fullScrn;
+    ofFbo testFbo;
 };
