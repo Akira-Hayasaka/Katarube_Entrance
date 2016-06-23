@@ -11,5 +11,6 @@
 namespace Global
 {
     Kinect kinect;
-    ofMatrix4x4 testMat;
+    vector<ofMatrix4x4> projMats;
+    ofMatrix4x4 kinectMat;
 }

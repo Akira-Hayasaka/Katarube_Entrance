@@ -5,7 +5,10 @@ void ofApp::setup()
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
     ofBackground(ofColor::black);
+    
     Global::kinect.setup();
+    Global::projMats.resize(NUM_PROJ);
+    
     gui.setup();
     
     // debug
@@ -30,10 +33,8 @@ void ofApp::draw()
 {
     fullScrn.draw(0, 0);
     
-    ofMatrix4x4 mat = Global::testMat;
-    
     ofPushMatrix();
-    ofMultMatrix(mat);
+    ofMultMatrix(Global::projMats.at(0));
     testFbo.draw(0, 0);
     ofPopMatrix();
     

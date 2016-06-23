@@ -11,7 +11,7 @@
 
 #include "ofMain.h"
 
-static const int NUM_PROJ = 1;
+static const int NUM_PROJ = 2;
 static const int NUM_KINECT = 1;
 static const float PROJ_W = 1920;
 static const float PROJ_H = 1080;

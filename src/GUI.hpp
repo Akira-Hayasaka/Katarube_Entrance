@@ -44,7 +44,7 @@ private:
     // kinect warp
     
     // proj warp
-    vector<Warper*> projWarpers;
+    vector<Warper> projWarpers;
 };
 
 #endif /* GUI_hpp */

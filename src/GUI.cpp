@@ -36,20 +36,21 @@ void GUI::setup()
     kinectGUI.setWidthElements(KINECT_W);
     
     // proj warp
-    ofPoint warpOrig = ofPoint(APP_W/2 - APP_W/2*WARP_TWEAK_SCALE, APP_H/2 - APP_H/2*WARP_TWEAK_SCALE);
     ofVec2f tweakProjRes = ofVec2f(PROJ_W, PROJ_H) * WARP_TWEAK_SCALE;
     projWarpers.resize(NUM_PROJ);
     for (int i = 0; i < projWarpers.size(); i++)
     {
-        projWarpers.at(i) = new Warper();
-        projWarpers.at(i)->setSourceRect(ofRectangle(0, 0, PROJ_W, PROJ_H));
-        projWarpers.at(i)->setTopLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y));
-        projWarpers.at(i)->setTopRightCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i + tweakProjRes.x, warpOrig.y));
-        projWarpers.at(i)->setBottomLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y + tweakProjRes.y));
-        projWarpers.at(i)->setBottomRightCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i + tweakProjRes.x, warpOrig.y + tweakProjRes.y));
-        projWarpers.at(i)->setup();
-        projWarpers.at(i)->load("settings/warps/projWarp" + ofToString(i) + ".xml");
-        projWarpers.at(i)->update();
+        ofPoint warpOrig = ofPoint(PROJ_W/2 - PROJ_W/2*WARP_TWEAK_SCALE + PROJ_W * i,
+                                   PROJ_H/2 - PROJ_H/2*WARP_TWEAK_SCALE);
+        projWarpers.at(i).setSourceRect(ofRectangle(0, 0, PROJ_W, PROJ_H));
+        projWarpers.at(i).setTopLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y));
+        projWarpers.at(i).setTopRightCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i + tweakProjRes.x, warpOrig.y));
+        projWarpers.at(i).setBottomLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y + tweakProjRes.y));
+        projWarpers.at(i).setBottomRightCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i + tweakProjRes.x, warpOrig.y + tweakProjRes.y));
+        projWarpers.at(i).setup();
+        projWarpers.at(i).load("settings/warps/projWarp" + ofToString(i) + ".xml");
+        projWarpers.at(i).update();
+        Global::projMats.at(i) = projWarpers.at(i).getMatEx();
     }
 }
 
@@ -57,10 +58,12 @@ void GUI::update()
 {
     if (!bHide)
     {
-        // test
+        int idx = 0;
         for (auto& warper : projWarpers)
         {
-            warper->update();
+            warper.update();
+            Global::projMats.at(idx) = warper.getMatEx();
+            idx++;
         }
     }
 }
@@ -90,18 +93,16 @@ void GUI::draw()
         for (auto warper : projWarpers)
         {
             ofSetColor(ofColor::magenta);
-            warper->drawQuadOutline();
+            warper.drawQuadOutline();
             
             ofSetColor(ofColor::yellow);
-            warper->drawCorners();
+            warper.drawCorners();
             
             ofSetColor(ofColor::magenta);
-            warper->drawHighlightedCorner();
+            warper.drawHighlightedCorner();
             
             ofSetColor(ofColor::red);
-            warper->drawSelectedCorner();
-            
-            Global::testMat = warper->getMatEx();
+            warper.drawSelectedCorner();
         }
         ofPopStyle();
     }
