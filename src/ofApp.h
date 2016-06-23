@@ -31,5 +31,6 @@ private:
     
     // debug
     ofTexture fullScrn;
-    ofFbo testFbo;
+    ofFbo projFbo1;
+	ofFbo projFbo2;
 };

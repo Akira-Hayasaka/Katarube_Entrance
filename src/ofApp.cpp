@@ -13,14 +13,22 @@ void ofApp::setup()
     
     // debug
     ofLoadImage(fullScrn, "imgs/debug/fullScreen/gLA9Lde.jpg");
-    testFbo.allocate(PROJ_W, PROJ_H);
-    testFbo.begin();
+    projFbo1.allocate(PROJ_W, PROJ_H);
+	projFbo2.allocate(PROJ_W, PROJ_H);
+	projFbo1.begin();
     ofClear(0);
     ofPushStyle();
-    ofSetColor(ofColor::red);
-    ofDrawRectangle(0, 0, testFbo.getWidth(), testFbo.getHeight());
+    ofSetColor(ofColor::blue);
+    ofDrawRectangle(0, 0, projFbo1.getWidth(), projFbo1.getHeight());
     ofPopStyle();
-    testFbo.end();
+	projFbo1.end();
+	projFbo2.begin();
+	ofClear(0);
+	ofPushStyle();
+	ofSetColor(ofColor::cyan);
+	ofDrawRectangle(0, 0, projFbo2.getWidth(), projFbo2.getHeight());
+	ofPopStyle();
+	projFbo2.end();
 }
 
 void ofApp::update()
@@ -35,8 +43,13 @@ void ofApp::draw()
     
     ofPushMatrix();
     ofMultMatrix(Global::projMats.at(0));
-    testFbo.draw(0, 0);
+	projFbo1.draw(0, 0);
     ofPopMatrix();
+
+	ofPushMatrix();
+	ofMultMatrix(Global::projMats.at(1));
+	projFbo2.draw(0, 0);
+	ofPopMatrix();
     
     gui.draw();
     

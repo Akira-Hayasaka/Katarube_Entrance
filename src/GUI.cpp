@@ -40,7 +40,7 @@ void GUI::setup()
     projWarpers.resize(NUM_PROJ);
     for (int i = 0; i < projWarpers.size(); i++)
     {
-        ofPoint warpOrig = ofPoint(PROJ_W/2 - PROJ_W/2*WARP_TWEAK_SCALE + PROJ_W * i,
+        ofPoint warpOrig = ofPoint(PROJ_W/2 - PROJ_W/2*WARP_TWEAK_SCALE + (PROJ_W - PROJ_W * WARP_TWEAK_SCALE)* i,
                                    PROJ_H/2 - PROJ_H/2*WARP_TWEAK_SCALE);
         projWarpers.at(i).setSourceRect(ofRectangle(0, 0, PROJ_W, PROJ_H));
         projWarpers.at(i).setTopLeftCornerPosition(ofPoint(warpOrig.x + tweakProjRes.x * i, warpOrig.y));
