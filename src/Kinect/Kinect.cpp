@@ -38,7 +38,7 @@ void Kinect::update()
     makeContours();
 }
 
-vector<ofPolyline> Kinect::getContourInfo()
+vector<ofPolyline> Kinect::getContourInfo(ofMatrix4x4 warpMat)
 {
     vector<ofPolyline> rtn;
     if (isInited())
@@ -46,7 +46,10 @@ vector<ofPolyline> Kinect::getContourInfo()
         for (int i = 0; i < contourFinder.size(); i++)
         {
             ofPolyline l = contourFinder.getPolyline(i);
+            l.simplify();
             l = l.getResampledByCount(50);
+            for (auto& p : l.getVertices())
+                p = p * warpMat;
             rtn.push_back(l);
         }
     }

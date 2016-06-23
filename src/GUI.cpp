@@ -65,6 +65,13 @@ void GUI::setup()
     kinectWarper.load("settings/warps/kinectWarp.xml");
     kinectWarper.update();
     Global::kinectMat = kinectWarper.getMatEx();
+    
+    kinectFbo.allocate(KINECT_W, KINECT_H);
+    kinectFbo.begin();
+    ofClear(0);
+    ofSetColor(ofColor::pink, 100);
+    ofDrawRectangle(0, 0, kinectFbo.getWidth(), kinectFbo.getHeight());
+    kinectFbo.end();
 }
 
 void GUI::update()
@@ -81,6 +88,43 @@ void GUI::update()
         
         kinectWarper.update();
         Global::kinectMat = kinectWarper.getMatEx();
+
+        if (Global::kinect.isInited())
+        {
+            contours.clear();
+            contourPaths.clear();
+            
+            // get warped contour
+            contours = Global::kinect.getContourInfo(Global::kinectMat);
+            
+            kinectFbo.begin();
+            ofClear(0);
+            Global::kinect.getDepthTexture().draw(0, 0);
+            kinectFbo.end();
+            
+            for (auto& c : contours)
+            {
+                int idx = 0;
+                ofPath path;
+                for (auto& p : c.getVertices())
+                {
+                    if (idx == 0)
+                    {
+                        path.newSubPath();
+                        path.moveTo(p);
+                    }
+                    else
+                    {
+                        path.lineTo(p);
+                    }
+                    idx++;
+                }
+                path.close();
+                path.simplify();
+                path.setFillColor(ofColor::yellow);
+                contourPaths.push_back(path);
+            }
+        }
     }
 }
 
@@ -88,23 +132,22 @@ void GUI::draw()
 {
     if (!bHide)
     {
-        kinectGUI.draw();
-        
+        // draw warped kinect depth & contour
         if (Global::kinect.isInited())
         {
-            int margin = 4;
-            ofPoint p = kinectGUI.getPosition();
-            p.y += kinectGUI.getHeight(); + margin;
+            ofPushMatrix();
+            ofMultMatrix(Global::kinectMat);
+            kinectFbo.draw(0, 0);
+            ofPopMatrix();
+            
             ofPushStyle();
-            ofSetColor(ofColor::gray);
-            ofDrawRectangle(p.x, p.y, kinectGUI.getWidth(), KINECT_H/2);
+            ofFill();
+            for (auto c : contourPaths)
+                c.draw();
             ofPopStyle();
-            Global::kinect.getDepthTexture().draw(p.x + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
-            Global::kinect.getThreshedTexture().draw(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
-            Global::kinect.drawContour(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
         }
         
-        // warpers
+        // proj warpers
         ofPushStyle();
         for (auto warper : projWarpers)
         {
@@ -121,6 +164,7 @@ void GUI::draw()
             warper.drawSelectedCorner();
         }
         
+        // kinect warper
         ofSetColor(ofColor::magenta.getInverted());
         kinectWarper.drawQuadOutline();
         
@@ -132,7 +176,35 @@ void GUI::draw()
         
         ofSetColor(ofColor::red.getInverted());
         kinectWarper.drawSelectedCorner();
-        
+
         ofPopStyle();
+        
+        // draw kinect tex for gui
+        if (Global::kinect.isInited())
+        {
+            int margin = 4;
+            ofPoint p = kinectGUI.getPosition();
+            p.y += kinectGUI.getHeight(); + margin;
+            ofPushStyle();
+            ofSetColor(ofColor::gray);
+            ofDrawRectangle(p.x, p.y, kinectGUI.getWidth(), KINECT_H/2);
+            ofPopStyle();
+            Global::kinect.getDepthTexture().draw(p.x + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+            Global::kinect.getThreshedTexture().draw(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+            Global::kinect.drawContour(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+        }
+        
+        kinectGUI.draw();
     }
+}
+
+void GUI::saveProjWarp()
+{
+    for (int i = 0; i < projWarpers.size(); i++)
+        projWarpers.at(i).save("settings/warps/projWarp" + ofToString(i) + ".xml");
+}
+
+void GUI::saveKinectWarp()
+{
+    kinectWarper.save("settings/warps/kinectWarp.xml");
 }

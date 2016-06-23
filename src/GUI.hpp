@@ -27,6 +27,9 @@ public:
     void hide() { bHide = true; }
     void show() { bHide = false; }
     
+    void saveProjWarp();
+    void saveKinectWarp();
+    
 private:
     
     // kinect device & contour
@@ -46,6 +49,9 @@ private:
     
     // kinect warp
     Warper kinectWarper;
+    ofFbo kinectFbo;
+    vector<ofPolyline> contours;    
+    vector<ofPath> contourPaths;    
 };
 
 #endif /* GUI_hpp */
