@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "Constants.h"
 #include "Globals.hpp"
+#include "Util.h"
 #include "GUI.hpp"
 
 class ofApp : public ofBaseApp

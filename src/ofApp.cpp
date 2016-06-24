@@ -2,6 +2,9 @@
 
 void ofApp::setup()
 {
+	disableEdgeSwipeGesture();
+
+	ofToggleFullscreen();
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
     ofBackground(ofColor::black);
@@ -58,6 +61,10 @@ void ofApp::draw()
 
 void ofApp::keyPressed(int key)
 {
+	if (key == 'f')
+	{
+		ofToggleFullscreen();
+	}
     if (key == 'w')
     {
         gui.saveProjWarp();
