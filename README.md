@@ -8,13 +8,51 @@ http://www.katarube.jp/index.html
 
 ## 概要
 
-左側を演出エリア、右側を情報エリアとする。
+体験の起承転結を重視し、構成要素を矢印、動き、体、お絵描きに絞る。フローは右から左で、基本お絵描きは常に左に行こうとしている。カメラでユーザの動きをセンシングし、みんなのお絵描きとのインタラクションを可能とする。
 
-演出エリアでは、カメラでカーテンをセンシングする。みんなの絵が生き物みたいに生息していて、カーテンの裏に隠れてたり、天井の方で遊んでたりする。ユーザーがカーテンを動かすと、その裏に隠れてたみんなの絵がこちらを覗き込んだり、カーテンに押し出されて逃げ出したりする。ユーザーの影とかぶらないように、演出は天井に寄せる（天地を逆にする）。
+## シーケンス
 
-情報エリアでは、下部にロゴを表示し、通常その上にフロアマップを表示。この部分は、今後の展示情報・スポンサームービー・各種CMなどに使用されることを想定。
+### 1. Drawing
 
 ![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_1.png)
+
+右側に大きな手が出てきて、実際に今お絵描きをしているかのように擬似的に絵を生成する。手のムービーはストップモーション的にして、ナマ感軽減のためになんらかフィルターをかける（白黒にする、など）。
+
+### 2. Interaction
+
+![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_2.png)
+
+カメラでセンシングされたユーザーが動くと、それを避けるようにお絵描きが反応する。
+
+### 3. Auto Event 1
+
+![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_3.png)
+
+大きな手が出てきて、お絵描きがぽいっと放り投げられる。お絵描きが端に到達すると跳ね返る。時間でランダムに発生するイベント。
+
+### 4. Auto Event 2
+
+![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_4.png)
+
+大きな手が出てきて、お絵描きを突く。お絵描きが端に到達すると跳ね返る。時間でランダムに発生するイベント。
+
+### 5. Auto Event 3
+
+![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_5.png)
+
+大きな耳が出てきて、パタパタ蝶々みたいに動き、お絵描きを吹き飛ばす。お絵描きが端に到達すると跳ね返る。時間でランダムに発生するイベント。
+
+### 6. Auto Event 4
+
+![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_6.png)
+
+大きな目が出てきて、瞬きをしてお絵描きを吹き飛ばす。お絵描きが端に到達すると跳ね返る。時間でランダムに発生するイベント。
+
+### 7. Eat
+
+![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_7.png)
+
+左から大きな口が出てきて、お絵描きを食べる。ここで一連のシーケンスが終了して、最初に戻る。
 
 ## 機材
 
