@@ -343,6 +343,7 @@
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
 		E9EAAC2A1D1B8D1F009C2AF4 /* Warper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Warper.cpp; path = Utils/Warper.cpp; sourceTree = "<group>"; };
 		E9EAAC2B1D1B8D1F009C2AF4 /* Warper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Warper.hpp; path = Utils/Warper.hpp; sourceTree = "<group>"; };
+		E9F650181D1CB8FE00BF0B20 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Utils/Util.h; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
 		ECC34C470C60F0A2AE2761B1 /* random.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = random.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/random.h; sourceTree = SOURCE_ROOT; };
@@ -814,6 +815,7 @@
 				393C0A88EF96B9574DD50231 /* Globals.hpp */,
 				E9EAAC2A1D1B8D1F009C2AF4 /* Warper.cpp */,
 				E9EAAC2B1D1B8D1F009C2AF4 /* Warper.hpp */,
+				E9F650181D1CB8FE00BF0B20 /* Util.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
