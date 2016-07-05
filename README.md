@@ -142,7 +142,7 @@ http://www.katarube.jp/index.html
 
 ## 全体配置
 
-## ![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_2.png)
+## ![image alt text](https://github.com/Akira-Hayasaka/Katarube_Entrance/raw/master/readmeImgs/image_8.png)
 
 ## TODO
 
