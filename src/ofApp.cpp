@@ -15,6 +15,11 @@ void ofApp::setup()
 	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
+    Global::scrnQuad.getVertices().resize(4);
+    Global::scrnQuad.getTexCoords().resize(4);
+    Global::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
+    
+    Tweenzor::init();
     
     content.setup();
     
@@ -27,6 +32,7 @@ void ofApp::setup()
 
 void ofApp::update()
 {
+    Tweenzor::update(ofGetElapsedTimeMillis());
     Global::ELAPSED_TIME = ofGetElapsedTimef();
     if (Global::ELAPSED_TIME - Global::lastTickTime > Global::oneFrameDur)
     {
@@ -36,12 +42,12 @@ void ofApp::update()
     Global::kinect.update();
     content.update();
     gui.update();
+    
+    content.genFullScreenContent();    
 }
 
 void ofApp::draw()
 {
-    content.genFullScreenContent();
-    
     if (bDrawTiny)
     {
         content.getFullScreenTexture().draw(0, 0, APP_W * 0.5, APP_H * 0.5);
@@ -82,6 +88,10 @@ void ofApp::keyPressed(int key)
     if (key == 't')
     {
         bDrawTiny = !bDrawTiny;
+    }
+    if (key == 'e')
+    {
+        ofNotifyEvent(Global::eatEvent);
     }
 }
 void ofApp::keyReleased(int key){}

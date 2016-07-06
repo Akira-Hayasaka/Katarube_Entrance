@@ -55,6 +55,8 @@
 		E98303DE1D2C83D100B5333A /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E98303DC1D2C83D100B5333A /* Mouth.cpp */; settings = {ASSET_TAGS = (); }; };
 		E98303E11D2C870300B5333A /* Content.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E98303DF1D2C870300B5333A /* Content.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9EAAC2C1D1B8D1F009C2AF4 /* Warper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9EAAC2A1D1B8D1F009C2AF4 /* Warper.cpp */; settings = {ASSET_TAGS = (); }; };
+		E9F5802D1D2CB05F004920FF /* Tween.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580261D2CB05F004920FF /* Tween.cpp */; settings = {ASSET_TAGS = (); }; };
+		E9F5802E1D2CB05F004920FF /* Tweenzor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F5802B1D2CB05F004920FF /* Tweenzor.cpp */; settings = {ASSET_TAGS = (); }; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
 		F4135EEFC911E9ED211FB6F9 /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = CF528C0E8DBFF5C31E8D6529 /* core.c */; };
 		F895F32702EE4190E0073DB2 /* Projector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D98E842D149B3CC7DBEB55F /* Projector.cpp */; };
@@ -349,6 +351,14 @@
 		E98303E01D2C870300B5333A /* Content.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Content.hpp; sourceTree = "<group>"; };
 		E9EAAC2A1D1B8D1F009C2AF4 /* Warper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Warper.cpp; path = Utils/Warper.cpp; sourceTree = "<group>"; };
 		E9EAAC2B1D1B8D1F009C2AF4 /* Warper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Warper.hpp; path = Utils/Warper.hpp; sourceTree = "<group>"; };
+		E9F580251D2CB05F004920FF /* ofxTweenzor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTweenzor.h; sourceTree = "<group>"; };
+		E9F580261D2CB05F004920FF /* Tween.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tween.cpp; sourceTree = "<group>"; };
+		E9F580271D2CB05F004920FF /* Tween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tween.h; sourceTree = "<group>"; };
+		E9F580281D2CB05F004920FF /* TweenEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweenEvent.h; sourceTree = "<group>"; };
+		E9F580291D2CB05F004920FF /* TweenFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweenFunctions.h; sourceTree = "<group>"; };
+		E9F5802A1D2CB05F004920FF /* TweenSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweenSelector.h; sourceTree = "<group>"; };
+		E9F5802B1D2CB05F004920FF /* Tweenzor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tweenzor.cpp; sourceTree = "<group>"; };
+		E9F5802C1D2CB05F004920FF /* Tweenzor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweenzor.h; sourceTree = "<group>"; };
 		E9F650181D1CB8FE00BF0B20 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Utils/Util.h; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
@@ -949,6 +959,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				E9F580231D2CB05F004920FF /* ofxTweenzor */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
 				9683228C705CA3FF4F2EA945 /* ofxKinect */,
 				A0B90D3B0ADB9C1716816714 /* ofxOpenCv */,
@@ -1119,6 +1130,30 @@
 				E98303DD1D2C83D100B5333A /* Mouth.hpp */,
 			);
 			path = Body;
+			sourceTree = "<group>";
+		};
+		E9F580231D2CB05F004920FF /* ofxTweenzor */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580241D2CB05F004920FF /* src */,
+			);
+			name = ofxTweenzor;
+			path = addons/ofxTweenzor;
+			sourceTree = "<group>";
+		};
+		E9F580241D2CB05F004920FF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580251D2CB05F004920FF /* ofxTweenzor.h */,
+				E9F580261D2CB05F004920FF /* Tween.cpp */,
+				E9F580271D2CB05F004920FF /* Tween.h */,
+				E9F580281D2CB05F004920FF /* TweenEvent.h */,
+				E9F580291D2CB05F004920FF /* TweenFunctions.h */,
+				E9F5802A1D2CB05F004920FF /* TweenSelector.h */,
+				E9F5802B1D2CB05F004920FF /* Tweenzor.cpp */,
+				E9F5802C1D2CB05F004920FF /* Tweenzor.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		ED6E9BDB447DB965EE6F1FA6 /* src */ = {
@@ -1294,6 +1329,7 @@
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 				7ADB04AF67C568EAFAEBA546 /* ofxKinectExtras.cpp in Sources */,
+				E9F5802E1D2CB05F004920FF /* Tweenzor.cpp in Sources */,
 				686B0DF6249B52E1A85B39EC /* ofxKinect.cpp in Sources */,
 				0F8F016776681D468C0D0949 /* audio.c in Sources */,
 				ACE7DC9A3223ED5EE1B80074 /* cameras.c in Sources */,
@@ -1329,6 +1365,7 @@
 				49283AAADA097BC2A3726A0D /* RunningBackground.cpp in Sources */,
 				51CDEA1C59A1FB01DFE05CF4 /* Tracker.cpp in Sources */,
 				0A096E7C81287CA693A6EFCA /* Utilities.cpp in Sources */,
+				E9F5802D1D2CB05F004920FF /* Tween.cpp in Sources */,
 				E98303E11D2C870300B5333A /* Content.cpp in Sources */,
 				AA5C0A64CB1F1CD62CC276D6 /* Wrappers.cpp in Sources */,
 			);

@@ -18,12 +18,11 @@ void Content::setup()
     ofLoadImage(bgMaskRight, "imgs/common/bgMask_right.png");
     
     mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
-    mouth.play();
 }
 
 void Content::update()
 {
-
+    mouth.update();
 }
 
 void Content::genFullScreenContent()
@@ -35,6 +34,15 @@ void Content::genFullScreenContent()
     mouth.draw(bgMaskLeft, bgLeft);
     
     bgRight.draw(PROJ_W, 0);
+    
+    if (Global::ELAPSED_TIME - Global::lastTickTime < 0.03)
+    {
+        ofPushStyle();
+        ofSetColor(ofColor::gray, 5);
+        bgMaskLeft.draw(0, 0);
+        bgMaskRight.draw(PROJ_W, 0);
+        ofPopStyle();
+    }
     
     fullScreen.end();
 }

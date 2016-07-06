@@ -22,12 +22,15 @@ namespace Global
     extern vector<ofMatrix4x4> projMats;
     extern ofMatrix4x4 kinectMat;
     
+    extern ofVboMesh scrnQuad;
+    
     // shaders
     extern ofShader chromaKey;
     extern ofShader whitize;
     
     // events
     extern ofEvent<void> tickEvent;
+    extern ofEvent<void> eatEvent;
 }
 
 #endif /* Globals_hpp */

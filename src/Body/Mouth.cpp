@@ -55,6 +55,8 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
     }
     seqDir.close();
     
+    tweaker.allocate(roi.getWidth(), roi.getHeight());
+    
     ofDirectory blendDir(blendDirPath);
     blendDir.listDir();
     for (int i = 0; i < blendDir.size(); i++)
@@ -69,36 +71,86 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
     }
     blendDir.close();
     
-    ofAddListener(Global::tickEvent, this, &Mouth::tick);
+    ofAddListener(Global::tickEvent, this, &Mouth::onTickEvent);
+    ofAddListener(Global::eatEvent, this, &Mouth::onEatEvent);
     
-    bPlay = false;
+    facePosOrig = ofPoint(-700, 0, 0);
+    facePosDest = ofPoint::zero();
+    curFacePos = facePosOrig;
+    
+    bNeedTickUpdate = false;
     curFrame = 0;
     blendIdx = ofRandom(blendTexs.size()-1);
+    state = NONE;
 }
 
-void Mouth::play()
+void Mouth::update()
 {
-    bPlay = true;
-}
-
-void Mouth::tick()
-{
-    if (bPlay)
+    if (state == NONE)
+        return;
+    
+    if (bNeedTickUpdate)
     {
-        curFrame++;
-        blendIdx = ofRandom(blendTexs.size()-1);
-        
-        if (curFrame >= seq.size())
-            curFrame = 0;
+        genTweakTex();
+        bNeedTickUpdate = false;
     }
 }
 
 void Mouth::draw(const ofTexture& bgMask, const ofTexture& bg)
 {
+    if (state == NONE)
+        return;
+    
     seqTweak.begin();
+    seqTweak.setUniformTexture("tex0", tweaker.getTexture(), 0);
     seqTweak.setUniformTexture("blendTex", blendTexs.at(blendIdx), 1);
     seqTweak.setUniformTexture("bgMask", bgMask, 2);
     seqTweak.setUniformTexture("paperTex", bg, 3);
-    seq.at(curFrame).draw(0, 0);
+    drawPlane(tweaker.getWidth(), tweaker.getHeight());
     seqTweak.end();
+}
+
+void Mouth::genTweakTex()
+{
+    tweaker.begin();
+    ofClear(0);
+    seq.at(curFrame).draw(curFacePos);
+    tweaker.end();
+}
+
+void Mouth::onTickEvent()
+{
+    if (state != NONE)
+    {
+        curFrame++;
+        blendIdx = ofRandom(blendTexs.size()-1);
+        
+        if (state == EATING)
+        {
+            if (curFrame >= 26)
+                Tweenzor::add(&curFacePos.x, curFacePos.x, facePosOrig.x, 0.0f, 0.6f, EASE_OUT_CUBIC);
+        }
+        
+        if (curFrame >= seq.size())
+        {
+            curFrame = 0;
+            state = NONE;
+        }
+        
+        bNeedTickUpdate = true;
+    }
+}
+
+void Mouth::onEatEvent()
+{
+    curFrame = 0;
+    Tweenzor::add(&curFacePos.x, curFacePos.x, facePosDest.x, 0.0f, 0.5f, EASE_OUT_EXPO);
+    Tweenzor::addCompleteListener(Tweenzor::getTween(&curFacePos.x), this, &Mouth::onEndEmerge);
+    genTweakTex();
+    state = EMERGE;
+}
+
+void Mouth::onEndEmerge(float* arg)
+{
+    state = EATING;
 }

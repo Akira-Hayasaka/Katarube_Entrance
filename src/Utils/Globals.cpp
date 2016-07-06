@@ -18,10 +18,13 @@ namespace Global
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
     
+    ofVboMesh scrnQuad;
+    
     // shaders
     ofShader chromaKey;
     ofShader whitize;
     
     // events
     ofEvent<void> tickEvent;
+    ofEvent<void> eatEvent;
 }

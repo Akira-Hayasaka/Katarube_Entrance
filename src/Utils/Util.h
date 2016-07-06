@@ -11,6 +11,7 @@
 #else
 #include <uuid/uuid.h>
 #endif
+#include "Globals.hpp"
 
 static void setLogToFile(string path)
 {
@@ -61,4 +62,19 @@ static void disableEdgeSwipeGesture()
 		pPropStore->Release();
 	}
 #endif
+}
+
+static void drawPlane(float _width, float _height)
+{
+    Global::scrnQuad.setVertex(0, ofVec3f(0,0,0));
+    Global::scrnQuad.setVertex(1, ofVec3f(_width,0,0));
+    Global::scrnQuad.setVertex(2, ofVec3f(_width,_height,0));
+    Global::scrnQuad.setVertex(3, ofVec3f(0,_height,0));
+    
+    Global::scrnQuad.setTexCoord(0, ofVec2f(0,0));
+    Global::scrnQuad.setTexCoord(1, ofVec2f(_width,0));
+    Global::scrnQuad.setTexCoord(2, ofVec2f(_width,_height));
+    Global::scrnQuad.setTexCoord(3, ofVec2f(0,_height));
+    
+    Global::scrnQuad.draw();
 }

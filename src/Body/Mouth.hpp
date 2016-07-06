@@ -11,28 +11,47 @@
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
+#include "ofxTweenzor.h"
 #include "Constants.h"
 #include "Globals.hpp"
+#include "Util.h"
 
 class Mouth
 {
 public:
     
     void setup(string seqDirPath, string blendDirPath);
-    void play();
-    void stop() { bPlay = false; };
+    void update();
     void draw(const ofTexture& bgMask, const ofTexture& bg);
     
 private:
     
-    void tick();    
+    void genTweakTex();
+    void onTickEvent();
+    void onEatEvent();
+    void onEndEmerge(float* arg);
     
-    bool bPlay;
+    enum STATE
+    {
+        NONE,
+        EMERGE,
+        EATING,
+        RETIRE
+    };
+    STATE state;
+    
+    bool bNeedTickUpdate;
+
+    ofPoint facePosOrig;
+    ofPoint facePosDest;
+    ofPoint curFacePos;    
+    
     int curFrame;
     vector<ofFbo> seq;
     int blendIdx;
     vector<ofTexture> blendTexs;
-    ofShader seqTweak;    
+    ofShader seqTweak;
+    ofFbo tweaker;
 };
 
 #endif /* Mouth_hpp */

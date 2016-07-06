@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxTweenzor.h"
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Util.h"
