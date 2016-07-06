@@ -14,11 +14,17 @@ namespace Global
     float lastTickTime;
     float oneFrameDur;
     
+    APP_STATE appState;
+    
     Kinect kinect;
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
     
+    ofxBox2d box2d;
+    
     ofVboMesh scrnQuad;
+    
+    ofxCv::ContourFinder drawingContourFinder;
     
     // shaders
     ofShader chromaKey;
@@ -27,4 +33,5 @@ namespace Global
     // events
     ofEvent<void> tickEvent;
     ofEvent<void> eatEvent;
+    ofEvent<void> drawEvent;    
 }

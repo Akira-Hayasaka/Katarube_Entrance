@@ -8,13 +8,19 @@ void ofApp::setup()
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
     ofBackground(ofColor::black);
+    ofSetFrameRate(60);
     
     Global::ELAPSED_TIME = ofGetElapsedTimef();
     Global::lastTickTime = Global::ELAPSED_TIME;
     Global::oneFrameDur = 1.0 / CUTOFF_FPS;
+    Global::appState = NONE;
 	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
+    Global::box2d.init();
+    Global::box2d.setGravity(-1.0, 0.0);
+    Global::box2d.createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
+    Global::box2d.setFPS(60);
     Global::scrnQuad.getVertices().resize(4);
     Global::scrnQuad.getTexCoords().resize(4);
     Global::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
@@ -92,6 +98,14 @@ void ofApp::keyPressed(int key)
     if (key == 'e')
     {
         ofNotifyEvent(Global::eatEvent);
+    }
+    if (key == 'd')
+    {
+        if (Global::appState == NONE)
+        {
+            Global::appState = DRAWING;
+            ofNotifyEvent(Global::drawEvent);
+        }
     }
 }
 void ofApp::keyReleased(int key){}
