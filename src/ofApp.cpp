@@ -14,7 +14,11 @@ void ofApp::setup()
     string shaderPath = package.getValue("shaderPath", "");
     package.clear();
     
+#ifdef TARGET_WIN32
+	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
+#else
     Global::chromaKey.load(shaderPath + "/common/simpleVert.vert", shaderPath + "/color/chromaKey.frag");
+#endif
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
     

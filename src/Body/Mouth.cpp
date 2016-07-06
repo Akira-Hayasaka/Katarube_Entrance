@@ -34,7 +34,11 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
     package.load("package.xml");
     string shaderPath = package.getValue("shaderPath", "");
     package.clear();
+#ifdef TARGET_WIN32
+	seqTweak.load("shaders/common/simpleVert.vert", "shaders/scene/seqTweak.frag");
+#else
     seqTweak.load(shaderPath + "/common/simpleVert.vert", shaderPath + "/scene/seqTweak.frag");
+#endif
     
     ofDirectory seqDir(seqDirPath);
     seqDir.listDir();
