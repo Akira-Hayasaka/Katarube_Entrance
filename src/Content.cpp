@@ -13,7 +13,7 @@ void Content::setup()
     fullScreen.allocate(APP_W, APP_H);
     
     ofLoadImage(bgLeft, "imgs/common/bg_left.png");
-    ofLoadImage(bgMaskLeft, "imgs/common/bg_left.png");
+    ofLoadImage(bgMaskLeft, "imgs/common/bgMask_left.png");
     ofLoadImage(bgRight, "imgs/common/bg_right.png");
     ofLoadImage(bgMaskRight, "imgs/common/bgMask_right.png");
     
