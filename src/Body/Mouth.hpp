@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
+#include "Constants.h"
 #include "Globals.hpp"
 
 class Mouth
@@ -20,21 +21,17 @@ public:
     void setup(string seqDirPath, string blendDirPath);
     void play();
     void stop() { bPlay = false; };
-    void update();
     void draw(const ofTexture& bgMask, const ofTexture& bg);
     
 private:
     
-    const int FPS = 12;
+    void tick();    
     
     bool bPlay;
-    float lastTickTime;
-    float oneFrameDur;
     int curFrame;
     vector<ofFbo> seq;
     int blendIdx;
     vector<ofTexture> blendTexs;
-    ofFbo tweaker;
     ofShader seqTweak;    
 };
 

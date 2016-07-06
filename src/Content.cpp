@@ -23,7 +23,7 @@ void Content::setup()
 
 void Content::update()
 {
-    mouth.update();
+
 }
 
 void Content::genFullScreenContent()

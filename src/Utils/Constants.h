@@ -23,4 +23,6 @@ static const float KINECT_MAX_DIST = 400.0;
 static const float KINECT_MIN_DIST = 80.0;
 static const float WARP_TWEAK_SCALE = 0.2;
 
+static const int CUTOFF_FPS = 12;
+
 #endif /* Constants_h */

@@ -9,6 +9,9 @@ void ofApp::setup()
     ofSetVerticalSync(true);
     ofBackground(ofColor::black);
     
+    Global::ELAPSED_TIME = ofGetElapsedTimef();
+    Global::lastTickTime = Global::ELAPSED_TIME;
+    Global::oneFrameDur = 1.0 / CUTOFF_FPS;
 	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
@@ -24,6 +27,12 @@ void ofApp::setup()
 
 void ofApp::update()
 {
+    Global::ELAPSED_TIME = ofGetElapsedTimef();
+    if (Global::ELAPSED_TIME - Global::lastTickTime > Global::oneFrameDur)
+    {
+        ofNotifyEvent(Global::tickEvent);
+        Global::lastTickTime = Global::ELAPSED_TIME;
+    }
     Global::kinect.update();
     content.update();
     gui.update();

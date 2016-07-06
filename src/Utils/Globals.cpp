@@ -10,6 +10,10 @@
 
 namespace Global
 {
+    float ELAPSED_TIME;
+    float lastTickTime;
+    float oneFrameDur;
+    
     Kinect kinect;
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
@@ -17,4 +21,7 @@ namespace Global
     // shaders
     ofShader chromaKey;
     ofShader whitize;
+    
+    // events
+    ofEvent<void> tickEvent;
 }

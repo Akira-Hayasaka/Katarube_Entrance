@@ -28,8 +28,6 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
     settings.popTag();
     settings.clear();
     
-    tweaker.allocate(ofGetWidth(), ofGetHeight());
-    
 	seqTweak.load("shaders/common/simpleVert.vert", "shaders/scene/seqTweak.frag");
     
     ofDirectory seqDir(seqDirPath);
@@ -71,31 +69,27 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
     }
     blendDir.close();
     
+    ofAddListener(Global::tickEvent, this, &Mouth::tick);
+    
     bPlay = false;
     curFrame = 0;
     blendIdx = ofRandom(blendTexs.size()-1);
-    oneFrameDur = 1.0 / FPS;
 }
 
 void Mouth::play()
 {
     bPlay = true;
-    lastTickTime = ofGetElapsedTimef();
 }
 
-void Mouth::update()
+void Mouth::tick()
 {
     if (bPlay)
     {
-        if (ofGetElapsedTimef() - lastTickTime > oneFrameDur)
-        {
-            curFrame++;
-            blendIdx = ofRandom(blendTexs.size()-1);
-            lastTickTime = ofGetElapsedTimef();
-            
-            if (curFrame >= seq.size())
-                curFrame = 0;
-        }
+        curFrame++;
+        blendIdx = ofRandom(blendTexs.size()-1);
+        
+        if (curFrame >= seq.size())
+            curFrame = 0;
     }
 }
 
