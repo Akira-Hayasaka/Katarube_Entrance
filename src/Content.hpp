@@ -21,16 +21,19 @@ public:
     void genFullScreenContent();
     void drawLeft();
     void drawRight();
-    ofTexture& getFullScreenTexture() { return fullScreen.getTexture(); }
+    ofTexture& getFullScreenTexture() { return fullScreenResult.getTexture(); }
     
 private:
     
-    ofFbo fullScreen;
+    void onTickEvent();
     
-    ofTexture bgRight;
-    ofTexture bgMaskRight;
-    ofTexture bgLeft;
-    ofTexture bgMaskLeft;
+    bool bNeedTickUpdate;
+    
+    ofFbo fullScreenResult;
+    ofFbo stopMotionContent;
+    ofFbo bg;
+    ofFbo bgMask;
+    ofShader blendOutput;
     
     Mouth mouth;
 };

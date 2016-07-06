@@ -22,7 +22,7 @@ public:
     
     void setup(string seqDirPath, string blendDirPath);
     void update();
-    void draw(const ofTexture& bgMask, const ofTexture& bg);
+    void draw();
     
 private:
     

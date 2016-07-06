@@ -96,7 +96,7 @@ void Mouth::update()
     }
 }
 
-void Mouth::draw(const ofTexture& bgMask, const ofTexture& bg)
+void Mouth::draw()
 {
     if (state == NONE)
         return;
@@ -104,8 +104,6 @@ void Mouth::draw(const ofTexture& bgMask, const ofTexture& bg)
     seqTweak.begin();
     seqTweak.setUniformTexture("tex0", tweaker.getTexture(), 0);
     seqTweak.setUniformTexture("blendTex", blendTexs.at(blendIdx), 1);
-    seqTweak.setUniformTexture("bgMask", bgMask, 2);
-    seqTweak.setUniformTexture("paperTex", bg, 3);
     drawPlane(tweaker.getWidth(), tweaker.getHeight());
     seqTweak.end();
 }

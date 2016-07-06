@@ -32,6 +32,8 @@ void ofApp::setup()
     gui.setup();
     gui.hide();
     
+    ofNotifyEvent(Global::tickEvent);
+    
     // debug
     bDrawTiny = true;
 }
