@@ -10,6 +10,14 @@
 
 void Kinect::setup()
 {
+    ofxXmlSettings package;
+    package.load("package.xml");
+    bKinectConnected = ofToBool(package.getValue("kinectConnected", "true"));
+    package.clear();
+    
+    if (!bKinectConnected)
+        return;
+    
     // this calculation uses some cpu, leave off if not needed
     device.setRegistration(true);
     
@@ -32,6 +40,9 @@ void Kinect::setup()
 
 void Kinect::update()
 {
+    if (!bKinectConnected)
+        return;
+    
     device.update();
     storeDepthTex();
     threshDepthTex();

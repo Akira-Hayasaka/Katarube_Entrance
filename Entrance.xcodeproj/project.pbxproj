@@ -52,6 +52,8 @@
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		E55DEEF784A10419E444669E /* flags.c in Sources */ = {isa = PBXBuildFile; fileRef = 682082DEC78C75C8FB18B7DB /* flags.c */; };
+		E98303DE1D2C83D100B5333A /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E98303DC1D2C83D100B5333A /* Mouth.cpp */; settings = {ASSET_TAGS = (); }; };
+		E98303E11D2C870300B5333A /* Content.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E98303DF1D2C870300B5333A /* Content.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9EAAC2C1D1B8D1F009C2AF4 /* Warper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9EAAC2A1D1B8D1F009C2AF4 /* Warper.cpp */; settings = {ASSET_TAGS = (); }; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
 		F4135EEFC911E9ED211FB6F9 /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = CF528C0E8DBFF5C31E8D6529 /* core.c */; };
@@ -341,6 +343,10 @@
 		E8D3DA1D321CEADD7481BCC1 /* Kalman.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Kalman.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Kalman.h; sourceTree = SOURCE_ROOT; };
 		E8FFD32E1883966A6C0FC4DC /* GUI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = GUI.cpp; path = src/GUI.cpp; sourceTree = SOURCE_ROOT; };
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
+		E98303DC1D2C83D100B5333A /* Mouth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mouth.cpp; sourceTree = "<group>"; };
+		E98303DD1D2C83D100B5333A /* Mouth.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mouth.hpp; sourceTree = "<group>"; };
+		E98303DF1D2C870300B5333A /* Content.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Content.cpp; sourceTree = "<group>"; };
+		E98303E01D2C870300B5333A /* Content.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Content.hpp; sourceTree = "<group>"; };
 		E9EAAC2A1D1B8D1F009C2AF4 /* Warper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Warper.cpp; path = Utils/Warper.cpp; sourceTree = "<group>"; };
 		E9EAAC2B1D1B8D1F009C2AF4 /* Warper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Warper.hpp; path = Utils/Warper.hpp; sourceTree = "<group>"; };
 		E9F650181D1CB8FE00BF0B20 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Utils/Util.h; sourceTree = "<group>"; };
@@ -1085,8 +1091,11 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				E98303DF1D2C870300B5333A /* Content.cpp */,
+				E98303E01D2C870300B5333A /* Content.hpp */,
 				E8FFD32E1883966A6C0FC4DC /* GUI.cpp */,
 				01343DE8D05D64591A4FDA37 /* GUI.hpp */,
+				E98303DB1D2C83BF00B5333A /* Body */,
 				7F51B1764DB9C6A56597ABF9 /* Kinect */,
 				22D694EE45CCF4B2D2C2377A /* Projector */,
 				85C7093CD15404193A7664FD /* Utils */,
@@ -1101,6 +1110,15 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		E98303DB1D2C83BF00B5333A /* Body */ = {
+			isa = PBXGroup;
+			children = (
+				E98303DC1D2C83D100B5333A /* Mouth.cpp */,
+				E98303DD1D2C83D100B5333A /* Mouth.hpp */,
+			);
+			path = Body;
 			sourceTree = "<group>";
 		};
 		ED6E9BDB447DB965EE6F1FA6 /* src */ = {
@@ -1279,6 +1297,7 @@
 				686B0DF6249B52E1A85B39EC /* ofxKinect.cpp in Sources */,
 				0F8F016776681D468C0D0949 /* audio.c in Sources */,
 				ACE7DC9A3223ED5EE1B80074 /* cameras.c in Sources */,
+				E98303DE1D2C83D100B5333A /* Mouth.cpp in Sources */,
 				F4135EEFC911E9ED211FB6F9 /* core.c in Sources */,
 				E55DEEF784A10419E444669E /* flags.c in Sources */,
 				21A059755481CC0BF969FD2D /* keep_alive.c in Sources */,
@@ -1310,6 +1329,7 @@
 				49283AAADA097BC2A3726A0D /* RunningBackground.cpp in Sources */,
 				51CDEA1C59A1FB01DFE05CF4 /* Tracker.cpp in Sources */,
 				0A096E7C81287CA693A6EFCA /* Utilities.cpp in Sources */,
+				E98303E11D2C870300B5333A /* Content.cpp in Sources */,
 				AA5C0A64CB1F1CD62CC276D6 /* Wrappers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,10 @@ namespace Global
     extern Kinect kinect;
     extern vector<ofMatrix4x4> projMats;
     extern ofMatrix4x4 kinectMat;
+    
+    // shaders
+    extern ofShader chromaKey;
+    extern ofShader whitize;
 }
 
 #endif /* Globals_hpp */

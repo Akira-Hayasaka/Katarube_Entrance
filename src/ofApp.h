@@ -4,6 +4,7 @@
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Util.h"
+#include "Content.hpp"
 #include "GUI.hpp"
 
 class ofApp : public ofBaseApp
@@ -29,9 +30,8 @@ public:
 private:
     
     GUI gui;
+    Content content;
     
     // debug
-    ofTexture fullScrn;
-    ofFbo projFbo1;
-	ofFbo projFbo2;
+    bool bDrawTiny;
 };

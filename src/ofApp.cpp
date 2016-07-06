@@ -9,50 +9,51 @@ void ofApp::setup()
     ofSetVerticalSync(true);
     ofBackground(ofColor::black);
     
+    ofxXmlSettings package;
+    package.load("package.xml");
+    string shaderPath = package.getValue("shaderPath", "");
+    package.clear();
+    
+    Global::chromaKey.load(shaderPath + "/common/simpleVert.vert", shaderPath + "/color/chromaKey.frag");
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
     
+    content.setup();
+    
     gui.setup();
+    gui.hide();
     
     // debug
-    ofLoadImage(fullScrn, "imgs/tweak/fullScreen/gLA9Lde.jpg");
-    projFbo1.allocate(PROJ_W, PROJ_H);
-	projFbo2.allocate(PROJ_W, PROJ_H);
-	projFbo1.begin();
-    ofClear(0);
-    ofPushStyle();
-    ofSetColor(ofColor::blue, 160);
-    ofDrawRectangle(0, 0, projFbo1.getWidth(), projFbo1.getHeight());
-    ofPopStyle();
-	projFbo1.end();
-	projFbo2.begin();
-	ofClear(0);
-	ofPushStyle();
-	ofSetColor(ofColor::cyan, 160);
-	ofDrawRectangle(0, 0, projFbo2.getWidth(), projFbo2.getHeight());
-	ofPopStyle();
-	projFbo2.end();
+    bDrawTiny = true;
 }
 
 void ofApp::update()
 {
     Global::kinect.update();
+    content.update();
     gui.update();
 }
 
 void ofApp::draw()
 {
-    fullScrn.draw(0, 0);
+    content.genFullScreenContent();
     
-    ofPushMatrix();
-    ofMultMatrix(Global::projMats.at(0));
-	projFbo1.draw(0, 0);
-    ofPopMatrix();
-
-	ofPushMatrix();
-	ofMultMatrix(Global::projMats.at(1));
-	projFbo2.draw(0, 0);
-	ofPopMatrix();
+    if (bDrawTiny)
+    {
+        content.getFullScreenTexture().draw(0, 0, APP_W * 0.5, APP_H * 0.5);
+    }
+    else
+    {
+        ofPushMatrix();
+        ofMultMatrix(Global::projMats.at(0));
+        content.drawLeft();
+        ofPopMatrix();
+        
+        ofPushMatrix();
+        ofMultMatrix(Global::projMats.at(1));
+        content.drawRight();
+        ofPopMatrix();
+    }
     
     gui.draw();
     
@@ -69,6 +70,14 @@ void ofApp::keyPressed(int key)
     {
         gui.saveProjWarp();
         gui.saveKinectWarp();
+    }
+    if (key == ' ')
+    {
+        gui.toggleVisible();
+    }
+    if (key == 't')
+    {
+        bDrawTiny = !bDrawTiny;
     }
 }
 void ofApp::keyReleased(int key){}

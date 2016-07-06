@@ -13,4 +13,8 @@ namespace Global
     Kinect kinect;
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
+    
+    // shaders
+    ofShader chromaKey;
+    ofShader whitize;
 }

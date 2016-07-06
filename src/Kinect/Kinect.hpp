@@ -13,6 +13,7 @@
 #include "Constants.h"
 #include "ofxCv.h"
 #include "ofxKinect.h"
+#include "ofxXmlSettings.h"
 
 class Kinect
 {
@@ -42,6 +43,8 @@ private:
     void storeDepthTex();
     void threshDepthTex();
     void makeContours();
+    
+    bool bKinectConnected;
     
     ofxKinect device;
     
