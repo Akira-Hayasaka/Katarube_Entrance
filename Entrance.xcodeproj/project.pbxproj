@@ -109,6 +109,7 @@
 		E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39371227CD3AAB380D698404 /* b2StackAllocator.cpp */; };
 		E814CA271F4690DA492336A7 /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
+		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
 		EBDFF5C1C7D3B5E12E1FA133 /* ofxBox2dRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 507A0EB8580B19CC9A06C575 /* ofxBox2dRect.cpp */; };
 		EFD8C2F9D790A2A0A3D9393B /* b2Island.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63D354DB6D780DF92E336602 /* b2Island.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
@@ -527,6 +528,8 @@
 		E8D3DA1D321CEADD7481BCC1 /* Kalman.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Kalman.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Kalman.h; sourceTree = SOURCE_ROOT; };
 		E8FFD32E1883966A6C0FC4DC /* GUI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GUI.cpp; path = src/GUI.cpp; sourceTree = SOURCE_ROOT; };
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
+		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
+		E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CutoutAnim.hpp; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EB2D37F43E8FDE6BBBCFFAB1 /* ofxBox2dRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBox2dRender.h; path = addons/ofxBox2d/src/ofxBox2dRender.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
@@ -1534,10 +1537,11 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				C49A8442C6E8F2B62DABEA3C /* Content.cpp */,
 				C3578E9E885CBA06E7AA22F7 /* Content.hpp */,
-				266C53B47C491FAC7F7FE6AC /* Body */,
-				18307243BAB6192C5130E2E2 /* Drawing */,
 				E8FFD32E1883966A6C0FC4DC /* GUI.cpp */,
 				01343DE8D05D64591A4FDA37 /* GUI.hpp */,
+				266C53B47C491FAC7F7FE6AC /* Body */,
+				18307243BAB6192C5130E2E2 /* Drawing */,
+				E9F580431D2DDDB4004920FF /* CutoutAnim */,
 				7F51B1764DB9C6A56597ABF9 /* Kinect */,
 				22D694EE45CCF4B2D2C2377A /* Projector */,
 				85C7093CD15404193A7664FD /* Utils */,
@@ -1552,6 +1556,15 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		E9F580431D2DDDB4004920FF /* CutoutAnim */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */,
+				E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */,
+			);
+			path = CutoutAnim;
 			sourceTree = "<group>";
 		};
 		ED6E9BDB447DB965EE6F1FA6 /* src */ = {
@@ -1772,6 +1785,7 @@
 				68CF26ED86C3C10C45460C0F /* Calibration.cpp in Sources */,
 				93E2EE8E227D8C12E41C5F73 /* ContourFinder.cpp in Sources */,
 				28E5678DFAF9790F8DC83D29 /* Distance.cpp in Sources */,
+				E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */,
 				B5568677EC64043366C79D29 /* Flow.cpp in Sources */,
 				FE5143AAAA6EF9952CF9F889 /* Helpers.cpp in Sources */,
 				CE34B79E01EDEFEB1273DE69 /* Kalman.cpp in Sources */,
