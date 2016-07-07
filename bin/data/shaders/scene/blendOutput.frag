@@ -2,6 +2,7 @@
 #pragma include "../common/colTweak.glsl"
 
 uniform sampler2DRect content;
+uniform sampler2DRect cutout;
 uniform sampler2DRect bg;
 uniform sampler2DRect bgMask;
 
@@ -15,6 +16,7 @@ out vec4 outputColor;
 void main()
 {
     vec4 bgMaskPx = texture(bgMask, fsIn.texCoord);
+    vec4 cutoutPx = texture(cutout, fsIn.texCoord);
     vec4 contentPx = texture(content, fsIn.texCoord);
     vec4 paperPx = texture(bg, fsIn.texCoord);	
 
@@ -24,7 +26,9 @@ void main()
     vec4 result = vec4(BlendMultiply(paperPx.rgb, contentPx.rgb), contentPx.a);
 
    	if (contentPx.a == 0.0)
-   		result = paperPx;
+    {
+        result = vec4(BlendColorBurn(paperPx.rgb, cutoutPx.rgb), paperPx.a);
+    }
 
 	outputColor = result;
 }

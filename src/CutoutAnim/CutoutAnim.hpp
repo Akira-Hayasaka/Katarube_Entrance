@@ -11,6 +11,10 @@
 
 #include "ofMain.h"
 #include "Constants.h"
+#include "Globals.hpp"
+#include "Util.h"
+#include "Knife.hpp"
+#include "Portrait.hpp"
 
 class CutoutAnim
 {
@@ -18,14 +22,19 @@ public:
     
     void setup();
     void update();
-    ofTexture& getCutOutTex() { return cutoutFullScreen.getTexture(); }
+    ofTexture& getTexture() { return cutoutFullScreen.getTexture(); }
     
 private:
     
-    ofFbo cutoutFullScreen;
+    void onTickEvent();
     
-    ofTexture test1;
-    ofTexture test2;
+    bool bNeedThickUpdate;
+    
+    ofFbo cutoutFullScreen;
+    ofShader blendCutout;
+    
+    Knife knife;
+    Portrait portrait;
 };
 
 #endif /* CutoutAnim_hpp */

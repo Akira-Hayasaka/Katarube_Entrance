@@ -110,6 +110,8 @@
 		E814CA271F4690DA492336A7 /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
+		E9F580671D2E3626004920FF /* Knife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580651D2E3626004920FF /* Knife.cpp */; settings = {ASSET_TAGS = (); }; };
+		E9F5806A1D2E364A004920FF /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580681D2E364A004920FF /* Portrait.cpp */; settings = {ASSET_TAGS = (); }; };
 		EBDFF5C1C7D3B5E12E1FA133 /* ofxBox2dRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 507A0EB8580B19CC9A06C575 /* ofxBox2dRect.cpp */; };
 		EFD8C2F9D790A2A0A3D9393B /* b2Island.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63D354DB6D780DF92E336602 /* b2Island.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
@@ -530,6 +532,21 @@
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
 		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
 		E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CutoutAnim.hpp; sourceTree = "<group>"; };
+		E9F580571D2E34F7004920FF /* chromaKey.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = chromaKey.frag; sourceTree = "<group>"; };
+		E9F580581D2E34F7004920FF /* whitize.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = whitize.frag; sourceTree = "<group>"; };
+		E9F5805A1D2E34F7004920FF /* colTweak.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = colTweak.glsl; sourceTree = "<group>"; };
+		E9F5805B1D2E34F7004920FF /* defaultVertIn.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = defaultVertIn.glsl; sourceTree = "<group>"; };
+		E9F5805C1D2E34F7004920FF /* header.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = header.glsl; sourceTree = "<group>"; };
+		E9F5805D1D2E34F7004920FF /* simpleFrag.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleFrag.frag; sourceTree = "<group>"; };
+		E9F5805E1D2E34F7004920FF /* simpleVert.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleVert.vert; sourceTree = "<group>"; };
+		E9F580601D2E34F7004920FF /* threshDepth.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = threshDepth.frag; sourceTree = "<group>"; };
+		E9F580621D2E34F7004920FF /* blendOutput.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blendOutput.frag; sourceTree = "<group>"; };
+		E9F580631D2E34F7004920FF /* seqTweak.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = seqTweak.frag; sourceTree = "<group>"; };
+		E9F580641D2E35E4004920FF /* blendCutout.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blendCutout.frag; sourceTree = "<group>"; };
+		E9F580651D2E3626004920FF /* Knife.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knife.cpp; sourceTree = "<group>"; };
+		E9F580661D2E3626004920FF /* Knife.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knife.hpp; sourceTree = "<group>"; };
+		E9F580681D2E364A004920FF /* Portrait.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portrait.cpp; sourceTree = "<group>"; };
+		E9F580691D2E364A004920FF /* Portrait.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portrait.hpp; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EB2D37F43E8FDE6BBBCFFAB1 /* ofxBox2dRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBox2dRender.h; path = addons/ofxBox2d/src/ofxBox2dRender.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
@@ -1522,6 +1539,7 @@
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				E9F580551D2E34F7004920FF /* shaders */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
@@ -1563,8 +1581,63 @@
 			children = (
 				E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */,
 				E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */,
+				E9F580651D2E3626004920FF /* Knife.cpp */,
+				E9F580661D2E3626004920FF /* Knife.hpp */,
+				E9F580681D2E364A004920FF /* Portrait.cpp */,
+				E9F580691D2E364A004920FF /* Portrait.hpp */,
 			);
 			path = CutoutAnim;
+			sourceTree = "<group>";
+		};
+		E9F580551D2E34F7004920FF /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580561D2E34F7004920FF /* color */,
+				E9F580591D2E34F7004920FF /* common */,
+				E9F5805F1D2E34F7004920FF /* kinect */,
+				E9F580611D2E34F7004920FF /* scene */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
+			sourceTree = "<group>";
+		};
+		E9F580561D2E34F7004920FF /* color */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580571D2E34F7004920FF /* chromaKey.frag */,
+				E9F580581D2E34F7004920FF /* whitize.frag */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		E9F580591D2E34F7004920FF /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5805A1D2E34F7004920FF /* colTweak.glsl */,
+				E9F5805B1D2E34F7004920FF /* defaultVertIn.glsl */,
+				E9F5805C1D2E34F7004920FF /* header.glsl */,
+				E9F5805D1D2E34F7004920FF /* simpleFrag.frag */,
+				E9F5805E1D2E34F7004920FF /* simpleVert.vert */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		E9F5805F1D2E34F7004920FF /* kinect */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580601D2E34F7004920FF /* threshDepth.frag */,
+			);
+			path = kinect;
+			sourceTree = "<group>";
+		};
+		E9F580611D2E34F7004920FF /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				E9F580621D2E34F7004920FF /* blendOutput.frag */,
+				E9F580631D2E34F7004920FF /* seqTweak.frag */,
+				E9F580641D2E35E4004920FF /* blendCutout.frag */,
+			);
+			path = scene;
 			sourceTree = "<group>";
 		};
 		ED6E9BDB447DB965EE6F1FA6 /* src */ = {
@@ -1800,6 +1873,7 @@
 				81CF3452514E277D618CCE6C /* ofxBox2dBaseShape.cpp in Sources */,
 				183A990A0AFBFC18FE402FE8 /* ofxBox2dCircle.cpp in Sources */,
 				265B78338B902415AF8F2009 /* ofxBox2dConvexPoly.cpp in Sources */,
+				E9F580671D2E3626004920FF /* Knife.cpp in Sources */,
 				4B5D0C27188486880D9D65D7 /* ofxBox2dEdge.cpp in Sources */,
 				5C000F6A913942F2EDD75270 /* ofxBox2dJoint.cpp in Sources */,
 				BCDE5B6CD0B4145C12DD0E66 /* ofxBox2dPolygon.cpp in Sources */,
@@ -1810,6 +1884,7 @@
 				FC940DCEE0310981C31BCC5E /* b2CollidePolygon.cpp in Sources */,
 				B1EEA4B769058452444AA3DE /* b2Collision.cpp in Sources */,
 				D2AF5A7B9ABAF0B61745B4EB /* b2Distance.cpp in Sources */,
+				E9F5806A1D2E364A004920FF /* Portrait.cpp in Sources */,
 				9204824A48770F4C3AC03337 /* b2DynamicTree.cpp in Sources */,
 				DFF9D1DACF1263D7C685870F /* b2TimeOfImpact.cpp in Sources */,
 				60CD30FECD0E8666AD2719A3 /* b2ChainShape.cpp in Sources */,

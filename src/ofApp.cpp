@@ -7,7 +7,7 @@ void ofApp::setup()
 	ofToggleFullscreen();
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
-    ofBackground(ofColor::black);
+    ofBackground(ofColor::gray);
     ofSetFrameRate(60);
     
     Global::ELAPSED_TIME = ofGetElapsedTimef();

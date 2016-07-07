@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "Mouth.hpp"
+#include "CutoutAnim.hpp"
 
 class Content
 {
@@ -36,6 +37,8 @@ private:
     ofShader blendOutput;
     
     Mouth mouth;
+    
+    CutoutAnim cutout;
 };
 
 #endif /* Content_hpp */
