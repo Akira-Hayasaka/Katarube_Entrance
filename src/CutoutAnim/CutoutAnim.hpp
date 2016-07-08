@@ -28,8 +28,6 @@ private:
     
     void onTickEvent();
     
-    bool bNeedThickUpdate;
-    
     ofFbo cutoutFullScreen;
     ofShader blendCutout;
     

@@ -78,3 +78,17 @@ static void drawPlane(float _width, float _height)
     
     Global::scrnQuad.draw();
 }
+
+static void saveImage(ofTexture t, string path, float pct = 1.0)
+{
+    ofFbo fbo;
+    fbo.allocate(t.getWidth(), t.getHeight());
+    fbo.begin();
+    ofClear(0);
+    t.draw(0, 0);
+    fbo.end();
+    ofPixels p;
+    fbo.readToPixels(p);
+    p.resize(p.getWidth() * pct, p.getHeight() * pct);
+    ofSaveImage(p, path);
+}

@@ -16,26 +16,31 @@ void Content::setup()
     bgMask.allocate(APP_W, APP_H);
     blendOutput.load("shaders/common/simpleVert.vert", "shaders/scene/blendOutput.frag");
     
-    ofTexture bgRight;
-    ofTexture bgMaskRight;
-    ofTexture bgLeft;
-    ofTexture bgMaskLeft;
-    ofLoadImage(bgLeft, "imgs/common/bg_left.png");
-    ofLoadImage(bgMaskLeft, "imgs/common/bgMask_left.png");
-    ofLoadImage(bgRight, "imgs/common/bg_right.png");
-    ofLoadImage(bgMaskRight, "imgs/common/bgMask_right.png");
+//    ofTexture bgRight;
+//    ofTexture bgMaskRight;
+//    ofTexture bgLeft;
+//    ofTexture bgMaskLeft;
+//    ofLoadImage(bgLeft, "imgs/common/bg_left.png");
+//    ofLoadImage(bgMaskLeft, "imgs/common/bgMask_left.png");
+//    ofLoadImage(bgRight, "imgs/common/bg_right.png");
+//    ofLoadImage(bgMaskRight, "imgs/common/bgMask_right.png");
     
+    ofTexture bg_s;
+    ofTexture bgMask_s;
+    ofLoadImage(bg_s, "imgs/common/bg_s.png");
+    ofLoadImage(bgMask_s, "imgs/common/bgMask_s.png");
+    
+    ofSetRectMode(OF_RECTMODE_CENTER);
     bg.begin();
     ofClear(0);
-    bgLeft.draw(0, 0);
-    bgRight.draw(PROJ_W, 0);
+    bg_s.draw(APP_W/2, APP_H/2);
     bg.end();
     
     bgMask.begin();
     ofClear(0);
-    bgMaskLeft.draw(0, 0);
-    bgMaskRight.draw(PROJ_W, 0);
+    bgMask_s.draw(APP_W/2, APP_H/2);
     bgMask.end();
+    ofSetRectMode(OF_RECTMODE_CORNER);
     
     mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
     
@@ -89,7 +94,7 @@ void Content::genFullScreenContent()
 
 void Content::drawLeft()
 {
-    cutout.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
+    fullScreenResult.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
 }
 
 void Content::drawRight()
@@ -100,4 +105,24 @@ void Content::drawRight()
 void Content::onTickEvent()
 {
     bNeedTickUpdate = true;
+}
+
+void Content::saveScreen()
+{
+    fullScreenResult.begin();
+    ofClear(0);
+    bg.draw(0, 0);
+    fullScreenResult.end();
+    
+    ofPixels px;
+    fullScreenResult.readToPixels(px);
+    ofSaveImage(px, "imgs/saved/bg.png");
+    
+    fullScreenResult.begin();
+    ofClear(0);
+    bgMask.draw(0, 0);
+    fullScreenResult.end();
+    
+    fullScreenResult.readToPixels(px);
+    ofSaveImage(px, "imgs/saved/bgMask.png");
 }

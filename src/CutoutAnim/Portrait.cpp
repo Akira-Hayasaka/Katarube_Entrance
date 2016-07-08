@@ -28,22 +28,68 @@ void Portrait::setup()
     dir.close();
     
     ofAddListener(Global::tickEvent, this, &Portrait::onTickEvent);
-    bNeedTickUpdate = false;
+    ofAddListener(Global::portraitOnePlaceEvent, this, &Portrait::onPortraitOnePlaceEvent);
+    
+    texIdx = 0;
+    
+    pattern = NONE;
+    clearScrn();
 }
 
 void Portrait::update()
 {
-    if (bNeedTickUpdate)
-    {
-        scrn.begin();
-        ofClear(255);
-        texs.at(0).draw(500, 500);
-        scrn.end();
-        bNeedTickUpdate = false;
-    }
+
 }
 
 void Portrait::onTickEvent()
 {
-    bNeedTickUpdate = true;
+    if (pattern == ONEPLACE)
+    {
+        if (Global::curTickFrame - lastOneFrameTick > onPlaceFrameDur)
+        {
+            texIdx++;
+            onPlaceFrameDur = ofRandom(10);
+            lastOneFrameTick = Global::curTickFrame;
+        }
+        
+        ofVec2f rdmPos(onePlacePos.x + ofRandom(-5, 5), onePlacePos.y + ofRandom(-5, 5));
+        ofVec2f rdmScale(ofRandom(0.77, 0.8), ofRandom(0.77, 0.8));
+        scrn.begin();
+        ofClear(255);
+        ofSetRectMode(OF_RECTMODE_CENTER);
+        ofPushMatrix();
+        ofTranslate(rdmPos);
+        ofScale(rdmScale);
+        texs.at(texIdx).draw(0, 0);
+        ofPopMatrix();
+        ofSetRectMode(OF_RECTMODE_CORNER);
+        scrn.end();
+        
+        if (texIdx >= texs.size() - 1)
+        {
+            texIdx = 0;
+            clearScrn();
+            pattern = NONE;
+        }
+    }
+}
+
+void Portrait::clearScrn()
+{
+    scrn.begin();
+    ofClear(255);
+    scrn.end();
+}
+
+void Portrait::onPortraitOnePlaceEvent()
+{
+    if (pattern == NONE)
+    {
+        pattern = ONEPLACE;
+        beginTickFrame = Global::curTickFrame;
+        lastOneFrameTick = Global::curTickFrame;
+        onPlaceFrameDur = ofRandom(3);
+        ofRandomize(texs);
+        onePlacePos.set(ofRandom(370, 3440), ofRandom(370, 790));
+    }
 }

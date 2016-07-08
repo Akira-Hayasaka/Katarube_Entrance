@@ -24,6 +24,8 @@ public:
     void drawRight();
     ofTexture& getFullScreenTexture() { return fullScreenResult.getTexture(); }
     
+    void saveScreen();
+    
 private:
     
     void onTickEvent();

@@ -25,22 +25,17 @@ void CutoutAnim::update()
 {
     knife.update();
     portrait.update();
-    
-    if (bNeedThickUpdate)
-    {
-        cutoutFullScreen.begin();
-        ofClear(0);
-        blendCutout.begin();
-        blendCutout.setUniformTexture("knife", knife.getTexture(), 0);
-        blendCutout.setUniformTexture("portrait", portrait.getTexture(), 1);
-        drawPlane(cutoutFullScreen.getWidth(), cutoutFullScreen.getHeight());
-        blendCutout.end();
-        cutoutFullScreen.end();
-        bNeedThickUpdate = false;
-    }
 }
 
 void CutoutAnim::onTickEvent()
 {
-    bNeedThickUpdate = true;
+    cutoutFullScreen.begin();
+    ofClear(0);
+    blendCutout.begin();
+    blendCutout.setUniformTexture("knife", knife.getTexture(), 0);
+    blendCutout.setUniformTexture("portrait", portrait.getTexture(), 1);
+    blendCutout.setUniform3f("rdmForPortrait", ofRandom(-0.05, 0.05), ofRandom(-0.05, 0.05), ofRandom(-0.05, 0.05));
+    drawPlane(cutoutFullScreen.getWidth(), cutoutFullScreen.getHeight());
+    blendCutout.end();
+    cutoutFullScreen.end();
 }

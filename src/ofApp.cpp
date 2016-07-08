@@ -7,12 +7,13 @@ void ofApp::setup()
 	ofToggleFullscreen();
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
-    ofBackground(ofColor::gray);
+    ofBackground(ofColor::black);
     ofSetFrameRate(60);
     
     Global::ELAPSED_TIME = ofGetElapsedTimef();
-    Global::lastTickTime = Global::ELAPSED_TIME;
     Global::oneFrameDur = 1.0 / CUTOFF_FPS;
+    Global::lastTickTime = Global::ELAPSED_TIME;
+    Global::curTickFrame = 0;
     Global::appState = NONE;
 	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
     Global::kinect.setup();
@@ -46,6 +47,7 @@ void ofApp::update()
     {
         ofNotifyEvent(Global::tickEvent);
         Global::lastTickTime = Global::ELAPSED_TIME;
+        Global::curTickFrame++;
     }
     Global::kinect.update();
     content.update();
@@ -108,6 +110,14 @@ void ofApp::keyPressed(int key)
             Global::appState = DRAWING;
             ofNotifyEvent(Global::drawEvent);
         }
+    }
+    if (key == 's')
+    {
+        content.saveScreen();
+    }
+    if (key == 'p')
+    {
+        ofNotifyEvent(Global::portraitOnePlaceEvent);
     }
 }
 void ofApp::keyReleased(int key){}

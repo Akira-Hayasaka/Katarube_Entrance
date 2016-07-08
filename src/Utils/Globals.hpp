@@ -23,8 +23,9 @@ enum APP_STATE
 namespace Global
 {
     extern float ELAPSED_TIME;
+    extern float oneFrameDur;    
     extern float lastTickTime;
-    extern float oneFrameDur;
+    extern long curTickFrame;
     
     extern APP_STATE appState;
     
@@ -46,6 +47,8 @@ namespace Global
     extern ofEvent<void> tickEvent;
     extern ofEvent<void> eatEvent;
     extern ofEvent<void> drawEvent;
+    
+    extern ofEvent<void> portraitOnePlaceEvent;
 }
 
 #endif /* Globals_hpp */

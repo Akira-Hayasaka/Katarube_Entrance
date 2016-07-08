@@ -11,8 +11,9 @@
 namespace Global
 {
     float ELAPSED_TIME;
+    float oneFrameDur;    
     float lastTickTime;
-    float oneFrameDur;
+    long curTickFrame;
     
     APP_STATE appState;
     
@@ -33,5 +34,7 @@ namespace Global
     // events
     ofEvent<void> tickEvent;
     ofEvent<void> eatEvent;
-    ofEvent<void> drawEvent;    
+    ofEvent<void> drawEvent;
+    
+    ofEvent<void> portraitOnePlaceEvent;
 }
