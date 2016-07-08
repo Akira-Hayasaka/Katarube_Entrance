@@ -26,7 +26,12 @@ void main()
     vec4 result = vec4(BlendMultiply(paperPx.rgb, contentPx.rgb), contentPx.a);
 
    	if (contentPx.a == 0.0)
-        result = vec4(BlendColorBurn(paperPx.rgb, cutoutPx.rgb), paperPx.a);
+    {
+        if (bgMaskPx.a == 0.0)
+            result = paperPx;
+        else
+            result = vec4(BlendColorBurn(paperPx.rgb, cutoutPx.rgb), paperPx.a);
+    }
 
 	outputColor = result;
 }

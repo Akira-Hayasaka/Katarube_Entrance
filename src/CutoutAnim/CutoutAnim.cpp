@@ -17,8 +17,6 @@ void CutoutAnim::setup()
     portrait.setup();
     
     ofAddListener(Global::tickEvent, this, &CutoutAnim::onTickEvent);
-    
-    bNeedThickUpdate = false;
 }
 
 void CutoutAnim::update()

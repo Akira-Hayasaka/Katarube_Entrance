@@ -117,7 +117,8 @@ void ofApp::keyPressed(int key)
     }
     if (key == 'p')
     {
-        ofNotifyEvent(Global::portraitOnePlaceEvent);
+//        ofNotifyEvent(Global::portraitOnePlaceEvent);
+        ofNotifyEvent(Global::portraitHorizEvent);
     }
 }
 void ofApp::keyReleased(int key){}

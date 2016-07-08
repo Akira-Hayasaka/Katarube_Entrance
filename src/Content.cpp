@@ -27,20 +27,18 @@ void Content::setup()
     
     ofTexture bg_s;
     ofTexture bgMask_s;
-    ofLoadImage(bg_s, "imgs/common/bg_s.png");
-    ofLoadImage(bgMask_s, "imgs/common/bgMask_s.png");
+    ofLoadImage(bg_s, "imgs/common/bg_2.png");
+    ofLoadImage(bgMask_s, "imgs/common/bgMask_2.png");
     
-    ofSetRectMode(OF_RECTMODE_CENTER);
     bg.begin();
     ofClear(0);
-    bg_s.draw(APP_W/2, APP_H/2);
+    bg_s.draw(0, 0);
     bg.end();
     
     bgMask.begin();
     ofClear(0);
-    bgMask_s.draw(APP_W/2, APP_H/2);
+    bgMask_s.draw(0, 0);
     bgMask.end();
-    ofSetRectMode(OF_RECTMODE_CORNER);
     
     mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
     
@@ -81,13 +79,13 @@ void Content::genFullScreenContent()
     drawPlane(APP_W, APP_H);
     blendOutput.end();
     
-    if (Global::ELAPSED_TIME - Global::lastTickTime < 0.04)
-    {
-        ofPushStyle();
-        ofSetColor(ofColor::gray, 5);
-        bgMask.draw(0, 0);
-        ofPopStyle();
-    }
+//    if (Global::ELAPSED_TIME - Global::lastTickTime < 0.04)
+//    {
+//        ofPushStyle();
+//        ofSetColor(ofColor::gray, 5);
+//        bgMask.draw(0, 0);
+//        ofPopStyle();
+//    }
     
     fullScreenResult.end();
 }

@@ -37,4 +37,5 @@ namespace Global
     ofEvent<void> drawEvent;
     
     ofEvent<void> portraitOnePlaceEvent;
+    ofEvent<void> portraitHorizEvent;    
 }

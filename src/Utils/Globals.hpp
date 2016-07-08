@@ -49,6 +49,7 @@ namespace Global
     extern ofEvent<void> drawEvent;
     
     extern ofEvent<void> portraitOnePlaceEvent;
+    extern ofEvent<void> portraitHorizEvent;
 }
 
 #endif /* Globals_hpp */
