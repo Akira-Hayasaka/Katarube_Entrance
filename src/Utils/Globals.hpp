@@ -34,10 +34,11 @@ namespace Global
     extern ofMatrix4x4 kinectMat;
     
     extern ofxBox2d box2d;
+    extern ofPolyline b2dEdge;
     
     extern ofVboMesh scrnQuad;
     
-    extern ofxCv::ContourFinder drawingContourFinder;
+    extern ofxCv::ContourFinder globalContourFinder;
     
     // shaders
     extern ofShader chromaKey;
@@ -50,6 +51,7 @@ namespace Global
     
     extern ofEvent<void> portraitOnePlaceEvent;
     extern ofEvent<void> portraitHorizEvent;
+    extern ofEvent<void> portraitVertEvent;
 }
 
 #endif /* Globals_hpp */

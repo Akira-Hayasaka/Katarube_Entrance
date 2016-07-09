@@ -22,10 +22,11 @@ namespace Global
     ofMatrix4x4 kinectMat;
     
     ofxBox2d box2d;
+    ofPolyline b2dEdge;
     
     ofVboMesh scrnQuad;
     
-    ofxCv::ContourFinder drawingContourFinder;
+    ofxCv::ContourFinder globalContourFinder;
     
     // shaders
     ofShader chromaKey;
@@ -37,5 +38,6 @@ namespace Global
     ofEvent<void> drawEvent;
     
     ofEvent<void> portraitOnePlaceEvent;
-    ofEvent<void> portraitHorizEvent;    
+    ofEvent<void> portraitHorizEvent;
+    ofEvent<void> portraitVertEvent;
 }

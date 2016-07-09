@@ -75,6 +75,8 @@ void ofApp::draw()
         ofPopMatrix();
     }
     
+    if (gui.isVisible())
+        content.drawB2DEdge();
     gui.draw();
     
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate(), 2), 10, ofGetHeight()-20);
@@ -118,7 +120,8 @@ void ofApp::keyPressed(int key)
     if (key == 'p')
     {
 //        ofNotifyEvent(Global::portraitOnePlaceEvent);
-        ofNotifyEvent(Global::portraitHorizEvent);
+//        ofNotifyEvent(Global::portraitHorizEvent);
+        ofNotifyEvent(Global::portraitVertEvent);
     }
 }
 void ofApp::keyReleased(int key){}

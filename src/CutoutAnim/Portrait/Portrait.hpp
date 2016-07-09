@@ -13,12 +13,18 @@
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Util.h"
-#include "ofxTweenzor.h"
+#include "PortraitTexture.hpp"
 
 static bool compareHeight(const ofTexture& p1, const ofTexture& p2)
 {
     return p1.getHeight() < p2.getHeight();
 }
+
+struct BottomLineAndAng
+{
+    ofPoint p;
+    float ang;
+};
 
 class Portrait
 {
@@ -34,8 +40,8 @@ private:
     void onTickEvent();
     void onPortraitOnePlaceEvent();
     void onPortraitHorizEvent();
-    void beginShake(ofPoint pos, float scaleF = 1.0);
-    void endShake();
+    void onPortraitVertEvent();
+    void checkDone();
     
     enum PATTERN
     {
@@ -49,31 +55,22 @@ private:
     PATTERN pattern;
     
     ofFbo scrn;
-    vector<ofTexture> texs;
+    vector<PortraitTexture> texs;
+    vector<PortraitTexture*> workingTexs;
     int texIdx;
     
     long beginTickFrame;
     long lastOneFrameTick;    
     
     // one place
-    ofPoint onePlacePos;
     int onPlaceFrameDur;
     
     // horiz
-    vector<ofPoint> horizFroms;
-    vector<ofPoint> horizTos;
-    vector<ofPoint> curHorizPos;
     int horizRot;
     ofPoint horizRotCen;
-    int horizStartIdx;
-    int horixStartInterval;
-    int horizFinishCnt;
-    void onEndOneHorizMovement(float* arg);
     
     // vert
-    vector<ofPoint> vertFroms;
-    vector<ofPoint> vertTos;
-    vector<ofPoint> curVertPoss;
+    vector<BottomLineAndAng> bottomLineAndAngs;
 };
 
 #endif /* Portrait_hpp */

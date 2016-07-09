@@ -22,7 +22,9 @@ public:
     void genFullScreenContent();
     void drawLeft();
     void drawRight();
+    void drawB2DEdge();
     ofTexture& getFullScreenTexture() { return fullScreenResult.getTexture(); }
+    ofPolyline& getB2DEdge() { return b2dEdge; }
     
     void saveScreen();
     
@@ -37,6 +39,7 @@ private:
     ofFbo bg;
     ofFbo bgMask;
     ofShader blendOutput;
+    ofPolyline b2dEdge;
     
     Mouth mouth;
     

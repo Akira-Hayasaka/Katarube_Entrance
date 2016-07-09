@@ -26,6 +26,7 @@ public:
     void toggleVisible() { bHide = !bHide; }
     void hide() { bHide = true; }
     void show() { bHide = false; }
+    bool isVisible() { return !bHide; }
     
     void saveProjWarp();
     void saveKinectWarp();

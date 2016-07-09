@@ -108,10 +108,11 @@
 		E55DEEF784A10419E444669E /* flags.c in Sources */ = {isa = PBXBuildFile; fileRef = 682082DEC78C75C8FB18B7DB /* flags.c */; };
 		E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39371227CD3AAB380D698404 /* b2StackAllocator.cpp */; };
 		E814CA271F4690DA492336A7 /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */; };
+		E93187881D30A776004A448F /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93187861D30A776004A448F /* Portrait.cpp */; settings = {ASSET_TAGS = (); }; };
+		E931878B1D30A785004A448F /* PortraitTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93187891D30A785004A448F /* PortraitTexture.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9F580671D2E3626004920FF /* Knife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580651D2E3626004920FF /* Knife.cpp */; settings = {ASSET_TAGS = (); }; };
-		E9F5806A1D2E364A004920FF /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580681D2E364A004920FF /* Portrait.cpp */; settings = {ASSET_TAGS = (); }; };
 		EBDFF5C1C7D3B5E12E1FA133 /* ofxBox2dRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 507A0EB8580B19CC9A06C575 /* ofxBox2dRect.cpp */; };
 		EFD8C2F9D790A2A0A3D9393B /* b2Island.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63D354DB6D780DF92E336602 /* b2Island.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
@@ -453,7 +454,7 @@
 		C3440977BC423D786EDC40C5 /* Tweenzor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Tweenzor.cpp; path = addons/ofxTweenzor/src/Tweenzor.cpp; sourceTree = SOURCE_ROOT; };
 		C3578E9E885CBA06E7AA22F7 /* Content.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Content.hpp; path = src/Content.hpp; sourceTree = SOURCE_ROOT; };
 		C362FD421E9C5E4962E410EB /* dynamic_smem.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dynamic_smem.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/dynamic_smem.hpp; sourceTree = SOURCE_ROOT; };
-		C49A8442C6E8F2B62DABEA3C /* Content.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Content.cpp; path = src/Content.cpp; sourceTree = SOURCE_ROOT; };
+		C49A8442C6E8F2B62DABEA3C /* Content.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Content.cpp; path = src/Content.cpp; sourceTree = SOURCE_ROOT; };
 		C4BA8097B54C90163F99F5C1 /* transform_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = transform_detail.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/detail/transform_detail.hpp; sourceTree = SOURCE_ROOT; };
 		C4FB85020773DA0F09B8B6CE /* ts_gtest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ts_gtest.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/ts/ts_gtest.h; sourceTree = SOURCE_ROOT; };
 		C6151136D101F857DAE12722 /* ofxCvImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvImage.cpp; sourceTree = SOURCE_ROOT; };
@@ -514,7 +515,7 @@
 		E47212625D1E8AA322812DB4 /* b2CircleShape.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = b2CircleShape.h; path = addons/ofxBox2d/libs/Box2D/Collision/Shapes/b2CircleShape.h; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* EntranceDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntranceDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -530,6 +531,10 @@
 		E8D3DA1D321CEADD7481BCC1 /* Kalman.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Kalman.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Kalman.h; sourceTree = SOURCE_ROOT; };
 		E8FFD32E1883966A6C0FC4DC /* GUI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GUI.cpp; path = src/GUI.cpp; sourceTree = SOURCE_ROOT; };
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
+		E93187861D30A776004A448F /* Portrait.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portrait.cpp; sourceTree = "<group>"; };
+		E93187871D30A776004A448F /* Portrait.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portrait.hpp; sourceTree = "<group>"; };
+		E93187891D30A785004A448F /* PortraitTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortraitTexture.cpp; sourceTree = "<group>"; };
+		E931878A1D30A785004A448F /* PortraitTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PortraitTexture.hpp; sourceTree = "<group>"; };
 		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
 		E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CutoutAnim.hpp; sourceTree = "<group>"; };
 		E9F580571D2E34F7004920FF /* chromaKey.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = chromaKey.frag; sourceTree = "<group>"; };
@@ -545,8 +550,6 @@
 		E9F580641D2E35E4004920FF /* blendCutout.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blendCutout.frag; sourceTree = "<group>"; };
 		E9F580651D2E3626004920FF /* Knife.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knife.cpp; sourceTree = "<group>"; };
 		E9F580661D2E3626004920FF /* Knife.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knife.hpp; sourceTree = "<group>"; };
-		E9F580681D2E364A004920FF /* Portrait.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portrait.cpp; sourceTree = "<group>"; };
-		E9F580691D2E364A004920FF /* Portrait.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portrait.hpp; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EB2D37F43E8FDE6BBBCFFAB1 /* ofxBox2dRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBox2dRender.h; path = addons/ofxBox2d/src/ofxBox2dRender.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
@@ -1576,6 +1579,17 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
+		E93187851D30A776004A448F /* Portrait */ = {
+			isa = PBXGroup;
+			children = (
+				E93187861D30A776004A448F /* Portrait.cpp */,
+				E93187871D30A776004A448F /* Portrait.hpp */,
+				E93187891D30A785004A448F /* PortraitTexture.cpp */,
+				E931878A1D30A785004A448F /* PortraitTexture.hpp */,
+			);
+			path = Portrait;
+			sourceTree = "<group>";
+		};
 		E9F580431D2DDDB4004920FF /* CutoutAnim */ = {
 			isa = PBXGroup;
 			children = (
@@ -1583,8 +1597,7 @@
 				E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */,
 				E9F580651D2E3626004920FF /* Knife.cpp */,
 				E9F580661D2E3626004920FF /* Knife.hpp */,
-				E9F580681D2E364A004920FF /* Portrait.cpp */,
-				E9F580691D2E364A004920FF /* Portrait.hpp */,
+				E93187851D30A776004A448F /* Portrait */,
 			);
 			path = CutoutAnim;
 			sourceTree = "<group>";
@@ -1884,10 +1897,11 @@
 				FC940DCEE0310981C31BCC5E /* b2CollidePolygon.cpp in Sources */,
 				B1EEA4B769058452444AA3DE /* b2Collision.cpp in Sources */,
 				D2AF5A7B9ABAF0B61745B4EB /* b2Distance.cpp in Sources */,
-				E9F5806A1D2E364A004920FF /* Portrait.cpp in Sources */,
+				E93187881D30A776004A448F /* Portrait.cpp in Sources */,
 				9204824A48770F4C3AC03337 /* b2DynamicTree.cpp in Sources */,
 				DFF9D1DACF1263D7C685870F /* b2TimeOfImpact.cpp in Sources */,
 				60CD30FECD0E8666AD2719A3 /* b2ChainShape.cpp in Sources */,
+				E931878B1D30A785004A448F /* PortraitTexture.cpp in Sources */,
 				B4B76E46FC7FF19845195506 /* b2CircleShape.cpp in Sources */,
 				169BEBBC8D7FEE14821E4F68 /* b2EdgeShape.cpp in Sources */,
 				ACADEB65CF736630E85C2212 /* b2PolygonShape.cpp in Sources */,
