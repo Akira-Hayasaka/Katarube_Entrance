@@ -56,6 +56,24 @@ void Content::setup()
     b2dEdge = b2dEdge.getResampledByCount(200);
     Global::b2dEdge = b2dEdge;
     
+    for (int i = 0; i < b2dEdge.getVertices().size(); i++)
+    {
+        ofVec2f perp;
+        if (i == b2dEdge.getVertices().size()-1)
+            perp = ofVec2f(b2dEdge.getVertices().at(i) - b2dEdge.getVertices().at(0)).getPerpendicular();
+        else
+            perp = ofVec2f(b2dEdge.getVertices().at(i) - b2dEdge.getVertices().at(i+1)).getPerpendicular();
+        
+        float ang = ofVec2f(0, -1).angle(perp);
+        if (fabs(ang) < 90)
+        {
+            BottomLineAndAng ba;
+            ba.p = b2dEdge.getVertices().at(i);
+            ba.ang = ang;
+            Global::bottomLineAndAngs.push_back(ba);
+        }
+    }
+    
     mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
     
     cutout.setup();

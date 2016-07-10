@@ -23,7 +23,7 @@ public:
     ofPoint getCur() { return cur; }
     
     bool isDone() { return bDone; }
-    void doOnePlace(ofPoint cur);
+    void doOnePlace(ofPoint cur, float ang);
     void doHoriz(int idx,
                  ofPoint from, ofPoint to, ofPoint cur);
     void doVert(int idx, float ang,

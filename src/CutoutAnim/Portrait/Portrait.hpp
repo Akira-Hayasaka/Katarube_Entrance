@@ -20,12 +20,6 @@ static bool compareHeight(const ofTexture& p1, const ofTexture& p2)
     return p1.getHeight() < p2.getHeight();
 }
 
-struct BottomLineAndAng
-{
-    ofPoint p;
-    float ang;
-};
-
 class Portrait
 {
 public:
@@ -48,9 +42,7 @@ private:
         NONE,
         ONEPLACE,
         HORIZ,
-        VERT,
-        FLIP,
-        TILE
+        VERT
     };
     PATTERN pattern;
     
@@ -64,13 +56,14 @@ private:
     
     // one place
     int onPlaceFrameDur;
+    float onePlaceAng;
     
     // horiz
     int horizRot;
     ofPoint horizRotCen;
     
     // vert
-    vector<BottomLineAndAng> bottomLineAndAngs;
+    vector<BottomLineAndAng> bottomLineAndAngSimplified;
 };
 
 #endif /* Portrait_hpp */

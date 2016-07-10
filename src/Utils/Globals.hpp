@@ -20,6 +20,12 @@ enum APP_STATE
     DRAWING
 };
 
+struct BottomLineAndAng
+{
+    ofPoint p;
+    float ang;
+};
+
 namespace Global
 {
     extern float ELAPSED_TIME;
@@ -35,6 +41,7 @@ namespace Global
     
     extern ofxBox2d box2d;
     extern ofPolyline b2dEdge;
+    extern vector<BottomLineAndAng> bottomLineAndAngs;
     
     extern ofVboMesh scrnQuad;
     

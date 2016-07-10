@@ -92,3 +92,18 @@ static void saveImage(ofTexture t, string path, float pct = 1.0)
     p.resize(p.getWidth() * pct, p.getHeight() * pct);
     ofSaveImage(p, path);
 }
+
+static float getNearestPt(const vector<ofPoint> pts, const ofPoint& target, int& ptIdx)
+{
+    float bestDistance = 0.0;
+    for (int i = 0; i < pts.size(); i++)
+    {
+        float distance = target.distance(pts.at(i));
+        if (distance < bestDistance || i == 0)
+        {
+            bestDistance = distance;
+            ptIdx = i;
+        }
+    }
+    return bestDistance;
+}

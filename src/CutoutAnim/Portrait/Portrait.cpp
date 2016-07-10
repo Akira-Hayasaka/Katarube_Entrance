@@ -28,7 +28,6 @@ void Portrait::setup()
     dir.close();
     
     ofPolyline b2dEdgeTweak = Global::b2dEdge;
-//    b2dEdgeTweak = b2dEdgeTweak.getResampledByCount(texs.size() * 2);
     for (int i = 0; i < b2dEdgeTweak.getVertices().size(); i++)
     {
         ofVec2f perp;
@@ -43,7 +42,7 @@ void Portrait::setup()
             BottomLineAndAng ba;
             ba.p = b2dEdgeTweak.getVertices().at(i);
             ba.ang = ang;
-            bottomLineAndAngs.push_back(ba);
+            bottomLineAndAngSimplified.push_back(ba);
         }
     }
     
@@ -128,8 +127,15 @@ void Portrait::onPortraitOnePlaceEvent()
         lastOneFrameTick = Global::curTickFrame;
         onPlaceFrameDur = ofRandom(3);
         ofRandomize(texs);
+        ofPoint rdmPos(ofRandom(370, 3440), ofRandom(370, 790));
+        int nearestIdx = 0;
+        vector<ofPoint> btmLine;
+        for (auto bl : Global::bottomLineAndAngs)
+            btmLine.push_back(bl.p);
+        getNearestPt(btmLine, rdmPos, nearestIdx);
+        onePlaceAng = Global::bottomLineAndAngs.at(nearestIdx).ang;
         for (auto& t : texs)
-            t.doOnePlace(ofPoint(ofRandom(370, 3440), ofRandom(370, 790)));
+            t.doOnePlace(rdmPos, onePlaceAng);
     }
 }
 
@@ -165,16 +171,18 @@ void Portrait::onPortraitVertEvent()
         workingTexs.clear();
         beginTickFrame = Global::curTickFrame;
         lastOneFrameTick = Global::curTickFrame;
+        
         ofRandomize(texs);
         int numVertAction = 15;
-        int step = bottomLineAndAngs.size() / numVertAction;
+        int step = bottomLineAndAngSimplified.size() / numVertAction;
         int skipInitPts = 5;
         for (int i = 0; i < numVertAction; i++)
         {
-            ofPoint from(bottomLineAndAngs.at(skipInitPts+i*step).p.x, bottomLineAndAngs.at(skipInitPts+i*step).p.y + texs.at(i).getHeight()/2 + 10);
+            ofPoint from(bottomLineAndAngSimplified.at(skipInitPts+i*step).p.x,
+                         bottomLineAndAngSimplified.at(skipInitPts+i*step).p.y + texs.at(i).getHeight()/2 + 10);
             ofPoint to(from.x, from.y - texs.at(i).getHeight() * 0.75);
             ofPoint cur = from;
-            texs.at(i).doVert(i, bottomLineAndAngs.at(skipInitPts+i*step).ang, from, to, cur);
+            texs.at(i).doVert(i, bottomLineAndAngSimplified.at(skipInitPts+i*step).ang, from, to, cur);
             workingTexs.push_back(&texs.at(i));
         }
     }

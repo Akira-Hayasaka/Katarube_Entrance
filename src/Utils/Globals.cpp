@@ -23,6 +23,7 @@ namespace Global
     
     ofxBox2d box2d;
     ofPolyline b2dEdge;
+    vector<BottomLineAndAng> bottomLineAndAngs;
     
     ofVboMesh scrnQuad;
     
