@@ -20,7 +20,7 @@ void main()
     vec4 portraitPx = texture(portrait, fsIn.texCoord);
     vec4 flyerPx = texture(flyer, fsIn.texCoord);
     
-    // tweak col randomly
+    // tweak col 
     vec3 portraitPxHSL = RGBToHSL(portraitPx.rgb);
     portraitPxHSL += rdmForPortrait;
     portraitPx.rgb = HSLToRGB(portraitPxHSL);
@@ -28,6 +28,7 @@ void main()
     vec3 flyerPxHSL = RGBToHSL(flyerPx.rgb);
     flyerPxHSL += rdmForFlyer;
     flyerPx.rgb = HSLToRGB(flyerPxHSL.rgb);
+    flyerPx.rgb = ContrastSaturationBrightness(flyerPx.rgb, 1.0, 1.0, 1.2);
 
     vec4 result = knifePx;
     if (portraitPx != vec4(1.0))

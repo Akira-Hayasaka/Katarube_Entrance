@@ -113,6 +113,7 @@
 		E92F54C21D31ED120032CFC4 /* FishLike.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C01D31ED120032CFC4 /* FishLike.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54C51D31ED1D0032CFC4 /* Wavy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C31D31ED1D0032CFC4 /* Wavy.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54C81D31ED2C0032CFC4 /* StraightThing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C61D31ED2C0032CFC4 /* StraightThing.cpp */; settings = {ASSET_TAGS = (); }; };
+		E92F54CB1D321D4E0032CFC4 /* FlyerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C91D321D4E0032CFC4 /* FlyerBase.cpp */; settings = {ASSET_TAGS = (); }; };
 		E93187881D30A776004A448F /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93187861D30A776004A448F /* Portrait.cpp */; settings = {ASSET_TAGS = (); }; };
 		E931878B1D30A785004A448F /* PortraitTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93187891D30A785004A448F /* PortraitTexture.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
@@ -545,6 +546,8 @@
 		E92F54C41D31ED1D0032CFC4 /* Wavy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Wavy.hpp; sourceTree = "<group>"; };
 		E92F54C61D31ED2C0032CFC4 /* StraightThing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StraightThing.cpp; sourceTree = "<group>"; };
 		E92F54C71D31ED2C0032CFC4 /* StraightThing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StraightThing.hpp; sourceTree = "<group>"; };
+		E92F54C91D321D4E0032CFC4 /* FlyerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlyerBase.cpp; sourceTree = "<group>"; };
+		E92F54CA1D321D4E0032CFC4 /* FlyerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FlyerBase.hpp; sourceTree = "<group>"; };
 		E93187861D30A776004A448F /* Portrait.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portrait.cpp; sourceTree = "<group>"; };
 		E93187871D30A776004A448F /* Portrait.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portrait.hpp; sourceTree = "<group>"; };
 		E93187891D30A785004A448F /* PortraitTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortraitTexture.cpp; sourceTree = "<group>"; };
@@ -1596,6 +1599,8 @@
 			children = (
 				E92F54BD1D31ED090032CFC4 /* Flyer.cpp */,
 				E92F54BE1D31ED090032CFC4 /* Flyer.hpp */,
+				E92F54C91D321D4E0032CFC4 /* FlyerBase.cpp */,
+				E92F54CA1D321D4E0032CFC4 /* FlyerBase.hpp */,
 				E92F54C01D31ED120032CFC4 /* FishLike.cpp */,
 				E92F54C11D31ED120032CFC4 /* FishLike.hpp */,
 				E92F54C31D31ED1D0032CFC4 /* Wavy.cpp */,
@@ -1950,6 +1955,7 @@
 				26CB6648CBC73D57E1D9378F /* b2Math.cpp in Sources */,
 				479E22E612C18DEC01D5D2BD /* b2Settings.cpp in Sources */,
 				E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */,
+				E92F54CB1D321D4E0032CFC4 /* FlyerBase.cpp in Sources */,
 				C1652E57C6C67050DB9ADF63 /* b2Timer.cpp in Sources */,
 				D09C4F6A320CF3092D9812B4 /* b2Body.cpp in Sources */,
 				8D8FBF044F8F3A6F4CAADB57 /* b2ContactManager.cpp in Sources */,

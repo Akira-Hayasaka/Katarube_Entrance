@@ -9,6 +9,13 @@
 #ifndef StraightThing_hpp
 #define StraightThing_hpp
 
-#include <stdio.h>
+#include "FlyerBase.hpp"
+
+class StraightThing : public FlyerBase
+{
+public:
+    
+    virtual void go() {}
+};
 
 #endif /* StraightThing_hpp */

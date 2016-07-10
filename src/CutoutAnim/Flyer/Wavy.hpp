@@ -9,6 +9,13 @@
 #ifndef Wavy_hpp
 #define Wavy_hpp
 
-#include <stdio.h>
+#include "FlyerBase.hpp"
+
+class Wavy : public FlyerBase
+{
+public:
+    
+    virtual void go() {}
+};
 
 #endif /* Wavy_hpp */

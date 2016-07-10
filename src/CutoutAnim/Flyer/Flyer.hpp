@@ -12,6 +12,9 @@
 #include "ofMain.h"
 #include "Constants.h"
 #include "Globals.hpp"
+#include "FishLike.hpp"
+#include "Wavy.hpp"
+#include "StraightThing.hpp"
 
 class Flyer
 {
@@ -27,5 +30,9 @@ private:
     void onTickEvent();
     
     ofFbo scrn;
+    
+    FishLike fishLike;
+    Wavy wavy;
+    StraightThing strtThing;
 };
 #endif /* Flyer_hpp */

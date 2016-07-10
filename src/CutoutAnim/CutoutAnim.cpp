@@ -36,7 +36,7 @@ void CutoutAnim::onTickEvent()
     blendCutout.setUniformTexture("portrait", portrait.getTexture(), 1);
     blendCutout.setUniformTexture("flyer", flyer.getTexture(), 2);
     blendCutout.setUniform3f("rdmForPortrait", ofRandom(-0.05, 0.05), ofRandom(-0.05, 0.05), ofRandom(-0.05, 0.05));
-    blendCutout.setUniform3f("rdmForFlyer", ofRandom(-0.05, 0.05), ofRandom(-0.05, 0.05), ofRandom(-0.05, 0.05));
+    blendCutout.setUniform3f("rdmForFlyer", ofRandom(-0.025, 0.025), ofRandom(-0.025, 0.025), ofRandom(-0.025, 0.025));
     drawPlane(cutoutFullScreen.getWidth(), cutoutFullScreen.getHeight());
     blendCutout.end();
     cutoutFullScreen.end();

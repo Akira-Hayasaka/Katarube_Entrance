@@ -9,6 +9,13 @@
 #ifndef FishLike_hpp
 #define FishLike_hpp
 
-#include <stdio.h>
+#include "FlyerBase.hpp"
+
+class FishLike : public FlyerBase
+{
+public:
+    
+    virtual void go() {}
+};
 
 #endif /* FishLike_hpp */
