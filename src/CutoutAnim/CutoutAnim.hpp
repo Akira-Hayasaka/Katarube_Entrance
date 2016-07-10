@@ -15,6 +15,7 @@
 #include "Util.h"
 #include "Knife.hpp"
 #include "Portrait.hpp"
+#include "Flyer.hpp"
 
 class CutoutAnim
 {
@@ -33,6 +34,7 @@ private:
     
     Knife knife;
     Portrait portrait;
+    Flyer flyer;
 };
 
 #endif /* CutoutAnim_hpp */
