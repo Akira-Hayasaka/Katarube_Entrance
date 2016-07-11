@@ -41,4 +41,8 @@ namespace Global
     ofEvent<void> portraitOnePlaceEvent;
     ofEvent<void> portraitHorizEvent;
     ofEvent<void> portraitVertEvent;
+    
+    ofEvent<void> flyerFishLikeEvent;
+    ofEvent<void> flyerWavyEvent;
+    ofEvent<void> flyerStraightThingEvent;
 }

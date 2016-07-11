@@ -22,21 +22,30 @@ void FlyerBase::setup(string seqDir)
             ofLoadImage(texs.back(), f.getAbsolutePath());
         }
     }
-    texIdx = 0;
     
     lastTickFrame = Global::curTickFrame;
+    texIdx = 0;
+    bMoving = false;
     
     ofAddListener(Global::tickEvent, this, &FlyerBase::onTickEvent);
 }
 
 void FlyerBase::update()
 {
-    
-}
-
-void FlyerBase::customDraw()
-{
-    texs.at(texIdx).draw(0, 0);
+    if (bMoving)
+    {
+        int vIdx = ofMap(motionPct, 0.0, 1.0, 0, motionLine.getVertices().size()-1);
+        ofVec2f cur = motionLine.getVertices().at(vIdx);
+        setPosition(cur);
+        
+        ofVec2f next;
+        if (vIdx >= motionLine.getVertices().size()-1)
+            next = motionLine.getVertices().at(0);
+        else
+            next = motionLine.getVertices().at(vIdx+1);
+        ofVec2f dv = cur - next;
+        ang = atan2(dv.x, dv.y) * 180 / PI;
+    }
 }
 
 void FlyerBase::onTickEvent()

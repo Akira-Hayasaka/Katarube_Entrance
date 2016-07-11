@@ -26,6 +26,10 @@ public:
     
 private:
     
+    void onFlyerFishLikeEvent() { fishLike.go(); }
+    void onFlyerWavyEvent() { wavy.go(); }
+    void onFlyerStraightThingEvent() { strtThing.go(); }
+    
     void clearScrn();
     void onTickEvent();
     

@@ -121,7 +121,8 @@ void ofApp::keyPressed(int key)
     {
 //        ofNotifyEvent(Global::portraitOnePlaceEvent);
 //        ofNotifyEvent(Global::portraitHorizEvent);
-        ofNotifyEvent(Global::portraitVertEvent);
+//        ofNotifyEvent(Global::portraitVertEvent);
+        ofNotifyEvent(Global::flyerFishLikeEvent);        
     }
 }
 void ofApp::keyReleased(int key){}

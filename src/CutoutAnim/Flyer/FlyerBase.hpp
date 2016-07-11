@@ -10,6 +10,8 @@
 #define FlyerBase_hpp
 
 #include "ofMain.h"
+#include "ofxTweenzor.h"
+#include "Constants.h"
 #include "Globals.hpp"
 
 class FlyerBase : public ofNode
@@ -18,7 +20,7 @@ public:
     
     void setup(string seqDir);
     void update();
-    virtual void customDraw();
+    ofPolyline& getMotionLine() { return motionLine; }
     
     virtual void go() = 0;
     
@@ -31,6 +33,10 @@ protected:
     int texIdx;
     vector<ofTexture> texs;
     
+    bool bMoving;
+    ofPolyline motionLine;
+    float motionPct;
+    float ang;
 };
 
 #endif /* FlyerBase_hpp */

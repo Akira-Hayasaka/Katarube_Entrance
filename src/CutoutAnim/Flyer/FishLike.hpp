@@ -15,7 +15,13 @@ class FishLike : public FlyerBase
 {
 public:
     
-    virtual void go() {}
+    virtual void go();
+    virtual void customDraw();    
+    
+private:
+    
+    bool leftToRight;
+    void onEndMove(float* arg) { bMoving = false; }    
 };
 
 #endif /* FishLike_hpp */

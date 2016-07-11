@@ -59,6 +59,10 @@ namespace Global
     extern ofEvent<void> portraitOnePlaceEvent;
     extern ofEvent<void> portraitHorizEvent;
     extern ofEvent<void> portraitVertEvent;
+    
+    extern ofEvent<void> flyerFishLikeEvent;
+    extern ofEvent<void> flyerWavyEvent;
+    extern ofEvent<void> flyerStraightThingEvent;
 }
 
 #endif /* Globals_hpp */

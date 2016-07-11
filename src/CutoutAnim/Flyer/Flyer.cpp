@@ -17,11 +17,14 @@ void Flyer::setup()
     wavy.setup("imgs/cutoutAnim/flyer/2");
     strtThing.setup("imgs/cutoutAnim/flyer/3");
     
-    fishLike.setPosition(700, 500, 0);
+//    fishLike.setPosition(700, 500, 0);
     wavy.setPosition(2100, 500, 0);
     strtThing.setPosition(2700, 500, 0);
 
     ofAddListener(Global::tickEvent, this, &Flyer::onTickEvent);
+    ofAddListener(Global::flyerFishLikeEvent, this, &Flyer::onFlyerFishLikeEvent);
+    ofAddListener(Global::flyerWavyEvent, this, &Flyer::onFlyerWavyEvent);
+    ofAddListener(Global::flyerStraightThingEvent, this, &Flyer::onFlyerStraightThingEvent);
 }
 
 void Flyer::update()
@@ -38,6 +41,12 @@ void Flyer::onTickEvent()
     fishLike.draw();
     wavy.draw();
     strtThing.draw();
+    
+    ofPushStyle();
+    ofSetColor(ofColor::red);
+    fishLike.getMotionLine().draw();
+    ofPopStyle();
+    
     scrn.end();
 }
 
