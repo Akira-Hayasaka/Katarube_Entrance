@@ -15,7 +15,12 @@ class Wavy : public FlyerBase
 {
 public:
     
-    virtual void go() {}
+    virtual void go();
+    virtual void customDraw();   
+    
+private:
+    
+    void onEndMove(float* arg) { bMoving = false; }
 };
 
 #endif /* Wavy_hpp */

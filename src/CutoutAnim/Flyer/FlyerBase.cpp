@@ -43,6 +43,7 @@ void FlyerBase::update()
             next = motionLine.getVertices().at(0);
         else
             next = motionLine.getVertices().at(vIdx+1);
+        
         ofVec2f dv = cur - next;
         ang = atan2(dv.x, dv.y) * 180 / PI;
     }

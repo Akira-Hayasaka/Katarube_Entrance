@@ -21,6 +21,7 @@ public:
     void setup(string seqDir);
     void update();
     ofPolyline& getMotionLine() { return motionLine; }
+    bool isMoving() { return bMoving; }
     
     virtual void go() = 0;
     

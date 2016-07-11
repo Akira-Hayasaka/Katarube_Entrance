@@ -15,7 +15,13 @@ class StraightThing : public FlyerBase
 {
 public:
     
-    virtual void go() {}
+    virtual void go();
+    virtual void customDraw();
+    
+private:
+    
+    bool bLeftToRight;
+    void onEndMove(float* arg) { bMoving = false; }
 };
 
 #endif /* StraightThing_hpp */

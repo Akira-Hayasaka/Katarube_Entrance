@@ -17,6 +17,7 @@ void FishLike::go()
     float width = ofRandom(1500, 2000);
     float height = ofRandom(400, 700);
     float open = ofRandom(-500, -700);
+    
     if (from.x < APP_W/2)
     {
         p1.set(from.x - open, from.y + height);
@@ -65,8 +66,6 @@ void FishLike::go()
     motionLine.bezierTo(cp21, cp22, p2, 100);
     motionLine.bezierTo(cp31, cp32, p3, 100);
     motionLine = motionLine.getResampledByCount(200);
-    
-//    motionLine = tmp;
     
     motionPct = 0.0;
     Tweenzor::add(&motionPct, motionPct, 1.0f, 0.0f, ofRandom(8, 12), EASE_IN_OUT_SINE);

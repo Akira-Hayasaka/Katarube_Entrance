@@ -20,8 +20,9 @@ public:
     
 private:
     
+    void onEndMove(float* arg) { bMoving = false; }
+    
     bool leftToRight;
-    void onEndMove(float* arg) { bMoving = false; }    
 };
 
 #endif /* FishLike_hpp */
