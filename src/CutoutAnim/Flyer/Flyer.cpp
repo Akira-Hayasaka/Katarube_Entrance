@@ -42,11 +42,6 @@ void Flyer::onTickEvent()
     wavy.draw();
     strtThing.draw();
     
-    ofPushStyle();
-    ofSetColor(ofColor::red);
-    fishLike.getMotionLine().draw();
-    ofPopStyle();
-    
     scrn.end();
 }
 

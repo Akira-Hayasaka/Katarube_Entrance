@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "ofxInkSim.h"
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Warper.hpp"
@@ -19,7 +20,7 @@ class GUI
 {
 public:
     
-    void setup();
+    void setup(ofPtr<UniformInfos> kyoInkUniforms);
     void update();
     void draw();
     
@@ -52,7 +53,11 @@ private:
     Warper kinectWarper;
     ofFbo kinectFbo;
     vector<ofPolyline> contours;    
-    vector<ofPath> contourPaths;    
+    vector<ofPath> contourPaths;
+    
+    // kyo ink
+    ofxPanel kyoInkGui;
+    ofPtr<UniformInfos> kyoInkUniforms;
 };
 
 #endif /* GUI_hpp */

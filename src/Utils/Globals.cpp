@@ -29,6 +29,8 @@ namespace Global
     
     ofxCv::ContourFinder globalContourFinder;
     
+    ofPtr<UniformInfos> kyoInkUniforms;
+    
     // shaders
     ofShader chromaKey;
     ofShader whitize;
@@ -45,4 +47,7 @@ namespace Global
     ofEvent<void> flyerFishLikeEvent;
     ofEvent<void> flyerWavyEvent;
     ofEvent<void> flyerStraightThingEvent;
+    
+    ofEvent<void> inkEvent;
+    ofEvent<void> clearInkEvent;
 }

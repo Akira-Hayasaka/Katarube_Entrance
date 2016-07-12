@@ -75,7 +75,7 @@ void Content::setup()
     }
     
     mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
-    
+    ink.setup();
     cutout.setup();
     
     bNeedTickUpdate = false;
@@ -86,6 +86,7 @@ void Content::setup()
 void Content::update()
 {
     mouth.update();
+    ink.update();
     cutout.update();
     
     if (bNeedTickUpdate)
@@ -107,9 +108,10 @@ void Content::genFullScreenContent()
     
     blendOutput.begin();
     blendOutput.setUniformTexture("content", stopMotionContent.getTexture(), 0);
-    blendOutput.setUniformTexture("cutout", cutout.getTexture(), 1);
-    blendOutput.setUniformTexture("bg", bg.getTexture(), 2);
-    blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 3);
+    blendOutput.setUniformTexture("ink", ink.getTexture(), 1);
+    blendOutput.setUniformTexture("cutout", cutout.getTexture(), 2);
+    blendOutput.setUniformTexture("bg", bg.getTexture(), 3);
+    blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 4);
     drawPlane(APP_W, APP_H);
     blendOutput.end();
     
@@ -118,7 +120,7 @@ void Content::genFullScreenContent()
 
 void Content::drawLeft()
 {
-    fullScreenResult.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
+    cutout.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
 }
 
 void Content::drawRight()

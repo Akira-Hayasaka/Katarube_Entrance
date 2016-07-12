@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "ofxCv.h"
 #include "ofxBox2d.h"
+#include "ofxInkSim.h"
 #include "Kinect.hpp"
 
 enum APP_STATE
@@ -47,6 +48,8 @@ namespace Global
     
     extern ofxCv::ContourFinder globalContourFinder;
     
+    extern ofPtr<UniformInfos> kyoInkUniforms;
+    
     // shaders
     extern ofShader chromaKey;
     extern ofShader whitize;
@@ -63,6 +66,9 @@ namespace Global
     extern ofEvent<void> flyerFishLikeEvent;
     extern ofEvent<void> flyerWavyEvent;
     extern ofEvent<void> flyerStraightThingEvent;
+    
+    extern ofEvent<void> inkEvent;
+    extern ofEvent<void> clearInkEvent;
 }
 
 #endif /* Globals_hpp */

@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "Mouth.hpp"
+#include "Ink.hpp"
 #include "CutoutAnim.hpp"
 
 class Content
@@ -42,6 +43,7 @@ private:
     ofPolyline b2dEdge;
     
     Mouth mouth;
+    Ink ink;
     
     CutoutAnim cutout;
 };
