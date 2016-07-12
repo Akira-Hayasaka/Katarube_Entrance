@@ -123,6 +123,8 @@
 		E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99C0C3D1D34A2F80054B796 /* Ink.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
+		E9FA09391D34D63900BFA400 /* Kyo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9FA09371D34D63900BFA400 /* Kyo.cpp */; settings = {ASSET_TAGS = (); }; };
+		E9FA093C1D34D64A00BFA400 /* KyoTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9FA093A1D34D64A00BFA400 /* KyoTexture.cpp */; settings = {ASSET_TAGS = (); }; };
 		EBDFF5C1C7D3B5E12E1FA133 /* ofxBox2dRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 507A0EB8580B19CC9A06C575 /* ofxBox2dRect.cpp */; };
 		EFD8C2F9D790A2A0A3D9393B /* b2Island.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63D354DB6D780DF92E336602 /* b2Island.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
@@ -598,6 +600,10 @@
 		E9F580621D2E34F7004920FF /* blendOutput.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blendOutput.frag; sourceTree = "<group>"; };
 		E9F580631D2E34F7004920FF /* seqTweak.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = seqTweak.frag; sourceTree = "<group>"; };
 		E9F580641D2E35E4004920FF /* blendCutout.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blendCutout.frag; sourceTree = "<group>"; };
+		E9FA09371D34D63900BFA400 /* Kyo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kyo.cpp; sourceTree = "<group>"; };
+		E9FA09381D34D63900BFA400 /* Kyo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Kyo.hpp; sourceTree = "<group>"; };
+		E9FA093A1D34D64A00BFA400 /* KyoTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KyoTexture.cpp; sourceTree = "<group>"; };
+		E9FA093B1D34D64A00BFA400 /* KyoTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KyoTexture.hpp; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EB2D37F43E8FDE6BBBCFFAB1 /* ofxBox2dRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBox2dRender.h; path = addons/ofxBox2d/src/ofxBox2dRender.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
@@ -1665,6 +1671,10 @@
 		E92F54CE1D3375510032CFC4 /* Kyo */ = {
 			isa = PBXGroup;
 			children = (
+				E9FA09371D34D63900BFA400 /* Kyo.cpp */,
+				E9FA09381D34D63900BFA400 /* Kyo.hpp */,
+				E9FA093A1D34D64A00BFA400 /* KyoTexture.cpp */,
+				E9FA093B1D34D64A00BFA400 /* KyoTexture.hpp */,
 			);
 			path = Kyo;
 			sourceTree = "<group>";
@@ -2033,6 +2043,7 @@
 				169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */,
 				FB09C6B2A1DA0EA217240CB8 /* ofxCvGrayscaleImage.cpp in Sources */,
 				E212C821D1064B92DD953A42 /* ofxCvHaarFinder.cpp in Sources */,
+				E9FA09391D34D63900BFA400 /* Kyo.cpp in Sources */,
 				63020F16C7E8DED980111241 /* ofxCvImage.cpp in Sources */,
 				D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */,
 				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
@@ -2087,6 +2098,7 @@
 				E92F54CB1D321D4E0032CFC4 /* FlyerBase.cpp in Sources */,
 				C1652E57C6C67050DB9ADF63 /* b2Timer.cpp in Sources */,
 				D09C4F6A320CF3092D9812B4 /* b2Body.cpp in Sources */,
+				E9FA093C1D34D64A00BFA400 /* KyoTexture.cpp in Sources */,
 				E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */,
 				8D8FBF044F8F3A6F4CAADB57 /* b2ContactManager.cpp in Sources */,
 				8D197E7ECD5F6FBA9A69357E /* b2Fixture.cpp in Sources */,

@@ -13,7 +13,7 @@ void Ink::setup()
     scrn.allocate(APP_W, APP_H);
     clearScrn();
 
-    canvasRatio = 2.0;
+    canvasRatio = 4.0;
     canvasW = APP_W / canvasRatio;
     canvasH = APP_H / canvasRatio;
     inkSim.setup(canvasW, canvasH);
@@ -57,7 +57,7 @@ void Ink::onInkEvent()
     
     ofSetRectMode(OF_RECTMODE_CENTER);
     
-    float rdm = ofRandom(0.8, 1.5);
+    float rdm = ofRandom(0.8, 4.5);
     inkSim.begin();
     ofPushMatrix();
     ofTranslate(ofRandom(300 / canvasRatio, APP_W / canvasRatio - 300 / canvasRatio),
