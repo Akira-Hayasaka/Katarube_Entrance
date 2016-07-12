@@ -7,6 +7,9 @@
 		<ClCompile Include="src\main.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Anim\Ink\Ink.cpp">
+			<Filter>src\Anim\Ink</Filter>
+		</ClCompile>
 		<ClCompile Include="src\Body\Hand.cpp">
 			<Filter>src\Body</Filter>
 		</ClCompile>
@@ -19,8 +22,23 @@
 		<ClCompile Include="src\CutoutAnim\CutoutAnim.cpp">
 			<Filter>src\CutoutAnim</Filter>
 		</ClCompile>
-		<ClCompile Include="src\CutoutAnim\Knife.cpp">
-			<Filter>src\CutoutAnim</Filter>
+		<ClCompile Include="src\CutoutAnim\Flyer\FishLike.cpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Flyer\Flyer.cpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Flyer\FlyerBase.cpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Flyer\StraightThing.cpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Flyer\Wavy.cpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Knife\Knife.cpp">
+			<Filter>src\CutoutAnim\Knife</Filter>
 		</ClCompile>
 		<ClCompile Include="src\CutoutAnim\Portrait\Portrait.cpp">
 			<Filter>src\CutoutAnim\Portrait</Filter>
@@ -370,16 +388,40 @@
 		<ClCompile Include="addons\ofxBox2d\libs\triangle\del_impl.cpp">
 			<Filter>local_addons\ofxBox2d\libs\triangle</Filter>
 		</ClCompile>
+		<ClCompile Include="addons\ofxInkSim\src\brush\BrashIF.cpp">
+			<Filter>local_addons\ofxInkSim\src\brush</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxInkSim\src\brush\SampleBrush.cpp">
+			<Filter>local_addons\ofxInkSim\src\brush</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxInkSim\src\FboPingPong.cpp">
+			<Filter>local_addons\ofxInkSim\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxInkSim\src\ofxInkSim.cpp">
+			<Filter>local_addons\ofxInkSim\src</Filter>
+		</ClCompile>
 	</ItemGroup>
 	<ItemGroup>
 		<Filter Include="src">
 			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Anim">
+			<UniqueIdentifier>{F3B000D4-2D4F-C846-5F28-621A}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Anim\Ink">
+			<UniqueIdentifier>{C36A73B5-9F0E-25E2-E355-BDA8}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Body">
 			<UniqueIdentifier>{D8FB34A1-4C7D-EB42-8DA8-3A92}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\CutoutAnim">
 			<UniqueIdentifier>{57296778-1D09-D2AF-37DE-87DE}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\CutoutAnim\Flyer">
+			<UniqueIdentifier>{48492B1B-9164-CB62-AF47-5951}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\CutoutAnim\Knife">
+			<UniqueIdentifier>{A961F8C9-CFDE-42C0-505A-4FAC}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\CutoutAnim\Portrait">
 			<UniqueIdentifier>{AB875E49-CB3F-B1EC-60FE-9E53}</UniqueIdentifier>
@@ -633,10 +675,25 @@
 		<Filter Include="local_addons\ofxBox2d\libs\triangle">
 			<UniqueIdentifier>{DEECFD8B-14B2-17DC-B6F6-D173}</UniqueIdentifier>
 		</Filter>
+		<Filter Include="local_addons\ofxInkSim">
+			<UniqueIdentifier>{1E5D1503-F54B-A13A-3E9D-F77E}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxInkSim\src">
+			<UniqueIdentifier>{A21CA68D-26C7-B9D4-B2B4-C0E7}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxInkSim\src\brush">
+			<UniqueIdentifier>{948BABAE-B5B6-8F8B-F760-DCCC}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxInkSim\src\shader">
+			<UniqueIdentifier>{7E0948D7-ED3D-37C5-044B-E528}</UniqueIdentifier>
+		</Filter>
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Anim\Ink\Ink.hpp">
+			<Filter>src\Anim\Ink</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Body\Hand.hpp">
 			<Filter>src\Body</Filter>
@@ -650,8 +707,23 @@
 		<ClInclude Include="src\CutoutAnim\CutoutAnim.hpp">
 			<Filter>src\CutoutAnim</Filter>
 		</ClInclude>
-		<ClInclude Include="src\CutoutAnim\Knife.hpp">
-			<Filter>src\CutoutAnim</Filter>
+		<ClInclude Include="src\CutoutAnim\Flyer\FishLike.hpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Flyer\Flyer.hpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Flyer\FlyerBase.hpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Flyer\StraightThing.hpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Flyer\Wavy.hpp">
+			<Filter>src\CutoutAnim\Flyer</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Knife\Knife.hpp">
+			<Filter>src\CutoutAnim\Knife</Filter>
 		</ClInclude>
 		<ClInclude Include="src\CutoutAnim\Portrait\Portrait.hpp">
 			<Filter>src\CutoutAnim\Portrait</Filter>
@@ -1555,6 +1627,69 @@
 		</ClInclude>
 		<ClInclude Include="addons\ofxBox2d\libs\triangle\triangle_impl.hpp">
 			<Filter>local_addons\ofxBox2d\libs\triangle</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\brush\BrashIF.h">
+			<Filter>local_addons\ofxInkSim\src\brush</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\brush\SampleBrush.h">
+			<Filter>local_addons\ofxInkSim\src\brush</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\FboPingPong.h">
+			<Filter>local_addons\ofxInkSim\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\ofxInkSim.h">
+			<Filter>local_addons\ofxInkSim\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\AddPigmentShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\AddWaterShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\BlockShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\Collide1Shader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\Collide2Shader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\GapShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\GetVelDenShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\GetXYZShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\GetZShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\InkFlowShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\InkShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\InkSupplyShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\InkXAmtShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\InkXFrShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\InkXToShader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\Stream1Shader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxInkSim\src\shader\Stream2Shader.h">
+			<Filter>local_addons\ofxInkSim\src\shader</Filter>
 		</ClInclude>
 	</ItemGroup>
 	<ItemGroup>
