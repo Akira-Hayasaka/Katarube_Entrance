@@ -22,6 +22,7 @@ void PortraitTexture::draw(float scaleF)
 {
     ofVec2f rdmPos(cur.x + ofRandom(-5, 5), cur.y + ofRandom(-5, 5));
     ofVec2f rdmScale(scaleF * ofRandom(0.77, 0.8), scaleF * ofRandom(0.77, 0.8));
+    
     ofSetRectMode(OF_RECTMODE_CENTER);
     ofPushMatrix();
     ofTranslate(rdmPos);
@@ -34,9 +35,10 @@ void PortraitTexture::draw(float scaleF)
     ofSetRectMode(OF_RECTMODE_CORNER);
 }
 
-void PortraitTexture::doOnePlace(ofPoint cur)
+void PortraitTexture::doOnePlace(ofPoint cur, float ang)
 {
     this->cur = cur;
+    this->ang = ang;
 }
 
 void PortraitTexture::doHoriz(int idx,

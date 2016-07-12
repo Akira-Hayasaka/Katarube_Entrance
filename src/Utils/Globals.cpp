@@ -23,10 +23,13 @@ namespace Global
     
     ofxBox2d box2d;
     ofPolyline b2dEdge;
+    vector<BottomLineAndAng> bottomLineAndAngs;
     
     ofVboMesh scrnQuad;
     
     ofxCv::ContourFinder globalContourFinder;
+    
+    ofPtr<UniformInfos> kyoInkUniforms;
     
     // shaders
     ofShader chromaKey;
@@ -40,4 +43,11 @@ namespace Global
     ofEvent<void> portraitOnePlaceEvent;
     ofEvent<void> portraitHorizEvent;
     ofEvent<void> portraitVertEvent;
+    
+    ofEvent<void> flyerFishLikeEvent;
+    ofEvent<void> flyerWavyEvent;
+    ofEvent<void> flyerStraightThingEvent;
+    
+    ofEvent<void> inkEvent;
+    ofEvent<void> clearInkEvent;
 }

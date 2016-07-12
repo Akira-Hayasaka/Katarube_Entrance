@@ -56,8 +56,26 @@ void Content::setup()
     b2dEdge = b2dEdge.getResampledByCount(200);
     Global::b2dEdge = b2dEdge;
     
-    mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
+    for (int i = 0; i < b2dEdge.getVertices().size(); i++)
+    {
+        ofVec2f perp;
+        if (i == b2dEdge.getVertices().size()-1)
+            perp = ofVec2f(b2dEdge.getVertices().at(i) - b2dEdge.getVertices().at(0)).getPerpendicular();
+        else
+            perp = ofVec2f(b2dEdge.getVertices().at(i) - b2dEdge.getVertices().at(i+1)).getPerpendicular();
+        
+        float ang = ofVec2f(0, -1).angle(perp);
+        if (fabs(ang) < 90)
+        {
+            BottomLineAndAng ba;
+            ba.p = b2dEdge.getVertices().at(i);
+            ba.ang = ang;
+            Global::bottomLineAndAngs.push_back(ba);
+        }
+    }
     
+    mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
+    ink.setup();
     cutout.setup();
     
     bNeedTickUpdate = false;
@@ -68,6 +86,7 @@ void Content::setup()
 void Content::update()
 {
     mouth.update();
+    ink.update();
     cutout.update();
     
     if (bNeedTickUpdate)
@@ -89,9 +108,10 @@ void Content::genFullScreenContent()
     
     blendOutput.begin();
     blendOutput.setUniformTexture("content", stopMotionContent.getTexture(), 0);
-    blendOutput.setUniformTexture("cutout", cutout.getTexture(), 1);
-    blendOutput.setUniformTexture("bg", bg.getTexture(), 2);
-    blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 3);
+    blendOutput.setUniformTexture("ink", ink.getTexture(), 1);
+    blendOutput.setUniformTexture("cutout", cutout.getTexture(), 2);
+    blendOutput.setUniformTexture("bg", bg.getTexture(), 3);
+    blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 4);
     drawPlane(APP_W, APP_H);
     blendOutput.end();
     
@@ -100,7 +120,7 @@ void Content::genFullScreenContent()
 
 void Content::drawLeft()
 {
-    fullScreenResult.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
+    cutout.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
 }
 
 void Content::drawRight()

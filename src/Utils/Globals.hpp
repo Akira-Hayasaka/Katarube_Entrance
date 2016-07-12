@@ -12,12 +12,19 @@
 #include "ofMain.h"
 #include "ofxCv.h"
 #include "ofxBox2d.h"
+#include "ofxInkSim.h"
 #include "Kinect.hpp"
 
 enum APP_STATE
 {
     NONE,
     DRAWING
+};
+
+struct BottomLineAndAng
+{
+    ofPoint p;
+    float ang;
 };
 
 namespace Global
@@ -35,10 +42,13 @@ namespace Global
     
     extern ofxBox2d box2d;
     extern ofPolyline b2dEdge;
+    extern vector<BottomLineAndAng> bottomLineAndAngs;
     
     extern ofVboMesh scrnQuad;
     
     extern ofxCv::ContourFinder globalContourFinder;
+    
+    extern ofPtr<UniformInfos> kyoInkUniforms;
     
     // shaders
     extern ofShader chromaKey;
@@ -52,6 +62,13 @@ namespace Global
     extern ofEvent<void> portraitOnePlaceEvent;
     extern ofEvent<void> portraitHorizEvent;
     extern ofEvent<void> portraitVertEvent;
+    
+    extern ofEvent<void> flyerFishLikeEvent;
+    extern ofEvent<void> flyerWavyEvent;
+    extern ofEvent<void> flyerStraightThingEvent;
+    
+    extern ofEvent<void> inkEvent;
+    extern ofEvent<void> clearInkEvent;
 }
 
 #endif /* Globals_hpp */

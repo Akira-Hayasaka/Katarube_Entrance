@@ -8,7 +8,7 @@
 
 #include "GUI.hpp"
 
-void GUI::setup()
+void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
 {
     // kinect device & contour gui
     kinectGUI.setup("kinect", "settings/kinect.xml");
@@ -72,6 +72,13 @@ void GUI::setup()
     ofSetColor(ofColor::pink, 100);
     ofDrawRectangle(0, 0, kinectFbo.getWidth(), kinectFbo.getHeight());
     kinectFbo.end();
+    
+    // kyo ink
+    this->kyoInkUniforms = kyoInkUniforms;
+    kyoInkGui.setDefaultWidth(1000);
+    kyoInkGui.setup(kyoInkUniforms->parameters, "settings/uniforms.xml");
+    kyoInkGui.loadFromFile("settings/uniforms.xml");
+    kyoInkGui.setPosition(kinectGUI.getPosition().x, kinectGUI.getPosition().y + kinectGUI.getHeight() + 10);
 }
 
 void GUI::update()
@@ -195,6 +202,9 @@ void GUI::draw()
         }
         
         kinectGUI.draw();
+        
+        // kyo ink gui
+        kyoInkGui.draw();
     }
 }
 

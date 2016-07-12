@@ -30,7 +30,7 @@ void ofApp::setup()
     
     content.setup();
     
-    gui.setup();
+    gui.setup(Global::kyoInkUniforms);
     gui.hide();
     
     ofNotifyEvent(Global::tickEvent);
@@ -119,9 +119,32 @@ void ofApp::keyPressed(int key)
     }
     if (key == 'p')
     {
+//        vector<ofEvent<void> > evnts;
+//        evnts.push_back(Global::portraitOnePlaceEvent);
+//        evnts.push_back(Global::portraitHorizEvent);
+//        evnts.push_back(Global::portraitVertEvent);
+//        evnts.push_back(Global::flyerFishLikeEvent);
+//        evnts.push_back(Global::flyerWavyEvent);
+//        evnts.push_back(Global::flyerStraightThingEvent);
+//        ofRandomize(evnts);
+//        ofNotifyEvent(evnts.front());
+        
 //        ofNotifyEvent(Global::portraitOnePlaceEvent);
 //        ofNotifyEvent(Global::portraitHorizEvent);
         ofNotifyEvent(Global::portraitVertEvent);
+        ofNotifyEvent(Global::flyerFishLikeEvent);
+        ofNotifyEvent(Global::flyerWavyEvent);
+        ofNotifyEvent(Global::flyerStraightThingEvent);
+        ofNotifyEvent(Global::inkEvent);
+    }
+    if (key == 'c')
+    {
+        ofNotifyEvent(Global::clearInkEvent);
+    }
+    if (key == 'm')
+    {
+        for (int i = 0; i < 10; i++)
+            ofNotifyEvent(Global::inkEvent);
     }
 }
 void ofApp::keyReleased(int key){}
