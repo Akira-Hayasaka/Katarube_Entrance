@@ -135,7 +135,7 @@ void ofApp::keyPressed(int key)
         ofNotifyEvent(Global::flyerFishLikeEvent);
         ofNotifyEvent(Global::flyerWavyEvent);
         ofNotifyEvent(Global::flyerStraightThingEvent);
-        ofNotifyEvent(Global::inkEvent);
+        ofNotifyEvent(Global::kyoEvent);
     }
     if (key == 'c')
     {

@@ -67,6 +67,8 @@ namespace Global
     extern ofEvent<void> flyerWavyEvent;
     extern ofEvent<void> flyerStraightThingEvent;
     
+    extern ofEvent<void> kyoEvent;
+    
     extern ofEvent<void> inkEvent;
     extern ofEvent<void> clearInkEvent;
 }

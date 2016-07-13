@@ -267,7 +267,7 @@
 		36F0FF7F8D7342D220CC6319 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
 		37D155721DCC51F3D1DC2E02 /* color_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = color_detail.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/detail/color_detail.hpp; sourceTree = SOURCE_ROOT; };
 		39371227CD3AAB380D698404 /* b2StackAllocator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2StackAllocator.cpp; path = addons/ofxBox2d/libs/Box2D/Common/b2StackAllocator.cpp; sourceTree = SOURCE_ROOT; };
-		393C0A88EF96B9574DD50231 /* Globals.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Globals.hpp; path = src/Utils/Globals.hpp; sourceTree = SOURCE_ROOT; };
+		393C0A88EF96B9574DD50231 /* Globals.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Globals.hpp; path = src/Utils/Globals.hpp; sourceTree = SOURCE_ROOT; };
 		3A679DB0600518400D26C73C /* ETF.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ETF.cpp; path = addons/ofxCv/libs/CLD/src/ETF.cpp; sourceTree = SOURCE_ROOT; };
 		3ADB4E06C4EDB97E020A778D /* functional.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = functional.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/functional.hpp; sourceTree = SOURCE_ROOT; };
 		3CABCA8EA52D11C95F7A1309 /* registration.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = registration.h; path = ../../../addons/ofxKinect/libs/libfreenect/src/registration.h; sourceTree = SOURCE_ROOT; };
@@ -1661,13 +1661,6 @@
 			path = Knife;
 			sourceTree = "<group>";
 		};
-		E92F54CD1D3375510032CFC4 /* Ink */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Ink;
-			sourceTree = "<group>";
-		};
 		E92F54CE1D3375510032CFC4 /* Kyo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1770,7 +1763,6 @@
 			children = (
 				E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */,
 				E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */,
-				E92F54CD1D3375510032CFC4 /* Ink */,
 				E92F54CE1D3375510032CFC4 /* Kyo */,
 				E92F54B81D31ECD70032CFC4 /* Flyer */,
 				E92F54B91D31ECD70032CFC4 /* Knife */,

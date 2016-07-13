@@ -41,7 +41,6 @@ void Flyer::onTickEvent()
     fishLike.draw();
     wavy.draw();
     strtThing.draw();
-    
     scrn.end();
 }
 

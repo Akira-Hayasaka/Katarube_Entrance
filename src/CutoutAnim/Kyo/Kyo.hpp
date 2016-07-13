@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "Constants.h"
 #include "Globals.hpp"
+#include "KyoTexture.hpp"
 
 class Kyo
 {
@@ -25,8 +26,12 @@ private:
     
     void clearScrn();
     void onTickEvent();
+    void onKyoEvent();
     
     ofFbo scrn;
+    
+    int curIdx;
+    vector<KyoTexture> texs;
 };
 
 #endif /* Kyo_hpp */

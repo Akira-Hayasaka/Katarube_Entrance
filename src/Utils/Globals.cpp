@@ -48,6 +48,8 @@ namespace Global
     ofEvent<void> flyerWavyEvent;
     ofEvent<void> flyerStraightThingEvent;
     
+    ofEvent<void> kyoEvent;
+    
     ofEvent<void> inkEvent;
     ofEvent<void> clearInkEvent;
 }
