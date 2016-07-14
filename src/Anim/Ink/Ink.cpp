@@ -17,7 +17,7 @@ void Ink::setup()
     canvasW = APP_W / canvasRatio;
     canvasH = APP_H / canvasRatio;
     inkSim.setup(canvasW, canvasH);
-    Global::kyoInkUniforms = inkSim.getUniformInfo();
+    Global::inkUniforms = inkSim.getUniformInfo();
     
     ofDirectory dir("imgs/ink");
     dir.listDir();
@@ -52,6 +52,8 @@ void Ink::update()
 
 void Ink::onInkEvent()
 {
+//    inkSim.getUniformInfo()->waterAmount = ofRandom(0.1, 1.7);
+    
     ofColor c = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
     int idx = ofRandom(texs.size());
     
@@ -65,7 +67,7 @@ void Ink::onInkEvent()
     ofRotateZ(ofRandom(360));
     ofScale(1,-1,1);
     ofPushStyle();
-    ofSetColor(getInkColor(c.getHueAngle(), 255, 255));
+    ofSetColor(getInkColor(c.getHueAngle(), 255, ofRandom(150, 200)));
     texs.at(idx).draw(0, 0, texs.at(idx).getWidth() / pow(canvasRatio, rdm), texs.at(idx).getHeight() / pow(canvasRatio, rdm));
     ofPopStyle();
     ofPopMatrix();

@@ -108,6 +108,8 @@
 		E55DEEF784A10419E444669E /* flags.c in Sources */ = {isa = PBXBuildFile; fileRef = 682082DEC78C75C8FB18B7DB /* flags.c */; };
 		E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39371227CD3AAB380D698404 /* b2StackAllocator.cpp */; };
 		E814CA271F4690DA492336A7 /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */; };
+		E917ACE11D35D119007AB67D /* Knives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACDF1D35D119007AB67D /* Knives.cpp */; settings = {ASSET_TAGS = (); }; };
+		E917ACE41D35D127007AB67D /* KnifeTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACE21D35D127007AB67D /* KnifeTexture.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54BC1D31ECD70032CFC4 /* Knife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54BA1D31ECD70032CFC4 /* Knife.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54BF1D31ED090032CFC4 /* Flyer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54BD1D31ED090032CFC4 /* Flyer.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54C21D31ED120032CFC4 /* FishLike.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C01D31ED120032CFC4 /* FishLike.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -543,6 +545,10 @@
 		E8D3DA1D321CEADD7481BCC1 /* Kalman.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Kalman.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Kalman.h; sourceTree = SOURCE_ROOT; };
 		E8FFD32E1883966A6C0FC4DC /* GUI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GUI.cpp; path = src/GUI.cpp; sourceTree = SOURCE_ROOT; };
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
+		E917ACDF1D35D119007AB67D /* Knives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knives.cpp; sourceTree = "<group>"; };
+		E917ACE01D35D119007AB67D /* Knives.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knives.hpp; sourceTree = "<group>"; };
+		E917ACE21D35D127007AB67D /* KnifeTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KnifeTexture.cpp; sourceTree = "<group>"; };
+		E917ACE31D35D127007AB67D /* KnifeTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KnifeTexture.hpp; sourceTree = "<group>"; };
 		E92F54BA1D31ECD70032CFC4 /* Knife.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knife.cpp; sourceTree = "<group>"; };
 		E92F54BB1D31ECD70032CFC4 /* Knife.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knife.hpp; sourceTree = "<group>"; };
 		E92F54BD1D31ED090032CFC4 /* Flyer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flyer.cpp; sourceTree = "<group>"; };
@@ -555,7 +561,6 @@
 		E92F54C71D31ED2C0032CFC4 /* StraightThing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StraightThing.hpp; sourceTree = "<group>"; };
 		E92F54C91D321D4E0032CFC4 /* FlyerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlyerBase.cpp; sourceTree = "<group>"; };
 		E92F54CA1D321D4E0032CFC4 /* FlyerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FlyerBase.hpp; sourceTree = "<group>"; };
-		E92F54D01D3375A00032CFC4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E92F54D31D3375A00032CFC4 /* BrashIF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BrashIF.cpp; sourceTree = "<group>"; };
 		E92F54D41D3375A00032CFC4 /* BrashIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrashIF.h; sourceTree = "<group>"; };
 		E92F54D51D3375A00032CFC4 /* SampleBrush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleBrush.cpp; sourceTree = "<group>"; };
@@ -1657,6 +1662,10 @@
 			children = (
 				E92F54BA1D31ECD70032CFC4 /* Knife.cpp */,
 				E92F54BB1D31ECD70032CFC4 /* Knife.hpp */,
+				E917ACDF1D35D119007AB67D /* Knives.cpp */,
+				E917ACE01D35D119007AB67D /* Knives.hpp */,
+				E917ACE21D35D127007AB67D /* KnifeTexture.cpp */,
+				E917ACE31D35D127007AB67D /* KnifeTexture.hpp */,
 			);
 			path = Knife;
 			sourceTree = "<group>";
@@ -1675,7 +1684,6 @@
 		E92F54CF1D3375A00032CFC4 /* ofxInkSim */ = {
 			isa = PBXGroup;
 			children = (
-				E92F54D01D3375A00032CFC4 /* .gitignore */,
 				E92F54D11D3375A00032CFC4 /* src */,
 			);
 			name = ofxInkSim;
@@ -1763,9 +1771,9 @@
 			children = (
 				E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */,
 				E9F580451D2DDDD6004920FF /* CutoutAnim.hpp */,
+				E92F54B91D31ECD70032CFC4 /* Knife */,
 				E92F54CE1D3375510032CFC4 /* Kyo */,
 				E92F54B81D31ECD70032CFC4 /* Flyer */,
-				E92F54B91D31ECD70032CFC4 /* Knife */,
 				E93187851D30A776004A448F /* Portrait */,
 			);
 			path = CutoutAnim;
@@ -2044,6 +2052,7 @@
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				9D08DF9DD5045F5EAB4DAF82 /* ofxQuadWarp.cpp in Sources */,
 				15DCF11A6445D447A0D48491 /* ETF.cpp in Sources */,
+				E917ACE41D35D127007AB67D /* KnifeTexture.cpp in Sources */,
 				6FB779180FB3B27D323336AE /* fdog.cpp in Sources */,
 				68CF26ED86C3C10C45460C0F /* Calibration.cpp in Sources */,
 				93E2EE8E227D8C12E41C5F73 /* ContourFinder.cpp in Sources */,
@@ -2089,6 +2098,7 @@
 				E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */,
 				E92F54CB1D321D4E0032CFC4 /* FlyerBase.cpp in Sources */,
 				C1652E57C6C67050DB9ADF63 /* b2Timer.cpp in Sources */,
+				E917ACE11D35D119007AB67D /* Knives.cpp in Sources */,
 				D09C4F6A320CF3092D9812B4 /* b2Body.cpp in Sources */,
 				E9FA093C1D34D64A00BFA400 /* KyoTexture.cpp in Sources */,
 				E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */,

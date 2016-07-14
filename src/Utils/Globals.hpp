@@ -48,7 +48,7 @@ namespace Global
     
     extern ofxCv::ContourFinder globalContourFinder;
     
-    extern ofPtr<UniformInfos> kyoInkUniforms;
+    extern ofPtr<UniformInfos> inkUniforms;
     
     // shaders
     extern ofShader chromaKey;
@@ -68,6 +68,9 @@ namespace Global
     extern ofEvent<void> flyerStraightThingEvent;
     
     extern ofEvent<void> kyoEvent;
+    
+    extern ofEvent<void> knifeCircleEvent;
+    extern ofEvent<void> knifeLineEvent;
     
     extern ofEvent<void> inkEvent;
     extern ofEvent<void> clearInkEvent;

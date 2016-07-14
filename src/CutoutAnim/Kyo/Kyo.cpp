@@ -38,6 +38,13 @@ void Kyo::update()
     
 }
 
+void Kyo::clearScrn()
+{
+    scrn.begin();
+    ofClear(255);
+    scrn.end();
+}
+
 void Kyo::onTickEvent()
 {
     scrn.begin();
@@ -53,11 +60,4 @@ void Kyo::onKyoEvent()
     if (curIdx >= texs.size())
         curIdx = 0;
     texs.at(curIdx).go();
-}
-
-void Kyo::clearScrn()
-{
-    scrn.begin();
-    ofClear(255);
-    scrn.end();
 }

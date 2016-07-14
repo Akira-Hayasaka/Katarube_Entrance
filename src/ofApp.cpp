@@ -30,7 +30,7 @@ void ofApp::setup()
     
     content.setup();
     
-    gui.setup(Global::kyoInkUniforms);
+    gui.setup(Global::inkUniforms);
     gui.hide();
     
     ofNotifyEvent(Global::tickEvent);
@@ -136,6 +136,7 @@ void ofApp::keyPressed(int key)
         ofNotifyEvent(Global::flyerWavyEvent);
         ofNotifyEvent(Global::flyerStraightThingEvent);
         ofNotifyEvent(Global::kyoEvent);
+        ofNotifyEvent(Global::knifeCircleEvent);        
     }
     if (key == 'c')
     {
