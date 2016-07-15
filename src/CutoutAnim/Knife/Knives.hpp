@@ -10,6 +10,8 @@
 #define Knives_hpp
 
 #include "ofMain.h"
+#include "Constants.h"
+#include "Util.h"
 #include "KnifeTexture.hpp"
 
 class Knives
@@ -24,6 +26,10 @@ public:
     
 private:
     
+    bool bRunning;
+    
+    float rot;
+    ofPoint pos;
     vector<KnifeTexture> texs;
 };
 

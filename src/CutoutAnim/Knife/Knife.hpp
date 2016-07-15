@@ -26,10 +26,12 @@ private:
     
     void clearScrn();
     void onTickEvent();
+    void onKnifeCircleEvent();
     
     ofFbo scrn;
     
     vector<Knives> knives;
+    int curIdx;
 };
 
 #endif /* Knife_hpp */
