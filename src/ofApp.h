@@ -5,6 +5,7 @@
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Util.h"
+#include "WorkFlow.hpp"
 #include "Content.hpp"
 #include "GUI.hpp"
 
@@ -30,8 +31,9 @@ public:
 
 private:
     
-    GUI gui;
+    WorkFlow workflow;    
     Content content;
+    GUI gui;
     
     // debug
     bool bDrawTiny;

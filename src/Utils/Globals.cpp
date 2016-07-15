@@ -15,8 +15,6 @@ namespace Global
     float lastTickTime;
     long curTickFrame;
     
-    APP_STATE appState;
-    
     Kinect kinect;
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;

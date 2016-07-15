@@ -111,6 +111,8 @@
 		E917ACE11D35D119007AB67D /* Knives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACDF1D35D119007AB67D /* Knives.cpp */; settings = {ASSET_TAGS = (); }; };
 		E917ACE41D35D127007AB67D /* KnifeTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACE21D35D127007AB67D /* KnifeTexture.cpp */; settings = {ASSET_TAGS = (); }; };
 		E917ACE91D388F89007AB67D /* Portraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACE71D388F89007AB67D /* Portraits.cpp */; settings = {ASSET_TAGS = (); }; };
+		E917ACED1D38B01A007AB67D /* WorkFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACEB1D38B01A007AB67D /* WorkFlow.cpp */; settings = {ASSET_TAGS = (); }; };
+		E917ACF01D38B276007AB67D /* EventTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACEE1D38B276007AB67D /* EventTimer.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54BC1D31ECD70032CFC4 /* Knife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54BA1D31ECD70032CFC4 /* Knife.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54BF1D31ED090032CFC4 /* Flyer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54BD1D31ED090032CFC4 /* Flyer.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54C21D31ED120032CFC4 /* FishLike.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C01D31ED120032CFC4 /* FishLike.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -552,6 +554,10 @@
 		E917ACE31D35D127007AB67D /* KnifeTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KnifeTexture.hpp; sourceTree = "<group>"; };
 		E917ACE71D388F89007AB67D /* Portraits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portraits.cpp; sourceTree = "<group>"; };
 		E917ACE81D388F89007AB67D /* Portraits.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portraits.hpp; sourceTree = "<group>"; };
+		E917ACEB1D38B01A007AB67D /* WorkFlow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkFlow.cpp; sourceTree = "<group>"; };
+		E917ACEC1D38B01A007AB67D /* WorkFlow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WorkFlow.hpp; sourceTree = "<group>"; };
+		E917ACEE1D38B276007AB67D /* EventTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventTimer.cpp; sourceTree = "<group>"; };
+		E917ACEF1D38B276007AB67D /* EventTimer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EventTimer.hpp; sourceTree = "<group>"; };
 		E92F54BA1D31ECD70032CFC4 /* Knife.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knife.cpp; sourceTree = "<group>"; };
 		E92F54BB1D31ECD70032CFC4 /* Knife.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knife.hpp; sourceTree = "<group>"; };
 		E92F54BD1D31ED090032CFC4 /* Flyer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flyer.cpp; sourceTree = "<group>"; };
@@ -1223,6 +1229,8 @@
 				30D256D03AA6BAD53B576CA2 /* Util.h */,
 				290C74B4F0738772900EA5C4 /* Warper.cpp */,
 				3E18CB323389DC4CFF241991 /* Warper.hpp */,
+				E917ACEE1D38B276007AB67D /* EventTimer.cpp */,
+				E917ACEF1D38B276007AB67D /* EventTimer.hpp */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1619,6 +1627,8 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				E917ACEB1D38B01A007AB67D /* WorkFlow.cpp */,
+				E917ACEC1D38B01A007AB67D /* WorkFlow.hpp */,
 				C49A8442C6E8F2B62DABEA3C /* Content.cpp */,
 				C3578E9E885CBA06E7AA22F7 /* Content.hpp */,
 				E8FFD32E1883966A6C0FC4DC /* GUI.cpp */,
@@ -2033,6 +2043,7 @@
 				E92F54C51D31ED1D0032CFC4 /* Wavy.cpp in Sources */,
 				E92F54F01D3375A00032CFC4 /* ofxInkSim.cpp in Sources */,
 				E92F54EE1D3375A00032CFC4 /* SampleBrush.cpp in Sources */,
+				E917ACF01D38B276007AB67D /* EventTimer.cpp in Sources */,
 				0F8F016776681D468C0D0949 /* audio.c in Sources */,
 				ACE7DC9A3223ED5EE1B80074 /* cameras.c in Sources */,
 				F4135EEFC911E9ED211FB6F9 /* core.c in Sources */,
@@ -2070,6 +2081,7 @@
 				49283AAADA097BC2A3726A0D /* RunningBackground.cpp in Sources */,
 				51CDEA1C59A1FB01DFE05CF4 /* Tracker.cpp in Sources */,
 				0A096E7C81287CA693A6EFCA /* Utilities.cpp in Sources */,
+				E917ACED1D38B01A007AB67D /* WorkFlow.cpp in Sources */,
 				AA5C0A64CB1F1CD62CC276D6 /* Wrappers.cpp in Sources */,
 				7A384C02F66F1D186F994F03 /* Tween.cpp in Sources */,
 				3A99513C3166E940CAD5F546 /* Tweenzor.cpp in Sources */,

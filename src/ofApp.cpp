@@ -14,7 +14,6 @@ void ofApp::setup()
     Global::oneFrameDur = 1.0 / CUTOFF_FPS;
     Global::lastTickTime = Global::ELAPSED_TIME;
     Global::curTickFrame = 0;
-    Global::appState = NONE;
 	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
@@ -28,6 +27,7 @@ void ofApp::setup()
     
     Tweenzor::init();
     
+    workflow.setup();
     content.setup();
     
     gui.setup(Global::inkUniforms);
@@ -50,6 +50,7 @@ void ofApp::update()
         Global::curTickFrame++;
     }
     Global::kinect.update();
+    workflow.update();
     content.update();
     gui.update();
     
@@ -79,6 +80,7 @@ void ofApp::draw()
         content.drawB2DEdge();
     gui.draw();
     
+    ofDrawBitmapStringHighlight("Tw: " + ofToString(Tweenzor::getSize()), 10, ofGetHeight()-40);
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate(), 2), 10, ofGetHeight()-20);
 }
 
@@ -104,14 +106,6 @@ void ofApp::keyPressed(int key)
     if (key == 'e')
     {
         ofNotifyEvent(Global::eatEvent);
-    }
-    if (key == 'd')
-    {
-        if (Global::appState == NONE)
-        {
-            Global::appState = DRAWING;
-            ofNotifyEvent(Global::drawEvent);
-        }
     }
     if (key == 's')
     {

@@ -16,10 +16,6 @@ void Flyer::setup()
     fishLike.setup("imgs/cutoutAnim/flyer/1");
     wavy.setup("imgs/cutoutAnim/flyer/2");
     strtThing.setup("imgs/cutoutAnim/flyer/3");
-    
-//    fishLike.setPosition(700, 500, 0);
-//    wavy.setPosition(2100, 500, 0);
-//    strtThing.setPosition(2700, 500, 0);
 
     ofAddListener(Global::tickEvent, this, &Flyer::onTickEvent);
     ofAddListener(Global::flyerFishLikeEvent, this, &Flyer::onFlyerFishLikeEvent);
@@ -29,7 +25,6 @@ void Flyer::setup()
 
 void Flyer::update()
 {
-//    fishLike.update();
     for (auto& fl : fishLikes)
         fl.update();
     if (!fishLikes.empty())
@@ -59,12 +54,21 @@ void Flyer::onTickEvent()
 {
     scrn.begin();
     ofClear(255);
-    for (auto fl : fishLikes)
+    for (auto& fl : fishLikes)
+    {
+        fl.onTick();
         fl.draw();
-    for (auto w : wavys)
+    }
+    for (auto& w : wavys)
+    {
+        w.onTick();
         w.draw();
-    for (auto s : strtThings)
+    }
+    for (auto& s : strtThings)
+    {
+        s.onTick();
         s.draw();
+    }
     scrn.end();
 }
 

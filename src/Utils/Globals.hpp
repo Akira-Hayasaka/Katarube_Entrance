@@ -15,12 +15,6 @@
 #include "ofxInkSim.h"
 #include "Kinect.hpp"
 
-enum APP_STATE
-{
-    NONE,
-    DRAWING
-};
-
 struct BottomLineAndAng
 {
     ofPoint p;
@@ -33,8 +27,6 @@ namespace Global
     extern float oneFrameDur;    
     extern float lastTickTime;
     extern long curTickFrame;
-    
-    extern APP_STATE appState;
     
     extern Kinect kinect;
     extern vector<ofMatrix4x4> projMats;
