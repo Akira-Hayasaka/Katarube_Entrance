@@ -23,6 +23,7 @@ public:
     void draw();
     void goCircle();
     void goLine();
+    bool isRunning() { return bRunning; }
     
 private:
     

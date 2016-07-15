@@ -31,7 +31,7 @@ private:
     ofFbo scrn;
     
     vector<Knives> knives;
-    int curIdx;
+    deque<Knives> worksets;
 };
 
 #endif /* Knife_hpp */

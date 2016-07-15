@@ -129,14 +129,15 @@ void ofApp::keyPressed(int key)
 //        ofRandomize(evnts);
 //        ofNotifyEvent(evnts.front());
         
-//        ofNotifyEvent(Global::portraitOnePlaceEvent);
-//        ofNotifyEvent(Global::portraitHorizEvent);
+        ofNotifyEvent(Global::portraitOnePlaceEvent);
+        ofNotifyEvent(Global::portraitHorizEvent);
         ofNotifyEvent(Global::portraitVertEvent);
         ofNotifyEvent(Global::flyerFishLikeEvent);
         ofNotifyEvent(Global::flyerWavyEvent);
         ofNotifyEvent(Global::flyerStraightThingEvent);
         ofNotifyEvent(Global::kyoEvent);
-        ofNotifyEvent(Global::knifeCircleEvent);        
+        ofNotifyEvent(Global::knifeCircleEvent);
+        ofNotifyEvent(Global::inkEvent);
     }
     if (key == 'c')
     {

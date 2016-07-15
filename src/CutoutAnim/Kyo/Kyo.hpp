@@ -32,6 +32,7 @@ private:
     
     int curIdx;
     vector<KyoTexture> texs;
+    deque<KyoTexture> worksets;
 };
 
 #endif /* Kyo_hpp */

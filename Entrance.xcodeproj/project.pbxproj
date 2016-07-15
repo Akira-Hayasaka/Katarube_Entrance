@@ -110,6 +110,7 @@
 		E814CA271F4690DA492336A7 /* Mouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */; };
 		E917ACE11D35D119007AB67D /* Knives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACDF1D35D119007AB67D /* Knives.cpp */; settings = {ASSET_TAGS = (); }; };
 		E917ACE41D35D127007AB67D /* KnifeTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACE21D35D127007AB67D /* KnifeTexture.cpp */; settings = {ASSET_TAGS = (); }; };
+		E917ACE91D388F89007AB67D /* Portraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E917ACE71D388F89007AB67D /* Portraits.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54BC1D31ECD70032CFC4 /* Knife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54BA1D31ECD70032CFC4 /* Knife.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54BF1D31ED090032CFC4 /* Flyer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54BD1D31ED090032CFC4 /* Flyer.cpp */; settings = {ASSET_TAGS = (); }; };
 		E92F54C21D31ED120032CFC4 /* FishLike.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54C01D31ED120032CFC4 /* FishLike.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -549,6 +550,8 @@
 		E917ACE01D35D119007AB67D /* Knives.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knives.hpp; sourceTree = "<group>"; };
 		E917ACE21D35D127007AB67D /* KnifeTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KnifeTexture.cpp; sourceTree = "<group>"; };
 		E917ACE31D35D127007AB67D /* KnifeTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KnifeTexture.hpp; sourceTree = "<group>"; };
+		E917ACE71D388F89007AB67D /* Portraits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portraits.cpp; sourceTree = "<group>"; };
+		E917ACE81D388F89007AB67D /* Portraits.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portraits.hpp; sourceTree = "<group>"; };
 		E92F54BA1D31ECD70032CFC4 /* Knife.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Knife.cpp; sourceTree = "<group>"; };
 		E92F54BB1D31ECD70032CFC4 /* Knife.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Knife.hpp; sourceTree = "<group>"; };
 		E92F54BD1D31ED090032CFC4 /* Flyer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flyer.cpp; sourceTree = "<group>"; };
@@ -1743,6 +1746,8 @@
 			children = (
 				E93187861D30A776004A448F /* Portrait.cpp */,
 				E93187871D30A776004A448F /* Portrait.hpp */,
+				E917ACE71D388F89007AB67D /* Portraits.cpp */,
+				E917ACE81D388F89007AB67D /* Portraits.hpp */,
 				E93187891D30A785004A448F /* PortraitTexture.cpp */,
 				E931878A1D30A785004A448F /* PortraitTexture.hpp */,
 			);
@@ -2094,6 +2099,7 @@
 				DDD68EF942259F11BE8177F4 /* b2BlockAllocator.cpp in Sources */,
 				80DBE54329C0709A833B5F76 /* b2Draw.cpp in Sources */,
 				26CB6648CBC73D57E1D9378F /* b2Math.cpp in Sources */,
+				E917ACE91D388F89007AB67D /* Portraits.cpp in Sources */,
 				479E22E612C18DEC01D5D2BD /* b2Settings.cpp in Sources */,
 				E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */,
 				E92F54CB1D321D4E0032CFC4 /* FlyerBase.cpp in Sources */,

@@ -26,16 +26,19 @@ void Knife::setup()
     }
     dir.close();
     
-    curIdx = 0;
-    
     ofAddListener(Global::tickEvent, this, &Knife::onTickEvent);
     ofAddListener(Global::knifeCircleEvent, this, &Knife::onKnifeCircleEvent);
 }
 
 void Knife::update()
 {
-    for (auto& k : knives)
-        k.update();
+    for (auto& w : worksets)
+        w.update();
+    if (!worksets.empty())
+    {
+        if (!worksets.front().isRunning())
+            worksets.pop_front();
+    }
 }
 
 void Knife::clearScrn()
@@ -49,15 +52,13 @@ void Knife::onTickEvent()
 {
     scrn.begin();
     ofClear(255);
-    for (auto k : knives)
-        k.draw();
+    for (auto w : worksets)
+        w.draw();
     scrn.end();
 }
 
 void Knife::onKnifeCircleEvent()
 {
-    curIdx++;
-    if (curIdx >= knives.size())
-        curIdx = 0;
-    knives.at(curIdx).goCircle();
+    worksets.push_back(knives.at(ofRandom(knives.size()-1)));
+    worksets.back().goCircle();
 }

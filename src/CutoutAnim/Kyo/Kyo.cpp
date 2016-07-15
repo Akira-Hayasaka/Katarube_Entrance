@@ -35,7 +35,11 @@ void Kyo::setup()
 
 void Kyo::update()
 {
-    
+    if (!worksets.empty())
+    {
+        if (!worksets.front().isRunning())
+            worksets.pop_front();
+    }
 }
 
 void Kyo::clearScrn()
@@ -49,8 +53,8 @@ void Kyo::onTickEvent()
 {
     scrn.begin();
     ofClear(255);
-    for (auto t : texs)
-        t.draw();
+    for (auto w : worksets)
+        w.draw();
     scrn.end();
 }
 
@@ -59,5 +63,6 @@ void Kyo::onKyoEvent()
     curIdx++;
     if (curIdx >= texs.size())
         curIdx = 0;
-    texs.at(curIdx).go();
+    worksets.push_back(texs.at(curIdx));
+    worksets.back().go();
 }
