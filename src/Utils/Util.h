@@ -107,3 +107,57 @@ static float getNearestPt(const vector<ofPoint> pts, const ofPoint& target, int&
     }
     return bestDistance;
 }
+
+static vector<ofPoint> getCircularPts(float pRadius, ofPoint orig, int devide)
+{
+    float angle = PI * 2 / devide;
+    
+    vector<ofPoint> rtn;
+    for (int i = 0; i < devide; i++)
+    {
+        ofPoint p(orig.x + pRadius * cos(angle * i),
+                  orig.y + pRadius * sin(angle * i));
+        rtn.push_back(p);
+    }
+    return rtn;
+}
+
+static ofPoint getCircularRdmPos(float pRadius, ofPoint orig, bool bUniDist = false)
+{
+    float angle = ofRandomuf() * PI * 2;
+    
+    float radius = 0.0;
+    if (bUniDist)
+    {
+        radius = sqrt(ofRandomuf()) * pRadius;
+    }
+    else
+    {
+        radius = ofRandomuf() * pRadius;
+    }
+    
+    float x = orig.x + radius * cos(angle);
+    float y = orig.y + radius * sin(angle);
+    return ofPoint(x, y);
+}
+
+static ofPoint getCircularRdmPos3D(float pRadius, ofPoint orig, bool bUniDist = false)
+{
+    float angle = ofRandomuf() * PI * 2;
+    float t = ofRandomuf() * PI * 2;
+    
+    float radius = 0.0;
+    if (bUniDist)
+    {
+        radius = sqrt(ofRandomuf()) * pRadius;
+    }
+    else
+    {
+        radius = ofRandomuf() * pRadius;
+    }
+    
+    float x = orig.x + radius * cos(angle) * sin(t);
+    float y = orig.y + radius * sin(angle) * sin(t);
+    float z = orig.z + radius * cos(t);
+    return ofPoint(x, y, z);
+}

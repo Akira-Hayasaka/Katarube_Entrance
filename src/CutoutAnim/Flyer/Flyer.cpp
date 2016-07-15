@@ -16,10 +16,6 @@ void Flyer::setup()
     fishLike.setup("imgs/cutoutAnim/flyer/1");
     wavy.setup("imgs/cutoutAnim/flyer/2");
     strtThing.setup("imgs/cutoutAnim/flyer/3");
-    
-//    fishLike.setPosition(700, 500, 0);
-//    wavy.setPosition(2100, 500, 0);
-    strtThing.setPosition(2700, 500, 0);
 
     ofAddListener(Global::tickEvent, this, &Flyer::onTickEvent);
     ofAddListener(Global::flyerFishLikeEvent, this, &Flyer::onFlyerFishLikeEvent);
@@ -29,19 +25,50 @@ void Flyer::setup()
 
 void Flyer::update()
 {
-    fishLike.update();
-    wavy.update();
-    strtThing.update();
+    for (auto& fl : fishLikes)
+        fl.update();
+    if (!fishLikes.empty())
+    {
+        if (!fishLikes.front().isMoving())
+            fishLikes.pop_front();
+    }
+    
+    for (auto& w : wavys)
+        w.update();
+    if (!wavys.empty())
+    {
+        if (!wavys.front().isMoving())
+            wavys.pop_front();
+    }
+    
+    for (auto& s : strtThings)
+        s.update();
+    if (!strtThings.empty())
+    {
+        if (!strtThings.front().isMoving())
+            strtThings.pop_front();
+    }
 }
 
 void Flyer::onTickEvent()
 {
     scrn.begin();
     ofClear(255);
-    fishLike.draw();
-    wavy.draw();
-    strtThing.draw();
-    
+    for (auto& fl : fishLikes)
+    {
+        fl.onTick();
+        fl.draw();
+    }
+    for (auto& w : wavys)
+    {
+        w.onTick();
+        w.draw();
+    }
+    for (auto& s : strtThings)
+    {
+        s.onTick();
+        s.draw();
+    }
     scrn.end();
 }
 
@@ -50,4 +77,25 @@ void Flyer::clearScrn()
     scrn.begin();
     ofClear(255);
     scrn.end();
+}
+
+void Flyer::onFlyerFishLikeEvent()
+{
+    FishLike fl = fishLike;
+    fishLikes.push_back(fl);
+    fishLikes.back().go();
+}
+
+void Flyer::onFlyerWavyEvent()
+{
+    Wavy w = wavy;
+    wavys.push_back(w);
+    wavys.back().go();
+}
+
+void Flyer::onFlyerStraightThingEvent()
+{
+    StraightThing s = strtThing;
+    strtThings.push_back(s);
+    strtThings.back().go();
 }

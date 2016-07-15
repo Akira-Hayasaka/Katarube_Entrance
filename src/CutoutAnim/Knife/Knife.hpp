@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "Constants.h"
 #include "Globals.hpp"
+#include "Knives.hpp"
 
 class Knife
 {
@@ -23,13 +24,14 @@ public:
     
 private:
     
+    void clearScrn();
     void onTickEvent();
-    
-    bool bNeedTickUpdate;
+    void onKnifeCircleEvent();
     
     ofFbo scrn;
     
-    vector<ofTexture> texs;
+    vector<Knives> knives;
+    deque<Knives> worksets;
 };
 
 #endif /* Knife_hpp */

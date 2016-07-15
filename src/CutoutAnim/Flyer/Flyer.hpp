@@ -26,9 +26,9 @@ public:
     
 private:
     
-    void onFlyerFishLikeEvent() { fishLike.go(); }
-    void onFlyerWavyEvent() { wavy.go(); }
-    void onFlyerStraightThingEvent() { strtThing.go(); }
+    void onFlyerFishLikeEvent();
+    void onFlyerWavyEvent();
+    void onFlyerStraightThingEvent();
     
     void clearScrn();
     void onTickEvent();
@@ -38,5 +38,8 @@ private:
     FishLike fishLike;
     Wavy wavy;
     StraightThing strtThing;
+    deque<FishLike> fishLikes;
+    deque<Wavy> wavys;
+    deque<StraightThing> strtThings;
 };
 #endif /* Flyer_hpp */

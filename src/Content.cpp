@@ -120,7 +120,7 @@ void Content::genFullScreenContent()
 
 void Content::drawLeft()
 {
-    cutout.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
+    fullScreenResult.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, 0, 0);
 }
 
 void Content::drawRight()

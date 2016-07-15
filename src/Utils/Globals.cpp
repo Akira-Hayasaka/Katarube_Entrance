@@ -15,8 +15,6 @@ namespace Global
     float lastTickTime;
     long curTickFrame;
     
-    APP_STATE appState;
-    
     Kinect kinect;
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
@@ -29,7 +27,7 @@ namespace Global
     
     ofxCv::ContourFinder globalContourFinder;
     
-    ofPtr<UniformInfos> kyoInkUniforms;
+    ofPtr<UniformInfos> inkUniforms;
     
     // shaders
     ofShader chromaKey;
@@ -47,6 +45,11 @@ namespace Global
     ofEvent<void> flyerFishLikeEvent;
     ofEvent<void> flyerWavyEvent;
     ofEvent<void> flyerStraightThingEvent;
+    
+    ofEvent<void> kyoEvent;
+    
+    ofEvent<void> knifeCircleEvent;
+    ofEvent<void> knifeLineEvent;
     
     ofEvent<void> inkEvent;
     ofEvent<void> clearInkEvent;

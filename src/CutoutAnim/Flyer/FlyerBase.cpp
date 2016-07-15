@@ -26,8 +26,6 @@ void FlyerBase::setup(string seqDir)
     lastTickFrame = Global::curTickFrame;
     texIdx = 0;
     bMoving = false;
-    
-    ofAddListener(Global::tickEvent, this, &FlyerBase::onTickEvent);
 }
 
 void FlyerBase::update()
@@ -49,7 +47,7 @@ void FlyerBase::update()
     }
 }
 
-void FlyerBase::onTickEvent()
+void FlyerBase::onTick()
 {
     if (Global::curTickFrame - lastTickFrame > ofRandom(1, 3))
     {

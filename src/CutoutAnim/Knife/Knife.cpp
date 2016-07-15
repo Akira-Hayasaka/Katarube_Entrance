@@ -11,40 +11,54 @@
 void Knife::setup()
 {
     scrn.allocate(APP_W, APP_H);
+    clearScrn();
     
-    ofDirectory dir;
-    dir.open("imgs/cutoutAnim/knife/0");
+    ofDirectory dir("imgs/cutoutAnim/knife");
     dir.listDir();
     for (int i = 0; i < dir.size(); i++)
     {
-        ofFile f = dir.getFile(i);
-        if (f.getExtension() == "jpg" || f.getExtension() == "png")
+        if (dir.getFile(i).isDirectory())
         {
-            ofTexture t;
-            texs.push_back(t);
-            ofLoadImage(texs.back(), f.getAbsolutePath());
+            Knives k;
+            knives.push_back(k);
+            knives.back().setup(dir.getFile(i).getAbsolutePath());
         }
     }
     dir.close();
     
     ofAddListener(Global::tickEvent, this, &Knife::onTickEvent);
-    bNeedTickUpdate = false;
+    ofAddListener(Global::knifeCircleEvent, this, &Knife::onKnifeCircleEvent);
 }
 
 void Knife::update()
 {
-    
-    if (bNeedTickUpdate)
+    for (auto& w : worksets)
+        w.update();
+    if (!worksets.empty())
     {
-        scrn.begin();
-        ofClear(255);
-        texs.at(0).draw(500, 500);
-        scrn.end();
-        bNeedTickUpdate = false;
+        if (!worksets.front().isRunning())
+            worksets.pop_front();
     }
+}
+
+void Knife::clearScrn()
+{
+    scrn.begin();
+    ofClear(255);
+    scrn.end();
 }
 
 void Knife::onTickEvent()
 {
-    bNeedTickUpdate = true;
+    scrn.begin();
+    ofClear(255);
+    for (auto w : worksets)
+        w.draw();
+    scrn.end();
+}
+
+void Knife::onKnifeCircleEvent()
+{
+    worksets.push_back(knives.at(ofRandom(knives.size()-1)));
+    worksets.back().goCircle();
 }

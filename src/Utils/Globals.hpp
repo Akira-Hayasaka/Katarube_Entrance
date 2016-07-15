@@ -15,12 +15,6 @@
 #include "ofxInkSim.h"
 #include "Kinect.hpp"
 
-enum APP_STATE
-{
-    NONE,
-    DRAWING
-};
-
 struct BottomLineAndAng
 {
     ofPoint p;
@@ -34,8 +28,6 @@ namespace Global
     extern float lastTickTime;
     extern long curTickFrame;
     
-    extern APP_STATE appState;
-    
     extern Kinect kinect;
     extern vector<ofMatrix4x4> projMats;
     extern ofMatrix4x4 kinectMat;
@@ -48,7 +40,7 @@ namespace Global
     
     extern ofxCv::ContourFinder globalContourFinder;
     
-    extern ofPtr<UniformInfos> kyoInkUniforms;
+    extern ofPtr<UniformInfos> inkUniforms;
     
     // shaders
     extern ofShader chromaKey;
@@ -66,6 +58,11 @@ namespace Global
     extern ofEvent<void> flyerFishLikeEvent;
     extern ofEvent<void> flyerWavyEvent;
     extern ofEvent<void> flyerStraightThingEvent;
+    
+    extern ofEvent<void> kyoEvent;
+    
+    extern ofEvent<void> knifeCircleEvent;
+    extern ofEvent<void> knifeLineEvent;
     
     extern ofEvent<void> inkEvent;
     extern ofEvent<void> clearInkEvent;

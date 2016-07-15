@@ -20,6 +20,7 @@ public:
     
     void setup(string seqDir);
     void update();
+    void onTick();    
     ofPolyline& getMotionLine() { return motionLine; }
     bool isMoving() { return bMoving; }
     
@@ -27,7 +28,6 @@ public:
     
 protected:
     
-    void onTickEvent();
     
     int lastTickFrame;
     
