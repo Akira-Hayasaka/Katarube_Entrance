@@ -40,7 +40,22 @@
 		<ClCompile Include="src\CutoutAnim\Knife\Knife.cpp">
 			<Filter>src\CutoutAnim\Knife</Filter>
 		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Knife\KnifeTexture.cpp">
+			<Filter>src\CutoutAnim\Knife</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Knife\Knives.cpp">
+			<Filter>src\CutoutAnim\Knife</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Kyo\Kyo.cpp">
+			<Filter>src\CutoutAnim\Kyo</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Kyo\KyoTexture.cpp">
+			<Filter>src\CutoutAnim\Kyo</Filter>
+		</ClCompile>
 		<ClCompile Include="src\CutoutAnim\Portrait\Portrait.cpp">
+			<Filter>src\CutoutAnim\Portrait</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CutoutAnim\Portrait\Portraits.cpp">
 			<Filter>src\CutoutAnim\Portrait</Filter>
 		</ClCompile>
 		<ClCompile Include="src\CutoutAnim\Portrait\PortraitTexture.cpp">
@@ -48,6 +63,9 @@
 		</ClCompile>
 		<ClCompile Include="src\Drawing\Puppet.cpp">
 			<Filter>src\Drawing</Filter>
+		</ClCompile>
+		<ClCompile Include="src\EventTimer.cpp">
+			<Filter>src</Filter>
 		</ClCompile>
 		<ClCompile Include="src\GUI.cpp">
 			<Filter>src</Filter>
@@ -72,6 +90,9 @@
 		</ClCompile>
 		<ClCompile Include="src\Utils\Warper.cpp">
 			<Filter>src\Utils</Filter>
+		</ClCompile>
+		<ClCompile Include="src\WorkFlow.cpp">
+			<Filter>src</Filter>
 		</ClCompile>
 		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
 			<Filter>addons\ofxGui\src</Filter>
@@ -423,6 +444,9 @@
 		<Filter Include="src\CutoutAnim\Knife">
 			<UniqueIdentifier>{A961F8C9-CFDE-42C0-505A-4FAC}</UniqueIdentifier>
 		</Filter>
+		<Filter Include="src\CutoutAnim\Kyo">
+			<UniqueIdentifier>{96132D15-B3D2-7702-3E1D-9869}</UniqueIdentifier>
+		</Filter>
 		<Filter Include="src\CutoutAnim\Portrait">
 			<UniqueIdentifier>{AB875E49-CB3F-B1EC-60FE-9E53}</UniqueIdentifier>
 		</Filter>
@@ -725,7 +749,22 @@
 		<ClInclude Include="src\CutoutAnim\Knife\Knife.hpp">
 			<Filter>src\CutoutAnim\Knife</Filter>
 		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Knife\KnifeTexture.hpp">
+			<Filter>src\CutoutAnim\Knife</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Knife\Knives.hpp">
+			<Filter>src\CutoutAnim\Knife</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Kyo\Kyo.hpp">
+			<Filter>src\CutoutAnim\Kyo</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Kyo\KyoTexture.hpp">
+			<Filter>src\CutoutAnim\Kyo</Filter>
+		</ClInclude>
 		<ClInclude Include="src\CutoutAnim\Portrait\Portrait.hpp">
+			<Filter>src\CutoutAnim\Portrait</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CutoutAnim\Portrait\Portraits.hpp">
 			<Filter>src\CutoutAnim\Portrait</Filter>
 		</ClInclude>
 		<ClInclude Include="src\CutoutAnim\Portrait\PortraitTexture.hpp">
@@ -733,6 +772,9 @@
 		</ClInclude>
 		<ClInclude Include="src\Drawing\Puppet.hpp">
 			<Filter>src\Drawing</Filter>
+		</ClInclude>
+		<ClInclude Include="src\EventTimer.hpp">
+			<Filter>src</Filter>
 		</ClInclude>
 		<ClInclude Include="src\GUI.hpp">
 			<Filter>src</Filter>
@@ -760,6 +802,9 @@
 		</ClInclude>
 		<ClInclude Include="src\Utils\Warper.hpp">
 			<Filter>src\Utils</Filter>
+		</ClInclude>
+		<ClInclude Include="src\WorkFlow.hpp">
+			<Filter>src</Filter>
 		</ClInclude>
 		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
 			<Filter>addons\ofxGui\src</Filter>
