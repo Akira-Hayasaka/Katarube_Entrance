@@ -4,7 +4,6 @@ void ofApp::setup()
 {
 	disableEdgeSwipeGesture();
 
-	ofToggleFullscreen();
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
     ofBackground(ofColor::black);
