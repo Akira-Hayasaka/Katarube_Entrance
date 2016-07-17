@@ -39,8 +39,6 @@ private:
         RETIRE
     };
     STATE state;
-    
-    bool bNeedTickUpdate;
 
     ofPoint facePosOrig;
     ofPoint facePosDest;

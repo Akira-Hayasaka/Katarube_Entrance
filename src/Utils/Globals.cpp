@@ -25,8 +25,6 @@ namespace Global
     
     ofVboMesh scrnQuad;
     
-    ofxCv::ContourFinder globalContourFinder;
-    
     ofPtr<UniformInfos> inkUniforms;
     
     // shaders
@@ -37,6 +35,10 @@ namespace Global
     ofEvent<void> tickEvent;
     ofEvent<void> eatEvent;
     ofEvent<void> drawEvent;
+    
+    ofEvent<DrawCommandInfo> genContourEvent;
+    ofEvent<DrawCommandContour> gotContourEvent;
+    ofEvent<DrawCommandContour> gotContourWHoleEvent;
     
     ofEvent<void> portraitOnePlaceEvent;
     ofEvent<void> portraitHorizEvent;

@@ -10,7 +10,6 @@
 #define Globals_hpp
 
 #include "ofMain.h"
-#include "ofxCv.h"
 #include "ofxBox2d.h"
 #include "ofxInkSim.h"
 #include "Kinect.hpp"
@@ -19,6 +18,21 @@ struct BottomLineAndAng
 {
     ofPoint p;
     float ang;
+};
+
+struct DrawCommandInfo
+{
+    string cmdID;
+    ofPixels px;
+    float contourMinArea;
+    float contourMaxArea;
+    float contourBriThresh;
+};
+
+struct DrawCommandContour
+{
+    string cmdID;
+    vector<ofPolyline> contours;
 };
 
 namespace Global
@@ -38,8 +52,6 @@ namespace Global
     
     extern ofVboMesh scrnQuad;
     
-    extern ofxCv::ContourFinder globalContourFinder;
-    
     extern ofPtr<UniformInfos> inkUniforms;
     
     // shaders
@@ -50,6 +62,10 @@ namespace Global
     extern ofEvent<void> tickEvent;
     extern ofEvent<void> eatEvent;
     extern ofEvent<void> drawEvent;
+    
+    extern ofEvent<DrawCommandInfo> genContourEvent;
+    extern ofEvent<DrawCommandContour> gotContourEvent;
+    extern ofEvent<DrawCommandContour> gotContourWHoleEvent;
     
     extern ofEvent<void> portraitOnePlaceEvent;
     extern ofEvent<void> portraitHorizEvent;

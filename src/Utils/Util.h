@@ -79,6 +79,27 @@ static void drawPlane(float _width, float _height)
     Global::scrnQuad.draw();
 }
 
+static string genUUID()
+{
+#ifdef TARGET_WIN32
+    string rtn;
+    UUID uuid;
+    UuidCreate(&uuid);
+    char *str;
+    UuidToStringA(&uuid, (RPC_CSTR*)&str);
+    rtn = string(str);
+    RpcStringFreeA((RPC_CSTR*)&str);
+    return rtn;
+#else
+    uuid_t uuid;
+    uuid_generate_random(uuid);
+    char s[37];
+    uuid_unparse(uuid, s);
+    string idstr = s;
+    return idstr;
+#endif
+}
+
 static void saveImage(ofTexture t, string path, float pct = 1.0)
 {
     ofFbo fbo;

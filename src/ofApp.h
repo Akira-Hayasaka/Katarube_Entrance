@@ -7,6 +7,7 @@
 #include "Util.h"
 #include "WorkFlow.hpp"
 #include "Content.hpp"
+#include "ThreadedContourFinder.hpp"
 #include "GUI.hpp"
 
 class ofApp : public ofBaseApp
@@ -34,6 +35,7 @@ private:
     WorkFlow workflow;    
     Content content;
     GUI gui;
+    ThreadedContourFinder tContourFinder;
     
     // debug
     bool bDrawTiny;

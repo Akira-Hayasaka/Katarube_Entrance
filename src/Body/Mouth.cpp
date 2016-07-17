@@ -77,8 +77,7 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
     facePosOrig = ofPoint(-700, 0, 0);
     facePosDest = ofPoint::zero();
     curFacePos = facePosOrig;
-    
-    bNeedTickUpdate = false;
+
     curFrame = 0;
     blendIdx = ofRandom(blendTexs.size()-1);
     state = NONE;
@@ -86,14 +85,7 @@ void Mouth::setup(string seqDirPath, string blendDirPath)
 
 void Mouth::update()
 {
-    if (state == NONE)
-        return;
-    
-    if (bNeedTickUpdate)
-    {
-        genTweakTex();
-        bNeedTickUpdate = false;
-    }
+
 }
 
 void Mouth::draw()
@@ -135,7 +127,7 @@ void Mouth::onTickEvent()
             state = NONE;
         }
         
-        bNeedTickUpdate = true;
+        genTweakTex();
     }
 }
 

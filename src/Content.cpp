@@ -44,15 +44,16 @@ void Content::setup()
     fullScreenResult.end();
     
     // try 5 times
+    ofxCv::ContourFinder contourFinder;
     for (int i = 0; i < 5; i++)
     {
-        Global::globalContourFinder.setMinAreaRadius(0);
-        Global::globalContourFinder.setMaxAreaRadius(10000);
-        Global::globalContourFinder.setThreshold(128);
-        Global::globalContourFinder.findContours(b2dEdgePx);
-        Global::globalContourFinder.setFindHoles(false);
+        contourFinder.setMinAreaRadius(0);
+        contourFinder.setMaxAreaRadius(10000);
+        contourFinder.setThreshold(128);
+        contourFinder.findContours(b2dEdgePx);
+        contourFinder.setFindHoles(false);
     }
-    b2dEdge = Global::globalContourFinder.getPolyline(0);
+    b2dEdge = contourFinder.getPolyline(0);
     b2dEdge = b2dEdge.getResampledByCount(200);
     Global::b2dEdge = b2dEdge;
     
@@ -74,11 +75,10 @@ void Content::setup()
         }
     }
     
-    mouth.setup("imgs/seq/mouth/1", "imgs/seqBlendTex");
+    mouth.setup("imgs/body/mouth/1", "imgs/seqBlendTex");
     ink.setup();
     cutout.setup();
-    
-    bNeedTickUpdate = false;
+    drawer.setup();
     
     ofAddListener(Global::tickEvent, this, &Content::onTickEvent);
 }
@@ -88,17 +88,7 @@ void Content::update()
     mouth.update();
     ink.update();
     cutout.update();
-    
-    if (bNeedTickUpdate)
-    {
-        // draw every stop motion content here
-        stopMotionContent.begin();
-        ofClear(0);
-        mouth.draw();
-        stopMotionContent.end();
-        
-        bNeedTickUpdate = false;
-    }
+    drawer.update();
 }
 
 void Content::genFullScreenContent()
@@ -107,7 +97,7 @@ void Content::genFullScreenContent()
     ofClear(0);
     
     blendOutput.begin();
-    blendOutput.setUniformTexture("content", stopMotionContent.getTexture(), 0);
+    blendOutput.setUniformTexture("body", stopMotionContent.getTexture(), 0);
     blendOutput.setUniformTexture("ink", ink.getTexture(), 1);
     blendOutput.setUniformTexture("cutout", cutout.getTexture(), 2);
     blendOutput.setUniformTexture("bg", bg.getTexture(), 3);
@@ -157,7 +147,12 @@ void Content::drawB2DEdge()
 
 void Content::onTickEvent()
 {
-    bNeedTickUpdate = true;
+     // draw every stop motion content here
+    stopMotionContent.begin();
+    ofClear(0);
+    drawer.draw();
+    mouth.draw();
+    stopMotionContent.end();
 }
 
 void Content::saveScreen()

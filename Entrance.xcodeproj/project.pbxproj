@@ -42,7 +42,6 @@
 		5C000F6A913942F2EDD75270 /* ofxBox2dJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DEAC379BA97FFFFB8730DBA /* ofxBox2dJoint.cpp */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
 		60CD30FECD0E8666AD2719A3 /* b2ChainShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA59D91FCC7723FF309721C5 /* b2ChainShape.cpp */; };
-		61DCA0F0C7B9117BBB52FBD8 /* Hand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA3FB43C6F204B87F0335C /* Hand.cpp */; };
 		63020F16C7E8DED980111241 /* ofxCvImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6151136D101F857DAE12722 /* ofxCvImage.cpp */; };
 		63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */; };
 		686B0DF6249B52E1A85B39EC /* ofxKinect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7ED9FFC7D08DA194C2CE7D09 /* ofxKinect.cpp */; };
@@ -125,6 +124,13 @@
 		E92F54F01D3375A00032CFC4 /* ofxInkSim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92F54D91D3375A00032CFC4 /* ofxInkSim.cpp */; settings = {ASSET_TAGS = (); }; };
 		E93187881D30A776004A448F /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93187861D30A776004A448F /* Portrait.cpp */; settings = {ASSET_TAGS = (); }; };
 		E931878B1D30A785004A448F /* PortraitTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93187891D30A785004A448F /* PortraitTexture.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D44E1D3B09F6008EECB1 /* Drawer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D44C1D3B09F6008EECB1 /* Drawer.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4511D3B0A00008EECB1 /* Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D44F1D3B0A00008EECB1 /* Drawing.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4551D3B0D33008EECB1 /* DrawingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4531D3B0D33008EECB1 /* DrawingHand.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4581D3B1068008EECB1 /* PuttingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4561D3B1068008EECB1 /* PuttingHand.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D45B1D3B1074008EECB1 /* FetchingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4591D3B1074008EECB1 /* FetchingHand.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D45E1D3B107E008EECB1 /* SwipingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45C1D3B107E008EECB1 /* SwipingHand.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4611D3B3D7D008EECB1 /* ThreadedContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */; settings = {ASSET_TAGS = (); }; };
 		E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99C0C3D1D34A2F80054B796 /* Ink.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -296,7 +302,6 @@
 		4CD2228F2C8116D51179E3A3 /* devmem2d.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = devmem2d.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/devmem2d.hpp; sourceTree = SOURCE_ROOT; };
 		4CFA8A81B93736DE82F0090A /* gpumat.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = gpumat.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/gpumat.hpp; sourceTree = SOURCE_ROOT; };
 		4D4DAE2D8AE9906846FF075F /* Tweenzor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Tweenzor.h; path = addons/ofxTweenzor/src/Tweenzor.h; sourceTree = SOURCE_ROOT; };
-		4DBA3FB43C6F204B87F0335C /* Hand.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Hand.cpp; path = src/Body/Hand.cpp; sourceTree = SOURCE_ROOT; };
 		4E43E3E76842B86805645B6A /* b2DynamicTree.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2DynamicTree.cpp; path = addons/ofxBox2d/libs/Box2D/Collision/b2DynamicTree.cpp; sourceTree = SOURCE_ROOT; };
 		4EA4D9BCB83BE1607C84A839 /* b2PrismaticJoint.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2PrismaticJoint.cpp; path = addons/ofxBox2d/libs/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp; sourceTree = SOURCE_ROOT; };
 		507A0EB8580B19CC9A06C575 /* ofxBox2dRect.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBox2dRect.cpp; path = addons/ofxBox2d/src/ofxBox2dRect.cpp; sourceTree = SOURCE_ROOT; };
@@ -317,7 +322,6 @@
 		5D16FBFD3BF6F72A3D57F4C1 /* b2Joint.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2Joint.cpp; path = addons/ofxBox2d/libs/Box2D/Dynamics/Joints/b2Joint.cpp; sourceTree = SOURCE_ROOT; };
 		5D966EA1AA66E2D55D047733 /* blobtrack.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = blobtrack.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/legacy/blobtrack.hpp; sourceTree = SOURCE_ROOT; };
 		5E0B53BB31EDDF8C58E925B1 /* myvec.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = myvec.h; path = addons/ofxCv/libs/CLD/include/CLD/myvec.h; sourceTree = SOURCE_ROOT; };
-		5E202B9504F364215542A936 /* Hand.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Hand.hpp; path = src/Body/Hand.hpp; sourceTree = SOURCE_ROOT; };
 		5F717D9D2347C1AF90E757C5 /* b2EdgeShape.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2EdgeShape.cpp; path = addons/ofxBox2d/libs/Box2D/Collision/Shapes/b2EdgeShape.cpp; sourceTree = SOURCE_ROOT; };
 		5FD66CBB44FD98857DE21742 /* fdog.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = fdog.cpp; path = addons/ofxCv/libs/CLD/src/fdog.cpp; sourceTree = SOURCE_ROOT; };
 		60179A75A6C5F9A54DA3A64C /* streams.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = streams.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/legacy/streams.hpp; sourceTree = SOURCE_ROOT; };
@@ -599,6 +603,20 @@
 		E93187871D30A776004A448F /* Portrait.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portrait.hpp; sourceTree = "<group>"; };
 		E93187891D30A785004A448F /* PortraitTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortraitTexture.cpp; sourceTree = "<group>"; };
 		E931878A1D30A785004A448F /* PortraitTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PortraitTexture.hpp; sourceTree = "<group>"; };
+		E945D44C1D3B09F6008EECB1 /* Drawer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drawer.cpp; sourceTree = "<group>"; };
+		E945D44D1D3B09F6008EECB1 /* Drawer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Drawer.hpp; sourceTree = "<group>"; };
+		E945D44F1D3B0A00008EECB1 /* Drawing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drawing.cpp; sourceTree = "<group>"; };
+		E945D4501D3B0A00008EECB1 /* Drawing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Drawing.hpp; sourceTree = "<group>"; };
+		E945D4531D3B0D33008EECB1 /* DrawingHand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingHand.cpp; sourceTree = "<group>"; };
+		E945D4541D3B0D33008EECB1 /* DrawingHand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawingHand.hpp; sourceTree = "<group>"; };
+		E945D4561D3B1068008EECB1 /* PuttingHand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PuttingHand.cpp; sourceTree = "<group>"; };
+		E945D4571D3B1068008EECB1 /* PuttingHand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PuttingHand.hpp; sourceTree = "<group>"; };
+		E945D4591D3B1074008EECB1 /* FetchingHand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FetchingHand.cpp; sourceTree = "<group>"; };
+		E945D45A1D3B1074008EECB1 /* FetchingHand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FetchingHand.hpp; sourceTree = "<group>"; };
+		E945D45C1D3B107E008EECB1 /* SwipingHand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwipingHand.cpp; sourceTree = "<group>"; };
+		E945D45D1D3B107E008EECB1 /* SwipingHand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SwipingHand.hpp; sourceTree = "<group>"; };
+		E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadedContourFinder.cpp; sourceTree = "<group>"; };
+		E945D4601D3B3D7D008EECB1 /* ThreadedContourFinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThreadedContourFinder.hpp; sourceTree = "<group>"; };
 		E99C0C3D1D34A2F80054B796 /* Ink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ink.cpp; sourceTree = "<group>"; };
 		E99C0C3E1D34A2F80054B796 /* Ink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
 		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
@@ -780,6 +798,8 @@
 		18307243BAB6192C5130E2E2 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
+				E945D44F1D3B0A00008EECB1 /* Drawing.cpp */,
+				E945D4501D3B0A00008EECB1 /* Drawing.hpp */,
 				CAE015E09D98A3A613C5D783 /* Puppet.cpp */,
 				EEECE9DFB13D84CCA491850C /* Puppet.hpp */,
 			);
@@ -869,10 +889,16 @@
 		266C53B47C491FAC7F7FE6AC /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				4DBA3FB43C6F204B87F0335C /* Hand.cpp */,
-				5E202B9504F364215542A936 /* Hand.hpp */,
 				5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */,
 				D1F9EB1AA0662220E6C2E0CF /* Mouth.hpp */,
+				E945D4531D3B0D33008EECB1 /* DrawingHand.cpp */,
+				E945D4541D3B0D33008EECB1 /* DrawingHand.hpp */,
+				E945D4561D3B1068008EECB1 /* PuttingHand.cpp */,
+				E945D4571D3B1068008EECB1 /* PuttingHand.hpp */,
+				E945D4591D3B1074008EECB1 /* FetchingHand.cpp */,
+				E945D45A1D3B1074008EECB1 /* FetchingHand.hpp */,
+				E945D45C1D3B107E008EECB1 /* SwipingHand.cpp */,
+				E945D45D1D3B107E008EECB1 /* SwipingHand.hpp */,
 			);
 			name = Body;
 			sourceTree = "<group>";
@@ -1231,6 +1257,8 @@
 				3E18CB323389DC4CFF241991 /* Warper.hpp */,
 				E917ACEE1D38B276007AB67D /* EventTimer.cpp */,
 				E917ACEF1D38B276007AB67D /* EventTimer.hpp */,
+				E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */,
+				E945D4601D3B3D7D008EECB1 /* ThreadedContourFinder.hpp */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1633,6 +1661,7 @@
 				C3578E9E885CBA06E7AA22F7 /* Content.hpp */,
 				E8FFD32E1883966A6C0FC4DC /* GUI.cpp */,
 				01343DE8D05D64591A4FDA37 /* GUI.hpp */,
+				E945D44B1D3B09EC008EECB1 /* Drawer */,
 				18307243BAB6192C5130E2E2 /* Drawing */,
 				266C53B47C491FAC7F7FE6AC /* Body */,
 				E99C0C3B1D34A2F80054B796 /* Anim */,
@@ -1762,6 +1791,15 @@
 				E931878A1D30A785004A448F /* PortraitTexture.hpp */,
 			);
 			path = Portrait;
+			sourceTree = "<group>";
+		};
+		E945D44B1D3B09EC008EECB1 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				E945D44C1D3B09F6008EECB1 /* Drawer.cpp */,
+				E945D44D1D3B09F6008EECB1 /* Drawer.hpp */,
+			);
+			path = Drawer;
 			sourceTree = "<group>";
 		};
 		E99C0C3B1D34A2F80054B796 /* Anim */ = {
@@ -2018,12 +2056,12 @@
 				E92F54BF1D31ED090032CFC4 /* Flyer.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
-				61DCA0F0C7B9117BBB52FBD8 /* Hand.cpp in Sources */,
 				E814CA271F4690DA492336A7 /* Mouth.cpp in Sources */,
 				DD84AC983A67192FC72A473E /* Content.cpp in Sources */,
 				7115871D48FC09B277257F8E /* Puppet.cpp in Sources */,
 				8D22D0C2548C74560D6C5172 /* GUI.cpp in Sources */,
 				E0889DC898405793070CA163 /* Kinect.cpp in Sources */,
+				E945D44E1D3B09F6008EECB1 /* Drawer.cpp in Sources */,
 				F895F32702EE4190E0073DB2 /* Projector.cpp in Sources */,
 				D9A9B291341AE5882D38B0BE /* ProjectorWarper.cpp in Sources */,
 				52B81F07218884D77799C8C7 /* Globals.cpp in Sources */,
@@ -2046,6 +2084,9 @@
 				E917ACF01D38B276007AB67D /* EventTimer.cpp in Sources */,
 				0F8F016776681D468C0D0949 /* audio.c in Sources */,
 				ACE7DC9A3223ED5EE1B80074 /* cameras.c in Sources */,
+				E945D4551D3B0D33008EECB1 /* DrawingHand.cpp in Sources */,
+				E945D4511D3B0A00008EECB1 /* Drawing.cpp in Sources */,
+				E945D4611D3B3D7D008EECB1 /* ThreadedContourFinder.cpp in Sources */,
 				F4135EEFC911E9ED211FB6F9 /* core.c in Sources */,
 				E55DEEF784A10419E444669E /* flags.c in Sources */,
 				21A059755481CC0BF969FD2D /* keep_alive.c in Sources */,
@@ -2068,6 +2109,7 @@
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				9D08DF9DD5045F5EAB4DAF82 /* ofxQuadWarp.cpp in Sources */,
 				15DCF11A6445D447A0D48491 /* ETF.cpp in Sources */,
+				E945D45E1D3B107E008EECB1 /* SwipingHand.cpp in Sources */,
 				E917ACE41D35D127007AB67D /* KnifeTexture.cpp in Sources */,
 				6FB779180FB3B27D323336AE /* fdog.cpp in Sources */,
 				68CF26ED86C3C10C45460C0F /* Calibration.cpp in Sources */,
@@ -2103,9 +2145,11 @@
 				E93187881D30A776004A448F /* Portrait.cpp in Sources */,
 				9204824A48770F4C3AC03337 /* b2DynamicTree.cpp in Sources */,
 				DFF9D1DACF1263D7C685870F /* b2TimeOfImpact.cpp in Sources */,
+				E945D45B1D3B1074008EECB1 /* FetchingHand.cpp in Sources */,
 				60CD30FECD0E8666AD2719A3 /* b2ChainShape.cpp in Sources */,
 				E931878B1D30A785004A448F /* PortraitTexture.cpp in Sources */,
 				B4B76E46FC7FF19845195506 /* b2CircleShape.cpp in Sources */,
+				E945D4581D3B1068008EECB1 /* PuttingHand.cpp in Sources */,
 				169BEBBC8D7FEE14821E4F68 /* b2EdgeShape.cpp in Sources */,
 				ACADEB65CF736630E85C2212 /* b2PolygonShape.cpp in Sources */,
 				DDD68EF942259F11BE8177F4 /* b2BlockAllocator.cpp in Sources */,

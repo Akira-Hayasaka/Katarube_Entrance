@@ -10,9 +10,11 @@
 #define Content_hpp
 
 #include "ofMain.h"
+#include "ofxCv.h"
 #include "Mouth.hpp"
 #include "Ink.hpp"
 #include "CutoutAnim.hpp"
+#include "Drawer.hpp"
 
 class Content
 {
@@ -33,8 +35,6 @@ private:
     
     void onTickEvent();
     
-    bool bNeedTickUpdate;
-    
     ofFbo fullScreenResult;
     ofFbo stopMotionContent;
     ofFbo bg;
@@ -46,6 +46,8 @@ private:
     Ink ink;
     
     CutoutAnim cutout;
+    
+    Drawer drawer;
 };
 
 #endif /* Content_hpp */

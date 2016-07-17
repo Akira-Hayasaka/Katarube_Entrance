@@ -1,0 +1,12 @@
+<roi>
+	<x>1648</x>
+	<y>864</y>
+	<w>900</w>
+	<h>1600</h>
+</roi>
+<chroma>
+	<thresh>0.6</thresh>
+	<r>0</r>
+	<g>0</g>
+	<b>255</b>
+</chroma>
