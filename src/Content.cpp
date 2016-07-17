@@ -125,7 +125,7 @@ void Content::drawLeft()
 
 void Content::drawRight()
 {
-    fullScreenResult.getTexture().drawSubsection(PROJ_W, 0, PROJ_W, PROJ_H, PROJ_W, 0);
+    fullScreenResult.getTexture().drawSubsection(0, 0, PROJ_W, PROJ_H, PROJ_W, 0);
 }
 
 void Content::drawB2DEdge()
