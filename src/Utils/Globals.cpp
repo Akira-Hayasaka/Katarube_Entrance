@@ -27,6 +27,8 @@ namespace Global
     
     ofPtr<UniformInfos> inkUniforms;
     
+    vector<ofTexture> bodyBlendTexs;
+    
     // shaders
     ofShader chromaKey;
     ofShader whitize;
@@ -35,6 +37,8 @@ namespace Global
     ofEvent<void> tickEvent;
     ofEvent<void> eatEvent;
     ofEvent<void> drawEvent;
+    ofEvent<void> fetchEvent;
+    ofEvent<void> putEvent;
     
     ofEvent<DrawCommandInfo> genContourEvent;
     ofEvent<DrawCommandContour> gotContourEvent;

@@ -10,46 +10,22 @@
 #define Mouth_hpp
 
 #include "ofMain.h"
-#include "ofxXmlSettings.h"
-#include "ofxTweenzor.h"
-#include "Constants.h"
-#include "Globals.hpp"
-#include "Util.h"
+#include "BodyBase.hpp"
 
-class Mouth
+class Mouth : public BodyBase
 {
 public:
     
-    void setup(string seqDirPath, string blendDirPath);
-    void update();
-    void draw();
+    void setup(string seqDirPath);
+    
+protected:
+    
+    virtual void onTickEvent();
     
 private:
     
-    void genTweakTex();
-    void onTickEvent();
     void onEatEvent();
     void onEndEmerge(float* arg);
-    
-    enum STATE
-    {
-        NONE,
-        EMERGE,
-        EATING,
-        RETIRE
-    };
-    STATE state;
-
-    ofPoint facePosOrig;
-    ofPoint facePosDest;
-    ofPoint curFacePos;    
-    
-    int curFrame;
-    vector<ofFbo> seq;
-    int blendIdx;
-    vector<ofTexture> blendTexs;
-    ofShader seqTweak;
-    ofFbo tweaker;
 };
 
 #endif /* Mouth_hpp */

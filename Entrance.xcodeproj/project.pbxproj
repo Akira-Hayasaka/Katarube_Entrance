@@ -131,6 +131,7 @@
 		E945D45B1D3B1074008EECB1 /* FetchingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4591D3B1074008EECB1 /* FetchingHand.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D45E1D3B107E008EECB1 /* SwipingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45C1D3B107E008EECB1 /* SwipingHand.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4611D3B3D7D008EECB1 /* ThreadedContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4651D3C53AD008EECB1 /* BodyBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4631D3C53AD008EECB1 /* BodyBase.cpp */; settings = {ASSET_TAGS = (); }; };
 		E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99C0C3D1D34A2F80054B796 /* Ink.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -617,6 +618,8 @@
 		E945D45D1D3B107E008EECB1 /* SwipingHand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SwipingHand.hpp; sourceTree = "<group>"; };
 		E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadedContourFinder.cpp; sourceTree = "<group>"; };
 		E945D4601D3B3D7D008EECB1 /* ThreadedContourFinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThreadedContourFinder.hpp; sourceTree = "<group>"; };
+		E945D4631D3C53AD008EECB1 /* BodyBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyBase.cpp; sourceTree = "<group>"; };
+		E945D4641D3C53AD008EECB1 /* BodyBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BodyBase.hpp; sourceTree = "<group>"; };
 		E99C0C3D1D34A2F80054B796 /* Ink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ink.cpp; sourceTree = "<group>"; };
 		E99C0C3E1D34A2F80054B796 /* Ink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
 		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
@@ -893,12 +896,14 @@
 				D1F9EB1AA0662220E6C2E0CF /* Mouth.hpp */,
 				E945D4531D3B0D33008EECB1 /* DrawingHand.cpp */,
 				E945D4541D3B0D33008EECB1 /* DrawingHand.hpp */,
-				E945D4561D3B1068008EECB1 /* PuttingHand.cpp */,
-				E945D4571D3B1068008EECB1 /* PuttingHand.hpp */,
 				E945D4591D3B1074008EECB1 /* FetchingHand.cpp */,
 				E945D45A1D3B1074008EECB1 /* FetchingHand.hpp */,
+				E945D4561D3B1068008EECB1 /* PuttingHand.cpp */,
+				E945D4571D3B1068008EECB1 /* PuttingHand.hpp */,
 				E945D45C1D3B107E008EECB1 /* SwipingHand.cpp */,
 				E945D45D1D3B107E008EECB1 /* SwipingHand.hpp */,
+				E945D4631D3C53AD008EECB1 /* BodyBase.cpp */,
+				E945D4641D3C53AD008EECB1 /* BodyBase.hpp */,
 			);
 			name = Body;
 			sourceTree = "<group>";
@@ -2138,6 +2143,7 @@
 				EBDFF5C1C7D3B5E12E1FA133 /* ofxBox2dRect.cpp in Sources */,
 				C81376C88E1E490BCA6AD08D /* b2BroadPhase.cpp in Sources */,
 				4B18F49B7DD7CBD4A254B4CF /* b2CollideCircle.cpp in Sources */,
+				E945D4651D3C53AD008EECB1 /* BodyBase.cpp in Sources */,
 				4BF4F8FF3A5088BAB12E52A8 /* b2CollideEdge.cpp in Sources */,
 				FC940DCEE0310981C31BCC5E /* b2CollidePolygon.cpp in Sources */,
 				B1EEA4B769058452444AA3DE /* b2Collision.cpp in Sources */,

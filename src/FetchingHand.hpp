@@ -9,6 +9,26 @@
 #ifndef FetchingHand_hpp
 #define FetchingHand_hpp
 
-#include <stdio.h>
+#include "ofMain.h"
+#include "BodyBase.hpp"
+
+class FetchingHand : public BodyBase
+{
+public:
+    
+    void setup(string seqDirPath);
+    
+protected:
+    
+    virtual void onTickEvent();
+    
+private:
+    
+    void onFetchEvent();
+    void onEndEmerge(float* arg);
+    
+    float startDoingTime;
+    float doingDur;
+};
 
 #endif /* FetchingHand_hpp */

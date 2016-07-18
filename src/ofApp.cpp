@@ -23,6 +23,19 @@ void ofApp::setup()
     Global::scrnQuad.getVertices().resize(4);
     Global::scrnQuad.getTexCoords().resize(4);
     Global::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
+    ofDirectory blendDir("imgs/seqBlendTex");
+    blendDir.listDir();
+    for (int i = 0; i < blendDir.size(); i++)
+    {
+        ofFile f = blendDir.getFile(i);
+        if (isImgFile(f.getExtension()))
+        {
+            ofTexture t;
+            Global::bodyBlendTexs.push_back(t);
+            ofLoadImage(Global::bodyBlendTexs.back(), f.getAbsolutePath());
+        }
+    }
+    blendDir.close();
     
     Tweenzor::init();
     
@@ -85,10 +98,6 @@ void ofApp::draw()
 
 void ofApp::keyPressed(int key)
 {
-	if (key == 'f')
-	{
-		ofToggleFullscreen();
-	}
     if (key == 'w')
     {
         gui.saveProjWarp();
@@ -106,11 +115,23 @@ void ofApp::keyPressed(int key)
     {
         ofNotifyEvent(Global::eatEvent);
     }
+    if (key == 'd')
+    {
+        ofNotifyEvent(Global::drawEvent);
+    }
+    if (key == 'f')
+    {
+        ofNotifyEvent(Global::fetchEvent);
+    }
+    if (key == 'p')
+    {
+        ofNotifyEvent(Global::putEvent);
+    }
     if (key == 's')
     {
         content.saveScreen();
     }
-    if (key == 'p')
+    if (key == 'e')
     {
 //        vector<ofEvent<void> > evnts;
 //        evnts.push_back(Global::portraitOnePlaceEvent);

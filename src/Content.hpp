@@ -12,6 +12,9 @@
 #include "ofMain.h"
 #include "ofxCv.h"
 #include "Mouth.hpp"
+#include "DrawingHand.hpp"
+#include "FetchingHand.hpp"
+#include "PuttingHand.hpp"
 #include "Ink.hpp"
 #include "CutoutAnim.hpp"
 #include "Drawer.hpp"
@@ -43,6 +46,9 @@ private:
     ofPolyline b2dEdge;
     
     Mouth mouth;
+    DrawingHand drawingHand;
+    FetchingHand fetchingHand;
+    PuttingHand puttingHand;
     Ink ink;
     
     CutoutAnim cutout;

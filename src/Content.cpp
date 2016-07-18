@@ -75,7 +75,10 @@ void Content::setup()
         }
     }
     
-    mouth.setup("imgs/body/mouth/1", "imgs/seqBlendTex");
+    mouth.setup("imgs/body/mouth/1");
+    drawingHand.setup("imgs/body/hand/drawing");
+    fetchingHand.setup("imgs/body/hand/fetching");
+    puttingHand.setup("imgs/body/hand/putting");
     ink.setup();
     cutout.setup();
     drawer.setup();
@@ -86,6 +89,9 @@ void Content::setup()
 void Content::update()
 {
     mouth.update();
+    drawingHand.update();
+    fetchingHand.update();
+    puttingHand.update();
     ink.update();
     cutout.update();
     drawer.update();
@@ -152,6 +158,9 @@ void Content::onTickEvent()
     ofClear(0);
     drawer.draw();
     mouth.draw();
+    drawingHand.draw();
+    fetchingHand.draw();
+    puttingHand.draw();
     stopMotionContent.end();
 }
 

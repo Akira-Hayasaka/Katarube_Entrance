@@ -182,3 +182,14 @@ static ofPoint getCircularRdmPos3D(float pRadius, ofPoint orig, bool bUniDist = 
     float z = orig.z + radius * cos(t);
     return ofPoint(x, y, z);
 }
+
+static bool isImgFile(string ext)
+{
+    if (ext == "jpg" || ext == "JPG" ||
+        ext == "png" || ext == "PNG")
+    {
+        return true;
+    }
+    else
+        return false;
+}
