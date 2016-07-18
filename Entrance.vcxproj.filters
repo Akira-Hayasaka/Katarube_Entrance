@@ -10,11 +10,11 @@
 		<ClCompile Include="src\Anim\Ink\Ink.cpp">
 			<Filter>src\Anim\Ink</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Body\Hand.cpp">
-			<Filter>src\Body</Filter>
-		</ClCompile>
 		<ClCompile Include="src\Body\Mouth.cpp">
 			<Filter>src\Body</Filter>
+		</ClCompile>
+		<ClCompile Include="src\BodyBase.cpp">
+			<Filter>src</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Content.cpp">
 			<Filter>src</Filter>
@@ -61,10 +61,22 @@
 		<ClCompile Include="src\CutoutAnim\Portrait\PortraitTexture.cpp">
 			<Filter>src\CutoutAnim\Portrait</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Drawer\Drawer.cpp">
+			<Filter>src\Drawer</Filter>
+		</ClCompile>
 		<ClCompile Include="src\Drawing\Puppet.cpp">
 			<Filter>src\Drawing</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Drawing.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\DrawingHand.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
 		<ClCompile Include="src\EventTimer.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\FetchingHand.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
 		<ClCompile Include="src\GUI.cpp">
@@ -84,6 +96,15 @@
 		</ClCompile>
 		<ClCompile Include="src\Projector\ProjectorWarper.cpp">
 			<Filter>src\Projector</Filter>
+		</ClCompile>
+		<ClCompile Include="src\PuttingHand.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\SwipingHand.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ThreadedContourFinder.cpp">
+			<Filter>src</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Utils\Globals.cpp">
 			<Filter>src\Utils</Filter>
@@ -450,6 +471,9 @@
 		<Filter Include="src\CutoutAnim\Portrait">
 			<UniqueIdentifier>{AB875E49-CB3F-B1EC-60FE-9E53}</UniqueIdentifier>
 		</Filter>
+		<Filter Include="src\Drawer">
+			<UniqueIdentifier>{EED4B287-9113-990B-FFE6-45A8}</UniqueIdentifier>
+		</Filter>
 		<Filter Include="src\Drawing">
 			<UniqueIdentifier>{F2ED603E-11E7-BB7B-34A2-38AA}</UniqueIdentifier>
 		</Filter>
@@ -719,11 +743,11 @@
 		<ClInclude Include="src\Anim\Ink\Ink.hpp">
 			<Filter>src\Anim\Ink</Filter>
 		</ClInclude>
-		<ClInclude Include="src\Body\Hand.hpp">
-			<Filter>src\Body</Filter>
-		</ClInclude>
 		<ClInclude Include="src\Body\Mouth.hpp">
 			<Filter>src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="src\BodyBase.hpp">
+			<Filter>src</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Content.hpp">
 			<Filter>src</Filter>
@@ -770,10 +794,22 @@
 		<ClInclude Include="src\CutoutAnim\Portrait\PortraitTexture.hpp">
 			<Filter>src\CutoutAnim\Portrait</Filter>
 		</ClInclude>
+		<ClInclude Include="src\Drawer\Drawer.hpp">
+			<Filter>src\Drawer</Filter>
+		</ClInclude>
 		<ClInclude Include="src\Drawing\Puppet.hpp">
 			<Filter>src\Drawing</Filter>
 		</ClInclude>
+		<ClInclude Include="src\Drawing.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\DrawingHand.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
 		<ClInclude Include="src\EventTimer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\FetchingHand.hpp">
 			<Filter>src</Filter>
 		</ClInclude>
 		<ClInclude Include="src\GUI.hpp">
@@ -790,6 +826,15 @@
 		</ClInclude>
 		<ClInclude Include="src\Projector\ProjectorWarper.hpp">
 			<Filter>src\Projector</Filter>
+		</ClInclude>
+		<ClInclude Include="src\PuttingHand.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SwipingHand.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ThreadedContourFinder.hpp">
+			<Filter>src</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Utils\Constants.h">
 			<Filter>src\Utils</Filter>
