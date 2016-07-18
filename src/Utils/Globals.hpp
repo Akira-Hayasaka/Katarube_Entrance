@@ -62,8 +62,9 @@ namespace Global
     
     // events
     extern ofEvent<void> tickEvent;
+    
     extern ofEvent<void> eatEvent;
-    extern ofEvent<void> drawEvent;
+    extern ofEvent<ofPoint> drawEvent;
     extern ofEvent<void> fetchEvent;
     extern ofEvent<void> putEvent;
     extern ofEvent<void> swipeEvent;

@@ -35,8 +35,9 @@ namespace Global
     
     // events
     ofEvent<void> tickEvent;
+    
     ofEvent<void> eatEvent;
-    ofEvent<void> drawEvent;
+    ofEvent<ofPoint> drawEvent;
     ofEvent<void> fetchEvent;
     ofEvent<void> putEvent;
     ofEvent<void> swipeEvent;

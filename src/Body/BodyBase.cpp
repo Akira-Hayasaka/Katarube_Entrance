@@ -26,6 +26,10 @@ void BodyBase::setup(string seqDirPath)
     chromaThresh = settings.getValue("thresh", 0.0);
     keyColor.set(settings.getValue("r", 0), settings.getValue("g", 0), settings.getValue("b", 0));
     settings.popTag();
+    settings.pushTag("anchor");
+    anchor.x = settings.getValue("x", 0);
+    anchor.y = settings.getValue("y", 0);
+    settings.popTag();
     settings.clear();
     
     seqTweak.load("shaders/common/simpleVert.vert", "shaders/scene/seqTweak.frag");
@@ -50,6 +54,7 @@ void BodyBase::setup(string seqDirPath)
             tex.drawSubsection(0, 0, roi.getWidth(), roi.getHeight(), roi.x, roi.y);
             Global::chromaKey.end();
             seq.back().end();
+//            seq.back().setAnchorPoint(anchor.x, anchor.y);
             tex.clear();
         }
     }
@@ -63,10 +68,28 @@ void BodyBase::draw(BodyState bodyState)
     if (bodyState.state == BodyState::NONE)
         return;
     
+    draw(bodyState, false, 0.0);
+}
+
+void BodyBase::draw(BodyState bodyState, bool bFromUpper, float ang)
+{
+    if (bodyState.state == BodyState::NONE)
+        return;
+    
     genTweakTex(bodyState);
     
     ofPushMatrix();
-    ofTranslate(bodyState.curPos);
+    if (bFromUpper)
+    {
+        ofTranslate(bodyState.curPos - anchor);
+        ofRotateZ((bFromUpper) ? 180 + ang : 0 + ang);
+    }
+    else
+    {
+        ofTranslate(bodyState.curPos);
+        ofRotateZ(ang);
+        ofTranslate(-anchor);   
+    }
     seqTweak.begin();
     seqTweak.setUniformTexture("tex0", tweaker.getTexture(), 0);
     seqTweak.setUniformTexture("blendTex", Global::bodyBlendTexs.at(bodyState.blendIdx), 1);

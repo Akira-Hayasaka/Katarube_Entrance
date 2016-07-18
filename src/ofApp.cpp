@@ -117,7 +117,8 @@ void ofApp::keyPressed(int key)
     }
     if (key == 'd')
     {
-        ofNotifyEvent(Global::drawEvent);
+        ofPoint dest(ofRandom(500, APP_W-500), ofRandom(300, APP_H-300));
+        ofNotifyEvent(Global::drawEvent, dest);
     }
     if (key == 'f')
     {

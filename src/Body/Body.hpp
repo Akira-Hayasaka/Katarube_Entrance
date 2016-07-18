@@ -28,7 +28,7 @@ public:
 private:
     
     void onEatEvent();
-    void onDrawEvent();
+    void onDrawEvent(ofPoint& dest);
     void onFetchEvent();
     void onPutEvent();
     void onSwipeEvent();
