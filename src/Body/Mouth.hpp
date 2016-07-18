@@ -11,12 +11,16 @@
 
 #include "ofMain.h"
 #include "BodyBase.hpp"
+#include "BodyState.hpp"
 
-class Mouth : public BodyBase
+class Mouth
 {
 public:
     
-    void setup(string seqDirPath);
+    void setup(BodyBase* bodyBase);
+    void draw();
+    void onEatEvent();    
+    bool isDone() { return (bodyState.state == BodyState::DONE) ? true : false; }    
     
 protected:
     
@@ -24,8 +28,10 @@ protected:
     
 private:
     
-    void onEatEvent();
     void onEndEmerge(float* arg);
+    
+    BodyState bodyState;
+    BodyBase* bodyBase;
 };
 
 #endif /* Mouth_hpp */

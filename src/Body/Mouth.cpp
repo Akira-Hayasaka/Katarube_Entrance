@@ -8,51 +8,54 @@
 
 #include "Mouth.hpp"
 
-void Mouth::setup(string seqDirPath)
+void Mouth::setup(BodyBase* bodyBase)
 {
-    BodyBase::setup(seqDirPath);
-    ofAddListener(Global::eatEvent, this, &Mouth::onEatEvent);
+    this->bodyBase = bodyBase;
+    ofAddListener(Global::tickEvent, this, &Mouth::onTickEvent);
+}
+
+void Mouth::draw()
+{
+    bodyBase->draw(bodyState);
 }
 
 void Mouth::onTickEvent()
 {
-    if (state != NONE)
+    if (bodyState.state != BodyState::NONE)
     {
-        curFrame++;
-        blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.curFrame++;
+        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
         
-        if (state == DOING)
+        if (bodyState.state == BodyState::DOING)
         {
-            if (curFrame >= 26)
+            if (bodyState.curFrame >= 26)
             {
-                Tweenzor::add(&curPos.x, curPos.x, posOrig.x, 0.0f, 0.6f, EASE_OUT_CUBIC);
-                state = RETIRE;
+                Tweenzor::add(&bodyState.curPos.x, bodyState.curPos.x, bodyState.posOrig.x, 0.0f, 0.6f, EASE_OUT_CUBIC);
+                bodyState.state = BodyState::RETIRE;
             }
         }
         
-        if (curFrame >= seq.size())
+        if (bodyState.curFrame >= bodyBase->seq.size())
         {
-            curFrame = 0;
-            state = NONE;
+            bodyState.curFrame = 0;
+            bodyState.state = BodyState::DONE;
         }
-        
-        genTweakTex();
     }
 }
 
 void Mouth::onEatEvent()
 {
-    posOrig = ofPoint(-700, 0, 0);
-    posDest = ofPoint::zero();
-    curPos = posOrig;
-    curFrame = 0;
-    Tweenzor::add(&curPos.x, curPos.x, posDest.x, 0.0f, 0.5f, EASE_OUT_EXPO);
-    Tweenzor::addCompleteListener(Tweenzor::getTween(&curPos.x), this, &Mouth::onEndEmerge);
-    genTweakTex();
-    state = EMERGE;
+    bodyState.posOrig = ofPoint(-700, 0, 0);
+    bodyState.posDest = ofPoint::zero();
+    bodyState.curPos = bodyState.posOrig;
+    bodyState.curFrame = 0;
+    Tweenzor::add(&bodyState.curPos.x, bodyState.curPos.x, bodyState.posDest.x, 0.0f, 0.5f, EASE_OUT_EXPO);
+    Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.x), this, &Mouth::onEndEmerge);
+    bodyBase->genTweakTex(bodyState);
+    bodyState.state = BodyState::EMERGE;
 }
 
 void Mouth::onEndEmerge(float* arg)
 {
-    state = DOING;
+    bodyState.state = BodyState::DOING;
 }

@@ -11,10 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxCv.h"
-#include "Mouth.hpp"
-#include "DrawingHand.hpp"
-#include "FetchingHand.hpp"
-#include "PuttingHand.hpp"
+#include "Body.hpp"
 #include "Ink.hpp"
 #include "CutoutAnim.hpp"
 #include "Drawer.hpp"
@@ -45,10 +42,7 @@ private:
     ofShader blendOutput;
     ofPolyline b2dEdge;
     
-    Mouth mouth;
-    DrawingHand drawingHand;
-    FetchingHand fetchingHand;
-    PuttingHand puttingHand;
+    Body body;
     Ink ink;
     
     CutoutAnim cutout;

@@ -15,36 +15,17 @@
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Util.h"
+#include "BodyState.hpp"
 
 class BodyBase
 {
 public:
     
     void setup(string seqDirPath);
-    void update();
-    void draw();
+    void draw(BodyState bodyState);
+    void genTweakTex(BodyState bodyState);
     
-protected:
-    
-    void genTweakTex();
-    virtual void onTickEvent() = 0;
-    
-    enum STATE
-    {
-        NONE,
-        EMERGE,
-        DOING,
-        RETIRE
-    };
-    STATE state;
-    
-    ofPoint posOrig;
-    ofPoint posDest;
-    ofPoint curPos;
-    
-    int curFrame;
     vector<ofFbo> seq;
-    int blendIdx;
     ofShader seqTweak;
     ofFbo tweaker;
 };

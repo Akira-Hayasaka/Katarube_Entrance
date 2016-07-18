@@ -66,6 +66,7 @@ namespace Global
     extern ofEvent<void> drawEvent;
     extern ofEvent<void> fetchEvent;
     extern ofEvent<void> putEvent;
+    extern ofEvent<void> swipeEvent;
     
     extern ofEvent<DrawCommandInfo> genContourEvent;
     extern ofEvent<DrawCommandContour> gotContourEvent;
