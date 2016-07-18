@@ -43,8 +43,9 @@ protected:
     ofPoint curPos;
     
     int curFrame;
-    vector<ofFbo> seq;
     int blendIdx;
+    
+    vector<ofFbo> seq;
     ofShader seqTweak;
     ofFbo tweaker;
 };

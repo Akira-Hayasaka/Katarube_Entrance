@@ -129,7 +129,7 @@ void ofApp::keyPressed(int key)
     }
     if (key == 's')
     {
-        content.saveScreen();
+        ofNotifyEvent(Global::swipeEvent);
     }
     if (key == 'e')
     {

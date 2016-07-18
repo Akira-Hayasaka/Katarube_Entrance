@@ -39,6 +39,7 @@ namespace Global
     ofEvent<void> drawEvent;
     ofEvent<void> fetchEvent;
     ofEvent<void> putEvent;
+    ofEvent<void> swipeEvent;
     
     ofEvent<DrawCommandInfo> genContourEvent;
     ofEvent<DrawCommandContour> gotContourEvent;

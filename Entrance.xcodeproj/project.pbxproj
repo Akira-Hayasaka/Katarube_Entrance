@@ -132,6 +132,7 @@
 		E945D45E1D3B107E008EECB1 /* SwipingHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45C1D3B107E008EECB1 /* SwipingHand.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4611D3B3D7D008EECB1 /* ThreadedContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4651D3C53AD008EECB1 /* BodyBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4631D3C53AD008EECB1 /* BodyBase.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4681D3C798E008EECB1 /* Body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4661D3C798E008EECB1 /* Body.cpp */; settings = {ASSET_TAGS = (); }; };
 		E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99C0C3D1D34A2F80054B796 /* Ink.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -620,6 +621,8 @@
 		E945D4601D3B3D7D008EECB1 /* ThreadedContourFinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThreadedContourFinder.hpp; sourceTree = "<group>"; };
 		E945D4631D3C53AD008EECB1 /* BodyBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyBase.cpp; sourceTree = "<group>"; };
 		E945D4641D3C53AD008EECB1 /* BodyBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BodyBase.hpp; sourceTree = "<group>"; };
+		E945D4661D3C798E008EECB1 /* Body.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Body.cpp; sourceTree = "<group>"; };
+		E945D4671D3C798E008EECB1 /* Body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Body.hpp; sourceTree = "<group>"; };
 		E99C0C3D1D34A2F80054B796 /* Ink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ink.cpp; sourceTree = "<group>"; };
 		E99C0C3E1D34A2F80054B796 /* Ink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
 		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
@@ -892,6 +895,8 @@
 		266C53B47C491FAC7F7FE6AC /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				E945D4661D3C798E008EECB1 /* Body.cpp */,
+				E945D4671D3C798E008EECB1 /* Body.hpp */,
 				5A6ED884A1A9A3FE12A71F19 /* Mouth.cpp */,
 				D1F9EB1AA0662220E6C2E0CF /* Mouth.hpp */,
 				E945D4531D3B0D33008EECB1 /* DrawingHand.cpp */,
@@ -2165,6 +2170,7 @@
 				479E22E612C18DEC01D5D2BD /* b2Settings.cpp in Sources */,
 				E56CBAC0F1FB61E4220C2385 /* b2StackAllocator.cpp in Sources */,
 				E92F54CB1D321D4E0032CFC4 /* FlyerBase.cpp in Sources */,
+				E945D4681D3C798E008EECB1 /* Body.cpp in Sources */,
 				C1652E57C6C67050DB9ADF63 /* b2Timer.cpp in Sources */,
 				E917ACE11D35D119007AB67D /* Knives.cpp in Sources */,
 				D09C4F6A320CF3092D9812B4 /* b2Body.cpp in Sources */,

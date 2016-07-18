@@ -15,6 +15,7 @@
 #include "DrawingHand.hpp"
 #include "FetchingHand.hpp"
 #include "PuttingHand.hpp"
+#include "SwipingHand.hpp"
 #include "Ink.hpp"
 #include "CutoutAnim.hpp"
 #include "Drawer.hpp"
@@ -49,6 +50,7 @@ private:
     DrawingHand drawingHand;
     FetchingHand fetchingHand;
     PuttingHand puttingHand;
+    SwipingHand swipingHand;
     Ink ink;
     
     CutoutAnim cutout;

@@ -79,6 +79,7 @@ void Content::setup()
     drawingHand.setup("imgs/body/hand/drawing");
     fetchingHand.setup("imgs/body/hand/fetching");
     puttingHand.setup("imgs/body/hand/putting");
+    swipingHand.setup("imgs/body/hand/swiping");
     ink.setup();
     cutout.setup();
     drawer.setup();
@@ -92,6 +93,7 @@ void Content::update()
     drawingHand.update();
     fetchingHand.update();
     puttingHand.update();
+    swipingHand.update();
     ink.update();
     cutout.update();
     drawer.update();
@@ -161,6 +163,7 @@ void Content::onTickEvent()
     drawingHand.draw();
     fetchingHand.draw();
     puttingHand.draw();
+    swipingHand.draw();
     stopMotionContent.end();
 }
 
