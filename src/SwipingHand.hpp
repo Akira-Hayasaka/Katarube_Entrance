@@ -11,12 +11,16 @@
 
 #include "ofMain.h"
 #include "BodyBase.hpp"
+#include "BodyState.hpp"
 
-class SwipingHand : public BodyBase
+class SwipingHand
 {
 public:
     
-    void setup(string seqDirPath);
+    void setup(BodyBase* bodyBase);
+    void draw();
+    void onSwipeEvent();    
+    bool isDone() { return (bodyState.state == BodyState::DONE) ? true : false; }
     
 protected:
     
@@ -24,11 +28,13 @@ protected:
     
 private:
     
-    void onSwipeEvent();
     void onEndSwipe(float* arg);
     
     float startDoingTime;
     float doingDur;
+    
+    BodyState bodyState;
+    BodyBase* bodyBase;
 };
 
 #endif /* SwipingHand_hpp */

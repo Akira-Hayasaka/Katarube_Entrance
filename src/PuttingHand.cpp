@@ -8,53 +8,56 @@
 
 #include "PuttingHand.hpp"
 
-void PuttingHand::setup(string seqDirPath)
+void PuttingHand::setup(BodyBase* bodyBase)
 {
-    BodyBase::setup(seqDirPath);
-    ofAddListener(Global::putEvent, this, &PuttingHand::onPutEvent);
+    this->bodyBase = bodyBase;
+    ofAddListener(Global::tickEvent, this, &PuttingHand::onTickEvent);
+}
+
+void PuttingHand::draw()
+{
+    bodyBase->draw(bodyState);
 }
 
 void PuttingHand::onTickEvent()
 {
-    if (state != NONE)
+    if (bodyState.state != BodyState::NONE)
     {
-        curFrame++;
-        if (curFrame >= seq.size())
-            curFrame = 0;
-        blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.curFrame++;
+        if (bodyState.curFrame >= bodyBase->seq.size())
+            bodyState.curFrame = 0;
+        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
         
-        if (state == DOING)
+        if (bodyState.state == BodyState::DOING)
         {
-            if (curFrame >= seq.size() * 0.5)
+            if (bodyState.curFrame >= bodyBase->seq.size() * 0.5)
             {
-                Tweenzor::add(&curPos.y, curPos.y, posOrig.y, 0.0f, 0.6f, EASE_OUT_CUBIC);
-                Tweenzor::addCompleteListener(Tweenzor::getTween(&curPos.y), this, &PuttingHand::onEndRetire);
-                state = RETIRE;
+                Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posOrig.y, 0.0f, 0.6f, EASE_OUT_CUBIC);
+                Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.y), this, &PuttingHand::onEndRetire);
+                bodyState.state = BodyState::RETIRE;
             }
         }
-        
-        genTweakTex();
     }
 }
 
 void PuttingHand::onPutEvent()
 {
-    posOrig = ofPoint(2200, 1500, 0);
-    posDest = ofPoint(2200, 100, 0);
-    curPos = posOrig;
-    curFrame = 0;
-    Tweenzor::add(&curPos.y, curPos.y, posDest.y, 0.0f, 0.5f, EASE_OUT_EXPO);
-    Tweenzor::addCompleteListener(Tweenzor::getTween(&curPos.y), this, &PuttingHand::onEndEmerge);
-    genTweakTex();
-    state = EMERGE;
+    bodyState.posOrig = ofPoint(2200, 1500, 0);
+    bodyState.posDest = ofPoint(2200, 100, 0);
+    bodyState.curPos = bodyState.posOrig;
+    bodyState.curFrame = 0;
+    Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posDest.y, 0.0f, 0.5f, EASE_OUT_EXPO);
+    Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.y), this, &PuttingHand::onEndEmerge);
+    bodyBase->genTweakTex(bodyState);
+    bodyState.state = BodyState::EMERGE;
 }
 
 void PuttingHand::onEndEmerge(float* arg)
 {
-    state = DOING;
+    bodyState.state = BodyState::DOING;
 }
 
 void PuttingHand::onEndRetire(float* arg)
 {
-    state = NONE;
+    bodyState.state = BodyState::DONE;
 }

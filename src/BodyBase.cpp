@@ -56,38 +56,29 @@ void BodyBase::setup(string seqDirPath)
     seqDir.close();
     
     tweaker.allocate(roi.getWidth(), roi.getHeight());
-    
-    ofAddListener(Global::tickEvent, this, &BodyBase::onTickEvent);
-    
-    curFrame = 0;
-    blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
-    state = NONE;
 }
 
-void BodyBase::update()
+void BodyBase::draw(BodyState bodyState)
 {
-    
-}
-
-void BodyBase::draw()
-{
-    if (state == NONE)
+    if (bodyState.state == BodyState::NONE)
         return;
     
+    genTweakTex(bodyState);
+    
     ofPushMatrix();
-    ofTranslate(curPos);
+    ofTranslate(bodyState.curPos);
     seqTweak.begin();
     seqTweak.setUniformTexture("tex0", tweaker.getTexture(), 0);
-    seqTweak.setUniformTexture("blendTex", Global::bodyBlendTexs.at(blendIdx), 1);
+    seqTweak.setUniformTexture("blendTex", Global::bodyBlendTexs.at(bodyState.blendIdx), 1);
     drawPlane(tweaker.getWidth(), tweaker.getHeight());
     seqTweak.end();
     ofPopMatrix();
 }
 
-void BodyBase::genTweakTex()
+void BodyBase::genTweakTex(BodyState bodyState)
 {
     tweaker.begin();
     ofClear(0);
-    seq.at(curFrame).draw(0, 0);
+    seq.at(bodyState.curFrame).draw(0, 0);
     tweaker.end();
 }

@@ -11,12 +11,16 @@
 
 #include "ofMain.h"
 #include "BodyBase.hpp"
+#include "BodyState.hpp"
 
-class PuttingHand : public BodyBase
+class PuttingHand
 {
 public:
     
-    void setup(string seqDirPath);
+    void setup(BodyBase* bodyBase);
+    void draw();
+    void onPutEvent();    
+    bool isDone() { return (bodyState.state == BodyState::DONE) ? true : false; }
     
 protected:
     
@@ -24,12 +28,14 @@ protected:
     
 private:
     
-    void onPutEvent();
     void onEndEmerge(float* arg);
     void onEndRetire(float* arg);    
     
     float startDoingTime;
     float doingDur;
+    
+    BodyState bodyState;
+    BodyBase* bodyBase;
 };
 
 #endif /* PuttingHand_hpp */

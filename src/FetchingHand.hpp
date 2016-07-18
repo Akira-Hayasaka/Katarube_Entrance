@@ -11,12 +11,16 @@
 
 #include "ofMain.h"
 #include "BodyBase.hpp"
+#include "BodyState.hpp"
 
-class FetchingHand : public BodyBase
+class FetchingHand
 {
 public:
     
-    void setup(string seqDirPath);
+    void setup(BodyBase* bodyBase);
+    void draw();
+    void onFetchEvent();    
+    bool isDone() { return (bodyState.state == BodyState::DONE) ? true : false; }    
     
 protected:
     
@@ -24,11 +28,13 @@ protected:
     
 private:
     
-    void onFetchEvent();
     void onEndEmerge(float* arg);
     
     float startDoingTime;
     float doingDur;
+    
+    BodyState bodyState;
+    BodyBase* bodyBase;
 };
 
 #endif /* FetchingHand_hpp */

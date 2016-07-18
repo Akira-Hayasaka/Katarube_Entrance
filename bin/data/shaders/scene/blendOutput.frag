@@ -6,6 +6,7 @@ uniform sampler2DRect ink;
 uniform sampler2DRect cutout;
 uniform sampler2DRect bg;
 uniform sampler2DRect bgMask;
+uniform vec2 res;
 
 in VSOUT
 {
@@ -19,7 +20,7 @@ void main()
     vec4 bgMaskPx = texture(bgMask, fsIn.texCoord);
     vec4 inkPx = texture(ink, fsIn.texCoord);
     vec4 cutoutPx = texture(cutout, fsIn.texCoord);
-    vec4 bodyPx = texture(body, fsIn.texCoord);
+    vec4 bodyPx = texture(body, vec2(fsIn.texCoord.x, res.y - fsIn.texCoord.y)); // fuck flip 
     vec4 paperPx = texture(bg, fsIn.texCoord);	
 
     vec4 result = bodyPx;

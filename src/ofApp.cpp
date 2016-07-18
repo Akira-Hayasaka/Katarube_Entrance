@@ -131,28 +131,28 @@ void ofApp::keyPressed(int key)
     {
         ofNotifyEvent(Global::swipeEvent);
     }
-    if (key == 'e')
-    {
-//        vector<ofEvent<void> > evnts;
-//        evnts.push_back(Global::portraitOnePlaceEvent);
-//        evnts.push_back(Global::portraitHorizEvent);
-//        evnts.push_back(Global::portraitVertEvent);
-//        evnts.push_back(Global::flyerFishLikeEvent);
-//        evnts.push_back(Global::flyerWavyEvent);
-//        evnts.push_back(Global::flyerStraightThingEvent);
-//        ofRandomize(evnts);
-//        ofNotifyEvent(evnts.front());
-        
-        ofNotifyEvent(Global::portraitOnePlaceEvent);
-        ofNotifyEvent(Global::portraitHorizEvent);
-        ofNotifyEvent(Global::portraitVertEvent);
-        ofNotifyEvent(Global::flyerFishLikeEvent);
-        ofNotifyEvent(Global::flyerWavyEvent);
-        ofNotifyEvent(Global::flyerStraightThingEvent);
-        ofNotifyEvent(Global::kyoEvent);
-        ofNotifyEvent(Global::knifeCircleEvent);
-        ofNotifyEvent(Global::inkEvent);
-    }
+//    if (key == 'e')
+//    {
+////        vector<ofEvent<void> > evnts;
+////        evnts.push_back(Global::portraitOnePlaceEvent);
+////        evnts.push_back(Global::portraitHorizEvent);
+////        evnts.push_back(Global::portraitVertEvent);
+////        evnts.push_back(Global::flyerFishLikeEvent);
+////        evnts.push_back(Global::flyerWavyEvent);
+////        evnts.push_back(Global::flyerStraightThingEvent);
+////        ofRandomize(evnts);
+////        ofNotifyEvent(evnts.front());
+//        
+//        ofNotifyEvent(Global::portraitOnePlaceEvent);
+//        ofNotifyEvent(Global::portraitHorizEvent);
+//        ofNotifyEvent(Global::portraitVertEvent);
+//        ofNotifyEvent(Global::flyerFishLikeEvent);
+//        ofNotifyEvent(Global::flyerWavyEvent);
+//        ofNotifyEvent(Global::flyerStraightThingEvent);
+//        ofNotifyEvent(Global::kyoEvent);
+//        ofNotifyEvent(Global::knifeCircleEvent);
+//        ofNotifyEvent(Global::inkEvent);
+//    }
     if (key == 'c')
     {
         ofNotifyEvent(Global::clearInkEvent);

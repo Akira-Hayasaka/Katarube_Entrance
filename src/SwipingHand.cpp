@@ -8,38 +8,41 @@
 
 #include "SwipingHand.hpp"
 
-void SwipingHand::setup(string seqDirPath)
+void SwipingHand::setup(BodyBase* bodyBase)
 {
-    BodyBase::setup(seqDirPath);
-    ofAddListener(Global::swipeEvent, this, &SwipingHand::onSwipeEvent);
+    this->bodyBase = bodyBase;
+    ofAddListener(Global::tickEvent, this, &SwipingHand::onTickEvent);
+}
+
+void SwipingHand::draw()
+{
+    bodyBase->draw(bodyState);
 }
 
 void SwipingHand::onTickEvent()
 {
-    if (state != NONE)
+    if (bodyState.state != BodyState::NONE)
     {
-        curFrame++;
-        if (curFrame >= seq.size())
-            curFrame = 0;
-        blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
-        
-        genTweakTex();
+        bodyState.curFrame++;
+        if (bodyState.curFrame >= bodyBase->seq.size())
+            bodyState.curFrame = 0;
+        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
     }
 }
 
 void SwipingHand::onSwipeEvent()
 {
-    posOrig = ofPoint(-760, 0, 0);
-    posDest = ofPoint(APP_W, 0, 0);
-    curPos = posOrig;
-    curFrame = 0;
-    Tweenzor::add(&curPos.x, curPos.x, posDest.x, 0.0f, 2.0f, EASE_OUT_QUART);
-    Tweenzor::addCompleteListener(Tweenzor::getTween(&curPos.x), this, &SwipingHand::onEndSwipe);
-    genTweakTex();
-    state = EMERGE;
+    bodyState.posOrig = ofPoint(-760, 0, 0);
+    bodyState.posDest = ofPoint(APP_W, 0, 0);
+    bodyState.curPos = bodyState.posOrig;
+    bodyState.curFrame = 0;
+    Tweenzor::add(&bodyState.curPos.x, bodyState.curPos.x, bodyState.posDest.x, 0.0f, 2.0f, EASE_OUT_QUART);
+    Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.x), this, &SwipingHand::onEndSwipe);
+    bodyBase->genTweakTex(bodyState);
+    bodyState.state = BodyState::EMERGE;
 }
 
 void SwipingHand::onEndSwipe(float* arg)
 {
-    state = NONE;
+    bodyState.state = BodyState::DONE;
 }

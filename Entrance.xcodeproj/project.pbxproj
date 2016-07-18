@@ -133,6 +133,7 @@
 		E945D4611D3B3D7D008EECB1 /* ThreadedContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D45F1D3B3D7D008EECB1 /* ThreadedContourFinder.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4651D3C53AD008EECB1 /* BodyBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4631D3C53AD008EECB1 /* BodyBase.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4681D3C798E008EECB1 /* Body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4661D3C798E008EECB1 /* Body.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D46B1D3C7FD9008EECB1 /* BodyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4691D3C7FD9008EECB1 /* BodyState.cpp */; settings = {ASSET_TAGS = (); }; };
 		E99C0C3F1D34A2F80054B796 /* Ink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99C0C3D1D34A2F80054B796 /* Ink.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		E9F580461D2DDDD6004920FF /* CutoutAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -623,6 +624,8 @@
 		E945D4641D3C53AD008EECB1 /* BodyBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BodyBase.hpp; sourceTree = "<group>"; };
 		E945D4661D3C798E008EECB1 /* Body.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Body.cpp; sourceTree = "<group>"; };
 		E945D4671D3C798E008EECB1 /* Body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Body.hpp; sourceTree = "<group>"; };
+		E945D4691D3C7FD9008EECB1 /* BodyState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyState.cpp; sourceTree = "<group>"; };
+		E945D46A1D3C7FD9008EECB1 /* BodyState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BodyState.hpp; sourceTree = "<group>"; };
 		E99C0C3D1D34A2F80054B796 /* Ink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ink.cpp; sourceTree = "<group>"; };
 		E99C0C3E1D34A2F80054B796 /* Ink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
 		E9F580441D2DDDD6004920FF /* CutoutAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CutoutAnim.cpp; sourceTree = "<group>"; };
@@ -909,6 +912,8 @@
 				E945D45D1D3B107E008EECB1 /* SwipingHand.hpp */,
 				E945D4631D3C53AD008EECB1 /* BodyBase.cpp */,
 				E945D4641D3C53AD008EECB1 /* BodyBase.hpp */,
+				E945D4691D3C7FD9008EECB1 /* BodyState.cpp */,
+				E945D46A1D3C7FD9008EECB1 /* BodyState.hpp */,
 			);
 			name = Body;
 			sourceTree = "<group>";
@@ -2119,6 +2124,7 @@
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				9D08DF9DD5045F5EAB4DAF82 /* ofxQuadWarp.cpp in Sources */,
 				15DCF11A6445D447A0D48491 /* ETF.cpp in Sources */,
+				E945D46B1D3C7FD9008EECB1 /* BodyState.cpp in Sources */,
 				E945D45E1D3B107E008EECB1 /* SwipingHand.cpp in Sources */,
 				E917ACE41D35D127007AB67D /* KnifeTexture.cpp in Sources */,
 				6FB779180FB3B27D323336AE /* fdog.cpp in Sources */,

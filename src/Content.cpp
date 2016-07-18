@@ -75,11 +75,7 @@ void Content::setup()
         }
     }
     
-    mouth.setup("imgs/body/mouth/1");
-    drawingHand.setup("imgs/body/hand/drawing");
-    fetchingHand.setup("imgs/body/hand/fetching");
-    puttingHand.setup("imgs/body/hand/putting");
-    swipingHand.setup("imgs/body/hand/swiping");
+    body.setup();
     ink.setup();
     cutout.setup();
     drawer.setup();
@@ -89,11 +85,7 @@ void Content::setup()
 
 void Content::update()
 {
-    mouth.update();
-    drawingHand.update();
-    fetchingHand.update();
-    puttingHand.update();
-    swipingHand.update();
+    body.update();
     ink.update();
     cutout.update();
     drawer.update();
@@ -110,6 +102,7 @@ void Content::genFullScreenContent()
     blendOutput.setUniformTexture("cutout", cutout.getTexture(), 2);
     blendOutput.setUniformTexture("bg", bg.getTexture(), 3);
     blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 4);
+    blendOutput.setUniform2f("res", APP_W, APP_H);
     drawPlane(APP_W, APP_H);
     blendOutput.end();
     
@@ -159,11 +152,7 @@ void Content::onTickEvent()
     stopMotionContent.begin();
     ofClear(0);
     drawer.draw();
-    mouth.draw();
-    drawingHand.draw();
-    fetchingHand.draw();
-    puttingHand.draw();
-    swipingHand.draw();
+    body.draw();
     stopMotionContent.end();
 }
 
