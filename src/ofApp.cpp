@@ -47,6 +47,8 @@ void ofApp::setup()
     
     ofNotifyEvent(Global::tickEvent);
     
+    workflow.goCutout();
+    
     // debug
     bDrawTiny = true;
 }
@@ -91,7 +93,8 @@ void ofApp::draw()
     if (gui.isVisible())
         content.drawB2DEdge();
     gui.draw();
-    
+
+    ofDrawBitmapStringHighlight("State: " + workflow.getCurStateStr(), 10, ofGetHeight()-60);
     ofDrawBitmapStringHighlight("Tw: " + ofToString(Tweenzor::getSize()), 10, ofGetHeight()-40);
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate(), 2), 10, ofGetHeight()-20);
 }

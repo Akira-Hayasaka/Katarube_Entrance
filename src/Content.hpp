@@ -14,7 +14,7 @@
 #include "Body.hpp"
 #include "Ink.hpp"
 #include "CutoutAnim.hpp"
-#include "Drawer.hpp"
+#include "Drawing.hpp"
 
 class Content
 {
@@ -47,7 +47,7 @@ private:
     
     CutoutAnim cutout;
     
-    Drawer drawer;
+    Drawing drawing;
 };
 
 #endif /* Content_hpp */

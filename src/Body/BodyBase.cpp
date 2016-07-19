@@ -19,8 +19,8 @@ void BodyBase::setup(string seqDirPath)
     ofxXmlSettings settings;
     settings.load(seqDirPath + "/settings.xml");
     settings.pushTag("roi");
-    ofRectangle roi(settings.getValue("x", 0), settings.getValue("y", 0),
-                    settings.getValue("w", 1920), settings.getValue("h", 1080));
+    roi.set(settings.getValue("x", 0), settings.getValue("y", 0),
+            settings.getValue("w", 1920), settings.getValue("h", 1080));
     settings.popTag();
     settings.pushTag("chroma");
     chromaThresh = settings.getValue("thresh", 0.0);

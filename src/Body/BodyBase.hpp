@@ -30,6 +30,7 @@ public:
     ofShader seqTweak;
     ofFbo tweaker;
     ofVec2f anchor;
+    ofRectangle roi;
 };
 
 #endif /* BodyBase_hpp */

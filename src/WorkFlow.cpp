@@ -10,7 +10,13 @@
 
 void WorkFlow::setup()
 {
-    appState = CUTOUT;
+    ofxXmlSettings package;
+    package.load("package.xml");
+    package.pushTag("workflow");
+    cutoutDur = package.getValue("cutoutDur", 0);
+    logoInfoDur = package.getValue("logoInfoDur", 0);
+    flushScreenDur = package.getValue("flushScreenDur", 0);
+    package.popTag();
 
     EventTimer portraitOnePlaceEventTimer(Global::portraitOnePlaceEvent);
     portraitOnePlaceEventTimer.setInterval(4.0, 5.0);
@@ -45,19 +51,71 @@ void WorkFlow::update()
         for (auto& et : cutoutEvents)
             et.update();
     }
+    
+    proceed();
 }
 
 void WorkFlow::goCutout()
 {
-    
+    appState = CUTOUT;
+    cutoutBeginTime = Global::ELAPSED_TIME;
+}
+
+void WorkFlow::goLogoInfo()
+{
+    appState = LOGOINFO;
+    ofNotifyEvent(Global::beginLogoInfoEvent);
+    logoInfoBeginTime = Global::ELAPSED_TIME;
 }
 
 void WorkFlow::goFlushScreen()
 {
-    
+    appState = FLUSHSCREEN;
+    flushSceenBeginTime = Global::ELAPSED_TIME;
 }
 
 void WorkFlow::goInteractive()
 {
     
+}
+
+void WorkFlow::proceed()
+{
+    // loop if no interaction
+    if (appState != INTERACTION)
+    {
+        if (appState == CUTOUT)
+        {
+            if (Global::ELAPSED_TIME - cutoutBeginTime > cutoutDur)
+            {
+                goLogoInfo();
+            }
+        }
+        if (appState == LOGOINFO)
+        {
+            if (Global::ELAPSED_TIME - logoInfoBeginTime > logoInfoDur)
+            {
+                goFlushScreen();
+            }
+        }
+        if (appState == FLUSHSCREEN)
+        {
+            if (Global::ELAPSED_TIME - flushSceenBeginTime > flushScreenDur)
+            {
+                goCutout();
+            }
+        }
+    }
+}
+
+string WorkFlow::getCurStateStr()
+{
+    if (appState == CUTOUT)
+        return "CUTOUT";
+    if (appState == LOGOINFO)
+        return "LOGOINFO";
+    if (appState == FLUSHSCREEN)
+        return "FLUSHSCREEN";
+    if (appState == INTERACTION)
+        return "INTERACTIO";
 }

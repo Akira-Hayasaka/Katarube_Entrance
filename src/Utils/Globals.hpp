@@ -10,6 +10,7 @@
 #define Globals_hpp
 
 #include "ofMain.h"
+#include "ofxThreadedImageLoader.h"
 #include "ofxBox2d.h"
 #include "ofxInkSim.h"
 #include "Kinect.hpp"
@@ -42,6 +43,8 @@ namespace Global
     extern float lastTickTime;
     extern long curTickFrame;
     
+    extern ofPtr<ofxThreadedImageLoader> imgLoader;
+    
     extern Kinect kinect;
     extern vector<ofMatrix4x4> projMats;
     extern ofMatrix4x4 kinectMat;
@@ -62,6 +65,8 @@ namespace Global
     
     // events
     extern ofEvent<void> tickEvent;
+    
+    extern ofEvent<void> beginLogoInfoEvent;
     
     extern ofEvent<void> eatEvent;
     extern ofEvent<ofPoint> drawEvent;

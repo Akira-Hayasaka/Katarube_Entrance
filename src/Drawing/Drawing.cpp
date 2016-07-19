@@ -7,3 +7,23 @@
 //
 
 #include "Drawing.hpp"
+
+void Drawing::setup()
+{
+    ofAddListener(Global::beginLogoInfoEvent, this, &Drawing::onBeginLogoInfoEvent);
+}
+
+void Drawing::update()
+{
+    
+}
+
+void Drawing::draw()
+{
+    
+}
+
+void Drawing::onBeginLogoInfoEvent()
+{
+    
+}

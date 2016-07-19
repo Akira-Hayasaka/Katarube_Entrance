@@ -9,6 +9,20 @@
 #ifndef Drawing_hpp
 #define Drawing_hpp
 
-#include <stdio.h>
+#include "ofMain.h"
+#include "Globals.hpp"
+
+class Drawing
+{
+public:
+    
+    void setup();
+    void update();
+    void draw();
+    
+private:
+    
+    void onBeginLogoInfoEvent();
+};
 
 #endif /* Drawing_hpp */
