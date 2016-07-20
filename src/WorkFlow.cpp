@@ -52,13 +52,21 @@ void WorkFlow::update()
         for (auto& et : cutoutEvents)
             et.update();
     }
-    if (appState == FLUSHINK)
-    {
-        if (Global::ELAPSED_TIME - flushInkBeginTime < 7)
-        {
-            for (int i = 0; i < 10; i++)
-                ofNotifyEvent(Global::inkEvent);
-        }
+	if (appState == FLUSHINK)
+	{
+#ifdef TARGET_WIN32
+		if (Global::ELAPSED_TIME - flushInkBeginTime < 6)
+		{
+			for (int i = 0; i < 1; i++)
+				ofNotifyEvent(Global::inkEvent);
+		}
+#else
+		if (Global::ELAPSED_TIME - flushInkBeginTime < 7)
+		{
+			for (int i = 0; i < 10; i++)
+				ofNotifyEvent(Global::inkEvent);
+		}
+#endif
     }
     
     checkWorkFlow();

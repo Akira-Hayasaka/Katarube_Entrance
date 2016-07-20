@@ -13,7 +13,11 @@ void Ink::setup()
     scrn.allocate(APP_W, APP_H);
     clearScrn();
 
-    canvasRatio = 4.0;
+#ifdef TARGET_WIN32
+    canvasRatio = 2.0;
+#else
+	canvasRatio = 4.0;
+#endif
     canvasW = APP_W / canvasRatio;
     canvasH = APP_H / canvasRatio;
     inkSim.setup(canvasW, canvasH);
