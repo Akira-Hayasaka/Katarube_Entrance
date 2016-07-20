@@ -40,6 +40,8 @@ void FetchingHand::onTickEvent()
             bodyState.curFrame = 0;
             bodyState.state = BodyState::DONE;
         }
+        
+        bodyBase->onTickEvent(bodyState);
     }
 }
 

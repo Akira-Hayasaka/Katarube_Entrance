@@ -27,6 +27,8 @@ void SwipingHand::onTickEvent()
         if (bodyState.curFrame >= bodyBase->seq.size())
             bodyState.curFrame = 0;
         bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        
+        bodyBase->onTickEvent(bodyState);
     }
 }
 

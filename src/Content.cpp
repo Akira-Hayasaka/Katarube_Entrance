@@ -56,7 +56,7 @@ void Content::setup()
     b2dEdge = contourFinder.getPolyline(0);
     b2dEdge = b2dEdge.getResampledByCount(200);
     Global::b2dEdge = b2dEdge;
-    
+
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {
         ofVec2f perp;

@@ -76,8 +76,6 @@ void BodyBase::draw(BodyState bodyState, bool bFromUpper, float ang)
     if (bodyState.state == BodyState::NONE)
         return;
     
-    genTweakTex(bodyState);
-    
     ofPushMatrix();
     if (bFromUpper)
     {
@@ -104,4 +102,9 @@ void BodyBase::genTweakTex(BodyState bodyState)
     ofClear(0);
     seq.at(bodyState.curFrame).draw(0, 0);
     tweaker.end();
+}
+
+void BodyBase::onTickEvent(BodyState bodyState)
+{
+    genTweakTex(bodyState);
 }

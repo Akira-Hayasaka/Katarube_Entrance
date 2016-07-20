@@ -42,6 +42,8 @@ void DrawingHand::onTickEvent()
                 bodyState.state = BodyState::RETIRE;
             }
         }
+        
+        bodyBase->onTickEvent(bodyState);
     }
 }
 

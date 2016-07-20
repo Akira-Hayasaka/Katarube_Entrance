@@ -37,6 +37,8 @@ void PuttingHand::onTickEvent()
                 bodyState.state = BodyState::RETIRE;
             }
         }
+        
+        bodyBase->onTickEvent(bodyState);
     }
 }
 
