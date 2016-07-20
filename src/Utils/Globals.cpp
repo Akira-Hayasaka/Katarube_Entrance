@@ -29,7 +29,7 @@ namespace Global
     
     vector<ofTexture> bodyBlendTexs;
     
-    ofImage petip;
+    ofTexture petip;
     
     // shaders
     ofShader chromaKey;
@@ -44,6 +44,8 @@ namespace Global
     
     ofEvent<void> eatEvent;
     ofEvent<ofPoint> drawEvent;
+    ofEvent<ofPoint> updateHandPosEvent;
+    ofEvent<void> handRetireEvent;
     ofEvent<void> fetchEvent;
     ofEvent<void> putEvent;
     ofEvent<void> swipeEvent;

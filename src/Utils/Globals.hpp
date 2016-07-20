@@ -56,7 +56,7 @@ namespace Global
     
     extern vector<ofTexture> bodyBlendTexs;
     
-    extern ofImage petip;
+    extern ofTexture petip;
     
     // shaders
     extern ofShader chromaKey;
@@ -71,6 +71,8 @@ namespace Global
     
     extern ofEvent<void> eatEvent;
     extern ofEvent<ofPoint> drawEvent;
+    extern ofEvent<ofPoint> updateHandPosEvent;
+    extern ofEvent<void> handRetireEvent;
     extern ofEvent<void> fetchEvent;
     extern ofEvent<void> putEvent;
     extern ofEvent<void> swipeEvent;

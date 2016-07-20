@@ -6,7 +6,7 @@ void ofApp::setup()
 
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
-    ofBackground(ofColor::gray);
+    ofBackground(ofColor::black);
     ofSetFrameRate(60);
     
     Global::ELAPSED_TIME = ofGetElapsedTimef();
@@ -39,7 +39,7 @@ void ofApp::setup()
     }
     blendDir.close();
     ofLoadImage(Global::petip, "imgs/pentip/pentip.png");
-    Global::petip.resize(10, 10);
+//    Global::petip.resize(10, 10);
     
     Tweenzor::init();
     

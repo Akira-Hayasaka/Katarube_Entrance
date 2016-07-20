@@ -28,11 +28,12 @@ protected:
     
 private:
     
+    void onUpdateHandPos(ofPoint& pos);
+    void onHandRetireEvent();
     void onEndEmerge(float* arg);
     void onEndRetire(float* arg);
     
     float startDoingTime;
-    float doingDur;
     bool bFromUpper;
     float ang;
     
