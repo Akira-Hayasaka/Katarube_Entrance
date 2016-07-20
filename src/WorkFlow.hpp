@@ -10,6 +10,7 @@
 #define WorkFlow_hpp
 
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
 #include "Globals.hpp"
 #include "EventTimer.hpp"
 
@@ -21,20 +22,41 @@ public:
     void update();
     
     void goCutout();
-    void goFlushScreen();
+    void goLogo();
+    void goInfo();
+    void goFlushInk();
     void goInteractive();
     
+    string getCurStateStr();
+    
 private:
+    
+    void checkWorkFlow();    
+    void proceedIfPossible();
     
     enum APP_STATE
     {
         CUTOUT,
-        FLUSHSCREEN,
+        LOGO,
+        INFO,
+        FLUSHINK,
         INTERACTION
     };
     APP_STATE appState;
     
     vector<EventTimer> cutoutEvents;
+    
+    float cutoutDur;
+    float cutoutBeginTime;
+    
+    float logoDur;
+    float logoBeginTime;
+    
+    float infoDur;
+    float infoBeginTime;
+    
+    float flushInkDur;
+    float flushInkBeginTime;
 };
 
 #endif /* WorkFlow_hpp */

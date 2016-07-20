@@ -29,14 +29,21 @@ namespace Global
     
     vector<ofTexture> bodyBlendTexs;
     
+    ofImage petip;
+    
     // shaders
     ofShader chromaKey;
     ofShader whitize;
+    ofShader strokeMask;
     
     // events
     ofEvent<void> tickEvent;
+    
+    ofEvent<void> beginLogoEvent;
+    ofEvent<void> beginInfoEvent;
+    
     ofEvent<void> eatEvent;
-    ofEvent<void> drawEvent;
+    ofEvent<ofPoint> drawEvent;
     ofEvent<void> fetchEvent;
     ofEvent<void> putEvent;
     ofEvent<void> swipeEvent;

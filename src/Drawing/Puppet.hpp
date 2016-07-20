@@ -10,13 +10,12 @@
 #define Puppet_hpp
 
 #include "ofMain.h"
+#include "Painting.hpp"
 
-class Puppet
+class Puppet : public Painting
 {
 public:
     
-    void setup();
-    void udpate();
 
 };
 

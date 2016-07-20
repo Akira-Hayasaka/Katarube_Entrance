@@ -84,12 +84,12 @@ void Body::onEatEvent()
     mouths.back().onEatEvent();
 }
 
-void Body::onDrawEvent()
+void Body::onDrawEvent(ofPoint& dest)
 {
     DrawingHand d;
     drawingHands.push_back(d);
     drawingHands.back().setup(&drawingHBase);
-    drawingHands.back().onDrawEvent();
+    drawingHands.back().onDrawEvent(dest);
 }
 
 void Body::onFetchEvent()

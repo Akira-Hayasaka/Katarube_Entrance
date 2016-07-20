@@ -23,11 +23,16 @@ public:
     
     void setup(string seqDirPath);
     void draw(BodyState bodyState);
+    void draw(BodyState bodyState, bool bFromUpper, float ang);
     void genTweakTex(BodyState bodyState);
+    void onTickEvent(BodyState bodyState);    
     
     vector<ofFbo> seq;
     ofShader seqTweak;
     ofFbo tweaker;
+    ofVec2f anchor;
+    ofRectangle roi;
+    
 };
 
 #endif /* BodyBase_hpp */

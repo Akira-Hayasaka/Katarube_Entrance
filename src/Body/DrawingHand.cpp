@@ -16,7 +16,12 @@ void DrawingHand::setup(BodyBase* bodyBase)
 
 void DrawingHand::draw()
 {
-    bodyBase->draw(bodyState);
+    bodyBase->draw(bodyState, bFromUpper, ang);
+    
+    ofPushStyle();
+    ofSetColor(ofColor::red);
+    ofDrawCircle(bodyState.posDest, 20);
+    ofPopStyle();
 }
 
 void DrawingHand::onTickEvent()
@@ -37,13 +42,18 @@ void DrawingHand::onTickEvent()
                 bodyState.state = BodyState::RETIRE;
             }
         }
+        
+        bodyBase->onTickEvent(bodyState);
     }
 }
 
-void DrawingHand::onDrawEvent()
+void DrawingHand::onDrawEvent(ofPoint dest)
 {
-    bodyState.posOrig = ofPoint(2200, 1500, 0);
-    bodyState.posDest = ofPoint(2200, 100, 0);
+    bFromUpper = false;//(ofRandomf() < 0.0) ? true : false;//(dest.y < APP_H/2) ? true : false;
+    ang = ofRandom(-30, 30);
+    
+    bodyState.posOrig = ofPoint(dest.x, (bFromUpper) ? -500 : 1500, 0);
+    bodyState.posDest = ofPoint(dest.x, dest.y, 0);
     bodyState.curPos = bodyState.posOrig;
     bodyState.curFrame = 0;
     Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posDest.y, 0.0f, 1.0f, EASE_OUT_EXPO);

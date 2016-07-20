@@ -10,7 +10,14 @@
 
 void WorkFlow::setup()
 {
-    appState = CUTOUT;
+    ofxXmlSettings package;
+    package.load("package.xml");
+    package.pushTag("workflow");
+    cutoutDur = package.getValue("cutoutDur", 0);
+    logoDur = package.getValue("logoDur", 0);
+    infoDur = package.getValue("infoDur", 0);
+    flushInkDur = package.getValue("flushInkDur", 0);
+    package.popTag();
 
     EventTimer portraitOnePlaceEventTimer(Global::portraitOnePlaceEvent);
     portraitOnePlaceEventTimer.setInterval(4.0, 5.0);
@@ -45,19 +52,95 @@ void WorkFlow::update()
         for (auto& et : cutoutEvents)
             et.update();
     }
+    
+    checkWorkFlow();
 }
 
 void WorkFlow::goCutout()
 {
-    
+    appState = CUTOUT;
+    cutoutBeginTime = Global::ELAPSED_TIME;
 }
 
-void WorkFlow::goFlushScreen()
+void WorkFlow::goLogo()
 {
-    
+    appState = LOGO;
+    ofNotifyEvent(Global::beginLogoEvent);
+    logoBeginTime = Global::ELAPSED_TIME;
+}
+
+void WorkFlow::goInfo()
+{
+    appState = INFO;
+    ofNotifyEvent(Global::beginInfoEvent);
+    infoBeginTime = Global::ELAPSED_TIME;
+}
+
+void WorkFlow::goFlushInk()
+{
+    appState = FLUSHINK;
+    flushInkBeginTime = Global::ELAPSED_TIME;
 }
 
 void WorkFlow::goInteractive()
 {
+    appState = INTERACTION;
+}
+
+string WorkFlow::getCurStateStr()
+{
+    if (appState == CUTOUT)
+        return "CUTOUT";
+    if (appState == LOGO)
+        return "LOGO";
+    if (appState == INFO)
+        return "INFO";
+    if (appState == FLUSHINK)
+        return "FLUSHSCREEN";
+    if (appState == INTERACTION)
+        return "INTERACTION";
+}
+
+void WorkFlow::checkWorkFlow()
+{
     
+    
+    
+    //proceedIfPossible();
+}
+
+void WorkFlow::proceedIfPossible()
+{
+    // loop if no interaction
+    if (appState != INTERACTION)
+    {
+        if (appState == CUTOUT)
+        {
+            if (Global::ELAPSED_TIME - cutoutBeginTime > cutoutDur)
+            {
+                goLogo();
+            }
+        }
+        if (appState == LOGO)
+        {
+            if (Global::ELAPSED_TIME - logoBeginTime > cutoutDur)
+            {
+                goInfo();
+            }
+        }
+        if (appState == INFO)
+        {
+            if (Global::ELAPSED_TIME - infoBeginTime > infoDur)
+            {
+                goFlushInk();
+            }
+        }
+        if (appState == FLUSHINK)
+        {
+            if (Global::ELAPSED_TIME - flushInkBeginTime > flushInkDur)
+            {
+                goCutout();
+            }
+        }
+    }
 }

@@ -19,7 +19,7 @@ public:
     
     void setup(BodyBase* bodyBase);
     void draw();
-    void onDrawEvent();    
+    void onDrawEvent(ofPoint dest);
     bool isDone() { return (bodyState.state == BodyState::DONE) ? true : false; }    
     
 protected:
@@ -33,6 +33,8 @@ private:
     
     float startDoingTime;
     float doingDur;
+    bool bFromUpper;
+    float ang;
     
     BodyState bodyState;
     BodyBase* bodyBase;
