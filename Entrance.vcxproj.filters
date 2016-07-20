@@ -10,11 +10,29 @@
 		<ClCompile Include="src\Anim\Ink\Ink.cpp">
 			<Filter>src\Anim\Ink</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Body\Body.cpp">
+			<Filter>src\Body</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Body\BodyBase.cpp">
+			<Filter>src\Body</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Body\BodyState.cpp">
+			<Filter>src\Body</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Body\DrawingHand.cpp">
+			<Filter>src\Body</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Body\FetchingHand.cpp">
+			<Filter>src\Body</Filter>
+		</ClCompile>
 		<ClCompile Include="src\Body\Mouth.cpp">
 			<Filter>src\Body</Filter>
 		</ClCompile>
-		<ClCompile Include="src\BodyBase.cpp">
-			<Filter>src</Filter>
+		<ClCompile Include="src\Body\PuttingHand.cpp">
+			<Filter>src\Body</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Body\SwipingHand.cpp">
+			<Filter>src\Body</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Content.cpp">
 			<Filter>src</Filter>
@@ -64,20 +82,11 @@
 		<ClCompile Include="src\Drawer\Drawer.cpp">
 			<Filter>src\Drawer</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Drawing\Puppet.cpp">
+		<ClCompile Include="src\Drawing\Drawing.cpp">
 			<Filter>src\Drawing</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Drawing.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\DrawingHand.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\EventTimer.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\FetchingHand.cpp">
-			<Filter>src</Filter>
+		<ClCompile Include="src\Drawing\Puppet.cpp">
+			<Filter>src\Drawing</Filter>
 		</ClCompile>
 		<ClCompile Include="src\GUI.cpp">
 			<Filter>src</Filter>
@@ -97,16 +106,13 @@
 		<ClCompile Include="src\Projector\ProjectorWarper.cpp">
 			<Filter>src\Projector</Filter>
 		</ClCompile>
-		<ClCompile Include="src\PuttingHand.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\SwipingHand.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\ThreadedContourFinder.cpp">
-			<Filter>src</Filter>
+		<ClCompile Include="src\Utils\EventTimer.cpp">
+			<Filter>src\Utils</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Utils\Globals.cpp">
+			<Filter>src\Utils</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Utils\ThreadedContourFinder.cpp">
 			<Filter>src\Utils</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Utils\Warper.cpp">
@@ -743,11 +749,29 @@
 		<ClInclude Include="src\Anim\Ink\Ink.hpp">
 			<Filter>src\Anim\Ink</Filter>
 		</ClInclude>
+		<ClInclude Include="src\Body\Body.hpp">
+			<Filter>src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Body\BodyBase.hpp">
+			<Filter>src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Body\BodyState.hpp">
+			<Filter>src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Body\DrawingHand.hpp">
+			<Filter>src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Body\FetchingHand.hpp">
+			<Filter>src\Body</Filter>
+		</ClInclude>
 		<ClInclude Include="src\Body\Mouth.hpp">
 			<Filter>src\Body</Filter>
 		</ClInclude>
-		<ClInclude Include="src\BodyBase.hpp">
-			<Filter>src</Filter>
+		<ClInclude Include="src\Body\PuttingHand.hpp">
+			<Filter>src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Body\SwipingHand.hpp">
+			<Filter>src\Body</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Content.hpp">
 			<Filter>src</Filter>
@@ -797,20 +821,11 @@
 		<ClInclude Include="src\Drawer\Drawer.hpp">
 			<Filter>src\Drawer</Filter>
 		</ClInclude>
-		<ClInclude Include="src\Drawing\Puppet.hpp">
+		<ClInclude Include="src\Drawing\Drawing.hpp">
 			<Filter>src\Drawing</Filter>
 		</ClInclude>
-		<ClInclude Include="src\Drawing.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\DrawingHand.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\EventTimer.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\FetchingHand.hpp">
-			<Filter>src</Filter>
+		<ClInclude Include="src\Drawing\Puppet.hpp">
+			<Filter>src\Drawing</Filter>
 		</ClInclude>
 		<ClInclude Include="src\GUI.hpp">
 			<Filter>src</Filter>
@@ -827,19 +842,16 @@
 		<ClInclude Include="src\Projector\ProjectorWarper.hpp">
 			<Filter>src\Projector</Filter>
 		</ClInclude>
-		<ClInclude Include="src\PuttingHand.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\SwipingHand.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\ThreadedContourFinder.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
 		<ClInclude Include="src\Utils\Constants.h">
 			<Filter>src\Utils</Filter>
 		</ClInclude>
+		<ClInclude Include="src\Utils\EventTimer.hpp">
+			<Filter>src\Utils</Filter>
+		</ClInclude>
 		<ClInclude Include="src\Utils\Globals.hpp">
+			<Filter>src\Utils</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Utils\ThreadedContourFinder.hpp">
 			<Filter>src\Utils</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Utils\Util.h">
