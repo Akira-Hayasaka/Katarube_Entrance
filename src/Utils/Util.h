@@ -8,6 +8,7 @@
 #include <propsys.h>
 #include <propkey.h>
 #include <Rpc.h>
+#pragma comment(lib, "Rpcrt4.lib")
 #else
 #include <uuid/uuid.h>
 #endif
