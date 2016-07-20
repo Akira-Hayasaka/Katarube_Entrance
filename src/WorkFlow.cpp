@@ -14,8 +14,9 @@ void WorkFlow::setup()
     package.load("package.xml");
     package.pushTag("workflow");
     cutoutDur = package.getValue("cutoutDur", 0);
-    logoInfoDur = package.getValue("logoInfoDur", 0);
-    flushScreenDur = package.getValue("flushScreenDur", 0);
+    logoDur = package.getValue("logoDur", 0);
+    infoDur = package.getValue("infoDur", 0);
+    flushInkDur = package.getValue("flushInkDur", 0);
     package.popTag();
 
     EventTimer portraitOnePlaceEventTimer(Global::portraitOnePlaceEvent);
@@ -52,7 +53,7 @@ void WorkFlow::update()
             et.update();
     }
     
-    proceed();
+    checkWorkFlow();
 }
 
 void WorkFlow::goCutout()
@@ -61,25 +62,54 @@ void WorkFlow::goCutout()
     cutoutBeginTime = Global::ELAPSED_TIME;
 }
 
-void WorkFlow::goLogoInfo()
+void WorkFlow::goLogo()
 {
-    appState = LOGOINFO;
-    ofNotifyEvent(Global::beginLogoInfoEvent);
-    logoInfoBeginTime = Global::ELAPSED_TIME;
+    appState = LOGO;
+    ofNotifyEvent(Global::beginLogoEvent);
+    logoBeginTime = Global::ELAPSED_TIME;
 }
 
-void WorkFlow::goFlushScreen()
+void WorkFlow::goInfo()
 {
-    appState = FLUSHSCREEN;
-    flushSceenBeginTime = Global::ELAPSED_TIME;
+    appState = INFO;
+    ofNotifyEvent(Global::beginInfoEvent);
+    infoBeginTime = Global::ELAPSED_TIME;
+}
+
+void WorkFlow::goFlushInk()
+{
+    appState = FLUSHINK;
+    flushInkBeginTime = Global::ELAPSED_TIME;
 }
 
 void WorkFlow::goInteractive()
 {
-    
+    appState = INTERACTION;
 }
 
-void WorkFlow::proceed()
+string WorkFlow::getCurStateStr()
+{
+    if (appState == CUTOUT)
+        return "CUTOUT";
+    if (appState == LOGO)
+        return "LOGO";
+    if (appState == INFO)
+        return "INFO";
+    if (appState == FLUSHINK)
+        return "FLUSHSCREEN";
+    if (appState == INTERACTION)
+        return "INTERACTION";
+}
+
+void WorkFlow::checkWorkFlow()
+{
+    
+    
+    
+    //proceedIfPossible();
+}
+
+void WorkFlow::proceedIfPossible()
 {
     // loop if no interaction
     if (appState != INTERACTION)
@@ -88,34 +118,29 @@ void WorkFlow::proceed()
         {
             if (Global::ELAPSED_TIME - cutoutBeginTime > cutoutDur)
             {
-                goLogoInfo();
+                goLogo();
             }
         }
-        if (appState == LOGOINFO)
+        if (appState == LOGO)
         {
-            if (Global::ELAPSED_TIME - logoInfoBeginTime > logoInfoDur)
+            if (Global::ELAPSED_TIME - logoBeginTime > cutoutDur)
             {
-                goFlushScreen();
+                goInfo();
             }
         }
-        if (appState == FLUSHSCREEN)
+        if (appState == INFO)
         {
-            if (Global::ELAPSED_TIME - flushSceenBeginTime > flushScreenDur)
+            if (Global::ELAPSED_TIME - infoBeginTime > infoDur)
+            {
+                goFlushInk();
+            }
+        }
+        if (appState == FLUSHINK)
+        {
+            if (Global::ELAPSED_TIME - flushInkBeginTime > flushInkDur)
             {
                 goCutout();
             }
         }
     }
-}
-
-string WorkFlow::getCurStateStr()
-{
-    if (appState == CUTOUT)
-        return "CUTOUT";
-    if (appState == LOGOINFO)
-        return "LOGOINFO";
-    if (appState == FLUSHSCREEN)
-        return "FLUSHSCREEN";
-    if (appState == INTERACTION)
-        return "INTERACTIO";
 }

@@ -78,7 +78,7 @@ void Content::setup()
     body.setup();
     ink.setup();
     cutout.setup();
-    drawing.setup();
+    drawer.setup();
     
     ofAddListener(Global::tickEvent, this, &Content::onTickEvent);
 }
@@ -88,7 +88,7 @@ void Content::update()
     body.update();
     ink.update();
     cutout.update();
-    drawing.update();
+    drawer.update();
 }
 
 void Content::genFullScreenContent()
@@ -151,7 +151,7 @@ void Content::onTickEvent()
      // draw every stop motion content here
     stopMotionContent.begin();
     ofClear(0);
-    drawing.draw();
+    drawer.draw();
     body.draw();
     stopMotionContent.end();
 }

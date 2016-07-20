@@ -15,8 +15,6 @@ namespace Global
     float lastTickTime;
     long curTickFrame;
     
-    ofPtr<ofxThreadedImageLoader> imgLoader;
-    
     Kinect kinect;
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
@@ -31,14 +29,18 @@ namespace Global
     
     vector<ofTexture> bodyBlendTexs;
     
+    ofImage petip;
+    
     // shaders
     ofShader chromaKey;
     ofShader whitize;
+    ofShader strokeMask;
     
     // events
     ofEvent<void> tickEvent;
     
-    ofEvent<void> beginLogoInfoEvent;
+    ofEvent<void> beginLogoEvent;
+    ofEvent<void> beginInfoEvent;
     
     ofEvent<void> eatEvent;
     ofEvent<ofPoint> drawEvent;

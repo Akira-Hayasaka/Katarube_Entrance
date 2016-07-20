@@ -51,8 +51,8 @@ void PortraitTexture::doHoriz(int idx,
     this->cur = cur;
     bDone = false;
     
-    float delay = idx * 0.7;
-    Tweenzor::add(&this->cur.x, this->cur.x, this->to.x, delay, 10.0f, EASE_IN_OUT_SINE);
+    float delay = idx * 0.25;
+    Tweenzor::add(&this->cur.x, this->cur.x, this->to.x, delay, 6.0f, EASE_IN_OUT_SINE);
     Tweenzor::addCompleteListener(Tweenzor::getTween(&this->cur.x), this, &PortraitTexture::onEndHoris);
 }
 

@@ -24,7 +24,7 @@ class ThreadedContourFinder : public ofThread, public ofxCv::ContourFinder
 {
 public:
     
-    ThreadedContourFinder() { startThread(); }
+    void setup();
     
 protected:
     

@@ -6,7 +6,7 @@ void ofApp::setup()
 
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
-    ofBackground(ofColor::black);
+    ofBackground(ofColor::gray);
     ofSetFrameRate(60);
     
     Global::ELAPSED_TIME = ofGetElapsedTimef();
@@ -14,6 +14,8 @@ void ofApp::setup()
     Global::lastTickTime = Global::ELAPSED_TIME;
     Global::curTickFrame = 0;
 	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
+    Global::whitize.load("shaders/common/simpleVert.vert", "shaders/color/whitize.frag");
+    Global::strokeMask.load("shaders/common/simpleVert.vert", "shaders/scene/stroke.frag");
     Global::kinect.setup();
     Global::projMats.resize(NUM_PROJ);
     Global::box2d.init();
@@ -36,9 +38,12 @@ void ofApp::setup()
         }
     }
     blendDir.close();
+    ofLoadImage(Global::petip, "imgs/pentip/pentip.png");
+    Global::petip.resize(10, 10);
     
     Tweenzor::init();
     
+    tContourFinder.setup();
     workflow.setup();
     content.setup();
     
@@ -101,6 +106,17 @@ void ofApp::draw()
 
 void ofApp::keyPressed(int key)
 {
+    if (key == '1')
+        workflow.goCutout();
+    if (key == '2')
+        workflow.goLogo();
+    if (key == '3')
+        workflow.goInfo();
+    if (key == '4')
+        workflow.goFlushInk();
+    if (key == '5')
+        workflow.goInteractive();
+    
     if (key == 'w')
     {
         gui.saveProjWarp();
@@ -135,28 +151,28 @@ void ofApp::keyPressed(int key)
     {
         ofNotifyEvent(Global::swipeEvent);
     }
-//    if (key == 'e')
-//    {
-////        vector<ofEvent<void> > evnts;
-////        evnts.push_back(Global::portraitOnePlaceEvent);
-////        evnts.push_back(Global::portraitHorizEvent);
-////        evnts.push_back(Global::portraitVertEvent);
-////        evnts.push_back(Global::flyerFishLikeEvent);
-////        evnts.push_back(Global::flyerWavyEvent);
-////        evnts.push_back(Global::flyerStraightThingEvent);
-////        ofRandomize(evnts);
-////        ofNotifyEvent(evnts.front());
-//        
-//        ofNotifyEvent(Global::portraitOnePlaceEvent);
-//        ofNotifyEvent(Global::portraitHorizEvent);
-//        ofNotifyEvent(Global::portraitVertEvent);
-//        ofNotifyEvent(Global::flyerFishLikeEvent);
-//        ofNotifyEvent(Global::flyerWavyEvent);
-//        ofNotifyEvent(Global::flyerStraightThingEvent);
-//        ofNotifyEvent(Global::kyoEvent);
-//        ofNotifyEvent(Global::knifeCircleEvent);
-//        ofNotifyEvent(Global::inkEvent);
-//    }
+    if (key == 'a')
+    {
+//        vector<ofEvent<void> > evnts;
+//        evnts.push_back(Global::portraitOnePlaceEvent);
+//        evnts.push_back(Global::portraitHorizEvent);
+//        evnts.push_back(Global::portraitVertEvent);
+//        evnts.push_back(Global::flyerFishLikeEvent);
+//        evnts.push_back(Global::flyerWavyEvent);
+//        evnts.push_back(Global::flyerStraightThingEvent);
+//        ofRandomize(evnts);
+//        ofNotifyEvent(evnts.front());
+        
+        ofNotifyEvent(Global::portraitOnePlaceEvent);
+        ofNotifyEvent(Global::portraitHorizEvent);
+        ofNotifyEvent(Global::portraitVertEvent);
+        ofNotifyEvent(Global::flyerFishLikeEvent);
+        ofNotifyEvent(Global::flyerWavyEvent);
+        ofNotifyEvent(Global::flyerStraightThingEvent);
+        ofNotifyEvent(Global::kyoEvent);
+        ofNotifyEvent(Global::knifeCircleEvent);
+        ofNotifyEvent(Global::inkEvent);
+    }
     if (key == 'c')
     {
         ofNotifyEvent(Global::clearInkEvent);

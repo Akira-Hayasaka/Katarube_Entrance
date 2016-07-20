@@ -8,6 +8,12 @@
 
 #include "ThreadedContourFinder.hpp"
 
+void ThreadedContourFinder::setup()
+{
+    ofAddListener(Global::genContourEvent, this, &ThreadedContourFinder::onGenContourEvent);
+    startThread();
+}
+
 void ThreadedContourFinder::threadedFunction()
 {
     while (isThreadRunning())

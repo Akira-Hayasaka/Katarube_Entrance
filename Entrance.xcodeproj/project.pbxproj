@@ -125,7 +125,7 @@
 		E945D4DC1D3C9E8A008EECB1 /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D49F1D3C9E8A008EECB1 /* Portrait.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4DD1D3C9E8A008EECB1 /* Portraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4A11D3C9E8A008EECB1 /* Portraits.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4DE1D3C9E8A008EECB1 /* PortraitTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4A31D3C9E8A008EECB1 /* PortraitTexture.cpp */; settings = {ASSET_TAGS = (); }; };
-		E945D4E01D3C9E8A008EECB1 /* Drawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4A91D3C9E8A008EECB1 /* Drawing.cpp */; settings = {ASSET_TAGS = (); }; };
+		E945D4E01D3C9E8A008EECB1 /* Drawer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4A91D3C9E8A008EECB1 /* Drawer.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4E11D3C9E8A008EECB1 /* Puppet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4AB1D3C9E8A008EECB1 /* Puppet.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4E21D3C9E8A008EECB1 /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4AD1D3C9E8A008EECB1 /* GUI.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4E31D3C9E8A008EECB1 /* Kinect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4B01D3C9E8A008EECB1 /* Kinect.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -139,7 +139,6 @@
 		E945D4EB1D3C9E8A008EECB1 /* Warper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4C31D3C9E8A008EECB1 /* Warper.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4EC1D3C9E8A008EECB1 /* WorkFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4C51D3C9E8A008EECB1 /* WorkFlow.cpp */; settings = {ASSET_TAGS = (); }; };
 		E945D4F31D3DD712008EECB1 /* Painting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4F11D3DD712008EECB1 /* Painting.cpp */; settings = {ASSET_TAGS = (); }; };
-		E945D4F91D3DE805008EECB1 /* ofxThreadedImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E945D4F71D3DE805008EECB1 /* ofxThreadedImageLoader.cpp */; settings = {ASSET_TAGS = (); }; };
 		E9B3AC5C0EE46809D9A7E652 /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6B0A3B33290AC293B0EA /* b2ContactSolver.cpp */; };
 		EBDFF5C1C7D3B5E12E1FA133 /* ofxBox2dRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 507A0EB8580B19CC9A06C575 /* ofxBox2dRect.cpp */; };
 		EFD8C2F9D790A2A0A3D9393B /* b2Island.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63D354DB6D780DF92E336602 /* b2Island.cpp */; };
@@ -534,6 +533,7 @@
 		E7E2918D5B059224716F204C /* b2MouseJoint.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2MouseJoint.cpp; path = addons/ofxBox2d/libs/Box2D/Dynamics/Joints/b2MouseJoint.cpp; sourceTree = SOURCE_ROOT; };
 		E8AF1E9150AD818FA9D9195D /* version.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = version.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/version.hpp; sourceTree = SOURCE_ROOT; };
 		E8D3DA1D321CEADD7481BCC1 /* Kalman.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Kalman.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Kalman.h; sourceTree = SOURCE_ROOT; };
+		E9035A4F1D3F014400D62598 /* stroke.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = stroke.frag; sourceTree = "<group>"; };
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
 		E92F54D31D3375A00032CFC4 /* BrashIF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BrashIF.cpp; sourceTree = "<group>"; };
 		E92F54D41D3375A00032CFC4 /* BrashIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrashIF.h; sourceTree = "<group>"; };
@@ -608,8 +608,8 @@
 		E945D4A21D3C9E8A008EECB1 /* Portraits.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Portraits.hpp; sourceTree = "<group>"; };
 		E945D4A31D3C9E8A008EECB1 /* PortraitTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortraitTexture.cpp; sourceTree = "<group>"; };
 		E945D4A41D3C9E8A008EECB1 /* PortraitTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PortraitTexture.hpp; sourceTree = "<group>"; };
-		E945D4A91D3C9E8A008EECB1 /* Drawing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drawing.cpp; sourceTree = "<group>"; };
-		E945D4AA1D3C9E8A008EECB1 /* Drawing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Drawing.hpp; sourceTree = "<group>"; };
+		E945D4A91D3C9E8A008EECB1 /* Drawer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drawer.cpp; sourceTree = "<group>"; };
+		E945D4AA1D3C9E8A008EECB1 /* Drawer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Drawer.hpp; sourceTree = "<group>"; };
 		E945D4AB1D3C9E8A008EECB1 /* Puppet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Puppet.cpp; sourceTree = "<group>"; };
 		E945D4AC1D3C9E8A008EECB1 /* Puppet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Puppet.hpp; sourceTree = "<group>"; };
 		E945D4AD1D3C9E8A008EECB1 /* GUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI.cpp; sourceTree = "<group>"; };
@@ -638,8 +638,6 @@
 		E945D4F01D3DCE3E008EECB1 /* package.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = package.xml; path = bin/data/package.xml; sourceTree = "<group>"; };
 		E945D4F11D3DD712008EECB1 /* Painting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Painting.cpp; sourceTree = "<group>"; };
 		E945D4F21D3DD712008EECB1 /* Painting.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Painting.hpp; sourceTree = "<group>"; };
-		E945D4F71D3DE805008EECB1 /* ofxThreadedImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxThreadedImageLoader.cpp; sourceTree = "<group>"; };
-		E945D4F81D3DE805008EECB1 /* ofxThreadedImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxThreadedImageLoader.h; sourceTree = "<group>"; };
 		E9F580571D2E34F7004920FF /* chromaKey.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = chromaKey.frag; sourceTree = "<group>"; };
 		E9F580581D2E34F7004920FF /* whitize.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = whitize.frag; sourceTree = "<group>"; };
 		E9F5805A1D2E34F7004920FF /* colTweak.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = colTweak.glsl; sourceTree = "<group>"; };
@@ -1399,7 +1397,6 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				E945D4F51D3DE805008EECB1 /* ofxThreadedImageLoader */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
 				9683228C705CA3FF4F2EA945 /* ofxKinect */,
 				A0B90D3B0ADB9C1716816714 /* ofxOpenCv */,
@@ -1798,8 +1795,8 @@
 		E945D4A81D3C9E8A008EECB1 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				E945D4A91D3C9E8A008EECB1 /* Drawing.cpp */,
-				E945D4AA1D3C9E8A008EECB1 /* Drawing.hpp */,
+				E945D4A91D3C9E8A008EECB1 /* Drawer.cpp */,
+				E945D4AA1D3C9E8A008EECB1 /* Drawer.hpp */,
 				E945D4F11D3DD712008EECB1 /* Painting.cpp */,
 				E945D4F21D3DD712008EECB1 /* Painting.hpp */,
 				E945D4AB1D3C9E8A008EECB1 /* Puppet.cpp */,
@@ -1843,24 +1840,6 @@
 				E945D4C41D3C9E8A008EECB1 /* Warper.hpp */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		E945D4F51D3DE805008EECB1 /* ofxThreadedImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				E945D4F61D3DE805008EECB1 /* src */,
-			);
-			name = ofxThreadedImageLoader;
-			path = ../../../addons/ofxThreadedImageLoader;
-			sourceTree = "<group>";
-		};
-		E945D4F61D3DE805008EECB1 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				E945D4F71D3DE805008EECB1 /* ofxThreadedImageLoader.cpp */,
-				E945D4F81D3DE805008EECB1 /* ofxThreadedImageLoader.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		E9F580551D2E34F7004920FF /* shaders */ = {
@@ -1907,6 +1886,7 @@
 		E9F580611D2E34F7004920FF /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				E9035A4F1D3F014400D62598 /* stroke.frag */,
 				E9F580621D2E34F7004920FF /* blendOutput.frag */,
 				E9F580641D2E35E4004920FF /* blendCutout.frag */,
 				E9F580631D2E34F7004920FF /* seqTweak.frag */,
@@ -2132,7 +2112,7 @@
 				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				E945D4DE1D3C9E8A008EECB1 /* PortraitTexture.cpp in Sources */,
-				E945D4E01D3C9E8A008EECB1 /* Drawing.cpp in Sources */,
+				E945D4E01D3C9E8A008EECB1 /* Drawer.cpp in Sources */,
 				9D08DF9DD5045F5EAB4DAF82 /* ofxQuadWarp.cpp in Sources */,
 				15DCF11A6445D447A0D48491 /* ETF.cpp in Sources */,
 				6FB779180FB3B27D323336AE /* fdog.cpp in Sources */,
@@ -2199,7 +2179,6 @@
 				DD610227BE82F8E84DD102C4 /* b2ChainAndPolygonContact.cpp in Sources */,
 				D4C12A43B4DF98A56A0E3B3B /* b2CircleContact.cpp in Sources */,
 				E92F54ED1D3375A00032CFC4 /* BrashIF.cpp in Sources */,
-				E945D4F91D3DE805008EECB1 /* ofxThreadedImageLoader.cpp in Sources */,
 				0C5F9FA3DAFBE2DCC9B209FA /* b2Contact.cpp in Sources */,
 				E945D4C81D3C9E8A008EECB1 /* Body.cpp in Sources */,
 				E945D4DA1D3C9E8A008EECB1 /* Kyo.cpp in Sources */,

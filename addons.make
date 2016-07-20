@@ -2,7 +2,6 @@ ofxGui
 ofxKinect
 ofxOpenCv
 ofxXmlSettings
-ofxThreadedImageLoader
 addons/ofxQuadWarp
 addons/ofxCv
 addons/ofxTweenzor

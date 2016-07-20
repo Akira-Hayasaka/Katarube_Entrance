@@ -22,21 +22,24 @@ public:
     void update();
     
     void goCutout();
-    void goLogoInfo();
-    void goFlushScreen();
+    void goLogo();
+    void goInfo();
+    void goFlushInk();
     void goInteractive();
     
     string getCurStateStr();
     
 private:
     
-    void proceed();
+    void checkWorkFlow();    
+    void proceedIfPossible();
     
     enum APP_STATE
     {
         CUTOUT,
-        LOGOINFO,
-        FLUSHSCREEN,
+        LOGO,
+        INFO,
+        FLUSHINK,
         INTERACTION
     };
     APP_STATE appState;
@@ -44,11 +47,16 @@ private:
     vector<EventTimer> cutoutEvents;
     
     float cutoutDur;
-    float logoInfoDur;
-    float flushScreenDur;
     float cutoutBeginTime;
-    float logoInfoBeginTime;
-    float flushSceenBeginTime;
+    
+    float logoDur;
+    float logoBeginTime;
+    
+    float infoDur;
+    float infoBeginTime;
+    
+    float flushInkDur;
+    float flushInkBeginTime;
 };
 
 #endif /* WorkFlow_hpp */
