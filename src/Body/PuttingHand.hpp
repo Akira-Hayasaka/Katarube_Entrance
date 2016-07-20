@@ -19,7 +19,7 @@ public:
     
     void setup(BodyBase* bodyBase);
     void draw();
-    void onPutEvent();    
+    void onPutEvent(ofPoint dest);    
     bool isDone() { return (bodyState.state == BodyState::DONE) ? true : false; }
     
 protected:
@@ -36,6 +36,8 @@ private:
     
     BodyState bodyState;
     BodyBase* bodyBase;
+    
+    float ang;
 };
 
 #endif /* PuttingHand_hpp */

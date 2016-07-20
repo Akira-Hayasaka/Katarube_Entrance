@@ -145,7 +145,8 @@ void ofApp::keyPressed(int key)
     }
     if (key == 'p')
     {
-        ofNotifyEvent(Global::putEvent);
+        ofPoint dest(ofRandom(500, APP_W-500), ofRandom(300, APP_H-300));
+        ofNotifyEvent(Global::putEvent, dest);
     }
     if (key == 's')
     {

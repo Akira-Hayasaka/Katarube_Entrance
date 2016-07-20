@@ -26,6 +26,7 @@ public:
 private:
     
     void onBeginLogoEvent();
+    void onBeginInfoEvent();
     
     Painting logo;
     vector<Painting> nowExibits;

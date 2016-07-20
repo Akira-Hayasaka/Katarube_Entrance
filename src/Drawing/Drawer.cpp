@@ -23,26 +23,38 @@ void Drawer::setup()
             Painting ex;
             nowExibits.push_back(ex);
             nowExibits.back().setup(f.getAbsolutePath());
+            nowExibits.back().setPosition(ofPoint(APP_W - PROJ_W/2 - 100,
+                                                  APP_H/2));
         }
     }
     exbitDir.close();
     
     ofAddListener(Global::beginLogoEvent, this, &Drawer::onBeginLogoEvent);
+    ofAddListener(Global::beginInfoEvent, this, &Drawer::onBeginInfoEvent);
 }
 
 void Drawer::update()
 {
     logo.update();
+    
+    for (auto& ne : nowExibits)
+        ne.update();
 }
 
 void Drawer::draw()
 {
     logo.draw();
-//    logo.drawOutline();
+    
+    for (auto ne : nowExibits)
+        ne.draw();
 }
 
 void Drawer::onBeginLogoEvent()
 {
-    ofPoint leftDest(ofRandom(500, APP_W-500), ofRandom(300, APP_H-300));
-    logo.beginDrawWContour();
+    logo.beginDraw();
+}
+
+void Drawer::onBeginInfoEvent()
+{
+    nowExibits.at(ofRandom(nowExibits.size())).beginDraw();
 }

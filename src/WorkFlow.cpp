@@ -52,6 +52,14 @@ void WorkFlow::update()
         for (auto& et : cutoutEvents)
             et.update();
     }
+    if (appState == FLUSHINK)
+    {
+        if (Global::ELAPSED_TIME - flushInkBeginTime < 7)
+        {
+            for (int i = 0; i < 10; i++)
+                ofNotifyEvent(Global::inkEvent);
+        }
+    }
     
     checkWorkFlow();
 }
@@ -59,6 +67,7 @@ void WorkFlow::update()
 void WorkFlow::goCutout()
 {
     appState = CUTOUT;
+    ofNotifyEvent(Global::clearInkEvent);
     cutoutBeginTime = Global::ELAPSED_TIME;
 }
 
@@ -106,7 +115,7 @@ void WorkFlow::checkWorkFlow()
     
     
     
-    //proceedIfPossible();
+    proceedIfPossible();
 }
 
 void WorkFlow::proceedIfPossible()
@@ -123,7 +132,7 @@ void WorkFlow::proceedIfPossible()
         }
         if (appState == LOGO)
         {
-            if (Global::ELAPSED_TIME - logoBeginTime > cutoutDur)
+            if (Global::ELAPSED_TIME - logoBeginTime > logoDur)
             {
                 goInfo();
             }

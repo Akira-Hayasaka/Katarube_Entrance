@@ -2,7 +2,7 @@
 	<x>1500</x>
 	<y>450</y>
 	<w>950</w>
-	<h>1100</h>
+	<h>1300</h>
 </roi>
 <chroma>
 	<thresh>0.65</thresh>
@@ -10,3 +10,7 @@
 	<g>0</g>
 	<b>200</b>
 </chroma>
+<anchor>
+	<x>400</x>
+	<y>450</y>
+</anchor>

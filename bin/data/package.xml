@@ -1,6 +1,6 @@
 <kinectConnected>false</kinectConnected>
 <workflow>
-    <cutoutDur>10</cutoutDur>
+    <cutoutDur>40</cutoutDur>
     <logoDur>10</logoDur>
     <infoDur>10</infoDur>
     <flushInkDur>10</flushInkDur>
