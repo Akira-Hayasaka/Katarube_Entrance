@@ -11,7 +11,7 @@
 void Drawer::setup()
 {
     logo.setup("imgs/logo/logo.png", true);
-    logo.setPosition(ofPoint(500, 500));
+    logo.setPosition(ofPoint(PROJ_W/2-logo.getTexture().getWidth()/2 + 100, APP_H/2));
     
     ofDirectory exbitDir("imgs/nowExibit");
     exbitDir.listDir();
@@ -38,12 +38,11 @@ void Drawer::update()
 void Drawer::draw()
 {
     logo.draw();
-    logo.drawOutline();
+//    logo.drawOutline();
 }
 
 void Drawer::onBeginLogoEvent()
 {
     ofPoint leftDest(ofRandom(500, APP_W-500), ofRandom(300, APP_H-300));
-    ofNotifyEvent(Global::drawEvent, leftDest);
     logo.beginDrawWContour();
 }

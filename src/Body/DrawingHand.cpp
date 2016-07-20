@@ -12,16 +12,13 @@ void DrawingHand::setup(BodyBase* bodyBase)
 {
     this->bodyBase = bodyBase;
     ofAddListener(Global::tickEvent, this, &DrawingHand::onTickEvent);
+    ofAddListener(Global::updateHandPosEvent, this, &DrawingHand::onUpdateHandPos);
+    ofAddListener(Global::handRetireEvent, this, &DrawingHand::onHandRetireEvent);
 }
 
 void DrawingHand::draw()
 {
     bodyBase->draw(bodyState, bFromUpper, ang);
-    
-    ofPushStyle();
-    ofSetColor(ofColor::red);
-    ofDrawCircle(bodyState.posDest, 20);
-    ofPopStyle();
 }
 
 void DrawingHand::onTickEvent()
@@ -32,16 +29,6 @@ void DrawingHand::onTickEvent()
         if (bodyState.curFrame >= bodyBase->seq.size())
             bodyState.curFrame = 0;
         bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
-        
-        if (bodyState.state == BodyState::DOING)
-        {
-            if (Global::ELAPSED_TIME - startDoingTime > doingDur)
-            {
-                Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posOrig.y, 0.0f, 0.6f, EASE_OUT_CUBIC);
-                Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.y), this, &DrawingHand::onEndRetire);
-                bodyState.state = BodyState::RETIRE;
-            }
-        }
         
         bodyBase->onTickEvent(bodyState);
     }
@@ -62,11 +49,22 @@ void DrawingHand::onDrawEvent(ofPoint dest)
     bodyState.state = BodyState::EMERGE;
 }
 
+void DrawingHand::onUpdateHandPos(ofPoint& pos)
+{
+    bodyState.curPos = pos;
+}
+
+void DrawingHand::onHandRetireEvent()
+{
+    Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posOrig.y, 0.0f, 0.6f, EASE_OUT_CUBIC);
+    Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.y), this, &DrawingHand::onEndRetire);
+    bodyState.state = BodyState::RETIRE;
+}
+
 void DrawingHand::onEndEmerge(float* arg)
 {
     bodyState.state = BodyState::DOING;
     startDoingTime = Global::ELAPSED_TIME;
-    doingDur = ofRandom(5.0, 10.0);
 }
 
 void DrawingHand::onEndRetire(float* arg)

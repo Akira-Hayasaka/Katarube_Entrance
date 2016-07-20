@@ -13,6 +13,11 @@
 #include "Globals.hpp"
 #include "Util.h"
 
+static bool compareLeft2Right(const ofPolyline& p1, const ofPolyline& p2)
+{
+    return p1.getCentroid2D().x < p2.getCentroid2D().x;
+}
+
 class Painting
 {
 public:
@@ -20,6 +25,7 @@ public:
     enum CONTOURPHASE
     {
         NONE,
+        WAITINGHAND,
         DRAWING,
         END
     };
@@ -43,7 +49,6 @@ private:
 
     CONTOURPHASE contourPhase;
     
-    ofTexture loader;
     ofFbo tex;
     ofFbo utilFbo;
     ofPoint pos;
@@ -53,6 +58,9 @@ private:
     vector<ofPolyline> outline;
     deque<ofPolyline> contourForProcess;
     int ptsIdx;
+    
+    float beginDrawWContourTime;
+    float waitHandDur;
 };
 
 #endif /* Painting_hpp */
