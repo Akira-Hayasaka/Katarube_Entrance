@@ -15,10 +15,10 @@ void Portrait::setup()
     
     portrait.setup();
     
-    ofAddListener(Global::tickEvent, this, &Portrait::onTickEvent);
-    ofAddListener(Global::portraitOnePlaceEvent, this, &Portrait::onPortraitOnePlaceEvent);
-    ofAddListener(Global::portraitHorizEvent, this, &Portrait::onPortraitHorizEvent);
-    ofAddListener(Global::portraitVertEvent, this, &Portrait::onPortraitVertEvent);
+    ofAddListener(Globals::tickEvent, this, &Portrait::onTickEvent);
+    ofAddListener(Globals::portraitOnePlaceEvent, this, &Portrait::onPortraitOnePlaceEvent);
+    ofAddListener(Globals::portraitHorizEvent, this, &Portrait::onPortraitHorizEvent);
+    ofAddListener(Globals::portraitVertEvent, this, &Portrait::onPortraitVertEvent);
 }
 
 void Portrait::update()

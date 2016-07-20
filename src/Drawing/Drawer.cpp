@@ -29,8 +29,10 @@ void Drawer::setup()
     }
     exbitDir.close();
     
-    ofAddListener(Global::beginLogoEvent, this, &Drawer::onBeginLogoEvent);
-    ofAddListener(Global::beginInfoEvent, this, &Drawer::onBeginInfoEvent);
+    ofAddListener(Globals::beginLogoEvent, this, &Drawer::onBeginLogoEvent);
+    ofAddListener(Globals::beginInfoEvent, this, &Drawer::onBeginInfoEvent);
+    ofAddListener(Globals::fadeOutLogoEvent, this, &Drawer::onFadeOutLogoEvent);
+    ofAddListener(Globals::fadeOutInfoEvent, this, &Drawer::onFadeOutInfoEvent);
 }
 
 void Drawer::update()
@@ -57,4 +59,15 @@ void Drawer::onBeginLogoEvent()
 void Drawer::onBeginInfoEvent()
 {
     nowExibits.at(ofRandom(nowExibits.size())).beginDraw();
+}
+
+void Drawer::onFadeOutLogoEvent()
+{
+    logo.fadeOut();
+}
+
+void Drawer::onFadeOutInfoEvent()
+{
+    for (auto& ne : nowExibits)
+        ne.fadeOut();
 }

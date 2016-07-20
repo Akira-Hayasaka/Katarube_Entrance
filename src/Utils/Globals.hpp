@@ -35,7 +35,7 @@ struct DrawCommandContour
     vector<ofPolyline> contours;
 };
 
-namespace Global
+namespace Globals
 {
     extern float ELAPSED_TIME;
     extern float oneFrameDur;    
@@ -68,6 +68,9 @@ namespace Global
     
     extern ofEvent<void> beginLogoEvent;
     extern ofEvent<void> beginInfoEvent;
+    extern ofEvent<void> fadeOutLogoEvent;
+    extern ofEvent<void> fadeOutInfoEvent;
+    extern ofEvent<void> fadeOutInkEvent;
     
     extern ofEvent<void> eatEvent;
     extern ofEvent<ofPoint> drawEvent;

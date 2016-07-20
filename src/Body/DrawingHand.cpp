@@ -11,9 +11,9 @@
 void DrawingHand::setup(BodyBase* bodyBase)
 {
     this->bodyBase = bodyBase;
-    ofAddListener(Global::tickEvent, this, &DrawingHand::onTickEvent);
-    ofAddListener(Global::updateHandPosEvent, this, &DrawingHand::onUpdateHandPos);
-    ofAddListener(Global::handRetireEvent, this, &DrawingHand::onHandRetireEvent);
+    ofAddListener(Globals::tickEvent, this, &DrawingHand::onTickEvent);
+    ofAddListener(Globals::updateHandPosEvent, this, &DrawingHand::onUpdateHandPos);
+    ofAddListener(Globals::handRetireEvent, this, &DrawingHand::onHandRetireEvent);
 }
 
 void DrawingHand::draw()
@@ -28,7 +28,7 @@ void DrawingHand::onTickEvent()
         bodyState.curFrame++;
         if (bodyState.curFrame >= bodyBase->seq.size())
             bodyState.curFrame = 0;
-        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
         
         bodyBase->onTickEvent(bodyState);
     }
@@ -64,7 +64,7 @@ void DrawingHand::onHandRetireEvent()
 void DrawingHand::onEndEmerge(float* arg)
 {
     bodyState.state = BodyState::DOING;
-    startDoingTime = Global::ELAPSED_TIME;
+    startDoingTime = Globals::ELAPSED_TIME;
 }
 
 void DrawingHand::onEndRetire(float* arg)

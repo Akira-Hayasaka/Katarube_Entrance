@@ -21,14 +21,14 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
     kinectGUI.add(contourThreshold.setup("contour bri threshold", 128, 0, 255));
     kinectGUI.add(contourFindHole.setup("find hole", false));
     
-    kinectAngle.addListener(&Global::kinect, &Kinect::onAngleChanged);
-    kinectNearThresh.addListener(&Global::kinect, &Kinect::onNearThreshChanged);
-    kinectFarThresh.addListener(&Global::kinect, &Kinect::onFarThreshChanged);
-    kinectAdjustAngle.addListener(&Global::kinect, &Kinect::onAngleAdjustChanged);
-    contourMinArea.addListener(&Global::kinect, &Kinect::onContourMinAreaChanged);
-    contourMaxArea.addListener(&Global::kinect, &Kinect::onContourMaxAreaChanged);
-    contourThreshold.addListener(&Global::kinect, &Kinect::onContourBriThreshChanged);
-    contourFindHole.addListener(&Global::kinect, &Kinect::onFindContourHoleChanged);
+    kinectAngle.addListener(&Globals::kinect, &Kinect::onAngleChanged);
+    kinectNearThresh.addListener(&Globals::kinect, &Kinect::onNearThreshChanged);
+    kinectFarThresh.addListener(&Globals::kinect, &Kinect::onFarThreshChanged);
+    kinectAdjustAngle.addListener(&Globals::kinect, &Kinect::onAngleAdjustChanged);
+    contourMinArea.addListener(&Globals::kinect, &Kinect::onContourMinAreaChanged);
+    contourMaxArea.addListener(&Globals::kinect, &Kinect::onContourMaxAreaChanged);
+    contourThreshold.addListener(&Globals::kinect, &Kinect::onContourBriThreshChanged);
+    contourFindHole.addListener(&Globals::kinect, &Kinect::onFindContourHoleChanged);
     
     kinectGUI.loadFromFile("settings/kinect.xml");
     
@@ -50,7 +50,7 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
         projWarpers.at(i).setup();
         projWarpers.at(i).load("settings/warps/projWarp" + ofToString(i) + ".xml");
         projWarpers.at(i).update();
-        Global::projMats.at(i) = projWarpers.at(i).getMatEx();
+        Globals::projMats.at(i) = projWarpers.at(i).getMatEx();
     }
     
     // kinect warp
@@ -64,7 +64,7 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
     kinectWarper.setup();
     kinectWarper.load("settings/warps/kinectWarp.xml");
     kinectWarper.update();
-    Global::kinectMat = kinectWarper.getMatEx();
+    Globals::kinectMat = kinectWarper.getMatEx();
     
     kinectFbo.allocate(KINECT_W, KINECT_H);
     kinectFbo.begin();
@@ -89,24 +89,24 @@ void GUI::update()
         for (auto& warper : projWarpers)
         {
             warper.update();
-            Global::projMats.at(idx) = warper.getMatEx();
+            Globals::projMats.at(idx) = warper.getMatEx();
             idx++;
         }
         
         kinectWarper.update();
-        Global::kinectMat = kinectWarper.getMatEx();
+        Globals::kinectMat = kinectWarper.getMatEx();
 
-        if (Global::kinect.isInited())
+        if (Globals::kinect.isInited())
         {
             contours.clear();
             contourPaths.clear();
             
             // get warped contour
-            contours = Global::kinect.getContourInfo(Global::kinectMat);
+            contours = Globals::kinect.getContourInfo(Globals::kinectMat);
             
             kinectFbo.begin();
             ofClear(0);
-            Global::kinect.getDepthTexture().draw(0, 0);
+            Globals::kinect.getDepthTexture().draw(0, 0);
             kinectFbo.end();
             
             for (auto& c : contours)
@@ -140,10 +140,10 @@ void GUI::draw()
     if (!bHide)
     {
         // draw warped kinect depth & contour
-        if (Global::kinect.isInited())
+        if (Globals::kinect.isInited())
         {
             ofPushMatrix();
-            ofMultMatrix(Global::kinectMat);
+            ofMultMatrix(Globals::kinectMat);
             kinectFbo.draw(0, 0);
             ofPopMatrix();
             
@@ -187,7 +187,7 @@ void GUI::draw()
         ofPopStyle();
         
         // draw kinect tex for gui
-        if (Global::kinect.isInited())
+        if (Globals::kinect.isInited())
         {
             int margin = 4;
             ofPoint p = kinectGUI.getPosition();
@@ -196,9 +196,9 @@ void GUI::draw()
             ofSetColor(ofColor::gray);
             ofDrawRectangle(p.x, p.y, kinectGUI.getWidth(), KINECT_H/2);
             ofPopStyle();
-            Global::kinect.getDepthTexture().draw(p.x + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
-            Global::kinect.getThreshedTexture().draw(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
-            Global::kinect.drawContour(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+            Globals::kinect.getDepthTexture().draw(p.x + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+            Globals::kinect.getThreshedTexture().draw(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
+            Globals::kinect.drawContour(p.x + KINECT_W/2 + margin/2, p.y + margin/2, KINECT_W/2 - margin, KINECT_H/2 - margin);
         }
         
         kinectGUI.draw();

@@ -25,7 +25,7 @@ void Portraits::setup()
     }
     dir.close();
     
-    ofPolyline b2dEdgeTweak = Global::b2dEdge;
+    ofPolyline b2dEdgeTweak = Globals::b2dEdge;
     for (int i = 0; i < b2dEdgeTweak.getVertices().size(); i++)
     {
         ofVec2f perp;
@@ -58,11 +58,11 @@ void Portraits::onTick()
 {
     if (pattern == ONEPLACE)
     {
-        if (Global::curTickFrame - lastOneFrameTick > onPlaceFrameDur)
+        if (Globals::curTickFrame - lastOneFrameTick > onPlaceFrameDur)
         {
             texIdx++;
             onPlaceFrameDur = ofRandom(10);
-            lastOneFrameTick = Global::curTickFrame;
+            lastOneFrameTick = Globals::curTickFrame;
         }
         
         texs.at(texIdx).draw();
@@ -95,17 +95,17 @@ void Portraits::onPortraitOnePlace()
     if (pattern == NONE)
     {
         pattern = ONEPLACE;
-        beginTickFrame = Global::curTickFrame;
-        lastOneFrameTick = Global::curTickFrame;
+        beginTickFrame = Globals::curTickFrame;
+        lastOneFrameTick = Globals::curTickFrame;
         onPlaceFrameDur = ofRandom(3);
         ofRandomize(texs);
         ofPoint rdmPos(ofRandom(370, 3440), ofRandom(370, 790));
         int nearestIdx = 0;
         vector<ofPoint> btmLine;
-        for (auto bl : Global::bottomLineAndAngs)
+        for (auto bl : Globals::bottomLineAndAngs)
             btmLine.push_back(bl.p);
         getNearestPt(btmLine, rdmPos, nearestIdx);
-        onePlaceAng = Global::bottomLineAndAngs.at(nearestIdx).ang;
+        onePlaceAng = Globals::bottomLineAndAngs.at(nearestIdx).ang;
         for (auto& t : texs)
             t.doOnePlace(rdmPos, onePlaceAng);
     }
@@ -117,8 +117,8 @@ void Portraits::onPortraitHoriz()
     {
         pattern = HORIZ;
         workingTexs.clear();
-        beginTickFrame = Global::curTickFrame;
-        lastOneFrameTick = Global::curTickFrame;
+        beginTickFrame = Globals::curTickFrame;
+        lastOneFrameTick = Globals::curTickFrame;
         
         ofSort(texs, compareHeight);
         for (int i = 0; i < texs.size(); i++)
@@ -141,8 +141,8 @@ void Portraits::onPortraitVert()
     {
         pattern = VERT;
         workingTexs.clear();
-        beginTickFrame = Global::curTickFrame;
-        lastOneFrameTick = Global::curTickFrame;
+        beginTickFrame = Globals::curTickFrame;
+        lastOneFrameTick = Globals::curTickFrame;
         
         ofRandomize(texs);
         int numVertAction = 15;

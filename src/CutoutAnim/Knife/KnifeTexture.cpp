@@ -22,7 +22,7 @@ void KnifeTexture::update()
 
 void KnifeTexture::customDraw()
 {
-    if (Global::ELAPSED_TIME - circBeginTime > circShowDelay * idx &&
+    if (Globals::ELAPSED_TIME - circBeginTime > circShowDelay * idx &&
         state == CIRC)
     {
         ofVec2f rdmPos(ofRandom(-5, 5), ofRandom(-5, 5));
@@ -48,7 +48,7 @@ void KnifeTexture::goCircle(ofPoint from, ofPoint interp, ofPoint to)
     curPos = from;
     ofVec2f dv = to - from;
     ang = atan2(dv.x, dv.y) * 180 / PI;
-    circBeginTime = Global::ELAPSED_TIME;
+    circBeginTime = Globals::ELAPSED_TIME;
     circShowDur = 0.25;
     circShowDelay = 0.1;
     float delay = circShowDelay * idx;

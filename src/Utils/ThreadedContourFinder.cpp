@@ -10,7 +10,7 @@
 
 void ThreadedContourFinder::setup()
 {
-    ofAddListener(Global::genContourEvent, this, &ThreadedContourFinder::onGenContourEvent);
+    ofAddListener(Globals::genContourEvent, this, &ThreadedContourFinder::onGenContourEvent);
     startThread();
 }
 
@@ -35,13 +35,13 @@ void ThreadedContourFinder::threadedFunction()
                 cc.cmdID = commandQ.front().cmdInfo.cmdID;
                 setFindHoles(false);
                 cc.contours = getPolylines();
-                ofNotifyEvent(Global::gotContourEvent, cc);
+                ofNotifyEvent(Globals::gotContourEvent, cc);
                 
                 DrawCommandContour ccHole;
                 ccHole.cmdID = commandQ.front().cmdInfo.cmdID;
                 setFindHoles(true);
                 ccHole.contours = getPolylines();
-                ofNotifyEvent(Global::gotContourWHoleEvent, ccHole);
+                ofNotifyEvent(Globals::gotContourWHoleEvent, ccHole);
                 
                 commandQ.pop_front();
             }

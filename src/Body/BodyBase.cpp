@@ -48,11 +48,11 @@ void BodyBase::setup(string seqDirPath)
             seq.back().allocate(roi.getWidth(), roi.getHeight());
             seq.back().begin();
             ofClear(0);
-            Global::chromaKey.begin();
-            Global::chromaKey.setUniform3f("chromaKeyColor", ofVec3f(keyColor.r/255.0, keyColor.g/255.0, keyColor.b/255.0));
-            Global::chromaKey.setUniform1f("threshold", chromaThresh);
+            Globals::chromaKey.begin();
+            Globals::chromaKey.setUniform3f("chromaKeyColor", ofVec3f(keyColor.r/255.0, keyColor.g/255.0, keyColor.b/255.0));
+            Globals::chromaKey.setUniform1f("threshold", chromaThresh);
             tex.drawSubsection(0, 0, roi.getWidth(), roi.getHeight(), roi.x, roi.y);
-            Global::chromaKey.end();
+            Globals::chromaKey.end();
             seq.back().end();
 //            seq.back().setAnchorPoint(anchor.x, anchor.y);
             tex.clear();
@@ -90,7 +90,7 @@ void BodyBase::draw(BodyState bodyState, bool bFromUpper, float ang)
     }
     seqTweak.begin();
     seqTweak.setUniformTexture("tex0", tweaker.getTexture(), 0);
-    seqTweak.setUniformTexture("blendTex", Global::bodyBlendTexs.at(bodyState.blendIdx), 1);
+    seqTweak.setUniformTexture("blendTex", Globals::bodyBlendTexs.at(bodyState.blendIdx), 1);
     drawPlane(tweaker.getWidth(), tweaker.getHeight());
     seqTweak.end();
     ofPopMatrix();

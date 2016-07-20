@@ -11,7 +11,7 @@
 void PuttingHand::setup(BodyBase* bodyBase)
 {
     this->bodyBase = bodyBase;
-    ofAddListener(Global::tickEvent, this, &PuttingHand::onTickEvent);
+    ofAddListener(Globals::tickEvent, this, &PuttingHand::onTickEvent);
 }
 
 void PuttingHand::draw()
@@ -26,7 +26,7 @@ void PuttingHand::onTickEvent()
         bodyState.curFrame++;
         if (bodyState.curFrame >= bodyBase->seq.size())
             bodyState.curFrame = 0;
-        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
         
         if (bodyState.state == BodyState::DOING)
         {

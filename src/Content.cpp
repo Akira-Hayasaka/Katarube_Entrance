@@ -55,7 +55,7 @@ void Content::setup()
     }
     b2dEdge = contourFinder.getPolyline(0);
     b2dEdge = b2dEdge.getResampledByCount(200);
-    Global::b2dEdge = b2dEdge;
+    Globals::b2dEdge = b2dEdge;
 
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {
@@ -71,7 +71,7 @@ void Content::setup()
             BottomLineAndAng ba;
             ba.p = b2dEdge.getVertices().at(i);
             ba.ang = ang;
-            Global::bottomLineAndAngs.push_back(ba);
+            Globals::bottomLineAndAngs.push_back(ba);
         }
     }
     
@@ -80,7 +80,7 @@ void Content::setup()
     cutout.setup();
     drawer.setup();
     
-    ofAddListener(Global::tickEvent, this, &Content::onTickEvent);
+    ofAddListener(Globals::tickEvent, this, &Content::onTickEvent);
 }
 
 void Content::update()

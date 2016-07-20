@@ -11,7 +11,7 @@
 void SwipingHand::setup(BodyBase* bodyBase)
 {
     this->bodyBase = bodyBase;
-    ofAddListener(Global::tickEvent, this, &SwipingHand::onTickEvent);
+    ofAddListener(Globals::tickEvent, this, &SwipingHand::onTickEvent);
 }
 
 void SwipingHand::draw()
@@ -26,7 +26,7 @@ void SwipingHand::onTickEvent()
         bodyState.curFrame++;
         if (bodyState.curFrame >= bodyBase->seq.size())
             bodyState.curFrame = 0;
-        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
         
         bodyBase->onTickEvent(bodyState);
     }

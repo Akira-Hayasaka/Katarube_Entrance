@@ -67,17 +67,17 @@ static void disableEdgeSwipeGesture()
 
 static void drawPlane(float _width, float _height)
 {
-    Global::scrnQuad.setVertex(0, ofVec3f(0,0,0));
-    Global::scrnQuad.setVertex(1, ofVec3f(_width,0,0));
-    Global::scrnQuad.setVertex(2, ofVec3f(_width,_height,0));
-    Global::scrnQuad.setVertex(3, ofVec3f(0,_height,0));
+    Globals::scrnQuad.setVertex(0, ofVec3f(0,0,0));
+    Globals::scrnQuad.setVertex(1, ofVec3f(_width,0,0));
+    Globals::scrnQuad.setVertex(2, ofVec3f(_width,_height,0));
+    Globals::scrnQuad.setVertex(3, ofVec3f(0,_height,0));
     
-    Global::scrnQuad.setTexCoord(0, ofVec2f(0,0));
-    Global::scrnQuad.setTexCoord(1, ofVec2f(_width,0));
-    Global::scrnQuad.setTexCoord(2, ofVec2f(_width,_height));
-    Global::scrnQuad.setTexCoord(3, ofVec2f(0,_height));
+    Globals::scrnQuad.setTexCoord(0, ofVec2f(0,0));
+    Globals::scrnQuad.setTexCoord(1, ofVec2f(_width,0));
+    Globals::scrnQuad.setTexCoord(2, ofVec2f(_width,_height));
+    Globals::scrnQuad.setTexCoord(3, ofVec2f(0,_height));
     
-    Global::scrnQuad.draw();
+    Globals::scrnQuad.draw();
 }
 
 static string genUUID()

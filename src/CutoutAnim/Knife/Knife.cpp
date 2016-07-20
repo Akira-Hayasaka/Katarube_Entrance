@@ -26,8 +26,8 @@ void Knife::setup()
     }
     dir.close();
     
-    ofAddListener(Global::tickEvent, this, &Knife::onTickEvent);
-    ofAddListener(Global::knifeCircleEvent, this, &Knife::onKnifeCircleEvent);
+    ofAddListener(Globals::tickEvent, this, &Knife::onTickEvent);
+    ofAddListener(Globals::knifeCircleEvent, this, &Knife::onKnifeCircleEvent);
 }
 
 void Knife::update()

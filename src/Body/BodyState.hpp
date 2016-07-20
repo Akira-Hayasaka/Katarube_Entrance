@@ -19,7 +19,7 @@ public:
     BodyState()
     {
         curFrame = 0;
-        blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
         state = NONE;
     }
     

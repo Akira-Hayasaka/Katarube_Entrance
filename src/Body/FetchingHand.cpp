@@ -11,7 +11,7 @@
 void FetchingHand::setup(BodyBase* bodyBase)
 {
     this->bodyBase = bodyBase;
-    ofAddListener(Global::tickEvent, this, &FetchingHand::onTickEvent);
+    ofAddListener(Globals::tickEvent, this, &FetchingHand::onTickEvent);
 }
 
 void FetchingHand::draw()
@@ -24,7 +24,7 @@ void FetchingHand::onTickEvent()
     if (bodyState.state != BodyState::NONE)
     {
         bodyState.curFrame++;
-        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
         
         if (bodyState.state == BodyState::DOING)
         {

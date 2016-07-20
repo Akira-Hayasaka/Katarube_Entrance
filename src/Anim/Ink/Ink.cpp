@@ -21,7 +21,7 @@ void Ink::setup()
     canvasW = APP_W / canvasRatio;
     canvasH = APP_H / canvasRatio;
     inkSim.setup(canvasW, canvasH);
-    Global::inkUniforms = inkSim.getUniformInfo();
+    Globals::inkUniforms = inkSim.getUniformInfo();
     
     ofDirectory dir("imgs/ink");
     dir.listDir();
@@ -37,8 +37,9 @@ void Ink::setup()
     }
     dir.close();
     
-    ofAddListener(Global::inkEvent, this, &Ink::onInkEvent);
-    ofAddListener(Global::clearInkEvent, this, &Ink::onClearInkEvent);
+    ofAddListener(Globals::inkEvent, this, &Ink::onInkEvent);
+    ofAddListener(Globals::clearInkEvent, this, &Ink::onClearInkEvent);
+    ofAddListener(Globals::fadeOutInkEvent, this, &Ink::onFadeOut);
 }
 
 void Ink::update()
@@ -51,12 +52,18 @@ void Ink::update()
     ofScale(canvasRatio, canvasRatio);
     inkSim.draw();
     ofPopMatrix();
+    
+    ofPushStyle();
+    ofSetColor(ofColor::white, alpha);
+    ofDrawRectangle(0, 0, scrn.getWidth(), scrn.getHeight());
+    ofPopStyle();
+    
     scrn.end();
 }
 
 void Ink::onInkEvent()
 {
-//    inkSim.getUniformInfo()->waterAmount = ofRandom(0.1, 1.7);
+    alpha = 0.0;
     
     ofColor c = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
     int idx = ofRandom(texs.size());
@@ -92,4 +99,9 @@ void Ink::clearScrn()
     scrn.begin();
     ofClear(255);
     scrn.end();
+}
+
+void Ink::onFadeOut()
+{
+    Tweenzor::add(&alpha, alpha, 255.0f, 0.0f, 1.5f, EASE_OUT_SINE);
 }

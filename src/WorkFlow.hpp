@@ -51,12 +51,16 @@ private:
     
     float logoDur;
     float logoBeginTime;
+    bool bFadeOutLogo;
     
     float infoDur;
     float infoBeginTime;
+    bool bFadeOutInfo;
     
     float flushInkDur;
     float flushInkBeginTime;
+    bool bFadeOutInk;
+    bool bClearInk;
 };
 
 #endif /* WorkFlow_hpp */

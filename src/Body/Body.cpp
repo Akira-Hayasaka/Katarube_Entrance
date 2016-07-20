@@ -16,11 +16,11 @@ void Body::setup()
     puttingHBase.setup("imgs/body/hand/putting");
     swipingHBase.setup("imgs/body/hand/swiping");
     
-    ofAddListener(Global::eatEvent, this, &Body::onEatEvent);
-    ofAddListener(Global::drawEvent, this, &Body::onDrawEvent);
-    ofAddListener(Global::fetchEvent, this, &Body::onFetchEvent);
-    ofAddListener(Global::putEvent, this, &Body::onPutEvent);
-    ofAddListener(Global::swipeEvent, this, &Body::onSwipeEvent);
+    ofAddListener(Globals::eatEvent, this, &Body::onEatEvent);
+    ofAddListener(Globals::drawEvent, this, &Body::onDrawEvent);
+    ofAddListener(Globals::fetchEvent, this, &Body::onFetchEvent);
+    ofAddListener(Globals::putEvent, this, &Body::onPutEvent);
+    ofAddListener(Globals::swipeEvent, this, &Body::onSwipeEvent);
 }
 
 void Body::update()

@@ -18,7 +18,7 @@ void CutoutAnim::setup()
     flyer.setup();
     kyo.setup();
     
-    ofAddListener(Global::tickEvent, this, &CutoutAnim::onTickEvent);
+    ofAddListener(Globals::tickEvent, this, &CutoutAnim::onTickEvent);
 }
 
 void CutoutAnim::update()

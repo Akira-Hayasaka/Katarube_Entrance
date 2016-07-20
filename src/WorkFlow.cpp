@@ -19,28 +19,28 @@ void WorkFlow::setup()
     flushInkDur = package.getValue("flushInkDur", 0);
     package.popTag();
 
-    EventTimer portraitOnePlaceEventTimer(Global::portraitOnePlaceEvent);
+    EventTimer portraitOnePlaceEventTimer(Globals::portraitOnePlaceEvent);
     portraitOnePlaceEventTimer.setInterval(4.0, 5.0);
     cutoutEvents.push_back(portraitOnePlaceEventTimer);
-    EventTimer portraitHorizEventTimer(Global::portraitHorizEvent);
+    EventTimer portraitHorizEventTimer(Globals::portraitHorizEvent);
     portraitHorizEventTimer.setInterval(15.0, 20.0);
     cutoutEvents.push_back(portraitHorizEventTimer);
-    EventTimer portraitVertEventTimer(Global::portraitVertEvent);
+    EventTimer portraitVertEventTimer(Globals::portraitVertEvent);
     portraitVertEventTimer.setInterval(10.0, 15.0);
     cutoutEvents.push_back(portraitVertEventTimer);
-    EventTimer flyerFishLikeEventTimer(Global::flyerFishLikeEvent);
+    EventTimer flyerFishLikeEventTimer(Globals::flyerFishLikeEvent);
     flyerFishLikeEventTimer.setInterval(1.0, 7.0);
     cutoutEvents.push_back(flyerFishLikeEventTimer);
-    EventTimer flyerWavyEventTimer(Global::flyerWavyEvent);
+    EventTimer flyerWavyEventTimer(Globals::flyerWavyEvent);
     flyerWavyEventTimer.setInterval(1.0, 7.0);
     cutoutEvents.push_back(flyerWavyEventTimer);
-    EventTimer flyerStraightThingEventTimer(Global::flyerStraightThingEvent);
+    EventTimer flyerStraightThingEventTimer(Globals::flyerStraightThingEvent);
     flyerStraightThingEventTimer.setInterval(1.0, 7.0);
     cutoutEvents.push_back(flyerStraightThingEventTimer);
-    EventTimer kyoEventTimer(Global::kyoEvent);
+    EventTimer kyoEventTimer(Globals::kyoEvent);
     kyoEventTimer.setInterval(0.5, 1.0);
     cutoutEvents.push_back(kyoEventTimer);
-    EventTimer knifeCircleEventTimer(Global::knifeCircleEvent);
+    EventTimer knifeCircleEventTimer(Globals::knifeCircleEvent);
     knifeCircleEventTimer.setInterval(1.0, 2.0);
     cutoutEvents.push_back(knifeCircleEventTimer);
 }
@@ -51,22 +51,46 @@ void WorkFlow::update()
     {
         for (auto& et : cutoutEvents)
             et.update();
+
+        if (Globals::ELAPSED_TIME - cutoutBeginTime > 2.5 && !bClearInk)
+        {
+            ofNotifyEvent(Globals::clearInkEvent);
+            bClearInk = true;
+        }
+        
+        if (Globals::ELAPSED_TIME - cutoutBeginTime > 3.0 && !bFadeOutLogo)
+        {
+            ofNotifyEvent(Globals::fadeOutLogoEvent);
+            bFadeOutLogo = true;
+        }
+        
+        if (Globals::ELAPSED_TIME - cutoutBeginTime > 4.0 && !bFadeOutInfo)
+        {
+            ofNotifyEvent(Globals::fadeOutInfoEvent);
+            bFadeOutInfo = true;
+        }
     }
 	if (appState == FLUSHINK)
 	{
 #ifdef TARGET_WIN32
-		if (Global::ELAPSED_TIME - flushInkBeginTime < 6)
+		if (Globals::ELAPSED_TIME - flushInkBeginTime < 6)
 		{
 			for (int i = 0; i < 1; i++)
-				ofNotifyEvent(Global::inkEvent);
+				ofNotifyEvent(Globals::inkEvent);
 		}
 #else
-		if (Global::ELAPSED_TIME - flushInkBeginTime < 7)
+		if (Globals::ELAPSED_TIME - flushInkBeginTime < 7)
 		{
 			for (int i = 0; i < 10; i++)
-				ofNotifyEvent(Global::inkEvent);
+				ofNotifyEvent(Globals::inkEvent);
 		}
 #endif
+        
+        if (Globals::ELAPSED_TIME - flushInkBeginTime > flushInkDur - 1.0 && !bFadeOutInk)
+        {
+            ofNotifyEvent(Globals::fadeOutInkEvent);
+            bFadeOutInk = true;
+        }
     }
     
     checkWorkFlow();
@@ -75,28 +99,31 @@ void WorkFlow::update()
 void WorkFlow::goCutout()
 {
     appState = CUTOUT;
-    ofNotifyEvent(Global::clearInkEvent);
-    cutoutBeginTime = Global::ELAPSED_TIME;
+    cutoutBeginTime = Globals::ELAPSED_TIME;
 }
 
 void WorkFlow::goLogo()
 {
     appState = LOGO;
-    ofNotifyEvent(Global::beginLogoEvent);
-    logoBeginTime = Global::ELAPSED_TIME;
+    ofNotifyEvent(Globals::beginLogoEvent);
+    logoBeginTime = Globals::ELAPSED_TIME;
+    bFadeOutLogo = false;
 }
 
 void WorkFlow::goInfo()
 {
     appState = INFO;
-    ofNotifyEvent(Global::beginInfoEvent);
-    infoBeginTime = Global::ELAPSED_TIME;
+    ofNotifyEvent(Globals::beginInfoEvent);
+    infoBeginTime = Globals::ELAPSED_TIME;
+    bFadeOutInfo = false;
 }
 
 void WorkFlow::goFlushInk()
 {
     appState = FLUSHINK;
-    flushInkBeginTime = Global::ELAPSED_TIME;
+    flushInkBeginTime = Globals::ELAPSED_TIME;
+    bFadeOutInk = false;
+    bClearInk = false;
 }
 
 void WorkFlow::goInteractive()
@@ -133,28 +160,28 @@ void WorkFlow::proceedIfPossible()
     {
         if (appState == CUTOUT)
         {
-            if (Global::ELAPSED_TIME - cutoutBeginTime > cutoutDur)
+            if (Globals::ELAPSED_TIME - cutoutBeginTime > cutoutDur)
             {
                 goLogo();
             }
         }
         if (appState == LOGO)
         {
-            if (Global::ELAPSED_TIME - logoBeginTime > logoDur)
+            if (Globals::ELAPSED_TIME - logoBeginTime > logoDur)
             {
                 goInfo();
             }
         }
         if (appState == INFO)
         {
-            if (Global::ELAPSED_TIME - infoBeginTime > infoDur)
+            if (Globals::ELAPSED_TIME - infoBeginTime > infoDur)
             {
                 goFlushInk();
             }
         }
         if (appState == FLUSHINK)
         {
-            if (Global::ELAPSED_TIME - flushInkBeginTime > flushInkDur)
+            if (Globals::ELAPSED_TIME - flushInkBeginTime > flushInkDur)
             {
                 goCutout();
             }

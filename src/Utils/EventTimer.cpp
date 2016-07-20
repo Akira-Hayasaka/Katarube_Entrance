@@ -13,15 +13,15 @@ void EventTimer::setInterval(float rdmFrom, float rdmTo)
     this->rdmFrom = rdmFrom;
     this->rdmTo = rdmTo;
     interval = ofRandom(rdmFrom, rdmTo);;
-    lastEmittedTime = Global::ELAPSED_TIME;
+    lastEmittedTime = Globals::ELAPSED_TIME;
 }
 
 void EventTimer::update()
 {
-    if (Global::ELAPSED_TIME - lastEmittedTime >= interval)
+    if (Globals::ELAPSED_TIME - lastEmittedTime >= interval)
     {
         ofNotifyEvent(event);
         interval = ofRandom(rdmFrom, rdmTo);        
-        lastEmittedTime = Global::ELAPSED_TIME;
+        lastEmittedTime = Globals::ELAPSED_TIME;
     }
 }

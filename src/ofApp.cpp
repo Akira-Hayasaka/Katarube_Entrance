@@ -9,22 +9,22 @@ void ofApp::setup()
     ofBackground(ofColor::black);
     ofSetFrameRate(60);
     
-    Global::ELAPSED_TIME = ofGetElapsedTimef();
-    Global::oneFrameDur = 1.0 / CUTOFF_FPS;
-    Global::lastTickTime = Global::ELAPSED_TIME;
-    Global::curTickFrame = 0;
-	Global::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
-    Global::whitize.load("shaders/common/simpleVert.vert", "shaders/color/whitize.frag");
-    Global::strokeMask.load("shaders/common/simpleVert.vert", "shaders/scene/stroke.frag");
-    Global::kinect.setup();
-    Global::projMats.resize(NUM_PROJ);
-    Global::box2d.init();
-    Global::box2d.setGravity(-1.0, 0.0);
-    Global::box2d.createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
-    Global::box2d.setFPS(60);
-    Global::scrnQuad.getVertices().resize(4);
-    Global::scrnQuad.getTexCoords().resize(4);
-    Global::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
+    Globals::ELAPSED_TIME = ofGetElapsedTimef();
+    Globals::oneFrameDur = 1.0 / CUTOFF_FPS;
+    Globals::lastTickTime = Globals::ELAPSED_TIME;
+    Globals::curTickFrame = 0;
+	Globals::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
+    Globals::whitize.load("shaders/common/simpleVert.vert", "shaders/color/whitize.frag");
+    Globals::strokeMask.load("shaders/common/simpleVert.vert", "shaders/scene/stroke.frag");
+    Globals::kinect.setup();
+    Globals::projMats.resize(NUM_PROJ);
+    Globals::box2d.init();
+    Globals::box2d.setGravity(-1.0, 0.0);
+    Globals::box2d.createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
+    Globals::box2d.setFPS(60);
+    Globals::scrnQuad.getVertices().resize(4);
+    Globals::scrnQuad.getTexCoords().resize(4);
+    Globals::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
     ofDirectory blendDir("imgs/seqBlendTex");
     blendDir.listDir();
     for (int i = 0; i < blendDir.size(); i++)
@@ -33,13 +33,13 @@ void ofApp::setup()
         if (isImgFile(f.getExtension()))
         {
             ofTexture t;
-            Global::bodyBlendTexs.push_back(t);
-            ofLoadImage(Global::bodyBlendTexs.back(), f.getAbsolutePath());
+            Globals::bodyBlendTexs.push_back(t);
+            ofLoadImage(Globals::bodyBlendTexs.back(), f.getAbsolutePath());
         }
     }
     blendDir.close();
-    ofLoadImage(Global::petip, "imgs/pentip/pentip.png");
-//    Global::petip.resize(10, 10);
+    ofLoadImage(Globals::petip, "imgs/pentip/pentip.png");
+//    Globals::petip.resize(10, 10);
     
     Tweenzor::init();
     
@@ -47,10 +47,10 @@ void ofApp::setup()
     workflow.setup();
     content.setup();
     
-    gui.setup(Global::inkUniforms);
+    gui.setup(Globals::inkUniforms);
     gui.hide();
     
-    ofNotifyEvent(Global::tickEvent);
+    ofNotifyEvent(Globals::tickEvent);
     
     workflow.goCutout();
     
@@ -61,14 +61,14 @@ void ofApp::setup()
 void ofApp::update()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
-    Global::ELAPSED_TIME = ofGetElapsedTimef();
-    if (Global::ELAPSED_TIME - Global::lastTickTime > Global::oneFrameDur)
+    Globals::ELAPSED_TIME = ofGetElapsedTimef();
+    if (Globals::ELAPSED_TIME - Globals::lastTickTime > Globals::oneFrameDur)
     {
-        ofNotifyEvent(Global::tickEvent);
-        Global::lastTickTime = Global::ELAPSED_TIME;
-        Global::curTickFrame++;
+        ofNotifyEvent(Globals::tickEvent);
+        Globals::lastTickTime = Globals::ELAPSED_TIME;
+        Globals::curTickFrame++;
     }
-    Global::kinect.update();
+    Globals::kinect.update();
     workflow.update();
     content.update();
     gui.update();
@@ -85,12 +85,12 @@ void ofApp::draw()
     else
     {
         ofPushMatrix();
-        ofMultMatrix(Global::projMats.at(0));
+        ofMultMatrix(Globals::projMats.at(0));
         content.drawLeft();
         ofPopMatrix();
         
         ofPushMatrix();
-        ofMultMatrix(Global::projMats.at(1));
+        ofMultMatrix(Globals::projMats.at(1));
         content.drawRight();
         ofPopMatrix();
     }
@@ -132,56 +132,56 @@ void ofApp::keyPressed(int key)
     }
     if (key == 'e')
     {
-        ofNotifyEvent(Global::eatEvent);
+        ofNotifyEvent(Globals::eatEvent);
     }
     if (key == 'd')
     {
         ofPoint dest(ofRandom(500, APP_W-500), ofRandom(300, APP_H-300));
-        ofNotifyEvent(Global::drawEvent, dest);
+        ofNotifyEvent(Globals::drawEvent, dest);
     }
     if (key == 'f')
     {
-        ofNotifyEvent(Global::fetchEvent);
+        ofNotifyEvent(Globals::fetchEvent);
     }
     if (key == 'p')
     {
         ofPoint dest(ofRandom(500, APP_W-500), ofRandom(300, APP_H-300));
-        ofNotifyEvent(Global::putEvent, dest);
+        ofNotifyEvent(Globals::putEvent, dest);
     }
     if (key == 's')
     {
-        ofNotifyEvent(Global::swipeEvent);
+        ofNotifyEvent(Globals::swipeEvent);
     }
     if (key == 'a')
     {
 //        vector<ofEvent<void> > evnts;
-//        evnts.push_back(Global::portraitOnePlaceEvent);
-//        evnts.push_back(Global::portraitHorizEvent);
-//        evnts.push_back(Global::portraitVertEvent);
-//        evnts.push_back(Global::flyerFishLikeEvent);
-//        evnts.push_back(Global::flyerWavyEvent);
-//        evnts.push_back(Global::flyerStraightThingEvent);
+//        evnts.push_back(Globals::portraitOnePlaceEvent);
+//        evnts.push_back(Globals::portraitHorizEvent);
+//        evnts.push_back(Globals::portraitVertEvent);
+//        evnts.push_back(Globals::flyerFishLikeEvent);
+//        evnts.push_back(Globals::flyerWavyEvent);
+//        evnts.push_back(Globals::flyerStraightThingEvent);
 //        ofRandomize(evnts);
 //        ofNotifyEvent(evnts.front());
         
-        ofNotifyEvent(Global::portraitOnePlaceEvent);
-        ofNotifyEvent(Global::portraitHorizEvent);
-        ofNotifyEvent(Global::portraitVertEvent);
-        ofNotifyEvent(Global::flyerFishLikeEvent);
-        ofNotifyEvent(Global::flyerWavyEvent);
-        ofNotifyEvent(Global::flyerStraightThingEvent);
-        ofNotifyEvent(Global::kyoEvent);
-        ofNotifyEvent(Global::knifeCircleEvent);
-        ofNotifyEvent(Global::inkEvent);
+        ofNotifyEvent(Globals::portraitOnePlaceEvent);
+        ofNotifyEvent(Globals::portraitHorizEvent);
+        ofNotifyEvent(Globals::portraitVertEvent);
+        ofNotifyEvent(Globals::flyerFishLikeEvent);
+        ofNotifyEvent(Globals::flyerWavyEvent);
+        ofNotifyEvent(Globals::flyerStraightThingEvent);
+        ofNotifyEvent(Globals::kyoEvent);
+        ofNotifyEvent(Globals::knifeCircleEvent);
+        ofNotifyEvent(Globals::inkEvent);
     }
     if (key == 'c')
     {
-        ofNotifyEvent(Global::clearInkEvent);
+        ofNotifyEvent(Globals::clearInkEvent);
     }
     if (key == 'm')
     {
         for (int i = 0; i < 10; i++)
-            ofNotifyEvent(Global::inkEvent);
+            ofNotifyEvent(Globals::inkEvent);
     }
 }
 void ofApp::keyReleased(int key){}

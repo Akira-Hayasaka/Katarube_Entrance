@@ -27,6 +27,8 @@ private:
     
     void onBeginLogoEvent();
     void onBeginInfoEvent();
+    void onFadeOutLogoEvent();
+    void onFadeOutInfoEvent();
     
     Painting logo;
     vector<Painting> nowExibits;

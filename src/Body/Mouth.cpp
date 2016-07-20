@@ -11,7 +11,7 @@
 void Mouth::setup(BodyBase* bodyBase)
 {
     this->bodyBase = bodyBase;
-    ofAddListener(Global::tickEvent, this, &Mouth::onTickEvent);
+    ofAddListener(Globals::tickEvent, this, &Mouth::onTickEvent);
 }
 
 void Mouth::draw()
@@ -24,7 +24,7 @@ void Mouth::onTickEvent()
     if (bodyState.state != BodyState::NONE)
     {
         bodyState.curFrame++;
-        bodyState.blendIdx = ofRandom(Global::bodyBlendTexs.size()-1);
+        bodyState.blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
         
         if (bodyState.state == BodyState::DOING)
         {

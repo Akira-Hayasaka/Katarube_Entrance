@@ -23,7 +23,7 @@ void FlyerBase::setup(string seqDir)
         }
     }
     
-    lastTickFrame = Global::curTickFrame;
+    lastTickFrame = Globals::curTickFrame;
     texIdx = 0;
     bMoving = false;
 }
@@ -49,9 +49,9 @@ void FlyerBase::update()
 
 void FlyerBase::onTick()
 {
-    if (Global::curTickFrame - lastTickFrame > ofRandom(1, 3))
+    if (Globals::curTickFrame - lastTickFrame > ofRandom(1, 3))
     {
-        lastTickFrame = Global::curTickFrame;
+        lastTickFrame = Globals::curTickFrame;
         texIdx++;
         if (texIdx >= texs.size())
             texIdx = 0;

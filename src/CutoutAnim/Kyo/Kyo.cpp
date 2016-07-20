@@ -29,8 +29,8 @@ void Kyo::setup()
     
     curIdx = 0;
     
-    ofAddListener(Global::tickEvent, this, &Kyo::onTickEvent);
-    ofAddListener(Global::kyoEvent, this, &Kyo::onKyoEvent);
+    ofAddListener(Globals::tickEvent, this, &Kyo::onTickEvent);
+    ofAddListener(Globals::kyoEvent, this, &Kyo::onKyoEvent);
 }
 
 void Kyo::update()

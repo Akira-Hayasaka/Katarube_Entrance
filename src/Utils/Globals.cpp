@@ -8,7 +8,7 @@
 
 #include "Globals.hpp"
 
-namespace Global
+namespace Globals
 {
     float ELAPSED_TIME;
     float oneFrameDur;    
@@ -41,6 +41,9 @@ namespace Global
     
     ofEvent<void> beginLogoEvent;
     ofEvent<void> beginInfoEvent;
+    ofEvent<void> fadeOutLogoEvent;
+    ofEvent<void> fadeOutInfoEvent;
+    ofEvent<void> fadeOutInkEvent;
     
     ofEvent<void> eatEvent;
     ofEvent<ofPoint> drawEvent;

@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxInkSim.h"
+#include "ofxTweenzor.h"
 #include "Constants.h"
 #include "Globals.hpp"
 
@@ -27,12 +28,15 @@ private:
     void clearScrn();
     void onInkEvent();
     void onClearInkEvent();
+    void onFadeOut();
     
     ofFbo scrn;
     
     ofxInkSim inkSim;
     float canvasRatio, canvasW, canvasH;
     vector<ofTexture> texs;
+    
+    float alpha;
 };
 
 #endif /* Ink_hpp */

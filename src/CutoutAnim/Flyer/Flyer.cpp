@@ -17,10 +17,10 @@ void Flyer::setup()
     wavy.setup("imgs/cutoutAnim/flyer/2");
     strtThing.setup("imgs/cutoutAnim/flyer/3");
 
-    ofAddListener(Global::tickEvent, this, &Flyer::onTickEvent);
-    ofAddListener(Global::flyerFishLikeEvent, this, &Flyer::onFlyerFishLikeEvent);
-    ofAddListener(Global::flyerWavyEvent, this, &Flyer::onFlyerWavyEvent);
-    ofAddListener(Global::flyerStraightThingEvent, this, &Flyer::onFlyerStraightThingEvent);
+    ofAddListener(Globals::tickEvent, this, &Flyer::onTickEvent);
+    ofAddListener(Globals::flyerFishLikeEvent, this, &Flyer::onFlyerFishLikeEvent);
+    ofAddListener(Globals::flyerWavyEvent, this, &Flyer::onFlyerWavyEvent);
+    ofAddListener(Globals::flyerStraightThingEvent, this, &Flyer::onFlyerStraightThingEvent);
 }
 
 void Flyer::update()

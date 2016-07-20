@@ -17,11 +17,11 @@ void KyoTexture::go()
     pos.set(ofRandom(300, APP_W - 300), ofRandom(200, APP_H - 200));
 
     vector<ofPoint> pts;
-    for (auto p : Global::bottomLineAndAngs)
+    for (auto p : Globals::bottomLineAndAngs)
         pts.push_back(p.p);
     int nearestIdx = 0;
     getNearestPt(pts, pos, nearestIdx);
-    ang = Global::bottomLineAndAngs.at(nearestIdx).ang;
+    ang = Globals::bottomLineAndAngs.at(nearestIdx).ang;
     
     Tweenzor::add(&curAlpha, curAlpha, destAlpha, 0.0f, 1.0f, EASE_OUT_CIRC);
     Tweenzor::add(&curScale, curScale, destScale, 0.0f, 1.2f, EASE_OUT_BACK);

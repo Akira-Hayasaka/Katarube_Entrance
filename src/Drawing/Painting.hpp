@@ -10,6 +10,7 @@
 #define Painting_hpp
 
 #include "ofMain.h"
+#include "ofxTweenzor.h"
 #include "Globals.hpp"
 #include "Util.h"
 
@@ -34,6 +35,7 @@ public:
     void update();
     void draw();
     void drawOutline();
+    void fadeOut();
     
     void setPosition(ofPoint pos) { this->pos = pos; }
     void setRot(float rot) { this->rot = rot; }
@@ -53,6 +55,7 @@ private:
     ofFbo utilFbo;
     ofPoint pos;
     float rot;
+    float scale;
     
     string cmdID;
     vector<ofPolyline> outline;
