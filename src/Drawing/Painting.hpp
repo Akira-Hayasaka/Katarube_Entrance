@@ -22,7 +22,7 @@ class Painting
 {
 public:
     
-    enum CONTOURPHASE
+    enum PHASE
     {
         NONE,
         WAITINGHAND,
@@ -38,7 +38,7 @@ public:
     void setPosition(ofPoint pos) { this->pos = pos; }
     void setRot(float rot) { this->rot = rot; }
     ofTexture& getTexture() { return tex.getTexture(); }
-    void beginDrawWContour();
+    void beginDraw();
     
 private:
     
@@ -47,7 +47,7 @@ private:
     bool bContourReady;
     bool bDrawWContour;
 
-    CONTOURPHASE contourPhase;
+    PHASE phase;
     
     ofFbo tex;
     ofFbo utilFbo;

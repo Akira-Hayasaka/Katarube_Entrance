@@ -13,7 +13,7 @@ void Painting::setup(string texPath, bool bDrawWContour)
     ofTexture loader;
     ofLoadImage(loader, texPath);
     this->bDrawWContour = bDrawWContour;
-    bContourReady = false;
+    bContourReady = (bDrawWContour) ? false : true;
     
     tex.allocate(loader.getWidth(), loader.getHeight());
     tex.begin();
@@ -21,7 +21,7 @@ void Painting::setup(string texPath, bool bDrawWContour)
     loader.draw(0, 0);
     tex.end();
     
-    contourPhase = NONE;
+    phase = NONE;
     ptsIdx = 0;
     
     if (bDrawWContour)
@@ -58,12 +58,12 @@ void Painting::update()
 {
     if (bDrawWContour)
     {
-        if (contourPhase == WAITINGHAND)
+        if (phase == WAITINGHAND)
         {
             if (Global::ELAPSED_TIME - beginDrawWContourTime > waitHandDur)
-                contourPhase = DRAWING;
+                phase = DRAWING;
         }
-        else if (contourPhase == DRAWING)
+        else if (phase == DRAWING)
         {
             ptsIdx++;
             if (ptsIdx >= contourForProcess.front().size())
@@ -72,7 +72,7 @@ void Painting::update()
                 contourForProcess.pop_front();
                 if (contourForProcess.empty())
                 {
-                    contourPhase = END;
+                    phase = END;
                     ofNotifyEvent(Global::handRetireEvent);
                     return;
                 }
@@ -91,13 +91,25 @@ void Painting::update()
             ofNotifyEvent(Global::updateHandPosEvent, dest);
         }
     }
+    else
+    {
+        if (phase == WAITINGHAND)
+        {
+            if (Global::ELAPSED_TIME - beginDrawWContourTime > waitHandDur)
+                phase = DRAWING;
+        }
+        else if (phase == DRAWING)
+        {
+            phase = END;
+        }
+    }
 }
 
 void Painting::draw()
 {
     if (bDrawWContour)
     {
-        if (contourPhase == DRAWING)
+        if (phase == DRAWING)
         {
             ofPushMatrix();
             ofTranslate(pos);
@@ -108,7 +120,7 @@ void Painting::draw()
             Global::strokeMask.end();
             ofPopMatrix();
         }
-        else if (contourPhase == END)
+        else if (phase == END)
         {
             ofPushMatrix();
             ofTranslate(pos);
@@ -119,11 +131,16 @@ void Painting::draw()
     }
     else
     {
-        ofPushMatrix();
-        ofTranslate(pos);
-        ofRotate(rot);
-        tex.draw(0, 0);
-        ofPopMatrix();
+        if (phase == DRAWING || phase == END)
+        {
+            ofSetRectMode(OF_RECTMODE_CENTER);
+            ofPushMatrix();
+            ofTranslate(pos);
+            ofRotate(rot);
+            tex.draw(0, 0);
+            ofPopMatrix();
+            ofSetRectMode(OF_RECTMODE_CORNER);
+        }
     }
 }
 
@@ -143,14 +160,14 @@ void Painting::drawOutline()
     }
 }
 
-void Painting::beginDrawWContour()
+void Painting::beginDraw()
 {
-    if (bContourReady)
+    if (bDrawWContour && bContourReady)
     {
         contourForProcess.clear();
         copy(outline.begin(), outline.end(), inserter(contourForProcess, contourForProcess.end()));
         ptsIdx = 0;    
-        contourPhase = WAITINGHAND;
+        phase = WAITINGHAND;
         
         utilFbo.begin();
         ofClear(0);
@@ -161,6 +178,14 @@ void Painting::beginDrawWContour()
         
         beginDrawWContourTime = Global::ELAPSED_TIME;
         waitHandDur = 1.0;
+    }
+    else
+    {
+        ofPoint dest(pos.x - tex.getWidth()/2, pos.y - tex.getHeight()/2);
+        ofNotifyEvent(Global::putEvent, dest);
+        beginDrawWContourTime = Global::ELAPSED_TIME;
+        waitHandDur = 0.5;
+        phase = WAITINGHAND;
     }
 }
 

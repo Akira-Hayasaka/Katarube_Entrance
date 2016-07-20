@@ -74,7 +74,7 @@ namespace Global
     extern ofEvent<ofPoint> updateHandPosEvent;
     extern ofEvent<void> handRetireEvent;
     extern ofEvent<void> fetchEvent;
-    extern ofEvent<void> putEvent;
+    extern ofEvent<ofPoint> putEvent;
     extern ofEvent<void> swipeEvent;
     
     extern ofEvent<DrawCommandInfo> genContourEvent;

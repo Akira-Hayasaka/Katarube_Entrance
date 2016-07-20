@@ -16,7 +16,7 @@ void PuttingHand::setup(BodyBase* bodyBase)
 
 void PuttingHand::draw()
 {
-    bodyBase->draw(bodyState);
+    bodyBase->draw(bodyState, false, ang);
 }
 
 void PuttingHand::onTickEvent()
@@ -42,10 +42,12 @@ void PuttingHand::onTickEvent()
     }
 }
 
-void PuttingHand::onPutEvent()
+void PuttingHand::onPutEvent(ofPoint dest)
 {
-    bodyState.posOrig = ofPoint(2200, 1500, 0);
-    bodyState.posDest = ofPoint(2200, 100, 0);
+    ang = ofRandom(-10, 10);
+    
+    bodyState.posOrig = ofPoint(dest.x, 1500, 0);
+    bodyState.posDest = dest;
     bodyState.curPos = bodyState.posOrig;
     bodyState.curFrame = 0;
     Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posDest.y, 0.0f, 0.5f, EASE_OUT_EXPO);

@@ -100,12 +100,12 @@ void Body::onFetchEvent()
     fetchingHands.back().onFetchEvent();
 }
 
-void Body::onPutEvent()
+void Body::onPutEvent(ofPoint& dest)
 {
     PuttingHand p;
     puttingHands.push_back(p);
     puttingHands.back().setup(&puttingHBase);
-    puttingHands.back().onPutEvent();
+    puttingHands.back().onPutEvent(dest);
 }
 
 void Body::onSwipeEvent()

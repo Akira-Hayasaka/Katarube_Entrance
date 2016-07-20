@@ -30,7 +30,7 @@ private:
     void onEatEvent();
     void onDrawEvent(ofPoint& dest);
     void onFetchEvent();
-    void onPutEvent();
+    void onPutEvent(ofPoint& dest);
     void onSwipeEvent();
     
     BodyBase mouthBase;

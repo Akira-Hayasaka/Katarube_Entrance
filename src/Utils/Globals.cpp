@@ -47,7 +47,7 @@ namespace Global
     ofEvent<ofPoint> updateHandPosEvent;
     ofEvent<void> handRetireEvent;
     ofEvent<void> fetchEvent;
-    ofEvent<void> putEvent;
+    ofEvent<ofPoint> putEvent;
     ofEvent<void> swipeEvent;
     
     ofEvent<DrawCommandInfo> genContourEvent;
