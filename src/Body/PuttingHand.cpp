@@ -30,7 +30,7 @@ void PuttingHand::onTickEvent()
         
         if (bodyState.state == BodyState::DOING)
         {
-            if (bodyState.curFrame >= bodyBase->seq.size() * 0.5)
+            if (bodyState.curFrame >= bodyBase->seq.size() * 0.8)
             {
                 Tweenzor::add(&bodyState.curPos.y, bodyState.curPos.y, bodyState.posOrig.y, 0.0f, 0.6f, EASE_OUT_CUBIC);
                 Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.y), this, &PuttingHand::onEndRetire);

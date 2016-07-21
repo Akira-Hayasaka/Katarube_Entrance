@@ -147,10 +147,6 @@ void WorkFlow::checkWorkFlow()
             bFadeOutInk = true;
         }
     }
-    if (appState == INTERACTION)
-    {
-        
-    }
     
     proceedIfPossible();
 }
