@@ -56,6 +56,9 @@ void Content::setup()
     b2dEdge = contourFinder.getPolyline(0);
     b2dEdge = b2dEdge.getResampledByCount(200);
     Globals::b2dEdge = b2dEdge;
+    Globals::box2dBBox.addVertexes(Globals::b2dEdge);
+    Globals::box2dBBox.setPhysics(0.0, 0.5, 0.5);
+    Globals::box2dBBox.create(Globals::box2d.getWorld());
 
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {

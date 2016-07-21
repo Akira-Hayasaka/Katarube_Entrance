@@ -31,7 +31,8 @@ public:
         END
     };
     
-    void setup(string texPath, bool bNeedContour = false);
+    void setup(string texPath,
+               bool bNeedContour = false, bool bConstrainSize = false);
     void update();
     void draw();
     void drawOutline();
@@ -42,7 +43,7 @@ public:
     ofTexture& getTexture() { return tex.getTexture(); }
     void beginDraw();
     
-private:
+protected:
     
     void onGotContourEvent(DrawCommandContour& cc);
     
@@ -58,7 +59,8 @@ private:
     float scale;
     
     string cmdID;
-    vector<ofPolyline> outline;
+    vector<ofPolyline> outlineOriginal;
+    vector<ofPolyline> outlineSimplified;
     deque<ofPolyline> contourForProcess;
     int ptsIdx;
     

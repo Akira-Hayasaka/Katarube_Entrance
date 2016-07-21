@@ -29,11 +29,13 @@ private:
     void onBeginInfoEvent();
     void onFadeOutLogoEvent();
     void onFadeOutInfoEvent();
+    void onPutPuppetEvent();
     
     Painting logo;
     vector<Painting> nowExibits;
     
-    vector<Puppet> puppets;
+    vector<Puppet> puppetOriginals;
+    deque<Puppet> puppetWorkingCopies;
 };
 
 #endif /* Drawer_hpp */

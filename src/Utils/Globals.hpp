@@ -47,6 +47,7 @@ namespace Globals
     extern ofMatrix4x4 kinectMat;
     
     extern ofxBox2d box2d;
+    extern ofxBox2dEdge box2dBBox;
     extern ofPolyline b2dEdge;
     extern vector<BottomLineAndAng> bottomLineAndAngs;
     
@@ -73,6 +74,7 @@ namespace Globals
     extern ofEvent<void> fadeOutInkEvent;
     extern ofEvent<void> fadeOutCutoutEvent;
     extern ofEvent<void> fadeInCutoutEvent;
+    extern ofEvent<void> putPuppetEvent;
     
     extern ofEvent<void> eatEvent;
     extern ofEvent<ofPoint> drawEvent;

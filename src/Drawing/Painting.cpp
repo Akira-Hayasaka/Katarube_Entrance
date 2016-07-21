@@ -8,12 +8,20 @@
 
 #include "Painting.hpp"
 
-void Painting::setup(string texPath, bool bNeedContour)
+void Painting::setup(string texPath,
+                     bool bNeedContour, bool bConstrainSize)
 {
-    ofTexture loader;
-    ofLoadImage(loader, texPath);
+    ofImage loader;
+    loader.load(texPath);
     this->bNeedContour = bNeedContour;
     bContourReady = (bNeedContour) ? false : true;
+    
+    if (bConstrainSize)
+    {
+        int maxDrawingH = 400;
+        float ratio = maxDrawingH / loader.getHeight();
+        loader.resize(loader.getWidth() * ratio, loader.getHeight() * ratio);
+    }
     
     tex.allocate(loader.getWidth(), loader.getHeight());
     tex.begin();
@@ -158,7 +166,7 @@ void Painting::drawOutline()
         ofPushMatrix();
         ofTranslate(pos);
         ofRotate(rot);
-        for (auto l : outline)
+        for (auto l : outlineSimplified)
             l.draw();
         ofPopMatrix();
         ofPopStyle();
@@ -179,14 +187,14 @@ void Painting::beginDraw()
     if (bNeedContour && bContourReady)
     {
         contourForProcess.clear();
-        copy(outline.begin(), outline.end(), inserter(contourForProcess, contourForProcess.end()));
+        copy(outlineSimplified.begin(), outlineSimplified.end(), inserter(contourForProcess, contourForProcess.end()));
         ptsIdx = 0;
         
         utilFbo.begin();
         ofClear(0);
         utilFbo.end();
         
-        ofPoint dest(pos + outline.front().getVertices().at(0));
+        ofPoint dest(pos + outlineSimplified.front().getVertices().at(0));
         ofNotifyEvent(Globals::drawEvent, dest);
         
         waitHandDur = 1.0;
@@ -203,10 +211,11 @@ void Painting::onGotContourEvent(DrawCommandContour& cc)
 {
     if (cc.cmdID == cmdID)
     {
-        outline = cc.contours;
-        for (auto& o : outline)
+        outlineOriginal = cc.contours;
+        outlineSimplified = cc.contours;
+        for (auto& o : outlineSimplified)
             o = o.getResampledByCount(20);
-        ofSort(outline, compareLeft2Right);
+        ofSort(outlineSimplified, compareLeft2Right);
         bContourReady = true;
     }
 }

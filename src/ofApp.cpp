@@ -183,6 +183,10 @@ void ofApp::keyPressed(int key)
         for (int i = 0; i < 10; i++)
             ofNotifyEvent(Globals::inkEvent);
     }
+    if (key == 'z')
+    {
+        ofNotifyEvent(Globals::putPuppetEvent);
+    }
 }
 void ofApp::keyReleased(int key){}
 void ofApp::mouseMoved(int x, int y){}
