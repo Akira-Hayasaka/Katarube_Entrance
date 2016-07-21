@@ -6,6 +6,7 @@
 #include <WmlGVector.h>
 #include <WmlVector2.h>
 #include <vector>
+#include <algorithm> 
 
 namespace Wml
 {

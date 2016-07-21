@@ -88,6 +88,9 @@
 		<ClCompile Include="src\Drawing\Puppet.cpp">
 			<Filter>src\Drawing</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Drawing\PuppetInstance.cpp">
+			<Filter>src\Drawing</Filter>
+		</ClCompile>
 		<ClCompile Include="src\GUI.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
@@ -448,6 +451,63 @@
 		<ClCompile Include="addons\ofxInkSim\src\ofxInkSim.cpp">
 			<Filter>local_addons\ofxInkSim\src</Filter>
 		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\src\ofxPuppet.cpp">
+			<Filter>local_addons\ofxPuppet\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\src\ofxPuppetInteractive.cpp">
+			<Filter>local_addons\ofxPuppet\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\LinearAlgebra.cpp">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\RigidMeshDeformer2D.cpp">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\TriangleMesh.cpp">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\WmlExtTriangleUtils.cpp">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\WmlLinearSystemExt.cpp">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlBandedMatrix.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlBox2.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlGMatrix.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlGVector.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlLinearSystem.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlMath.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlMatrix4.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlVector2.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlVector3.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxPuppet\libs\wml\src\WmlVector4.cpp">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxTriangleMesh\src\ofxTriangleMesh.cpp">
+			<Filter>local_addons\ofxTriangleMesh\src</Filter>
+		</ClCompile>
+		<ClCompile Include="addons\ofxTriangleMesh\libs\Triangle\triangle_mesh.cpp">
+			<Filter>local_addons\ofxTriangleMesh\libs\Triangle</Filter>
+		</ClCompile>
 	</ItemGroup>
 	<ItemGroup>
 		<Filter Include="src">
@@ -738,6 +798,39 @@
 		<Filter Include="local_addons\ofxInkSim\src\shader">
 			<UniqueIdentifier>{7E0948D7-ED3D-37C5-044B-E528}</UniqueIdentifier>
 		</Filter>
+		<Filter Include="local_addons\ofxPuppet">
+			<UniqueIdentifier>{49121064-DF21-827D-E148-EA0D}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxPuppet\src">
+			<UniqueIdentifier>{A7B9AC50-FDC3-FF6B-DDC8-6997}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxPuppet\libs">
+			<UniqueIdentifier>{1CABD087-25B3-7B8F-6FDF-253D}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxPuppet\libs\rigidAsPossibleMesh">
+			<UniqueIdentifier>{8160DD05-DFF6-F644-0357-27C5}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src">
+			<UniqueIdentifier>{F4966787-7B36-6F40-7DBD-5174}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxPuppet\libs\wml">
+			<UniqueIdentifier>{50696694-091A-E16B-19F1-0957}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxPuppet\libs\wml\src">
+			<UniqueIdentifier>{DDD2426F-193B-CD92-450D-B179}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxTriangleMesh">
+			<UniqueIdentifier>{7D746C54-BE51-F07D-EB15-811B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxTriangleMesh\src">
+			<UniqueIdentifier>{F11D03C7-1A26-9CC6-3B6A-B4CE}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxTriangleMesh\libs">
+			<UniqueIdentifier>{A9C75775-88DC-E66C-2E46-5069}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="local_addons\ofxTriangleMesh\libs\Triangle">
+			<UniqueIdentifier>{D5E90A34-5C65-AF18-4130-2BA8}</UniqueIdentifier>
+		</Filter>
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="src\ofApp.h">
@@ -822,6 +915,9 @@
 			<Filter>src\Drawing</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Drawing\Puppet.hpp">
+			<Filter>src\Drawing</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Drawing\PuppetInstance.hpp">
 			<Filter>src\Drawing</Filter>
 		</ClInclude>
 		<ClInclude Include="src\GUI.hpp">
@@ -1789,6 +1885,72 @@
 		</ClInclude>
 		<ClInclude Include="addons\ofxInkSim\src\shader\Stream2Shader.h">
 			<Filter>local_addons\ofxInkSim\src\shader</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\src\ofxPuppet.h">
+			<Filter>local_addons\ofxPuppet\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\src\ofxPuppetInteractive.h">
+			<Filter>local_addons\ofxPuppet\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\LinearAlgebra.h">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\RigidMeshDeformer2D.h">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\rmsdebug.h">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\TriangleMesh.h">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\WmlExtTriangleUtils.h">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\rigidAsPossibleMesh\src\WmlLinearSystemExt.h">
+			<Filter>local_addons\ofxPuppet\libs\rigidAsPossibleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlBandedMatrix.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlBox2.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlGMatrix.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlGVector.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlLinearSystem.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlMath.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlMatrix.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlMatrix4.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlVector.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlVector2.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlVector3.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxPuppet\libs\wml\src\WmlVector4.h">
+			<Filter>local_addons\ofxPuppet\libs\wml\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxTriangleMesh\src\ofxTriangleMesh.h">
+			<Filter>local_addons\ofxTriangleMesh\src</Filter>
+		</ClInclude>
+		<ClInclude Include="addons\ofxTriangleMesh\libs\Triangle\triangle_mesh.h">
+			<Filter>local_addons\ofxTriangleMesh\libs\Triangle</Filter>
 		</ClInclude>
 	</ItemGroup>
 	<ItemGroup>
