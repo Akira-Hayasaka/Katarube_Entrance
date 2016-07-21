@@ -44,6 +44,8 @@ namespace Globals
     ofEvent<void> fadeOutLogoEvent;
     ofEvent<void> fadeOutInfoEvent;
     ofEvent<void> fadeOutInkEvent;
+    ofEvent<void> fadeOutCutoutEvent;
+    ofEvent<void> fadeInCutoutEvent;
     
     ofEvent<void> eatEvent;
     ofEvent<ofPoint> drawEvent;

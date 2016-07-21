@@ -18,7 +18,11 @@ void CutoutAnim::setup()
     flyer.setup();
     kyo.setup();
     
+    alpha = 0.0;
+    
     ofAddListener(Globals::tickEvent, this, &CutoutAnim::onTickEvent);
+    ofAddListener(Globals::fadeOutCutoutEvent, this, &CutoutAnim::onFadeOut);
+    ofAddListener(Globals::fadeInCutoutEvent, this, &CutoutAnim::onFadeIn);
 }
 
 void CutoutAnim::update()
@@ -43,5 +47,21 @@ void CutoutAnim::onTickEvent()
     blendCutout.setUniform3f("rdmForKyo", ofRandom(-0.025, 0.025), ofRandom(-0.025, 0.025), ofRandom(-0.025, 0.025));
     drawPlane(cutoutFullScreen.getWidth(), cutoutFullScreen.getHeight());
     blendCutout.end();
+    
+    ofPushStyle();
+    ofSetColor(ofColor::white, alpha);
+    ofDrawRectangle(0, 0, cutoutFullScreen.getWidth(), cutoutFullScreen.getHeight());
+    ofPopStyle();
+    
     cutoutFullScreen.end();
+}
+
+void CutoutAnim::onFadeOut()
+{
+    Tweenzor::add(&alpha, alpha, 255.0f, 0.0f, 1.0f, EASE_OUT_SINE);
+}
+
+void CutoutAnim::onFadeIn()
+{
+    Tweenzor::add(&alpha, alpha, 0.0f, 0.0f, 1.0f, EASE_OUT_SINE);
 }

@@ -71,6 +71,8 @@ namespace Globals
     extern ofEvent<void> fadeOutLogoEvent;
     extern ofEvent<void> fadeOutInfoEvent;
     extern ofEvent<void> fadeOutInkEvent;
+    extern ofEvent<void> fadeOutCutoutEvent;
+    extern ofEvent<void> fadeInCutoutEvent;
     
     extern ofEvent<void> eatEvent;
     extern ofEvent<ofPoint> drawEvent;

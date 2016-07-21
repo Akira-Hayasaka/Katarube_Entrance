@@ -31,7 +31,7 @@ public:
         END
     };
     
-    void setup(string texPath, bool bDrawWContour = false);
+    void setup(string texPath, bool bNeedContour = false);
     void update();
     void draw();
     void drawOutline();
@@ -46,8 +46,8 @@ private:
     
     void onGotContourEvent(DrawCommandContour& cc);
     
+    bool bNeedContour;
     bool bContourReady;
-    bool bDrawWContour;
 
     PHASE phase;
     

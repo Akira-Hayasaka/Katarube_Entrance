@@ -29,6 +29,7 @@ private:
     void onInkEvent();
     void onClearInkEvent();
     void onFadeOut();
+    void onEndFadeOut(float* arg);
     
     ofFbo scrn;
     

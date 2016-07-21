@@ -60,7 +60,8 @@ private:
     float flushInkDur;
     float flushInkBeginTime;
     bool bFadeOutInk;
-    bool bClearInk;
+    
+    float interactionBeginTime;
 };
 
 #endif /* WorkFlow_hpp */

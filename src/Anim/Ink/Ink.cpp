@@ -104,4 +104,11 @@ void Ink::clearScrn()
 void Ink::onFadeOut()
 {
     Tweenzor::add(&alpha, alpha, 255.0f, 0.0f, 1.5f, EASE_OUT_SINE);
+    Tweenzor::addCompleteListener(Tweenzor::getTween(&alpha), this, &Ink::onEndFadeOut);
+}
+
+void Ink::onEndFadeOut(float* arg)
+{
+    inkSim.clear();
+    alpha = 0.0;
 }

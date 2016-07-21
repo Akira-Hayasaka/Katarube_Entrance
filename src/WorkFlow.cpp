@@ -47,58 +47,13 @@ void WorkFlow::setup()
 
 void WorkFlow::update()
 {
-    if (appState == CUTOUT)
-    {
-        for (auto& et : cutoutEvents)
-            et.update();
-
-        if (Globals::ELAPSED_TIME - cutoutBeginTime > 2.5 && !bClearInk)
-        {
-            ofNotifyEvent(Globals::clearInkEvent);
-            bClearInk = true;
-        }
-        
-        if (Globals::ELAPSED_TIME - cutoutBeginTime > 3.0 && !bFadeOutLogo)
-        {
-            ofNotifyEvent(Globals::fadeOutLogoEvent);
-            bFadeOutLogo = true;
-        }
-        
-        if (Globals::ELAPSED_TIME - cutoutBeginTime > 4.0 && !bFadeOutInfo)
-        {
-            ofNotifyEvent(Globals::fadeOutInfoEvent);
-            bFadeOutInfo = true;
-        }
-    }
-	if (appState == FLUSHINK)
-	{
-#ifdef TARGET_WIN32
-		if (Globals::ELAPSED_TIME - flushInkBeginTime < 6)
-		{
-			for (int i = 0; i < 1; i++)
-				ofNotifyEvent(Globals::inkEvent);
-		}
-#else
-		if (Globals::ELAPSED_TIME - flushInkBeginTime < 7)
-		{
-			for (int i = 0; i < 10; i++)
-				ofNotifyEvent(Globals::inkEvent);
-		}
-#endif
-        
-        if (Globals::ELAPSED_TIME - flushInkBeginTime > flushInkDur - 1.0 && !bFadeOutInk)
-        {
-            ofNotifyEvent(Globals::fadeOutInkEvent);
-            bFadeOutInk = true;
-        }
-    }
-    
     checkWorkFlow();
 }
 
 void WorkFlow::goCutout()
 {
     appState = CUTOUT;
+    ofNotifyEvent(Globals::fadeInCutoutEvent);
     cutoutBeginTime = Globals::ELAPSED_TIME;
 }
 
@@ -123,12 +78,18 @@ void WorkFlow::goFlushInk()
     appState = FLUSHINK;
     flushInkBeginTime = Globals::ELAPSED_TIME;
     bFadeOutInk = false;
-    bClearInk = false;
 }
 
 void WorkFlow::goInteractive()
 {
     appState = INTERACTION;
+    ofNotifyEvent(Globals::fadeOutCutoutEvent);
+    ofNotifyEvent(Globals::fadeOutLogoEvent);
+    ofNotifyEvent(Globals::fadeOutInfoEvent);
+    ofNotifyEvent(Globals::fadeOutInkEvent);
+    ofNotifyEvent(Globals::handRetireEvent);
+    ofNotifyEvent(Globals::swipeEvent);
+    interactionBeginTime = Globals::ELAPSED_TIME;
 }
 
 string WorkFlow::getCurStateStr()
@@ -147,8 +108,49 @@ string WorkFlow::getCurStateStr()
 
 void WorkFlow::checkWorkFlow()
 {
-    
-    
+    if (appState == CUTOUT)
+    {
+        for (auto& et : cutoutEvents)
+            et.update();
+        
+        if (Globals::ELAPSED_TIME - cutoutBeginTime > 3.0 && !bFadeOutLogo)
+        {
+            ofNotifyEvent(Globals::fadeOutLogoEvent);
+            bFadeOutLogo = true;
+        }
+        
+        if (Globals::ELAPSED_TIME - cutoutBeginTime > 4.0 && !bFadeOutInfo)
+        {
+            ofNotifyEvent(Globals::fadeOutInfoEvent);
+            bFadeOutInfo = true;
+        }
+    }
+    if (appState == FLUSHINK)
+    {
+#ifdef TARGET_WIN32
+        if (Globals::ELAPSED_TIME - flushInkBeginTime < 6)
+        {
+            for (int i = 0; i < 1; i++)
+                ofNotifyEvent(Globals::inkEvent);
+        }
+#else
+        if (Globals::ELAPSED_TIME - flushInkBeginTime < 7)
+        {
+            for (int i = 0; i < 10; i++)
+                ofNotifyEvent(Globals::inkEvent);
+        }
+#endif
+        
+        if (Globals::ELAPSED_TIME - flushInkBeginTime > flushInkDur - 1.0 && !bFadeOutInk)
+        {
+            ofNotifyEvent(Globals::fadeOutInkEvent);
+            bFadeOutInk = true;
+        }
+    }
+    if (appState == INTERACTION)
+    {
+        
+    }
     
     proceedIfPossible();
 }

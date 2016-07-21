@@ -38,7 +38,7 @@ void SwipingHand::onSwipeEvent()
     bodyState.posDest = ofPoint(APP_W, 0, 0);
     bodyState.curPos = bodyState.posOrig;
     bodyState.curFrame = 0;
-    Tweenzor::add(&bodyState.curPos.x, bodyState.curPos.x, bodyState.posDest.x, 0.0f, 2.0f, EASE_OUT_QUART);
+    Tweenzor::add(&bodyState.curPos.x, bodyState.curPos.x, bodyState.posDest.x, 0.0f, 3.5f, EASE_OUT_QUART);
     Tweenzor::addCompleteListener(Tweenzor::getTween(&bodyState.curPos.x), this, &SwipingHand::onEndSwipe);
     bodyBase->genTweakTex(bodyState);
     bodyState.state = BodyState::EMERGE;

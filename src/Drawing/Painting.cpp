@@ -8,12 +8,12 @@
 
 #include "Painting.hpp"
 
-void Painting::setup(string texPath, bool bDrawWContour)
+void Painting::setup(string texPath, bool bNeedContour)
 {
     ofTexture loader;
     ofLoadImage(loader, texPath);
-    this->bDrawWContour = bDrawWContour;
-    bContourReady = (bDrawWContour) ? false : true;
+    this->bNeedContour = bNeedContour;
+    bContourReady = (bNeedContour) ? false : true;
     
     tex.allocate(loader.getWidth(), loader.getHeight());
     tex.begin();
@@ -24,7 +24,7 @@ void Painting::setup(string texPath, bool bDrawWContour)
     phase = NONE;
     ptsIdx = 0;
     
-    if (bDrawWContour)
+    if (bNeedContour)
     {
         utilFbo.allocate(tex.getWidth(), tex.getHeight());
         utilFbo.begin();
@@ -56,7 +56,7 @@ void Painting::setup(string texPath, bool bDrawWContour)
 
 void Painting::update()
 {
-    if (bDrawWContour)
+    if (bNeedContour)
     {
         if (phase == WAITINGHAND)
         {
@@ -107,12 +107,14 @@ void Painting::update()
 
 void Painting::draw()
 {
-    if (bDrawWContour)
+    if (bNeedContour)
     {
         if (phase == DRAWING)
         {
             ofPushMatrix();
-            ofTranslate(pos);
+            ofTranslate(pos.x + (tex.getWidth()/2 * (1.0 -scale)),
+                        pos.y + (tex.getHeight()/2 * (1.0 - scale)));
+            ofScale(scale, scale);
             ofRotate(rot);
             Globals::strokeMask.begin();
             Globals::strokeMask.setUniformTexture("stroke", utilFbo.getTexture(), 1);
@@ -149,7 +151,7 @@ void Painting::draw()
 
 void Painting::drawOutline()
 {
-    if (bDrawWContour)
+    if (bNeedContour)
     {
         ofPushStyle();
         ofSetColor(ofColor::red);
@@ -174,7 +176,7 @@ void Painting::beginDraw()
     beginDrawWContourTime = Globals::ELAPSED_TIME;
     phase = WAITINGHAND;
     
-    if (bDrawWContour && bContourReady)
+    if (bNeedContour && bContourReady)
     {
         contourForProcess.clear();
         copy(outline.begin(), outline.end(), inserter(contourForProcess, contourForProcess.end()));

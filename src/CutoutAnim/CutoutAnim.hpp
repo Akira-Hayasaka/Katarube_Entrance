@@ -10,6 +10,7 @@
 #define CutoutAnim_hpp
 
 #include "ofMain.h"
+#include "ofxTweenzor.h"
 #include "Constants.h"
 #include "Globals.hpp"
 #include "Util.h"
@@ -29,6 +30,8 @@ public:
 private:
     
     void onTickEvent();
+    void onFadeOut();
+    void onFadeIn();
     
     ofFbo cutoutFullScreen;
     ofShader blendCutout;
@@ -37,6 +40,8 @@ private:
     Portrait portrait;
     Flyer flyer;
     Kyo kyo;
+    
+    float alpha;
 };
 
 #endif /* CutoutAnim_hpp */
