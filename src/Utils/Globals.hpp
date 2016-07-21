@@ -42,6 +42,8 @@ namespace Globals
     extern float lastTickTime;
     extern long curTickFrame;
     
+    extern string curAppState;
+    
     extern Kinect kinect;
     extern vector<ofMatrix4x4> projMats;
     extern ofMatrix4x4 kinectMat;

@@ -78,18 +78,6 @@ void Drawer::draw()
     
     for (auto& p : puppets)
         p->draw();
-    
-//    ofPushMatrix();
-//    ofTranslate(500, 500);
-//    ofPushStyle();
-//    ofSetColor(ofColor::blue);
-//    for (auto pwc : paintingWorkingCopies)
-//    {
-//        for (auto l : pwc.getOutlines())
-//            l.draw();
-//    }
-//    ofPopStyle();
-//    ofPopMatrix();
 }
 
 void Drawer::onBeginLogoEvent()

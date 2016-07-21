@@ -11,7 +11,8 @@
 void Content::setup()
 {
     fullScreenResult.allocate(APP_W, APP_H);
-    stopMotionContent.allocate(APP_W, APP_H);
+    outOfCanvasContent.allocate(APP_W, APP_H);
+    interactiveContent.allocate(APP_W, APP_H);
     bg.allocate(APP_W, APP_H);
     bgMask.allocate(APP_W, APP_H);
     blendOutput.load("shaders/common/simpleVert.vert", "shaders/scene/blendOutput.frag");
@@ -100,11 +101,17 @@ void Content::genFullScreenContent()
     ofClear(0);
     
     blendOutput.begin();
-    blendOutput.setUniformTexture("body", stopMotionContent.getTexture(), 0);
+    blendOutput.setUniformTexture("body", outOfCanvasContent.getTexture(), 0);
     blendOutput.setUniformTexture("ink", ink.getTexture(), 1);
     blendOutput.setUniformTexture("cutout", cutout.getTexture(), 2);
-    blendOutput.setUniformTexture("bg", bg.getTexture(), 3);
-    blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 4);
+    blendOutput.setUniformTexture("interactive", interactiveContent.getTexture(), 3);
+    blendOutput.setUniformTexture("bg", bg.getTexture(), 4);
+    blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 5);
+    if (Globals::curAppState == "INTERACTION")
+        blendOutput.setUniform1f("doRdmForInteractive", 1.0);
+    else
+        blendOutput.setUniform1f("doRdmForInteractive", 0.0);
+    blendOutput.setUniform3f("rdmForInteractive", ofRandom(-0.02, 0.02), ofRandom(-0.02, 0.02), ofRandom(-0.02, 0.02));
     blendOutput.setUniform2f("res", APP_W, APP_H);
     drawPlane(APP_W, APP_H);
     blendOutput.end();
@@ -154,11 +161,20 @@ void Content::drawB2DEdge()
 void Content::onTickEvent()
 {
      // draw every stop motion content here
-    stopMotionContent.begin();
+    outOfCanvasContent.begin();
     ofClear(0);
-    drawer.draw();
     body.draw();
-    stopMotionContent.end();
+    outOfCanvasContent.end();
+    
+    interactiveContent.begin();
+//    ofClear(0);
+//    ofPushStyle();
+//    ofSetColor(ofColor::white);
+//    ofDrawRectangle(0, 0, APP_W, APP_H);
+//    ofPopStyle();
+    ofClear(255);
+    drawer.draw();
+    interactiveContent.end();
 }
 
 void Content::saveScreen()

@@ -594,7 +594,7 @@
 		C1C56D20A1A57DC44096BFE7 /* ofxCvContourFinder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvContourFinder.h; path = ../../../addons/ofxOpenCv/src/ofxCvContourFinder.h; sourceTree = SOURCE_ROOT; };
 		C2BC3791814BE1427048246D /* Flyer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Flyer.cpp; path = src/CutoutAnim/Flyer/Flyer.cpp; sourceTree = SOURCE_ROOT; };
 		C3440977BC423D786EDC40C5 /* Tweenzor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Tweenzor.cpp; path = addons/ofxTweenzor/src/Tweenzor.cpp; sourceTree = SOURCE_ROOT; };
-		C3578E9E885CBA06E7AA22F7 /* Content.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Content.hpp; path = src/Content.hpp; sourceTree = SOURCE_ROOT; };
+		C3578E9E885CBA06E7AA22F7 /* Content.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Content.hpp; path = src/Content.hpp; sourceTree = SOURCE_ROOT; };
 		C362FD421E9C5E4962E410EB /* dynamic_smem.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dynamic_smem.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/dynamic_smem.hpp; sourceTree = SOURCE_ROOT; };
 		C49A8442C6E8F2B62DABEA3C /* Content.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Content.cpp; path = src/Content.cpp; sourceTree = SOURCE_ROOT; };
 		C4BA8097B54C90163F99F5C1 /* transform_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = transform_detail.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/detail/transform_detail.hpp; sourceTree = SOURCE_ROOT; };
@@ -693,6 +693,18 @@
 		E9F177841D405C2E00BC23BF /* triangle_mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_mesh.h; sourceTree = "<group>"; };
 		E9F177871D405C2E00BC23BF /* ofxTriangleMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTriangleMesh.cpp; sourceTree = "<group>"; };
 		E9F177881D405C2E00BC23BF /* ofxTriangleMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTriangleMesh.h; sourceTree = "<group>"; };
+		E9F177B21D4168D500BC23BF /* chromaKey.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = chromaKey.frag; sourceTree = "<group>"; };
+		E9F177B31D4168D500BC23BF /* whitize.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = whitize.frag; sourceTree = "<group>"; };
+		E9F177B51D4168D500BC23BF /* colTweak.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = colTweak.glsl; sourceTree = "<group>"; };
+		E9F177B61D4168D500BC23BF /* defaultVertIn.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = defaultVertIn.glsl; sourceTree = "<group>"; };
+		E9F177B71D4168D500BC23BF /* header.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = header.glsl; sourceTree = "<group>"; };
+		E9F177B81D4168D500BC23BF /* simpleFrag.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleFrag.frag; sourceTree = "<group>"; };
+		E9F177B91D4168D500BC23BF /* simpleVert.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleVert.vert; sourceTree = "<group>"; };
+		E9F177BB1D4168D500BC23BF /* threshDepth.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = threshDepth.frag; sourceTree = "<group>"; };
+		E9F177BD1D4168D500BC23BF /* blendCutout.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blendCutout.frag; sourceTree = "<group>"; };
+		E9F177BE1D4168D500BC23BF /* blendOutput.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blendOutput.frag; sourceTree = "<group>"; };
+		E9F177BF1D4168D500BC23BF /* seqTweak.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = seqTweak.frag; sourceTree = "<group>"; };
+		E9F177C01D4168D500BC23BF /* stroke.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = stroke.frag; sourceTree = "<group>"; };
 		EABECCA10B3B22B8DD9090CB /* Helpers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Helpers.h; path = addons/ofxCv/libs/ofxCv/include/ofxCv/Helpers.h; sourceTree = SOURCE_ROOT; };
 		EB2D37F43E8FDE6BBBCFFAB1 /* ofxBox2dRender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBox2dRender.h; path = addons/ofxBox2d/src/ofxBox2dRender.h; sourceTree = SOURCE_ROOT; };
 		EBBA82550412B77EFA70AE87 /* funcattrib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = funcattrib.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/funcattrib.hpp; sourceTree = SOURCE_ROOT; };
@@ -1933,6 +1945,7 @@
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				E9F177B01D4168D500BC23BF /* shaders */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
@@ -2006,6 +2019,58 @@
 				E9F177881D405C2E00BC23BF /* ofxTriangleMesh.h */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		E9F177B01D4168D500BC23BF /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E9F177B11D4168D500BC23BF /* color */,
+				E9F177B41D4168D500BC23BF /* common */,
+				E9F177BA1D4168D500BC23BF /* kinect */,
+				E9F177BC1D4168D500BC23BF /* scene */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
+			sourceTree = "<group>";
+		};
+		E9F177B11D4168D500BC23BF /* color */ = {
+			isa = PBXGroup;
+			children = (
+				E9F177B21D4168D500BC23BF /* chromaKey.frag */,
+				E9F177B31D4168D500BC23BF /* whitize.frag */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		E9F177B41D4168D500BC23BF /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E9F177B51D4168D500BC23BF /* colTweak.glsl */,
+				E9F177B61D4168D500BC23BF /* defaultVertIn.glsl */,
+				E9F177B71D4168D500BC23BF /* header.glsl */,
+				E9F177B81D4168D500BC23BF /* simpleFrag.frag */,
+				E9F177B91D4168D500BC23BF /* simpleVert.vert */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		E9F177BA1D4168D500BC23BF /* kinect */ = {
+			isa = PBXGroup;
+			children = (
+				E9F177BB1D4168D500BC23BF /* threshDepth.frag */,
+			);
+			path = kinect;
+			sourceTree = "<group>";
+		};
+		E9F177BC1D4168D500BC23BF /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				E9F177BD1D4168D500BC23BF /* blendCutout.frag */,
+				E9F177BE1D4168D500BC23BF /* blendOutput.frag */,
+				E9F177BF1D4168D500BC23BF /* seqTweak.frag */,
+				E9F177C01D4168D500BC23BF /* stroke.frag */,
+			);
+			path = scene;
 			sourceTree = "<group>";
 		};
 		ED6E9BDB447DB965EE6F1FA6 /* src */ = {

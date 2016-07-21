@@ -144,14 +144,24 @@ void Painting::update()
 
 void Painting::draw()
 {
+    ofVec2f curScale(scale, scale);
+
+    if (phase == END)
+    {
+        ofVec2f rdmPos(ofRandom(-2.0, 2.0), ofRandom(-2.0, 2.0));
+        ofVec2f rdmScale(ofRandom(0.99, 1.01), ofRandom(0.99, 1.01));
+        pos += rdmPos;
+        curScale *= rdmScale;
+    }
+    
     if (bNeedContour)
     {
         if (phase == DRAWING)
         {
             ofPushMatrix();
-            ofTranslate(pos.x + (tex.getWidth()/2 * (1.0 -scale)),
-                        pos.y + (tex.getHeight()/2 * (1.0 - scale)));
-            ofScale(scale, scale);
+            ofTranslate(pos.x + (tex.getWidth()/2 * (1.0 - curScale.x)),
+                        pos.y + (tex.getHeight()/2 * (1.0 - curScale.y)));
+            ofScale(curScale);
             ofRotate(rot);
             Globals::strokeMask.begin();
             Globals::strokeMask.setUniformTexture("stroke", utilFbo.getTexture(), 1);
@@ -162,9 +172,9 @@ void Painting::draw()
         else if (phase == END)
         {
             ofPushMatrix();
-            ofTranslate(pos.x + (tex.getWidth()/2 * (1.0 -scale)),
-                        pos.y + (tex.getHeight()/2 * (1.0 - scale)));
-            ofScale(scale, scale);
+            ofTranslate(pos.x + (tex.getWidth()/2 * (1.0 - curScale.x)),
+                        pos.y + (tex.getHeight()/2 * (1.0 - curScale.y)));
+            ofScale(curScale);
             ofRotate(rot);
             tex.draw(0, 0);
             ofPopMatrix();
@@ -177,7 +187,7 @@ void Painting::draw()
             ofSetRectMode(OF_RECTMODE_CENTER);
             ofPushMatrix();
             ofTranslate(pos);
-            ofScale(scale, scale);
+            ofScale(curScale);
             ofRotate(rot);
             tex.draw(0, 0);
             ofPopMatrix();

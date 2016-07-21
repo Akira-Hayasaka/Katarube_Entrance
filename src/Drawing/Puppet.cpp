@@ -60,8 +60,12 @@ void Puppet::update()
 
 void Puppet::draw()
 {
+    ofVec2f rdmPos(ofRandom(-2.5, 2.5), ofRandom(-2.5, 2.5));
+    ofVec2f rdmScale(ofRandom(0.95, 1.05), ofRandom(0.95, 1.05));
+    
     ofPushMatrix();
-    ofTranslate(b2dObj->getPosition());
+    ofTranslate(b2dObj->getPosition() + rdmPos);
+    ofScale(rdmScale);
     ofRotate(b2dObj->getRotation(), 0, 0, 1);
     tex.bind();
     instance.getMesh().draw();

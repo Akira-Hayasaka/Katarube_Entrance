@@ -53,6 +53,7 @@ void ofApp::setup()
     ofNotifyEvent(Globals::tickEvent);
     
     workflow.goCutout();
+    Globals::curAppState = workflow.getCurStateStr();
     
     // debug
     bDrawTiny = true;
@@ -63,6 +64,7 @@ void ofApp::update()
     Tweenzor::update(ofGetElapsedTimeMillis());
     Globals::ELAPSED_TIME = ofGetElapsedTimef();
     Globals::box2d.update();
+    Globals::curAppState = workflow.getCurStateStr();
     if (Globals::ELAPSED_TIME - Globals::lastTickTime > Globals::oneFrameDur)
     {
         ofNotifyEvent(Globals::tickEvent);

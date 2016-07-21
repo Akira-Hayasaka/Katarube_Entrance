@@ -36,7 +36,8 @@ private:
     void onTickEvent();
     
     ofFbo fullScreenResult;
-    ofFbo stopMotionContent;
+    ofFbo outOfCanvasContent;
+    ofFbo interactiveContent;
     ofFbo bg;
     ofFbo bgMask;
     ofShader blendOutput;
