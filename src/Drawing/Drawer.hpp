@@ -30,12 +30,14 @@ private:
     void onFadeOutLogoEvent();
     void onFadeOutInfoEvent();
     void onPutPuppetEvent();
+    void checkFinishedWorkingCopies();
     
     Painting logo;
     vector<Painting> nowExibits;
+    vector<Painting> paintings;
+    deque<Painting> paintingWorkingCopies;
     
-    vector<Puppet> puppetOriginals;
-    deque<Puppet> puppetWorkingCopies;
+    vector<ofPtr<Puppet> > puppets;
 };
 
 #endif /* Drawer_hpp */

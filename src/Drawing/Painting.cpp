@@ -8,13 +8,14 @@
 
 #include "Painting.hpp"
 
-void Painting::setup(string texPath,
-                     bool bNeedContour, bool bConstrainSize)
+void Painting::setup(string texPath, bool bNeedContour, bool bConstrainSize)
 {
     ofImage loader;
     loader.load(texPath);
     this->bNeedContour = bNeedContour;
     bContourReady = (bNeedContour) ? false : true;
+    
+    paintingID = genUUID();
     
     if (bConstrainSize)
     {
@@ -42,23 +43,29 @@ void Painting::setup(string texPath,
         Globals::whitize.end();
         utilFbo.end();
         
-        ofPixels px;
         utilFbo.readToPixels(px);
         
         utilFbo.begin();
         ofClear(0);
         utilFbo.end();
         
-        cmdID = genUUID();
-        DrawCommandInfo cmdInfo;
-        cmdInfo.cmdID = cmdID;
-        cmdInfo.px = px;
-        cmdInfo.contourMinArea = 10;//loader.getWidth() * loader.getHeight() * 0.5;
-        cmdInfo.contourMaxArea = 200;//loader.getWidth() * loader.getHeight() * 1.5;
-        cmdInfo.contourBriThresh = 128;
+        // try 5 times
+        ofxCv::ContourFinder contourFinder;
+        for (int i = 0; i < 5; i++)
+        {
+            contourFinder.setMinAreaRadius(10);
+            contourFinder.setMaxAreaRadius(200);
+            contourFinder.setThreshold(128);
+            contourFinder.findContours(px);
+            contourFinder.setFindHoles(false);
+        }
         
-        ofAddListener(Globals::gotContourEvent, this, &Painting::onGotContourEvent);
-        ofNotifyEvent(Globals::genContourEvent, cmdInfo);
+        outlineOriginal = contourFinder.getPolylines();
+        outlineSimplified = outlineOriginal;
+        for (auto& o : outlineSimplified)
+            o = o.getResampledByCount(20);
+        ofSort(outlineSimplified, compareLeft2Right);
+        bContourReady = true;
     }
 }
 
@@ -204,18 +211,5 @@ void Painting::beginDraw()
         ofPoint dest(pos.x - tex.getWidth()/2, pos.y - tex.getHeight()/2);
         ofNotifyEvent(Globals::putEvent, dest);
         waitHandDur = 0.5;
-    }
-}
-
-void Painting::onGotContourEvent(DrawCommandContour& cc)
-{
-    if (cc.cmdID == cmdID)
-    {
-        outlineOriginal = cc.contours;
-        outlineSimplified = cc.contours;
-        for (auto& o : outlineSimplified)
-            o = o.getResampledByCount(20);
-        ofSort(outlineSimplified, compareLeft2Right);
-        bContourReady = true;
     }
 }

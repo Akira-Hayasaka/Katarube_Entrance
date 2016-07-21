@@ -39,4 +39,5 @@ private:
     
     // debug
     bool bDrawTiny;
+    vector<shared_ptr<ofxBox2dCircle> > circles;
 };

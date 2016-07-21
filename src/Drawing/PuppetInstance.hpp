@@ -41,6 +41,7 @@ public:
     void setup(ofMesh mesh, ofPolyline outline);
     void update();
     void customDraw();
+    ofMesh& getMesh() { return deformer.getDeformedMesh(); };
     
 private:
     

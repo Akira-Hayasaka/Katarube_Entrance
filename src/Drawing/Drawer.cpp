@@ -36,9 +36,9 @@ void Drawer::setup()
         ofFile f = puppetDir.getFile(i);
         if (isImgFile(f.getExtension()))
         {
-            Puppet p;
-            puppetOriginals.push_back(p);
-            puppetOriginals.back().setup(f.getAbsolutePath(), true, true);
+            Painting p;
+            paintings.push_back(p);
+            paintings.back().setup(f.getAbsolutePath(), true, true);
         }
     }
     puppetDir.close();
@@ -57,8 +57,13 @@ void Drawer::update()
     for (auto& ne : nowExibits)
         ne.update();
     
-    for (auto& pwc : puppetWorkingCopies)
+    for (auto& pwc : paintingWorkingCopies)
         pwc.update();
+    
+    for (auto& p : puppets)
+        p->update();
+    
+    checkFinishedWorkingCopies();
 }
 
 void Drawer::draw()
@@ -68,8 +73,11 @@ void Drawer::draw()
     for (auto ne : nowExibits)
         ne.draw();
     
-    for (auto pwc : puppetWorkingCopies)
+    for (auto pwc : paintingWorkingCopies)
         pwc.draw();
+    
+    for (auto& p : puppets)
+        p->draw();
 }
 
 void Drawer::onBeginLogoEvent()
@@ -95,8 +103,30 @@ void Drawer::onFadeOutInfoEvent()
 
 void Drawer::onPutPuppetEvent()
 {
-    puppetWorkingCopies.push_back(puppetOriginals.at(ofRandom(puppetOriginals.size())));
-    puppetWorkingCopies.back().setPosition(ofPoint(ofRandom(600, APP_W - 600),
-                                                   ofRandom(300, APP_H - 300)));
-    puppetWorkingCopies.back().beginDraw();
+    paintingWorkingCopies.push_back(paintings.at(ofRandom(paintings.size())));
+    paintingWorkingCopies.back().setPosition(ofPoint(ofRandom(600, APP_W - 600),
+                                                     APP_H/2));
+    paintingWorkingCopies.back().beginDraw();
+}
+
+void Drawer::checkFinishedWorkingCopies()
+{
+    for (auto& pwc : paintingWorkingCopies)
+    {
+        if (pwc.isFinished())
+        {
+            ofPtr<Puppet> puppet = ofPtr<Puppet>(new Puppet);
+            puppets.push_back(puppet);
+            puppets.back()->setup(pwc.getID(), pwc.getTexture(), pwc.getOutlines(), pwc.getPosition());
+            pwc.markGenPuppet();
+        }
+    }
+    
+    if (!paintingWorkingCopies.empty())
+    {
+        if (paintingWorkingCopies.front().isGenPuppet())
+        {
+            paintingWorkingCopies.pop_front();
+        }
+    }
 }

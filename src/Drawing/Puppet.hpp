@@ -10,31 +10,29 @@
 #define Puppet_hpp
 
 #include "ofMain.h"
-#include "Painting.hpp"
+#include "ofxBox2d.h"
 #include "ofxTriangleMesh.h"
+#include "Globals.hpp"
 #include "PuppetInstance.hpp"
 
-class Puppet : public Painting
+class Puppet
 {
 public:
     
-    void setup(string texPath,
-               bool bNeedContour = false, bool bConstrainSize = false);
+    void setup(string paintingID, ofTexture tex, vector<ofPolyline> lines, ofPoint pos);
     void update();
+    void draw();
+    void register2Box2D();
     
 private:
     
-    enum STATE
-    {
-        INIT,
-        READY,
-        RUN
-    };
-    STATE state;
-    
-    bool bRegisterBox2d;
-    
+    ofTexture tex;
+    ofxTriangleMesh mesh;
+    ofPoint pos;
+    float scale;
+    float rot;
     PuppetInstance instance;
+    ofPtr<ofxBox2dPolygon> b2dObj;
 };
 
 #endif /* Puppet_hpp */

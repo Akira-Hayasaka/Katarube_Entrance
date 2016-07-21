@@ -28,11 +28,11 @@ public:
         NONE,
         WAITINGHAND,
         DRAWING,
-        END
+        END,
+        GENPUPPET
     };
     
-    void setup(string texPath,
-               bool bNeedContour = false, bool bConstrainSize = false);
+    void setup(string texPath, bool bNeedContour = false, bool bConstrainSize = false);
     void update();
     void draw();
     void drawOutline();
@@ -41,18 +41,26 @@ public:
     void setPosition(ofPoint pos) { this->pos = pos; }
     void setRot(float rot) { this->rot = rot; }
     ofTexture& getTexture() { return tex.getTexture(); }
+    ofPixels getPixels() { return px; }
+    vector<ofPolyline> getOutlines() { return outlineOriginal; }
+    string getID() { return paintingID; }
+    ofPoint getPosition() { return pos; }
     void beginDraw();
+    bool isFinished() { return (phase == END) ? true : false; }
+    void markGenPuppet() { phase = GENPUPPET; }
+    bool isGenPuppet() { return (phase == GENPUPPET) ? true : false; }
     
-protected:
-    
-    void onGotContourEvent(DrawCommandContour& cc);
+private:
     
     bool bNeedContour;
     bool bContourReady;
-
+    
     PHASE phase;
     
+    string paintingID;
+    
     ofFbo tex;
+    ofPixels px;    
     ofFbo utilFbo;
     ofPoint pos;
     float rot;

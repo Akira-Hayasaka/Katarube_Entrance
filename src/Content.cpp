@@ -147,6 +147,8 @@ void Content::drawB2DEdge()
     for (auto p : b2dEdge.getVertices())
         ofDrawCircle(p, 4);
     ofPopStyle();
+    
+//    Globals::box2dBBox.draw();
 }
 
 void Content::onTickEvent()

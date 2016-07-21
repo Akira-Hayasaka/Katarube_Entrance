@@ -57,7 +57,6 @@ void PuppetInstance::buildDeformPts()
         else
             next = pts.at(i + 1);
         float ang = cur.angleRad(next);
-        ofLog() << "ang = " << ang;
         int idx = 0;
         float dist = getNearestVertex(mesh, next, idx);
         IdxAngle iAng;
