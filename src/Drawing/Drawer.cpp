@@ -78,6 +78,18 @@ void Drawer::draw()
     
     for (auto& p : puppets)
         p->draw();
+    
+//    ofPushMatrix();
+//    ofTranslate(500, 500);
+//    ofPushStyle();
+//    ofSetColor(ofColor::blue);
+//    for (auto pwc : paintingWorkingCopies)
+//    {
+//        for (auto l : pwc.getOutlines())
+//            l.draw();
+//    }
+//    ofPopStyle();
+//    ofPopMatrix();
 }
 
 void Drawer::onBeginLogoEvent()
@@ -104,7 +116,7 @@ void Drawer::onFadeOutInfoEvent()
 void Drawer::onPutPuppetEvent()
 {
     paintingWorkingCopies.push_back(paintings.at(ofRandom(paintings.size())));
-    paintingWorkingCopies.back().setPosition(ofPoint(ofRandom(600, APP_W - 600),
+    paintingWorkingCopies.back().setPosition(ofPoint(ofRandom(700, APP_W - 700),
                                                      APP_H/2));
     paintingWorkingCopies.back().beginDraw();
 }

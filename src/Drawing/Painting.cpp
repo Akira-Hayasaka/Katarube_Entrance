@@ -8,7 +8,7 @@
 
 #include "Painting.hpp"
 
-void Painting::setup(string texPath, bool bNeedContour, bool bConstrainSize)
+void Painting::setup(string texPath, bool bNeedContour, bool bForPuppet)
 {
     ofImage loader;
     loader.load(texPath);
@@ -17,9 +17,9 @@ void Painting::setup(string texPath, bool bNeedContour, bool bConstrainSize)
     
     paintingID = genUUID();
     
-    if (bConstrainSize)
+    if (bForPuppet)
     {
-        int maxDrawingH = 400;
+        int maxDrawingH = 200;
         float ratio = maxDrawingH / loader.getHeight();
         loader.resize(loader.getWidth() * ratio, loader.getHeight() * ratio);
     }
@@ -37,7 +37,7 @@ void Painting::setup(string texPath, bool bNeedContour, bool bConstrainSize)
     {
         utilFbo.allocate(tex.getWidth(), tex.getHeight());
         utilFbo.begin();
-        ofClear(0);
+        ofClear(0, 0, 0, 255);
         Globals::whitize.begin();
         tex.draw(0, 0);
         Globals::whitize.end();
@@ -57,14 +57,36 @@ void Painting::setup(string texPath, bool bNeedContour, bool bConstrainSize)
             contourFinder.setMaxAreaRadius(200);
             contourFinder.setThreshold(128);
             contourFinder.findContours(px);
+            contourFinder.setSortBySize(true);
             contourFinder.setFindHoles(false);
         }
+        outline = contourFinder.getPolylines();
+//        vector<cv::Point> pts = contourFinder.getConvexHull(0);
+//        ofPolyline line;
+//        for (auto p : pts)
+//            line.addVertex(ofxCv::toOf(p));
+//        outline.push_back(line);
         
-        outlineOriginal = contourFinder.getPolylines();
-        outlineSimplified = outlineOriginal;
-        for (auto& o : outlineSimplified)
-            o = o.getResampledByCount(20);
-        ofSort(outlineSimplified, compareLeft2Right);
+        for (int i = 0; i < 5; i++)
+        {
+            contourFinder.setMinAreaRadius(10);
+            contourFinder.setMaxAreaRadius(200);
+            contourFinder.setThreshold(128);
+            contourFinder.findContours(px);
+            contourFinder.setFindHoles(true);
+        }
+        contourWHoles = contourFinder.getPolylines();
+        if (bForPuppet)
+        {
+            for (auto& o : contourWHoles)
+                o = o.getResampledBySpacing(20);
+        }
+        else
+        {
+            for (auto& o : contourWHoles)
+                o = o.getResampledByCount(20);
+        }
+        ofSort(contourWHoles, compareLeft2Right);
         bContourReady = true;
     }
 }
@@ -173,7 +195,7 @@ void Painting::drawOutline()
         ofPushMatrix();
         ofTranslate(pos);
         ofRotate(rot);
-        for (auto l : outlineSimplified)
+        for (auto l : contourWHoles)
             l.draw();
         ofPopMatrix();
         ofPopStyle();
@@ -194,14 +216,14 @@ void Painting::beginDraw()
     if (bNeedContour && bContourReady)
     {
         contourForProcess.clear();
-        copy(outlineSimplified.begin(), outlineSimplified.end(), inserter(contourForProcess, contourForProcess.end()));
+        copy(contourWHoles.begin(), contourWHoles.end(), inserter(contourForProcess, contourForProcess.end()));
         ptsIdx = 0;
         
         utilFbo.begin();
         ofClear(0);
         utilFbo.end();
         
-        ofPoint dest(pos + outlineSimplified.front().getVertices().at(0));
+        ofPoint dest(pos + contourWHoles.front().getVertices().at(0));
         ofNotifyEvent(Globals::drawEvent, dest);
         
         waitHandDur = 1.0;

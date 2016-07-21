@@ -19,7 +19,7 @@ void ofApp::setup()
     Globals::kinect.setup();
     Globals::projMats.resize(NUM_PROJ);
     Globals::box2d.init();
-    Globals::box2d.setGravity(0.0, 10.0);
+    Globals::box2d.setGravity(0.0, 1.0);
 //    Globals::box2d.createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
     Globals::box2d.setFPS(30);
     Globals::scrnQuad.getVertices().resize(4);
@@ -38,8 +38,8 @@ void ofApp::setup()
         }
     }
     blendDir.close();
-    ofLoadImage(Globals::petip, "imgs/pentip/pentip.png");
-//    Globals::petip.resize(10, 10);
+    Globals::petip.load("imgs/pentip/pentip.png");
+    Globals::petip.resize(32, 32);
     
     Tweenzor::init();
     

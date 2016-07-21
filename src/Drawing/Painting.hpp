@@ -32,7 +32,7 @@ public:
         GENPUPPET
     };
     
-    void setup(string texPath, bool bNeedContour = false, bool bConstrainSize = false);
+    void setup(string texPath, bool bNeedContour = false, bool bForPuppet = false);
     void update();
     void draw();
     void drawOutline();
@@ -42,7 +42,7 @@ public:
     void setRot(float rot) { this->rot = rot; }
     ofTexture& getTexture() { return tex.getTexture(); }
     ofPixels getPixels() { return px; }
-    vector<ofPolyline> getOutlines() { return outlineOriginal; }
+    vector<ofPolyline> getOutlines() { return outline; }
     string getID() { return paintingID; }
     ofPoint getPosition() { return pos; }
     void beginDraw();
@@ -67,8 +67,8 @@ private:
     float scale;
     
     string cmdID;
-    vector<ofPolyline> outlineOriginal;
-    vector<ofPolyline> outlineSimplified;
+    vector<ofPolyline> outline;
+    vector<ofPolyline> contourWHoles;
     deque<ofPolyline> contourForProcess;
     int ptsIdx;
     

@@ -30,7 +30,7 @@ namespace Globals
     
     vector<ofTexture> bodyBlendTexs;
     
-    ofTexture petip;
+    ofImage petip;
     
     // shaders
     ofShader chromaKey;

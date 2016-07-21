@@ -57,7 +57,7 @@ namespace Globals
     
     extern vector<ofTexture> bodyBlendTexs;
     
-    extern ofTexture petip;
+    extern ofImage petip;
     
     // shaders
     extern ofShader chromaKey;
