@@ -22,7 +22,7 @@ namespace Globals
     ofMatrix4x4 kinectMat;
     
     ofxBox2d box2d;
-    ofxBox2dEdge box2dBBox;
+    vector<ofPtr<ofxBox2dEdge> > box2dBBox;
     ofPolyline b2dEdge;
     vector<BottomLineAndAng> bottomLineAndAngs;
     

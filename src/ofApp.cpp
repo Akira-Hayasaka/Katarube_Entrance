@@ -39,7 +39,7 @@ void ofApp::setup()
     }
     blendDir.close();
     Globals::petip.load("imgs/pentip/pentip.png");
-    Globals::petip.resize(32, 32);
+//    Globals::petip.resize(32, 32);
     
     Tweenzor::init();
     
@@ -99,7 +99,10 @@ void ofApp::draw()
     }
     
     if (gui.isVisible())
+    {
+        content.drawInteractionContour();        
         content.drawB2DEdge();
+    }
     gui.draw();
     
     ofPushStyle();

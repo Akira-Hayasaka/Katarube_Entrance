@@ -19,7 +19,7 @@ void Painting::setup(string texPath, bool bNeedContour, bool bForPuppet)
     
     if (bForPuppet)
     {
-        int maxDrawingH = 200;
+        int maxDrawingH = 300;
         float ratio = maxDrawingH / loader.getHeight();
         loader.resize(loader.getWidth() * ratio, loader.getHeight() * ratio);
     }
@@ -37,7 +37,7 @@ void Painting::setup(string texPath, bool bNeedContour, bool bForPuppet)
     {
         utilFbo.allocate(tex.getWidth(), tex.getHeight());
         utilFbo.begin();
-        ofClear(0, 0, 0, 255);
+        ofClear(0);
         Globals::whitize.begin();
         tex.draw(0, 0);
         Globals::whitize.end();
@@ -55,12 +55,14 @@ void Painting::setup(string texPath, bool bNeedContour, bool bForPuppet)
         {
             contourFinder.setMinAreaRadius(10);
             contourFinder.setMaxAreaRadius(200);
-            contourFinder.setThreshold(128);
+            contourFinder.setThreshold(12);
             contourFinder.findContours(px);
             contourFinder.setSortBySize(true);
             contourFinder.setFindHoles(false);
         }
         outline = contourFinder.getPolylines();
+        for (auto& l : outline)
+            l.setClosed(true);
 //        vector<cv::Point> pts = contourFinder.getConvexHull(0);
 //        ofPolyline line;
 //        for (auto p : pts)

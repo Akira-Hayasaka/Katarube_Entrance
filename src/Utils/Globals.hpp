@@ -49,7 +49,7 @@ namespace Globals
     extern ofMatrix4x4 kinectMat;
     
     extern ofxBox2d box2d;
-    extern ofxBox2dEdge box2dBBox;
+    extern vector<ofPtr<ofxBox2dEdge> > box2dBBox;
     extern ofPolyline b2dEdge;
     extern vector<BottomLineAndAng> bottomLineAndAngs;
     

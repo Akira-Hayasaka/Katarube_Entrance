@@ -105,7 +105,7 @@ void Drawer::onPutPuppetEvent()
 {
     paintingWorkingCopies.push_back(paintings.at(ofRandom(paintings.size())));
     paintingWorkingCopies.back().setPosition(ofPoint(ofRandom(700, APP_W - 700),
-                                                     APP_H/2));
+                                                     APP_H/2 - 200));
     paintingWorkingCopies.back().beginDraw();
 }
 

@@ -13,6 +13,7 @@ void Content::setup()
     fullScreenResult.allocate(APP_W, APP_H);
     outOfCanvasContent.allocate(APP_W, APP_H);
     interactiveContent.allocate(APP_W, APP_H);
+    interactionContour.allocate(APP_W/3, APP_H/3);
     bg.allocate(APP_W, APP_H);
     bgMask.allocate(APP_W, APP_H);
     blendOutput.load("shaders/common/simpleVert.vert", "shaders/scene/blendOutput.frag");
@@ -57,9 +58,32 @@ void Content::setup()
     b2dEdge = contourFinder.getPolyline(0);
     b2dEdge = b2dEdge.getResampledByCount(200);
     Globals::b2dEdge = b2dEdge;
-    Globals::box2dBBox.addVertexes(Globals::b2dEdge);
-    Globals::box2dBBox.setPhysics(0.0, 0.5, 0.5);
-    Globals::box2dBBox.create(Globals::box2d.getWorld());
+    
+    ofPolyline topLine, btmLine;
+    for (int i = 0; i < b2dEdge.getVertices().size(); i++)
+    {
+        ofVec2f perp;
+        if (i == b2dEdge.getVertices().size()-1)
+            perp = ofVec2f(b2dEdge.getVertices().at(i) - b2dEdge.getVertices().at(0)).getPerpendicular();
+        else
+            perp = ofVec2f(b2dEdge.getVertices().at(i) - b2dEdge.getVertices().at(i+1)).getPerpendicular();
+        float ang = ofVec2f(0, -1).angle(perp);
+        
+        if (fabs(ang) < 10.0)
+            btmLine.addVertex(b2dEdge.getVertices().at(i));
+        if (fabs(ang) > 170.0)
+            topLine.addVertex(b2dEdge.getVertices().at(i));
+    }
+    
+    Globals::box2dBBox.resize(2);
+    Globals::box2dBBox.at(0) = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
+    Globals::box2dBBox.at(0)->addVertexes(topLine);
+    Globals::box2dBBox.at(0)->setPhysics(0.0, 0.5, 0.5);
+    Globals::box2dBBox.at(0)->create(Globals::box2d.getWorld());
+    Globals::box2dBBox.at(1) = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
+    Globals::box2dBBox.at(1)->addVertexes(btmLine);
+    Globals::box2dBBox.at(1)->setPhysics(0.0, 0.5, 0.5);
+    Globals::box2dBBox.at(1)->create(Globals::box2d.getWorld());
 
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {
@@ -93,6 +117,9 @@ void Content::update()
     ink.update();
     cutout.update();
     drawer.update();
+    
+    // update interaction contour(body & kinect) every frame
+    updateInteractionContour();
 }
 
 void Content::genFullScreenContent()
@@ -155,7 +182,19 @@ void Content::drawB2DEdge()
         ofDrawCircle(p, 4);
     ofPopStyle();
     
-//    Globals::box2dBBox.draw();
+    ofPushMatrix();
+    ofScale(0.5, 0.5);
+    ofPushStyle();
+    ofSetColor(ofColor::red);
+    for (auto bb : Globals::box2dBBox)
+        bb->draw();
+    ofPopStyle();
+    ofPopMatrix();
+}
+
+void Content::drawInteractionContour()
+{
+    interactionContour.draw(0, 0, APP_W, APP_H);
 }
 
 void Content::onTickEvent()
@@ -167,11 +206,6 @@ void Content::onTickEvent()
     outOfCanvasContent.end();
     
     interactiveContent.begin();
-//    ofClear(0);
-//    ofPushStyle();
-//    ofSetColor(ofColor::white);
-//    ofDrawRectangle(0, 0, APP_W, APP_H);
-//    ofPopStyle();
     ofClear(255);
     drawer.draw();
     interactiveContent.end();
@@ -195,4 +229,12 @@ void Content::saveScreen()
     
     fullScreenResult.readToPixels(px);
     ofSaveImage(px, "imgs/saved/bgMask.png");
+}
+
+void Content::updateInteractionContour()
+{
+    interactionContour.begin();
+    ofClear(0);
+    outOfCanvasContent.draw(0, 0, interactionContour.getWidth(), interactionContour.getHeight());
+    interactionContour.end();
 }

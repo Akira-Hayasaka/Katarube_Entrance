@@ -26,6 +26,7 @@ public:
     void drawLeft();
     void drawRight();
     void drawB2DEdge();
+    void drawInteractionContour();
     ofTexture& getFullScreenTexture() { return fullScreenResult.getTexture(); }
     ofPolyline& getB2DEdge() { return b2dEdge; }
     
@@ -34,10 +35,12 @@ public:
 private:
     
     void onTickEvent();
+    void updateInteractionContour();
     
     ofFbo fullScreenResult;
     ofFbo outOfCanvasContent;
     ofFbo interactiveContent;
+    ofFbo interactionContour;
     ofFbo bg;
     ofFbo bgMask;
     ofShader blendOutput;

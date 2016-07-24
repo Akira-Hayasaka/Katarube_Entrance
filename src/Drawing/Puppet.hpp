@@ -33,6 +33,9 @@ private:
     float rot;
     PuppetInstance instance;
     ofPtr<ofxBox2dPolygon> b2dObj;
+    
+    // debug
+    vector<ofPolyline> lines;
 };
 
 #endif /* Puppet_hpp */
