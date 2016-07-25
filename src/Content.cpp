@@ -13,7 +13,7 @@ void Content::setup()
     fullScreenResult.allocate(APP_W, APP_H);
     outOfCanvasContent.allocate(APP_W, APP_H);
     interactiveContent.allocate(APP_W, APP_H);
-    interactionContour.allocate(APP_W/3, APP_H/3);
+    interactionSource.allocate(APP_W/4, APP_H/4);
     bg.allocate(APP_W, APP_H);
     bgMask.allocate(APP_W, APP_H);
     blendOutput.load("shaders/common/simpleVert.vert", "shaders/scene/blendOutput.frag");
@@ -46,7 +46,6 @@ void Content::setup()
     fullScreenResult.end();
     
     // try 5 times
-    ofxCv::ContourFinder contourFinder;
     for (int i = 0; i < 5; i++)
     {
         contourFinder.setMinAreaRadius(0);
@@ -79,11 +78,11 @@ void Content::setup()
     Globals::box2dBBox.at(0) = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
     Globals::box2dBBox.at(0)->addVertexes(topLine);
     Globals::box2dBBox.at(0)->setPhysics(0.0, 0.5, 0.5);
-    Globals::box2dBBox.at(0)->create(Globals::box2d.getWorld());
+    Globals::box2dBBox.at(0)->create(Globals::box2d->getWorld());
     Globals::box2dBBox.at(1) = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
     Globals::box2dBBox.at(1)->addVertexes(btmLine);
     Globals::box2dBBox.at(1)->setPhysics(0.0, 0.5, 0.5);
-    Globals::box2dBBox.at(1)->create(Globals::box2d.getWorld());
+    Globals::box2dBBox.at(1)->create(Globals::box2d->getWorld());
 
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {
@@ -118,8 +117,8 @@ void Content::update()
     cutout.update();
     drawer.update();
     
-    // update interaction contour(body & kinect) every frame
-    updateInteractionContour();
+    // update interaction contour (body & kinect) every frame
+    updateinteractionSource();
 }
 
 void Content::genFullScreenContent()
@@ -192,9 +191,42 @@ void Content::drawB2DEdge()
     ofPopMatrix();
 }
 
-void Content::drawInteractionContour()
+void Content::drawinteractionContours()
 {
-    interactionContour.draw(0, 0, APP_W, APP_H);
+    interactionSource.draw(0, 0, APP_W, APP_H);
+    
+    ofPushStyle();
+    ofColor c = ofColor::red;
+    int i = 0;
+    for (auto pl : interactionContours)
+    {
+        c.setHueAngle(ofMap(i, 0, interactionContours.size(), 0, 360));
+        ofPushStyle();
+        ofSetColor(c);
+        pl.draw();
+        ofPopStyle();
+        i++;
+    }
+    ofPopStyle();
+    
+    interactionSource.draw(0, 0, 1920, 1080 / 2);
+    
+    ofPushMatrix();
+    ofScale(interactionSource.getWidth() / 1920, interactionSource.getHeight() / (1080 / 2));
+    ofPushStyle();
+    c = ofColor::red;
+    i = 0;
+    for (auto pl : interactionContours)
+    {
+        c.setHueAngle(ofMap(i, 0, interactionContours.size(), 0, 360));
+        ofPushStyle();
+        ofSetColor(c);
+        pl.draw();
+        ofPopStyle();
+        i++;
+    }
+    ofPopStyle();
+    ofPopMatrix();
 }
 
 void Content::onTickEvent()
@@ -231,10 +263,90 @@ void Content::saveScreen()
     ofSaveImage(px, "imgs/saved/bgMask.png");
 }
 
-void Content::updateInteractionContour()
+void Content::updateinteractionSource()
 {
-    interactionContour.begin();
+    vector<ofPolyline> kinectContours  = Globals::kinect.getContourInfo(Globals::kinectMat);
+    vector<ofPath> contourPaths;
+    for (auto& c : kinectContours)
+    {
+        int idx = 0;
+        ofPath path;
+        for (auto& p : c.getVertices())
+        {
+            if (idx == 0)
+            {
+                path.newSubPath();
+                path.moveTo(p);
+            }
+            else
+            {
+                path.lineTo(p);
+            }
+            idx++;
+        }
+        path.close();
+        path.simplify();
+        path.setFillColor(ofColor::white);
+        contourPaths.push_back(path);
+    }
+    
+    interactionSource.begin();
     ofClear(0);
-    outOfCanvasContent.draw(0, 0, interactionContour.getWidth(), interactionContour.getHeight());
-    interactionContour.end();
+    Globals::completeWhite.begin();
+    outOfCanvasContent.draw(0, 0, interactionSource.getWidth(), interactionSource.getHeight());
+    Globals::completeWhite.end();
+    ofPushStyle();
+    ofFill();
+    for (auto c : contourPaths)
+        c.draw();
+    ofPopStyle();
+    interactionSource.end();
+    
+    ofPixels interactionPx;
+    interactionSource.readToPixels(interactionPx);
+    
+    interactionContours.clear();
+    contourFinder.setMinAreaRadius(50);
+    contourFinder.setMaxAreaRadius(1000);
+    contourFinder.setThreshold(128);
+    contourFinder.setSimplify(true);
+    contourFinder.findContours(interactionPx);
+    contourFinder.setFindHoles(false);
+    interactionContours = contourFinder.getPolylines();
+    
+//    for (auto& obj : interactionContourObjs)
+//    {
+//        Globals::box2d->getWorld()->DestroyBody(obj->body);
+////        obj->clear();
+//        obj.reset();
+//    }
+    interactionContourObjs.clear();
+    int idx = 0;
+    for (auto& c : interactionContours)
+    {
+        c.addVertex(c.getVertices().at(0));
+        c.simplify();
+        c = c.getSmoothed(3);
+        c = c.getResampledBySpacing(10);
+        c.getVertices().erase(c.getVertices().begin());
+        
+        if (c.size() > 5)
+        {
+            for (auto& p : c.getVertices())
+            {
+                // scale up contours
+                p *= APP_W / interactionSource.getWidth();
+            }
+            
+            ofPtr<ofxBox2dPolygon> contourObj = ofPtr<ofxBox2dPolygon>(new ofxBox2dPolygon);
+            contourObj->addVertices(c.getVertices());
+            contourObj->triangulatePoly();
+            contourObj->create(Globals::box2d->getWorld());
+            contourObj->setPhysics(10.0, 0.3, 0.0);            
+            interactionContourObjs.push_back(contourObj);
+        }
+        
+        idx++;
+    }
+    
 }

@@ -36,6 +36,7 @@ private:
     Content content;
     GUI gui;
     ThreadedContourFinder tContourFinder;
+    ofPtr<ofxBox2d> box2d;
     
     // debug
     bool bDrawTiny;

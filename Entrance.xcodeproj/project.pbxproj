@@ -688,6 +688,8 @@
 		E8F089DB4E81665B035986B6 /* CutoutAnim.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CutoutAnim.hpp; path = src/CutoutAnim/CutoutAnim.hpp; sourceTree = SOURCE_ROOT; };
 		E8FFD32E1883966A6C0FC4DC /* GUI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GUI.cpp; path = src/GUI.cpp; sourceTree = SOURCE_ROOT; };
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
+		E9286C6C1D45A21000D5FAD3 /* completeWhite.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = completeWhite.frag; sourceTree = "<group>"; };
+		E9286C721D45D70200D5FAD3 /* package.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = package.xml; path = bin/data/package.xml; sourceTree = "<group>"; };
 		E9B3EA1AE32C050C2FA7C55F /* FlyerBase.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FlyerBase.cpp; path = src/CutoutAnim/Flyer/FlyerBase.cpp; sourceTree = SOURCE_ROOT; };
 		E9F177831D405C2E00BC23BF /* triangle_mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_mesh.cpp; sourceTree = "<group>"; };
 		E9F177841D405C2E00BC23BF /* triangle_mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_mesh.h; sourceTree = "<group>"; };
@@ -1944,6 +1946,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				E9286C721D45D70200D5FAD3 /* package.xml */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E9F177B01D4168D500BC23BF /* shaders */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
@@ -2038,6 +2041,7 @@
 			children = (
 				E9F177B21D4168D500BC23BF /* chromaKey.frag */,
 				E9F177B31D4168D500BC23BF /* whitize.frag */,
+				E9286C6C1D45A21000D5FAD3 /* completeWhite.frag */,
 			);
 			path = color;
 			sourceTree = "<group>";

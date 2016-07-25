@@ -15,13 +15,16 @@ void ofApp::setup()
     Globals::curTickFrame = 0;
 	Globals::chromaKey.load("shaders/common/simpleVert.vert", "shaders/color/chromaKey.frag");
     Globals::whitize.load("shaders/common/simpleVert.vert", "shaders/color/whitize.frag");
+    Globals::completeWhite.load("shaders/common/simpleVert.vert", "shaders/color/completeWhite.frag");    
     Globals::strokeMask.load("shaders/common/simpleVert.vert", "shaders/scene/stroke.frag");
     Globals::kinect.setup();
     Globals::projMats.resize(NUM_PROJ);
-    Globals::box2d.init();
-    Globals::box2d.setGravity(0.0, 1.0);
-//    Globals::box2d.createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
-    Globals::box2d.setFPS(30);
+    box2d = ofPtr<ofxBox2d>(new ofxBox2d);
+    Globals::box2d = box2d.get();
+    Globals::box2d->init();
+    Globals::box2d->setGravity(0.0, 1.0);
+//    Globals::box2d->createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
+    Globals::box2d->setFPS(30);
     Globals::scrnQuad.getVertices().resize(4);
     Globals::scrnQuad.getTexCoords().resize(4);
     Globals::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
@@ -63,7 +66,7 @@ void ofApp::update()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     Globals::ELAPSED_TIME = ofGetElapsedTimef();
-    Globals::box2d.update();
+    Globals::box2d->update();
     Globals::curAppState = workflow.getCurStateStr();
     if (Globals::ELAPSED_TIME - Globals::lastTickTime > Globals::oneFrameDur)
     {
@@ -100,7 +103,7 @@ void ofApp::draw()
     
     if (gui.isVisible())
     {
-        content.drawInteractionContour();        
+        content.drawinteractionContours();
         content.drawB2DEdge();
     }
     gui.draw();
@@ -194,7 +197,7 @@ void ofApp::keyPressed(int key)
         float r = ofRandom(4, 20);		// a random radius 4px - 20px
         circles.push_back(shared_ptr<ofxBox2dCircle>(new ofxBox2dCircle));
         circles.back().get()->setPhysics(3.0, 0.53, 0.1);
-        circles.back().get()->setup(Globals::box2d.getWorld(), mouseX, mouseY, r);
+        circles.back().get()->setup(Globals::box2d->getWorld(), mouseX, mouseY, r);
     }
     if (key == 'm')
     {

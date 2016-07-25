@@ -21,7 +21,7 @@ namespace Globals
     vector<ofMatrix4x4> projMats;
     ofMatrix4x4 kinectMat;
     
-    ofxBox2d box2d;
+    ofxBox2d* box2d;
     vector<ofPtr<ofxBox2dEdge> > box2dBBox;
     ofPolyline b2dEdge;
     vector<BottomLineAndAng> bottomLineAndAngs;
@@ -37,6 +37,7 @@ namespace Globals
     // shaders
     ofShader chromaKey;
     ofShader whitize;
+    ofShader completeWhite;
     ofShader strokeMask;
     
     // events

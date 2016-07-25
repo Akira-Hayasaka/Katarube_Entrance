@@ -26,7 +26,7 @@ public:
     void drawLeft();
     void drawRight();
     void drawB2DEdge();
-    void drawInteractionContour();
+    void drawinteractionContours();
     ofTexture& getFullScreenTexture() { return fullScreenResult.getTexture(); }
     ofPolyline& getB2DEdge() { return b2dEdge; }
     
@@ -35,23 +35,25 @@ public:
 private:
     
     void onTickEvent();
-    void updateInteractionContour();
+    void updateinteractionSource();
     
     ofFbo fullScreenResult;
     ofFbo outOfCanvasContent;
     ofFbo interactiveContent;
-    ofFbo interactionContour;
+    ofFbo interactionSource;
     ofFbo bg;
     ofFbo bgMask;
     ofShader blendOutput;
     ofPolyline b2dEdge;
+    vector<ofPolyline> interactionContours;
+    vector<ofPtr<ofxBox2dPolygon> > interactionContourObjs;
     
     Body body;
     Ink ink;
-    
     CutoutAnim cutout;
-    
     Drawer drawer;
+    
+    ofxCv::ContourFinder contourFinder;
 };
 
 #endif /* Content_hpp */
