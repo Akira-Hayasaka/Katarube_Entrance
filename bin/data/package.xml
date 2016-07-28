@@ -1,4 +1,4 @@
-<kinectConnected>true</kinectConnected>
+<kinectConnected>false</kinectConnected>
 <workflow>
     <cutoutDur>20</cutoutDur>
     <logoDur>8</logoDur>

@@ -342,7 +342,7 @@ void Content::updateinteractionSource()
             contourObj->addVertices(c.getVertices());
             contourObj->triangulatePoly();
             contourObj->create(Globals::box2d->getWorld());
-            contourObj->setPhysics(10.0, 0.3, 0.0);            
+            contourObj->setPhysics(10.0, 0.3, 0.0);
             interactionContourObjs.push_back(contourObj);
         }
         

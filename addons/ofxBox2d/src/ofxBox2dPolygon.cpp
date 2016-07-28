@@ -101,7 +101,9 @@ void ofxBox2dPolygon::triangulatePoly(float resampleAmt, int nPointsInside) {
 		if(nPointsInside!=-1) addRandomPointsInside(newPoly, nPointsInside);
 		triangles = triangulatePolygonWithOutline(newPoly, polyOutline);
 			
-		clear();
+//		clear();
+        ofPolyline::clear();
+        mesh.clear();
 		if(wasClosed) ofPolyline::setClosed(wasClosed);
         
 		// now add back into polyshape
