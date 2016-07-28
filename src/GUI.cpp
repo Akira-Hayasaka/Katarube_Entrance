@@ -55,7 +55,7 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
     
     // kinect warp
     ofVec2f tweakKinectRes = ofVec2f(KINECT_W, KINECT_H) * WARP_TWEAK_SCALE;
-    ofPoint warpOrig = ofPoint(PROJ_W/2 - KINECT_W/2*WARP_TWEAK_SCALE, PROJ_H/2 - KINECT_H/2*WARP_TWEAK_SCALE);
+    ofPoint warpOrig = ofPoint(APP_W/2 - KINECT_W/2*WARP_TWEAK_SCALE, PROJ_H/2 - KINECT_H/2*WARP_TWEAK_SCALE);
     kinectWarper.setSourceRect(ofRectangle(0, 0, KINECT_W, KINECT_H));
     kinectWarper.setTopLeftCornerPosition(ofPoint(warpOrig.x, warpOrig.y));
     kinectWarper.setTopRightCornerPosition(ofPoint(warpOrig.x + tweakKinectRes.x, warpOrig.y));
@@ -78,7 +78,9 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
     kyoInkGui.setDefaultWidth(1000);
     kyoInkGui.setup(kyoInkUniforms->parameters, "settings/uniforms.xml");
     kyoInkGui.loadFromFile("settings/uniforms.xml");
-    kyoInkGui.setPosition(kinectGUI.getPosition().x, kinectGUI.getPosition().y + kinectGUI.getHeight() + 10);
+    
+    kyoInkGui.setPosition(10, APP_H - kyoInkGui.getHeight() + 10);
+    kinectGUI.setPosition(kyoInkGui.getPosition().x + kyoInkGui.getWidth() + 10, kyoInkGui.getPosition().y);
 }
 
 void GUI::update()

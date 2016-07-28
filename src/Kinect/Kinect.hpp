@@ -64,6 +64,9 @@ private:
     bool bFindContourHole;
 
     bool bInited;
+    
+    // debug
+    ofVideoPlayer fakeKinect;
 };
 
 #endif /* Kinect_hpp */

@@ -15,35 +15,44 @@ void Kinect::setup()
     bKinectConnected = ofToBool(package.getValue("kinectConnected", "true"));
     package.clear();
     
-    if (!bKinectConnected)
-        return;
-    
-    // this calculation uses some cpu, leave off if not needed
-    device.setRegistration(true);
-    
-    device.init();
-    device.open();
-    
-    if (device.isConnected())
+    if (bKinectConnected)
     {
-        ofLogNotice() << "sensor-emitter dist: " << device.getSensorEmitterDistance() << "cm";
-        ofLogNotice() << "sensor-camera dist:  " << device.getSensorCameraDistance() << "cm";
-        ofLogNotice() << "zero plane pixel size: " << device.getZeroPlanePixelSize() << "mm";
-        ofLogNotice() << "zero plane dist: " << device.getZeroPlaneDistance() << "mm";
+        // this calculation uses some cpu, leave off if not needed
+        device.setRegistration(true);
+        
+        device.init();
+        device.open();
+        
+        if (device.isConnected())
+        {
+            ofLogNotice() << "sensor-emitter dist: " << device.getSensorEmitterDistance() << "cm";
+            ofLogNotice() << "sensor-camera dist:  " << device.getSensorCameraDistance() << "cm";
+            ofLogNotice() << "zero plane pixel size: " << device.getZeroPlanePixelSize() << "mm";
+            ofLogNotice() << "zero plane dist: " << device.getZeroPlaneDistance() << "mm";
+        }
+        
+        threshedTex.allocate(device.getWidth(), device.getHeight());
+        depthThreshShader.load("shaders/common/simpleVert.vert", "shaders/kinect/threshDepth.frag");
+        
+        
+        bInited = false;
     }
-    
-    threshedTex.allocate(device.getWidth(), device.getHeight());
-    depthThreshShader.load("shaders/common/simpleVert.vert", "shaders/kinect/threshDepth.frag");
-    
-    bInited = false;
+    else
+    {
+        fakeKinect.load("mov/debug/kinectTest.mov");
+        fakeKinect.setLoopState(OF_LOOP_NORMAL);
+        fakeKinect.play();
+        bInited = false;;
+    }
 }
 
 void Kinect::update()
 {
-    if (!bKinectConnected)
-        return;
+    if (bKinectConnected)
+        device.update();
+    else
+        fakeKinect.update();
     
-    device.update();
     storeDepthTex();
     threshDepthTex();
     makeContours();
@@ -84,10 +93,21 @@ void Kinect::drawContour(float x, float y, float w, float h)
 
 void Kinect::storeDepthTex()
 {
-    if (device.isFrameNew())
+    if (bKinectConnected)
     {
-        depthTex = device.getDepthTexture();
-        bInited = true;
+        if (device.isFrameNew())
+        {
+            depthTex = device.getDepthTexture();
+            bInited = true;
+        }
+    }
+    else
+    {
+        if (fakeKinect.isFrameNew())
+        {
+            depthTex = fakeKinect.getTexture();
+            bInited = true;
+        }
     }
 }
 
