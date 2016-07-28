@@ -144,10 +144,10 @@ void GUI::draw()
         // draw warped kinect depth & contour
         if (Globals::kinect.isInited())
         {
-            ofPushMatrix();
-            ofMultMatrix(Globals::kinectMat);
-            kinectFbo.draw(0, 0);
-            ofPopMatrix();
+            //ofPushMatrix();
+            //ofMultMatrix(Globals::kinectMat);
+            //kinectFbo.draw(0, 0);
+            //ofPopMatrix();
             
             ofPushStyle();
             ofFill();

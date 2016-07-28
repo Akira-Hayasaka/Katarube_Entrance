@@ -1,11 +1,11 @@
 <kinect>
-	<kinect_head_angle>9</kinect_head_angle>
-	<depth_thresh_near_cm>176.5</depth_thresh_near_cm>
-	<depth_thresh_far_cm>221.5</depth_thresh_far_cm>
+	<kinect_head_angle>2</kinect_head_angle>
+	<depth_thresh_near_cm>282</depth_thresh_near_cm>
+	<depth_thresh_far_cm>385</depth_thresh_far_cm>
 <kinect/>
-	<contour_min_area>41.3734</contour_min_area>
+	<contour_min_area>18.0156</contour_min_area>
 	<contour_max_area>288.705</contour_max_area>
-	<contour_bri_threshold>73.7109</contour_bri_threshold>
+	<contour_bri_threshold>25.1016</contour_bri_threshold>
 	<find_hole>0</find_hole>
 <angle_adjust_top>0</angle_adjust_top>
 	<angle_adjust_bottom>0</angle_adjust_bottom>
