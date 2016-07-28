@@ -273,6 +273,7 @@ void Content::updateinteractionSource()
         ofPath path;
         for (auto& p : c.getVertices())
         {
+			p /= 4.0;
             if (idx == 0)
             {
                 path.newSubPath();
@@ -306,7 +307,7 @@ void Content::updateinteractionSource()
     interactionSource.readToPixels(interactionPx);
     
     interactionContours.clear();
-    contourFinder.setMinAreaRadius(50);
+    contourFinder.setMinAreaRadius(10);
     contourFinder.setMaxAreaRadius(1000);
     contourFinder.setThreshold(128);
     contourFinder.setSimplify(true);

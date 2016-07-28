@@ -2,7 +2,11 @@
 
 void ofApp::setup()
 {
-	disableEdgeSwipeGesture();
+	//disableEdgeSwipeGesture();
+
+#ifdef TARGET_WIN32
+	setLogToFile("logs");
+#endif
 
     ofEnableAlphaBlending();
     ofSetVerticalSync(true);
@@ -159,7 +163,7 @@ void ofApp::keyPressed(int key)
     }
     if (key == 'f')
     {
-        ofNotifyEvent(Globals::fetchEvent);
+		ofToggleFullscreen();
     }
     if (key == 'p')
     {
