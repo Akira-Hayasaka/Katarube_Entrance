@@ -50,7 +50,7 @@ void Puppet::setup(string paintingID, ofTexture tex, vector<ofPolyline> lines, o
 
             b2dObj = ofPtr<ofxBox2dPolygon>(new ofxBox2dPolygon);
             b2dObj->addVertices(pts);
-            b2dObj->setPhysics(3.0, 0.53, 0.1);
+            b2dObj->setPhysics(1.0, 0.3, 0.3);
             b2dObj->triangulatePoly();
             b2dObj->create(Globals::box2d->getWorld());
             b2dObj->setPosition(pos);

@@ -22,7 +22,7 @@ public:
     void setup();
     void update();
     
-    bool isInited() { return device.isInitialized() && device.isConnected() && bInited; }
+    bool isInited();
     ofTexture& getDepthTexture() { return depthTex; }
     ofTexture& getThreshedTexture() { return threshedTex.getTexture(); }
     void drawContour(float x, float y, float w, float h);

@@ -58,7 +58,7 @@ void Content::setup()
     b2dEdge = b2dEdge.getResampledByCount(200);
     Globals::b2dEdge = b2dEdge;
     
-    ofPolyline topLine, btmLine;
+    ofPolyline btmLine;
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {
         ofVec2f perp;
@@ -70,19 +70,13 @@ void Content::setup()
         
         if (fabs(ang) < 10.0)
             btmLine.addVertex(b2dEdge.getVertices().at(i));
-        if (fabs(ang) > 170.0)
-            topLine.addVertex(b2dEdge.getVertices().at(i));
     }
     
-    Globals::box2dBBox.resize(2);
+    Globals::box2dBBox.resize(1);
     Globals::box2dBBox.at(0) = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-    Globals::box2dBBox.at(0)->addVertexes(topLine);
+    Globals::box2dBBox.at(0)->addVertexes(btmLine);
     Globals::box2dBBox.at(0)->setPhysics(0.0, 0.5, 0.5);
     Globals::box2dBBox.at(0)->create(Globals::box2d->getWorld());
-    Globals::box2dBBox.at(1) = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-    Globals::box2dBBox.at(1)->addVertexes(btmLine);
-    Globals::box2dBBox.at(1)->setPhysics(0.0, 0.5, 0.5);
-    Globals::box2dBBox.at(1)->create(Globals::box2d->getWorld());
 
     for (int i = 0; i < b2dEdge.getVertices().size(); i++)
     {
@@ -301,6 +295,12 @@ void Content::updateinteractionSource()
     for (auto c : contourPaths)
         c.draw();
     ofPopStyle();
+    
+    ofPushStyle();
+    ofSetColor(ofColor::white);
+    ofDrawCircle(ofGetMouseX()/2, ofGetMouseY()/4, 50);
+    ofPopStyle();
+    
     interactionSource.end();
     
     ofPixels interactionPx;
@@ -343,7 +343,7 @@ void Content::updateinteractionSource()
             contourObj->addVertices(c.getVertices());
             contourObj->triangulatePoly();
             contourObj->create(Globals::box2d->getWorld());
-            contourObj->setPhysics(10.0, 0.3, 0.0);
+            contourObj->setPhysics(10.0, 0.3, 0.3);
             interactionContourObjs.push_back(contourObj);
         }
         

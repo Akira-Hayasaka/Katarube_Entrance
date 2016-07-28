@@ -26,7 +26,7 @@ void ofApp::setup()
     box2d = ofPtr<ofxBox2d>(new ofxBox2d);
     Globals::box2d = box2d.get();
     Globals::box2d->init();
-    Globals::box2d->setGravity(0.0, 1.0);
+    Globals::box2d->setGravity(0.0, 10.0);
 //    Globals::box2d->createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
     Globals::box2d->setFPS(30);
     Globals::scrnQuad.getVertices().resize(4);
@@ -64,6 +64,9 @@ void ofApp::setup()
     
     // debug
     bDrawTiny = true;
+//    fakeKinect.load("mov/debug/kinectTest.mov");
+//    fakeKinect.setLoopState(OF_LOOP_NORMAL);
+//    fakeKinect.play();
 }
 
 void ofApp::update()
@@ -83,7 +86,9 @@ void ofApp::update()
     content.update();
     gui.update();
     
-    content.genFullScreenContent();    
+    content.genFullScreenContent();
+    
+//    fakeKinect.update();
 }
 
 void ofApp::draw()
@@ -120,6 +125,10 @@ void ofApp::draw()
         circles[i].get()->draw();
     }
     ofPopStyle();
+    
+//    fakeKinect.draw(0, 0);
+//    ofTexture depthTex = fakeKinect.getTexture();
+//    depthTex.draw(0, 0);
 
     ofDrawBitmapStringHighlight("State: " + workflow.getCurStateStr(), 10, ofGetHeight()-60);
     ofDrawBitmapStringHighlight("Tw: " + ofToString(Tweenzor::getSize()), 10, ofGetHeight()-40);

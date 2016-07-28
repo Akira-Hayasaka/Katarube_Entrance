@@ -30,20 +30,17 @@ void Kinect::setup()
             ofLogNotice() << "zero plane pixel size: " << device.getZeroPlanePixelSize() << "mm";
             ofLogNotice() << "zero plane dist: " << device.getZeroPlaneDistance() << "mm";
         }
-        
-        threshedTex.allocate(device.getWidth(), device.getHeight());
-        depthThreshShader.load("shaders/common/simpleVert.vert", "shaders/kinect/threshDepth.frag");
-        
-        
-        bInited = false;
     }
     else
     {
         fakeKinect.load("mov/debug/kinectTest.mov");
         fakeKinect.setLoopState(OF_LOOP_NORMAL);
         fakeKinect.play();
-        bInited = false;;
     }
+    
+    threshedTex.allocate(device.getWidth(), device.getHeight());
+    depthThreshShader.load("shaders/common/simpleVert.vert", "shaders/kinect/threshDepth.frag");
+    bInited = false;
 }
 
 void Kinect::update()
@@ -56,6 +53,14 @@ void Kinect::update()
     storeDepthTex();
     threshDepthTex();
     makeContours();
+}
+
+bool Kinect::isInited()
+{
+    if (bKinectConnected)
+        return device.isInitialized() && device.isConnected() && bInited;
+    else
+        return false;//bInited;
 }
 
 vector<ofPolyline> Kinect::getContourInfo(ofMatrix4x4 warpMat)
