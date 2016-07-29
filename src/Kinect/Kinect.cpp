@@ -63,7 +63,7 @@ bool Kinect::isInited()
         return false;//bInited;
 }
 
-vector<ofPolyline> Kinect::getContourInfo(ofMatrix4x4 warpMat)
+vector<ofPolyline> Kinect::getWarpedContour(ofMatrix4x4 warpMat)
 {
     vector<ofPolyline> rtn;
     if (isInited())

@@ -104,7 +104,7 @@ void GUI::update()
             contourPaths.clear();
             
             // get warped contour
-            contours = Globals::kinect.getContourInfo(Globals::kinectMat);
+            contours = Globals::kinect.getWarpedContour(Globals::kinectMat);
             
             kinectFbo.begin();
             ofClear(0);

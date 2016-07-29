@@ -19,6 +19,7 @@ class Puppet
 {
 public:
     
+    ~Puppet();
     void setup(string paintingID, ofTexture tex, vector<ofPolyline> lines, ofPoint pos);
     void update();
     void draw();

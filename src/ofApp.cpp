@@ -26,9 +26,7 @@ void ofApp::setup()
     box2d = ofPtr<ofxBox2d>(new ofxBox2d);
     Globals::box2d = box2d.get();
     Globals::box2d->init();
-    Globals::box2d->setGravity(0.0, 10.0);
-//    Globals::box2d->createBounds(ofRectangle(0, 0, APP_W, APP_H)); // need to be mask shape
-    Globals::box2d->setFPS(30);
+    Globals::box2d->setGravity(0.0, 0.0);
     Globals::scrnQuad.getVertices().resize(4);
     Globals::scrnQuad.getTexCoords().resize(4);
     Globals::scrnQuad.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
@@ -46,7 +44,6 @@ void ofApp::setup()
     }
     blendDir.close();
     Globals::petip.load("imgs/pentip/pentip.png");
-//    Globals::petip.resize(32, 32);
     
     Tweenzor::init();
     
@@ -64,15 +61,13 @@ void ofApp::setup()
     
     // debug
     bDrawTiny = true;
-//    fakeKinect.load("mov/debug/kinectTest.mov");
-//    fakeKinect.setLoopState(OF_LOOP_NORMAL);
-//    fakeKinect.play();
 }
 
 void ofApp::update()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     Globals::ELAPSED_TIME = ofGetElapsedTimef();
+    Globals::box2d->setFPS(ofGetFrameRate());
     Globals::box2d->update();
     Globals::curAppState = workflow.getCurStateStr();
     if (Globals::ELAPSED_TIME - Globals::lastTickTime > Globals::oneFrameDur)
@@ -87,8 +82,6 @@ void ofApp::update()
     gui.update();
     
     content.genFullScreenContent();
-    
-//    fakeKinect.update();
 }
 
 void ofApp::draw()
@@ -125,10 +118,6 @@ void ofApp::draw()
         circles[i].get()->draw();
     }
     ofPopStyle();
-    
-//    fakeKinect.draw(0, 0);
-//    ofTexture depthTex = fakeKinect.getTexture();
-//    depthTex.draw(0, 0);
 
     ofDrawBitmapStringHighlight("State: " + workflow.getCurStateStr(), 10, ofGetHeight()-60);
     ofDrawBitmapStringHighlight("Tw: " + ofToString(Tweenzor::getSize()), 10, ofGetHeight()-40);

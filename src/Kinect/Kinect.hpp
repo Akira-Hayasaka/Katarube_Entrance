@@ -26,7 +26,8 @@ public:
     ofTexture& getDepthTexture() { return depthTex; }
     ofTexture& getThreshedTexture() { return threshedTex.getTexture(); }
     void drawContour(float x, float y, float w, float h);
-    vector<ofPolyline> getContourInfo(ofMatrix4x4 warpMat);
+    vector<ofPolyline> getContour() { return contourFinder.getPolylines(); }
+    vector<ofPolyline> getWarpedContour(ofMatrix4x4 warpMat);
     
     void onAngleChanged(int& angle) { device.setCameraTiltAngle(angle); }
     void onNearThreshChanged(float& nearThresh) { this->nearThresh = nearThresh; }

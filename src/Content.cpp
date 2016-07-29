@@ -203,10 +203,10 @@ void Content::drawinteractionContours()
     }
     ofPopStyle();
     
-    interactionSource.draw(0, 0, 1920, 1080 / 2);
+    interactionSource.draw(0, 0, PROJ_W, PROJ_H / 2);
     
     ofPushMatrix();
-    ofScale(interactionSource.getWidth() / 1920, interactionSource.getHeight() / (1080 / 2));
+    ofScale(interactionSource.getWidth() / PROJ_W, interactionSource.getHeight() / (PROJ_H / 2));
     ofPushStyle();
     c = ofColor::red;
     i = 0;
@@ -259,7 +259,7 @@ void Content::saveScreen()
 
 void Content::updateinteractionSource()
 {
-    vector<ofPolyline> kinectContours  = Globals::kinect.getContourInfo(Globals::kinectMat);
+    vector<ofPolyline> kinectContours  = Globals::kinect.getWarpedContour(Globals::kinectMat);
     vector<ofPath> contourPaths;
     for (auto& c : kinectContours)
     {
@@ -287,9 +287,6 @@ void Content::updateinteractionSource()
     
     interactionSource.begin();
     ofClear(0);
-    Globals::completeWhite.begin();
-    outOfCanvasContent.draw(0, 0, interactionSource.getWidth(), interactionSource.getHeight());
-    Globals::completeWhite.end();
     ofPushStyle();
     ofFill();
     for (auto c : contourPaths)
@@ -315,12 +312,6 @@ void Content::updateinteractionSource()
     contourFinder.setFindHoles(false);
     interactionContours = contourFinder.getPolylines();
     
-//    for (auto& obj : interactionContourObjs)
-//    {
-//        Globals::box2d->getWorld()->DestroyBody(obj->body);
-////        obj->clear();
-//        obj.reset();
-//    }
     interactionContourObjs.clear();
     int idx = 0;
     for (auto& c : interactionContours)

@@ -8,6 +8,12 @@
 
 #include "Puppet.hpp"
 
+Puppet::~Puppet()
+{
+    b2dObj->clear();
+    b2dObj.reset();
+}
+
 void Puppet::setup(string paintingID, ofTexture tex, vector<ofPolyline> lines, ofPoint pos)
 {
     this->tex = tex;
