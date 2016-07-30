@@ -34,6 +34,9 @@ namespace Globals
     
     ofImage petip;
     
+    KinectContourTransform leftKinectTrans;
+    KinectContourTransform rightKinectTrans;
+    
     // shaders
     ofShader chromaKey;
     ofShader whitize;

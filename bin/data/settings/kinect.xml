@@ -1,7 +1,7 @@
 <kinect>
-	<kinect_head_angle>2</kinect_head_angle>
-	<depth_thresh_near_cm>282</depth_thresh_near_cm>
-	<depth_thresh_far_cm>385</depth_thresh_far_cm>
+	<kinect_head_angle>-12</kinect_head_angle>
+	<depth_thresh_near_cm>84.5</depth_thresh_near_cm>
+	<depth_thresh_far_cm>171</depth_thresh_far_cm>
 <kinect/>
 	<contour_min_area>18.0156</contour_min_area>
 	<contour_max_area>288.705</contour_max_area>
@@ -10,4 +10,12 @@
 <angle_adjust_top>0</angle_adjust_top>
 	<angle_adjust_bottom>0</angle_adjust_bottom>
 <angle_adjust>-0.00625002</angle_adjust>
+<leftKinectPosX>48.0002</leftKinectPosX>
+	<leftKinectPosY>10.125</leftKinectPosY>
+	<leftKinectAng>3.9375</leftKinectAng>
+	<leftKinectScale>1</leftKinectScale>
+	<rightKinectAng>-6.1875</rightKinectAng>
+	<rightKinectScale>1</rightKinectScale>
+<rightKinectPosX>228</rightKinectPosX>
+	<rightKinectPosY>27</rightKinectPosY>
 </kinect>

@@ -690,6 +690,7 @@
 		E90542C149C83316678AB011 /* cxmisc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cxmisc.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cxmisc.h; sourceTree = SOURCE_ROOT; };
 		E9286C6C1D45A21000D5FAD3 /* completeWhite.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = completeWhite.frag; sourceTree = "<group>"; };
 		E9286C721D45D70200D5FAD3 /* package.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = package.xml; path = bin/data/package.xml; sourceTree = "<group>"; };
+		E93009911D4C402E003531B5 /* contour.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = contour.frag; sourceTree = "<group>"; };
 		E9B3EA1AE32C050C2FA7C55F /* FlyerBase.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FlyerBase.cpp; path = src/CutoutAnim/Flyer/FlyerBase.cpp; sourceTree = SOURCE_ROOT; };
 		E9F177831D405C2E00BC23BF /* triangle_mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_mesh.cpp; sourceTree = "<group>"; };
 		E9F177841D405C2E00BC23BF /* triangle_mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_mesh.h; sourceTree = "<group>"; };
@@ -2073,6 +2074,7 @@
 				E9F177BE1D4168D500BC23BF /* blendOutput.frag */,
 				E9F177BF1D4168D500BC23BF /* seqTweak.frag */,
 				E9F177C01D4168D500BC23BF /* stroke.frag */,
+				E93009911D4C402E003531B5 /* contour.frag */,
 			);
 			path = scene;
 			sourceTree = "<group>";

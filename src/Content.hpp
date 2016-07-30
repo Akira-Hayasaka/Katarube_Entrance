@@ -43,10 +43,15 @@ private:
     ofFbo interactionSource;
     ofFbo bg;
     ofFbo bgMask;
+    ofFbo contoutMask;
     ofShader blendOutput;
     ofPolyline b2dEdge;
     vector<ofPolyline> interactionContours;
+    vector<ofPath> contourPaths;
+    ofShader contourShader;
     vector<ofPtr<ofxBox2dPolygon> > interactionContourObjs;
+    const float interactionSourceRatio = 4.0;
+    int blendIdx;
     
     Body body;
     Ink ink;

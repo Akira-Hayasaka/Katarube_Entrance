@@ -13,10 +13,19 @@ void Content::setup()
     fullScreenResult.allocate(APP_W, APP_H);
     outOfCanvasContent.allocate(APP_W, APP_H);
     interactiveContent.allocate(APP_W, APP_H);
-    interactionSource.allocate(APP_W/4, APP_H/4);
+    interactionSource.allocate(APP_W/interactionSourceRatio, APP_H/interactionSourceRatio);
     bg.allocate(APP_W, APP_H);
     bgMask.allocate(APP_W, APP_H);
+    contoutMask.allocate(APP_W, APP_H);
     blendOutput.load("shaders/common/simpleVert.vert", "shaders/scene/blendOutput.frag");
+    
+    interactionSource.begin();
+    ofClear(0);
+    interactionSource.end();
+    
+    contoutMask.begin();
+    ofClear(0);
+    contoutMask.end();
     
     ofTexture bg_s;
     ofTexture bgMask_s;
@@ -101,6 +110,8 @@ void Content::setup()
     cutout.setup();
     drawer.setup();
     
+    contourShader.load("shaders/common/simpleVert.vert", "shaders/scene/contour.frag");
+    
     ofAddListener(Globals::tickEvent, this, &Content::onTickEvent);
 }
 
@@ -112,7 +123,8 @@ void Content::update()
     drawer.update();
     
     // update interaction contour (body & kinect) every frame
-    updateinteractionSource();
+    if (Globals::curAppState == "INTERACTION")
+        updateinteractionSource();
 }
 
 void Content::genFullScreenContent()
@@ -128,9 +140,9 @@ void Content::genFullScreenContent()
     blendOutput.setUniformTexture("bg", bg.getTexture(), 4);
     blendOutput.setUniformTexture("bgMask", bgMask.getTexture(), 5);
     if (Globals::curAppState == "INTERACTION")
-        blendOutput.setUniform1f("doRdmForInteractive", 1.0);
+        blendOutput.setUniform1f("doInteractive", 1.0);
     else
-        blendOutput.setUniform1f("doRdmForInteractive", 0.0);
+        blendOutput.setUniform1f("doInteractive", 0.0);
     blendOutput.setUniform3f("rdmForInteractive", ofRandom(-0.02, 0.02), ofRandom(-0.02, 0.02), ofRandom(-0.02, 0.02));
     blendOutput.setUniform2f("res", APP_W, APP_H);
     drawPlane(APP_W, APP_H);
@@ -187,7 +199,40 @@ void Content::drawB2DEdge()
 
 void Content::drawinteractionContours()
 {
-    interactionSource.draw(0, 0, APP_W, APP_H);
+//    interactionSource.draw(0, 0, APP_W, APP_H);
+//    
+//    ofPushStyle();
+//    ofColor c = ofColor::red;
+//    int i = 0;
+//    for (auto pl : interactionContours)
+//    {
+//        c.setHueAngle(ofMap(i, 0, interactionContours.size(), 0, 360));
+//        ofPushStyle();
+//        ofSetColor(c);
+//        pl.draw();
+//        ofPopStyle();
+//        i++;
+//    }
+//    ofPopStyle();
+//    
+//    interactionSource.draw(0, 0, PROJ_W, PROJ_H / 2);
+//    
+//    ofPushMatrix();
+//    ofScale(interactionSource.getWidth() / PROJ_W, interactionSource.getHeight() / (PROJ_H / 2));
+//    ofPushStyle();
+//    c = ofColor::red;
+//    i = 0;
+//    for (auto pl : interactionContours)
+//    {
+//        c.setHueAngle(ofMap(i, 0, interactionContours.size(), 0, 360));
+//        ofPushStyle();
+//        ofSetColor(c);
+//        pl.draw();
+//        ofPopStyle();
+//        i++;
+//    }
+//    ofPopStyle();
+//    ofPopMatrix();
     
     ofPushStyle();
     ofColor c = ofColor::red;
@@ -201,30 +246,15 @@ void Content::drawinteractionContours()
         ofPopStyle();
         i++;
     }
-    ofPopStyle();
-    
-    interactionSource.draw(0, 0, PROJ_W, PROJ_H / 2);
-    
-    ofPushMatrix();
-    ofScale(interactionSource.getWidth() / PROJ_W, interactionSource.getHeight() / (PROJ_H / 2));
-    ofPushStyle();
-    c = ofColor::red;
-    i = 0;
-    for (auto pl : interactionContours)
-    {
-        c.setHueAngle(ofMap(i, 0, interactionContours.size(), 0, 360));
-        ofPushStyle();
-        ofSetColor(c);
-        pl.draw();
-        ofPopStyle();
-        i++;
-    }
-    ofPopStyle();
     ofPopMatrix();
+    
+    contoutMask.draw(0, 0);
 }
 
 void Content::onTickEvent()
 {
+    blendIdx = ofRandom(Globals::bodyBlendTexs.size()-1);
+    
      // draw every stop motion content here
     outOfCanvasContent.begin();
     ofClear(0);
@@ -234,6 +264,15 @@ void Content::onTickEvent()
     interactiveContent.begin();
     ofClear(255);
     drawer.draw();
+    
+    contourShader.begin();
+    contourShader.setUniformTexture("tex", Globals::bodyBlendTexs.at(blendIdx), 0);
+    contourShader.setUniformTexture("mask", contoutMask.getTexture(), 1);
+    contourShader.setUniform2f("appRes", APP_W, APP_H);
+    contourShader.setUniform2f("texRes", Globals::bodyBlendTexs.at(blendIdx).getWidth(), Globals::bodyBlendTexs.at(blendIdx).getHeight());
+    drawPlane(APP_W, APP_H);
+    contourShader.end();
+    
     interactiveContent.end();
 }
 
@@ -259,15 +298,15 @@ void Content::saveScreen()
 
 void Content::updateinteractionSource()
 {
-    vector<ofPolyline> kinectContours  = Globals::kinect.getWarpedContour(Globals::kinectMat);
-    vector<ofPath> contourPaths;
+    vector<ofPolyline> kinectContours  = Globals::kinect.getContour();
+    contourPaths.clear();
     for (auto& c : kinectContours)
     {
         int idx = 0;
         ofPath path;
         for (auto& p : c.getVertices())
         {
-			p /= 4.0;
+			p /= interactionSourceRatio;
             if (idx == 0)
             {
                 path.newSubPath();
@@ -280,7 +319,6 @@ void Content::updateinteractionSource()
             idx++;
         }
         path.close();
-        path.simplify();
         path.setFillColor(ofColor::white);
         contourPaths.push_back(path);
     }
@@ -289,15 +327,26 @@ void Content::updateinteractionSource()
     ofClear(0);
     ofPushStyle();
     ofFill();
+    ofSetRectMode(OF_RECTMODE_CENTER);
+    
+    ofPushMatrix();
+    ofTranslate(Globals::leftKinectTrans.pos);
+    ofScale(Globals::leftKinectTrans.scale, Globals::leftKinectTrans.scale);
+    ofRotateZ(Globals::leftKinectTrans.ang);
     for (auto c : contourPaths)
         c.draw();
-    ofPopStyle();
+    ofPopMatrix();
     
-    ofPushStyle();
-    ofSetColor(ofColor::white);
-    ofDrawCircle(ofGetMouseX()/2, ofGetMouseY()/4, 50);
-    ofPopStyle();
+    ofPushMatrix();
+    ofTranslate(Globals::rightKinectTrans.pos);
+    ofScale(Globals::rightKinectTrans.scale, Globals::rightKinectTrans.scale);
+    ofRotateZ(Globals::rightKinectTrans.ang);
+    for (auto c : contourPaths)
+        c.draw();
+    ofPopMatrix();
     
+    ofSetRectMode(OF_RECTMODE_CORNER);
+    ofPopStyle();
     interactionSource.end();
     
     ofPixels interactionPx;
@@ -313,22 +362,37 @@ void Content::updateinteractionSource()
     interactionContours = contourFinder.getPolylines();
     
     interactionContourObjs.clear();
+    contourPaths.clear();
     int idx = 0;
     for (auto& c : interactionContours)
     {
-        c.addVertex(c.getVertices().at(0));
-        c.simplify();
-        c = c.getSmoothed(3);
         c = c.getResampledBySpacing(10);
-        c.getVertices().erase(c.getVertices().begin());
+        c = c.getSmoothed(10);
+        c.setClosed(true);
         
         if (c.size() > 5)
         {
+            int idx = 0;
+            ofPath path;
             for (auto& p : c.getVertices())
             {
                 // scale up contours
-                p *= APP_W / interactionSource.getWidth();
+                p *= APP_W / interactionSource.getWidth() * 2;
+                
+                if (idx == 0)
+                {
+                    path.newSubPath();
+                    path.moveTo(p);
+                }
+                else
+                {
+                    path.lineTo(p);
+                }
+                idx++;
             }
+            path.close();
+            path.setFillColor(ofColor::white);
+            contourPaths.push_back(path);
             
             ofPtr<ofxBox2dPolygon> contourObj = ofPtr<ofxBox2dPolygon>(new ofxBox2dPolygon);
             contourObj->addVertices(c.getVertices());
@@ -337,8 +401,12 @@ void Content::updateinteractionSource()
             contourObj->setPhysics(10.0, 0.3, 0.3);
             interactionContourObjs.push_back(contourObj);
         }
-        
         idx++;
     }
     
+    contoutMask.begin();
+    ofClear(0);
+    for (auto p : contourPaths)
+        p.draw();
+    contoutMask.end();
 }

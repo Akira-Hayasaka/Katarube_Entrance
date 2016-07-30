@@ -20,6 +20,14 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
     kinectGUI.add(contourMaxArea.setup("contour max area", 200, 1, 500));
     kinectGUI.add(contourThreshold.setup("contour bri threshold", 128, 0, 255));
     kinectGUI.add(contourFindHole.setup("find hole", false));
+    kinectGUI.add(leftKinectPosX.setup("leftKinectPosX", 0, -APP_W, APP_W));
+    kinectGUI.add(leftKinectPosY.setup("leftKinectPosY", 0, -APP_H, APP_H));
+    kinectGUI.add(leftKinectAng.setup("leftKinectAng", 0, -180, 180));
+    kinectGUI.add(leftKinectScale.setup("leftKinectScale", 1.0, 0.0, 4.0));
+    kinectGUI.add(rightKinectPosX.setup("rightKinectPosX", 0, -APP_W, APP_W));
+    kinectGUI.add(rightKinectPosY.setup("rightKinectPosY", 0, -APP_H, APP_H));
+    kinectGUI.add(rightKinectAng.setup("rightKinectAng", 0, -180, 180));
+    kinectGUI.add(rightKinectScale.setup("rightKinectScale", 1.0, 0.0, 4.0));
     
     kinectAngle.addListener(&Globals::kinect, &Kinect::onAngleChanged);
     kinectNearThresh.addListener(&Globals::kinect, &Kinect::onNearThreshChanged);
@@ -29,6 +37,15 @@ void GUI::setup(ofPtr<UniformInfos> kyoInkUniforms)
     contourMaxArea.addListener(&Globals::kinect, &Kinect::onContourMaxAreaChanged);
     contourThreshold.addListener(&Globals::kinect, &Kinect::onContourBriThreshChanged);
     contourFindHole.addListener(&Globals::kinect, &Kinect::onFindContourHoleChanged);
+    
+    leftKinectPosX.addListener(this, &GUI::onleftKinectPosChangedX);
+    leftKinectPosY.addListener(this, &GUI::onleftKinectPosChangedY);
+    leftKinectAng.addListener(this, &GUI::onleftKinectAngChanged);
+    leftKinectScale.addListener(this, &GUI::onleftKinectScaleChanged);
+    rightKinectPosX.addListener(this, &GUI::onrightKinectPosChangedX);
+    rightKinectPosY.addListener(this, &GUI::onrightKinectPosChangedY);
+    rightKinectAng.addListener(this, &GUI::onrightKinectAngChanged);
+    rightKinectScale.addListener(this, &GUI::onrightKinectScaleChanged);
     
     kinectGUI.loadFromFile("settings/kinect.xml");
     
@@ -219,4 +236,44 @@ void GUI::saveProjWarp()
 void GUI::saveKinectWarp()
 {
     kinectWarper.save("settings/warps/kinectWarp.xml");
+}
+
+void GUI::onleftKinectPosChangedX(float& arg)
+{
+    Globals::leftKinectTrans.pos.x = arg;
+}
+
+void GUI::onleftKinectPosChangedY(float& arg)
+{
+    Globals::leftKinectTrans.pos.y = arg;
+}
+
+void GUI::onleftKinectAngChanged(float& arg)
+{
+    Globals::leftKinectTrans.ang = arg;
+}
+
+void GUI::onleftKinectScaleChanged(float& arg)
+{
+    Globals::leftKinectTrans.scale = arg;
+}
+
+void GUI::onrightKinectPosChangedX(float& arg)
+{
+    Globals::rightKinectTrans.pos.x = arg;
+}
+
+void GUI::onrightKinectPosChangedY(float& arg)
+{
+    Globals::rightKinectTrans.pos.y = arg;
+}
+
+void GUI::onrightKinectAngChanged(float& arg)
+{
+    Globals::rightKinectTrans.ang = arg;
+}
+
+void GUI::onrightKinectScaleChanged(float& arg)
+{
+    Globals::rightKinectTrans.scale = arg;
 }

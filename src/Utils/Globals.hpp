@@ -35,6 +35,13 @@ struct DrawCommandContour
     vector<ofPolyline> contours;
 };
 
+struct KinectContourTransform
+{
+    ofVec2f pos;
+    float ang;
+    float scale;
+};
+
 namespace Globals
 {
     extern float ELAPSED_TIME;
@@ -61,11 +68,14 @@ namespace Globals
     
     extern ofImage petip;
     
+    extern KinectContourTransform leftKinectTrans;
+    extern KinectContourTransform rightKinectTrans;
+    
     // shaders
     extern ofShader chromaKey;
     extern ofShader whitize;
     extern ofShader completeWhite;
-    extern ofShader strokeMask;    
+    extern ofShader strokeMask;
     
     // events
     extern ofEvent<void> tickEvent;

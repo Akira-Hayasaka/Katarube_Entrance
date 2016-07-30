@@ -7,7 +7,7 @@ uniform sampler2DRect cutout;
 uniform sampler2DRect interactive;
 uniform sampler2DRect bg;
 uniform sampler2DRect bgMask;
-uniform float doRdmForInteractive; // 0.0 = false, 1.0 = true;
+uniform float doInteractive; // 0.0 = false, 1.0 = true;
 uniform vec3 rdmForInteractive;
 uniform vec2 res;
 
@@ -39,13 +39,13 @@ void main()
             result = vec4(BlendColorBurn(result.rgb, inkPx.rgb), paperPx.a);
             
             // tweak col
-            if (doRdmForInteractive == 1.0)
+            if (doInteractive == 1.0)
             {
                 vec3 interactivePxHSL = RGBToHSL(interactivePx.rgb);
                 interactivePxHSL += rdmForInteractive;
                 interactivePx.rgb = HSLToRGB(interactivePxHSL);
             }
-            result = vec4(BlendColorBurn(result.rgb, interactivePx.rgb), paperPx.a);                            
+            result = vec4(BlendColorBurn(result.rgb, interactivePx.rgb), paperPx.a);
         }
     }
 

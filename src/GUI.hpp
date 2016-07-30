@@ -34,6 +34,15 @@ public:
     
 private:
     
+    void onleftKinectPosChangedX(float& arg);
+    void onleftKinectPosChangedY(float& arg);
+    void onleftKinectAngChanged(float& arg);
+    void onleftKinectScaleChanged(float& arg);
+    void onrightKinectPosChangedX(float& arg);
+    void onrightKinectPosChangedY(float& arg);
+    void onrightKinectAngChanged(float& arg);
+    void onrightKinectScaleChanged(float& arg);
+    
     // kinect device & contour
     ofxPanel kinectGUI;
     ofxIntSlider kinectAngle;
@@ -44,6 +53,14 @@ private:
     ofxFloatSlider contourMaxArea;
     ofxFloatSlider contourThreshold;
     ofxToggle contourFindHole;
+    ofxFloatSlider leftKinectPosX;
+    ofxFloatSlider leftKinectPosY;
+    ofxFloatSlider leftKinectAng;
+    ofxFloatSlider leftKinectScale;
+    ofxFloatSlider rightKinectPosX;
+    ofxFloatSlider rightKinectPosY;
+    ofxFloatSlider rightKinectAng;
+    ofxFloatSlider rightKinectScale;
     bool bHide;
     
     // proj warp
